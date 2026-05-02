@@ -1,0 +1,177 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/#particuliers', label: 'Particuliers' },
+  { href: '/entreprises', label: 'Entreprises' },
+  { href: '/communes', label: 'Communes' },
+  { href: '/tarifs', label: 'Tarifs' },
+  { href: '/faq', label: 'FAQ' },
+];
+---
+
+<nav class="nav" id="nav" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <img src="/assets/sigle.png" alt="Edgward" width="36" height="36">
+      <span>Edgward</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links" role="list">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={currentPath === link.href ? 'active' : ''}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/#telecharger" class="nav-cta">Télécharger l'app</a>
+
+    <button
+      class="burger"
+      id="burger"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+
+  burger?.addEventListener('click', () => {
+    const isOpen = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+    navLinks?.classList.toggle('open');
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!burger?.contains(e.target as Node) && !navLinks?.contains(e.target as Node)) {
+      burger?.setAttribute('aria-expanded', 'false');
+      burger?.setAttribute('aria-label', 'Ouvrir le menu');
+      navLinks?.classList.remove('open');
+    }
+  });
+</script>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .nav.scrolled { border-bottom-color: var(--border); }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+  .logo img { border-radius: 9px; }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--brand); }
+
+  .nav-cta {
+    background: var(--brand);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(70,120,220,0.2);
+  }
+  .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(70,120,220,0.3); }
+
+  .burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    margin: 4px 0;
+    transition: all 0.25s ease;
+  }
+  .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  @media (max-width: 768px) {
+    .nav-cta { display: none; }
+    .burger { display: block; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li a {
+      display: block;
+      padding: 12px 0;
+      font-size: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links li:last-child a { border-bottom: none; }
+  }
+</style>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#0a1929" rx="20"/>
+  <text x="200" y="190" font-family="sans-serif" font-size="14" fill="#4678DC" text-anchor="middle">Image à venir</text>
+  <text x="200" y="215" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">placeholder</text>
+</svg>

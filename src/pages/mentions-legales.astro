@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Mentions légales & CGU — Edgward"
+  description="Conditions générales d'utilisation du service Edgward, opéré par DBA Solutions sàrl, Genève."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Légal</span>
+      <h1>Mentions légales &<br><em>conditions générales</em></h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="placeholder-content">
+        <p>Mentions légales et CGU à venir.</p>
+        <a href="/" class="btn-ghost">← Retour à l'accueil</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; }
+  .page-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; color: white; margin: 12px 0 20px; }
+  .page-hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .placeholder-content { text-align: center; padding: 48px; background: var(--soft); border-radius: var(--radius-lg); border: 2px dashed var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-muted); font-size: 15px; }
+</style>

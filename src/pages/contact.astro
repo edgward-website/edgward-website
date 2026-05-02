@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contact — Edgward"
+  description="Contactez l'équipe Edgward pour toute question sur notre service de sécurité à la demande en Suisse romande."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Contact</span>
+      <h1>Parlons de votre <em>sécurité</em></h1>
+      <p class="page-hero-sub">Une question, un projet, un partenariat ? L'équipe Edgward vous répond sous 24h.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="placeholder-content">
+        <p>Formulaire de contact à venir.</p>
+        <a href="/" class="btn-ghost">← Retour à l'accueil</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; }
+  .page-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; color: white; margin: 12px 0 20px; }
+  .page-hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .page-hero-sub { font-size: 17px; color: #cbd5e1; max-width: 560px; margin: 0 auto; line-height: 1.6; }
+  .placeholder-content { text-align: center; padding: 48px; background: var(--soft); border-radius: var(--radius-lg); border: 2px dashed var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-muted); font-size: 15px; }
+</style>

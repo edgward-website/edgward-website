@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Comment ça marche — Edgward, sécurité à la demande"
+  description="Commandez une intervention de sécurité en 3 étapes : abonnement, configuration de vos lieux, commande en 1 clic. Agent chez vous en moins de 20 minutes."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-eyebrow">Comment ça marche</span>
+      <h1>De l'abonnement<br>à l'<em>intervention en 3 étapes</em></h1>
+      <p class="page-hero-sub">Aucune installation matérielle. Aucun engagement long terme. Un agent chez vous en moins de 20 minutes.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="placeholder-content">
+        <p>Contenu de la page "comment ça marche" à venir.</p>
+        <a href="/" class="btn-ghost">← Retour à l'accueil</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; }
+  .page-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; color: white; margin: 12px 0 20px; }
+  .page-hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .page-hero-sub { font-size: 17px; color: #cbd5e1; max-width: 560px; margin: 0 auto; line-height: 1.6; }
+  .placeholder-content { text-align: center; padding: 48px; background: var(--soft); border-radius: var(--radius-lg); border: 2px dashed var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-muted); font-size: 15px; }
+</style>

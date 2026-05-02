@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edgward.ch/sitemap-index.xml
