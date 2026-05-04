@@ -1,0 +1,130 @@
+---
+interface Props {
+  action?: string;
+  defaultSubject?: string;
+}
+
+const {
+  action = 'mailto:info@edgward.ch',
+  defaultSubject,
+} = Astro.props;
+
+const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 'Autre'];
+---
+
+<div class="contact-form-wrap">
+  <form class="contact-form" action={action} method="POST" novalidate id="contact-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cf-nom">Nom complet</label>
+        <input type="text" id="cf-nom" name="nom" placeholder="Jean Dupont" autocomplete="name" required>
+      </div>
+      <div class="form-group">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="jean@example.ch" autocomplete="email" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cf-sujet">Sujet</label>
+      <select id="cf-sujet" name="sujet" required>
+        <option value="" disabled selected={!defaultSubject}>Choisissez un sujet</option>
+        {subjects.map(s => (
+          <option value={s} selected={defaultSubject === s}>{s}</option>
+        ))}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="message" rows="5" placeholder="Décrivez votre besoin..." required></textarea>
+    </div>
+    <button type="submit" class="btn-submit">
+      Envoyer le message
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+    <p class="form-privacy">En envoyant ce message, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    const btn = form.querySelector('.btn-submit') as HTMLButtonElement;
+    btn.textContent = 'Message envoyé ✓';
+    btn.disabled = true;
+  });
+</script>
+
+<style>
+  .contact-form-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  input, select, textarea {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: white;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  textarea { resize: vertical; min-height: 120px; }
+  .btn-submit {
+    background: var(--brand);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(70,120,220,0.3);
+    align-self: flex-start;
+  }
+  .btn-submit:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .btn-submit:disabled { opacity: 0.7; cursor: default; transform: none; }
+  .form-privacy {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .form-privacy a { color: var(--brand); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .btn-submit { width: 100%; }
+  }
+</style>

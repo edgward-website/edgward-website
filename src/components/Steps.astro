@@ -1,0 +1,82 @@
+---
+interface Step {
+  num: string | number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  steps: Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="steps">
+  {steps.map(step => (
+    <div class="step fade-in">
+      <div class="step-num" aria-hidden="true">{step.num}</div>
+      <h3>{step.title}</h3>
+      <p>{step.description}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 12%; right: 12%;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0%, var(--border) 20%, var(--border) 80%, transparent 100%);
+    z-index: 0;
+  }
+  .step {
+    background: white;
+    padding: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .step-num {
+    width: 64px; height: 64px;
+    background: var(--navy);
+    color: var(--brand-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 auto 24px;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px var(--border);
+  }
+  .step h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+  .step p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .steps { grid-template-columns: 1fr; }
+    .steps::before { display: none; }
+  }
+</style>

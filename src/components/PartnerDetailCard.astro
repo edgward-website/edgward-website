@@ -1,0 +1,97 @@
+---
+interface Props {
+  name: string;
+  zone: string;
+  description: string;
+  siteUrl?: string;
+  logo?: string;
+  initials?: string;
+}
+
+const { name, zone, description, siteUrl, logo, initials } = Astro.props;
+---
+
+<div class="partner-card">
+  <div class="partner-logo">
+    {logo ? (
+      <img src={logo} alt={`Logo ${name}`} width="80" height="40">
+    ) : (
+      <span class="partner-initials">{initials ?? name.substring(0, 2).toUpperCase()}</span>
+    )}
+  </div>
+  <div class="partner-info">
+    <h3 class="partner-name">{name}</h3>
+    <span class="partner-zone">{zone}</span>
+    <p class="partner-desc">{description}</p>
+    {siteUrl && (
+      <a href={siteUrl} class="partner-link" target="_blank" rel="noopener noreferrer">
+        Visiter le site
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    )}
+  </div>
+</div>
+
+<style>
+  .partner-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all 0.2s ease;
+  }
+  .partner-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .partner-logo {
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  .partner-logo img { max-height: 40px; width: auto; object-fit: contain; }
+  .partner-initials {
+    width: 48px; height: 48px;
+    background: var(--navy);
+    color: var(--brand-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .partner-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+  .partner-zone {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--brand);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .partner-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .partner-link {
+    font-size: 13px;
+    color: var(--brand);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s ease;
+  }
+  .partner-link:hover { color: var(--brand-dark); }
+</style>

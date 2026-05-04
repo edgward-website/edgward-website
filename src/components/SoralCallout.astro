@@ -1,0 +1,107 @@
+---
+interface Props {
+  image?: string;
+  badge?: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+
+const {
+  image = '/assets/ed-pose.png',
+  badge,
+  title,
+  description,
+  ctaLabel,
+  ctaHref,
+} = Astro.props;
+---
+
+<div class="soral fade-in">
+  <img src={image} alt="" class="soral-ed" width="90" aria-hidden="true">
+  <div class="soral-text">
+    {badge && <span class="soral-badge">{badge}</span>}
+    <h4>{title}</h4>
+    <p>{description}</p>
+  </div>
+  <a href={ctaHref} class="soral-cta">{ctaLabel} →</a>
+</div>
+
+<style>
+  .soral {
+    background: var(--navy);
+    color: white;
+    border-radius: var(--radius-lg);
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .soral::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .soral-ed {
+    width: 90px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .soral-badge {
+    background: var(--brand);
+    color: white;
+    padding: 4px 11px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .soral-text {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .soral-text h4 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.015em;
+  }
+  .soral-text p {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+  .soral-cta {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .soral-cta:hover { background: white; color: var(--navy); }
+
+  @media (max-width: 768px) {
+    .soral { flex-direction: column; text-align: center; padding: 28px 24px; }
+    .soral-ed { width: 72px; }
+  }
+</style>

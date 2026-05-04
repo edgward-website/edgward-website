@@ -1,0 +1,73 @@
+---
+interface Props {
+  image?: string;
+  alt?: string;
+  size?: number;
+}
+
+const { image = '/assets/ed-pouce.png', alt = 'Ed, la mascotte Edgward', size = 400 } = Astro.props;
+---
+
+<div class="ed-container">
+  <div class="ed-halo"></div>
+  <div class="ed-rings" aria-hidden="true">
+    <div class="ed-ring"></div>
+    <div class="ed-ring"></div>
+    <div class="ed-ring"></div>
+  </div>
+  <img src={image} alt={alt} class="ed-img" width={size} height={size}>
+</div>
+
+<style>
+  .ed-container {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ed-halo {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 120%; height: 120%;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .ed-rings {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    aspect-ratio: 1;
+    pointer-events: none;
+  }
+  .ed-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    border: 1.5px solid rgba(107,147,232,0.3);
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    animation: ring-pulse 3s ease-out infinite;
+  }
+  .ed-ring:nth-child(1) { width: 60%; height: 60%; animation-delay: 0s; }
+  .ed-ring:nth-child(2) { width: 80%; height: 80%; animation-delay: 1s; }
+  .ed-ring:nth-child(3) { width: 100%; height: 100%; animation-delay: 2s; }
+  @keyframes ring-pulse {
+    0% { opacity: 0.8; transform: translate(-50%,-50%) scale(0.6); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(1.1); }
+  }
+  .ed-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    filter: drop-shadow(0 20px 60px rgba(70,120,220,0.35));
+    animation: ed-float 6s ease-in-out infinite;
+  }
+  @keyframes ed-float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'dark' | 'ghost';
+  href?: string;
+  external?: boolean;
+  class?: string;
+}
+
+const { variant = 'primary', href, external = false, class: className = '' } = Astro.props;
+const tag = href ? 'a' : 'button';
+const externalAttrs = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+{href ? (
+  <a href={href} class={`btn btn-${variant} ${className}`} {...externalAttrs}>
+    <slot />
+    <slot name="icon" />
+  </a>
+) : (
+  <button class={`btn btn-${variant} ${className}`} type="button">
+    <slot />
+    <slot name="icon" />
+  </button>
+)}
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--brand);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: 0 1px 3px rgba(70,120,220,0.3);
+  }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(70,120,220,0.4); }
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
+  .btn-dark {
+    background: var(--navy);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  .btn-dark:hover { background: var(--navy-light); transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--navy);
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    border: 1px solid var(--navy);
+  }
+  .btn-ghost:hover { background: var(--navy); color: white; }
+</style>

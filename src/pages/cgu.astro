@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lastUpdated = '1er mai 2025';
+---
+
+<Base
+  title="Conditions générales d'utilisation | Edgward"
+  description="Conditions générales d'utilisation de la plateforme Edgward. Applicable aux particuliers, entreprises et communes utilisant les services Edgward."
+>
+  <section class="legal-hero">
+    <div class="container">
+      <span class="legal-eyebrow">Légal</span>
+      <h1>Conditions générales d'utilisation</h1>
+      <p class="legal-meta">Dernière mise à jour : {lastUpdated} · Opéré par DBA Solutions sàrl</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="container">
+      <div class="legal-content">
+
+        <h2>1. Objet et acceptation</h2>
+        <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de la plateforme Edgward, exploitée par DBA Solutions sàrl, Rue des Bains 35, 1205 Genève, Suisse (ci-après « Edgward »).</p>
+        <p>En créant un compte ou en utilisant l'application Edgward, l'utilisateur accepte sans réserve les présentes CGU. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser le service.</p>
+
+        <h2>2. Description du service</h2>
+        <p>Edgward est une plateforme de mise en relation entre des utilisateurs (particuliers, entreprises, communes) et des entreprises de sécurité privée agréées. Edgward ne fournit pas directement des prestations de sécurité ; il agit en tant qu'intermédiaire technologique.</p>
+        <p>Les services comprennent notamment :</p>
+        <ul>
+          <li>La commande d'interventions de sécurité à la demande</li>
+          <li>La gestion d'abonnements mensuels à la plateforme</li>
+          <li>L'accès au newsfeed d'alertes de sécurité géolocalisées</li>
+          <li>La gestion multi-sites pour les entreprises et communes</li>
+        </ul>
+
+        <h2>3. Inscription et compte utilisateur</h2>
+        <p>L'accès au service nécessite la création d'un compte. L'utilisateur s'engage à fournir des informations exactes et à jour. Toute utilisation frauduleuse du compte est de la responsabilité de l'utilisateur.</p>
+        <p>Edgward se réserve le droit de suspendre ou résilier tout compte en cas de violation des présentes CGU.</p>
+
+        <h2>4. Abonnement et tarification</h2>
+        <p>L'utilisation du service requiert un abonnement mensuel dont le tarif est indiqué dans l'application. Les interventions sont facturées séparément selon un tarif affiché avant confirmation de chaque demande.</p>
+        <p>Le prix est indiqué en francs suisses (CHF), toutes taxes comprises. L'abonnement est renouvelé automatiquement chaque mois et peut être résilié à tout moment sans préavis.</p>
+
+        <h2>5. Responsabilité</h2>
+        <p>Les interventions de sécurité sont réalisées par des entreprises partenaires indépendantes, agréées par les autorités cantonales compétentes. Edgward ne saurait être tenu responsable des actes ou omissions des entreprises partenaires lors de l'exécution des missions.</p>
+        <p>Edgward s'engage à mettre en œuvre tous les moyens raisonnables pour assurer la disponibilité et la fiabilité du service, sans toutefois garantir une disponibilité permanente.</p>
+
+        <h2>6. Protection des données</h2>
+        <p>Le traitement des données personnelles est régi par notre <a href="/confidentialite">Politique de confidentialité</a>, conforme à la Loi fédérale sur la protection des données (LPD) et au RGPD.</p>
+
+        <h2>7. Propriété intellectuelle</h2>
+        <p>L'ensemble des éléments constituant la plateforme Edgward (marque, logo, textes, images, algorithmes) sont la propriété exclusive de DBA Solutions sàrl et sont protégés par le droit suisse de la propriété intellectuelle.</p>
+
+        <h2>8. Droit applicable et juridiction</h2>
+        <p>Les présentes CGU sont soumises au droit suisse. Tout litige sera soumis à la juridiction exclusive des tribunaux de Genève, Suisse.</p>
+
+        <h2>9. Contact</h2>
+        <p>Pour toute question relative aux présentes CGU : <a href="mailto:legal@edgward.ch">legal@edgward.ch</a></p>
+        <p>DBA Solutions sàrl · Rue des Bains 35 · 1205 Genève · Suisse</p>
+
+        <div class="legal-note">
+          <p>Ce document est fourni à titre informatif. Le contenu final sera défini en accord avec le conseil juridique d'Edgward. <strong>[TODO: révision par avocat]</strong></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal-hero {
+    background: var(--navy); color: white;
+    padding: 60px 0 48px;
+  }
+  .legal-eyebrow {
+    display: inline-block;
+    font-size: 11px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 12px;
+  }
+  .legal-hero h1 {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.02em; margin-bottom: 12px; color: white;
+  }
+  .legal-meta { font-size: 14px; color: #94a3b8; }
+
+  .legal-body { padding: 64px 0 96px; background: white; }
+  .legal-content {
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .legal-content h2 {
+    font-size: 20px; font-weight: 700;
+    color: var(--navy); margin: 40px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content p { font-size: 15px; color: var(--text-muted); margin-bottom: 12px; }
+  .legal-content ul {
+    margin: 12px 0 12px 20px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .legal-content li { font-size: 15px; color: var(--text-muted); }
+  .legal-content a { color: var(--brand); text-decoration: none; }
+  .legal-content a:hover { text-decoration: underline; }
+  .legal-note {
+    margin-top: 40px;
+    padding: 16px 20px;
+    background: #fef9c3;
+    border: 1px solid #fde047;
+    border-radius: var(--radius);
+    font-size: 13px; color: #713f12;
+  }
+  .legal-note p { margin: 0; color: #713f12; }
+</style>

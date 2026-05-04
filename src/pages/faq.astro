@@ -1,33 +1,178 @@
 ---
 import Base from '../layouts/Base.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import ContactForm from '../components/ContactForm.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const faqCategories = [
+  {
+    category: 'Particuliers',
+    items: [
+      {
+        question: "Comment fonctionne Edgward concrètement ?",
+        answer: "Vous téléchargez l'application, créez votre compte et vous abonnez (dès CHF 15/mois). Depuis l'app, vous configurez votre adresse et vos consignes. En cas de besoin, vous commandez une intervention en un clic : un agent partenaire est dispatché et arrive en moins de 20 minutes.",
+      },
+      {
+        question: "Quels sont les délais d'intervention ?",
+        answer: "Le délai moyen en zone urbaine (Genève, Lausanne) est de moins de 20 minutes. En zone péri-urbaine, comptez 20 à 35 minutes. Le temps réel est affiché dans l'app avant que vous confirmiez votre demande.",
+      },
+      {
+        question: "Puis-je résilier à tout moment ?",
+        answer: "Oui, sans préavis ni frais. Votre abonnement est mensuel et peut être résilié depuis l'application à tout moment.",
+      },
+      {
+        question: "Mes données personnelles sont-elles en sécurité ?",
+        answer: "Vos données (adresse, consignes) restent chiffrées sur votre téléphone et ne sont transmises qu'au moment de l'intervention, uniquement à l'agent assigné. Edgward ne partage jamais vos données avec des tiers.",
+      },
+    ],
+  },
+  {
+    category: 'Entreprises',
+    items: [
+      {
+        question: "Puis-je gérer plusieurs sites depuis un seul compte ?",
+        answer: "Oui. Le compte entreprise permet la gestion multi-sites : ajoutez chaque adresse avec ses consignes spécifiques, déclenchez des interventions par site et consultez un tableau de bord consolidé.",
+      },
+      {
+        question: "Comment fonctionne la facturation pour les entreprises ?",
+        answer: "Vous recevez une facture mensuelle unique regroupant l'abonnement de tous vos sites et les interventions déclenchées dans le mois. Paiement par virement bancaire ou carte.",
+      },
+      {
+        question: "Puis-je intégrer Edgward à ma centrale d'alarme existante ?",
+        answer: "Oui. Notre intégration par email structuré vous permet de dispatcher un agent Edgward directement depuis votre système existant, sans développement spécifique. Contactez notre équipe pour les détails techniques.",
+      },
+    ],
+  },
+  {
+    category: 'Communes',
+    items: [
+      {
+        question: "Quel est le coût pour une commune ?",
+        answer: "La commune prend en charge CHF 50/an par habitant abonné. Ce montant couvre l'abonnement de base. Les interventions sont facturées séparément selon un tarif transparent.",
+      },
+      {
+        question: "Combien de temps dure la mise en place ?",
+        answer: "Moins de 2 semaines du premier contact à l'activation. Signature de la convention, communication aux habitants, activation — tout est documenté et accompagné par notre équipe.",
+      },
+      {
+        question: "La commune doit-elle gérer les demandes d'intervention ?",
+        answer: "Non. Edgward s'occupe de tout : dispatch des agents, suivi en temps réel, rapports d'intervention. La commune accède uniquement à un tableau de bord de pilotage budgétaire.",
+      },
+    ],
+  },
+  {
+    category: 'Sécurité & agents',
+    items: [
+      {
+        question: "Les agents Edgward sont-ils des professionnels certifiés ?",
+        answer: "Oui. Tous nos partenaires sont des entreprises de sécurité agréées par les autorités cantonales compétentes. Chaque agent est formé, assuré et respecte la réglementation suisse sur la sécurité privée.",
+      },
+      {
+        question: "Que se passe-t-il après l'intervention ?",
+        answer: "Vous recevez un rapport d'intervention détaillé directement dans l'application, avec les constats de l'agent, les photos si applicable, et la durée d'intervention.",
+      },
+      {
+        question: "L'agent peut-il entrer dans ma propriété ?",
+        answer: "Uniquement si vous avez configuré les accès au préalable dans l'app (boîtier à clés, code d'accès). À défaut, l'agent réalise un tour de propriété extérieur et vous contacte pour toute anomalie constatée.",
+      },
+    ],
+  },
+  {
+    category: 'Tarification',
+    items: [
+      {
+        question: "Quels sont les tarifs exacts ?",
+        answer: "L'abonnement particulier est à CHF 15/mois. Une intervention standard coûte environ CHF 60, une intervention urgente environ CHF 95. Pour les entreprises, l'abonnement par site est à CHF 29/mois. Ces tarifs sont indicatifs et peuvent varier selon la zone et la disponibilité.",
+      },
+      {
+        question: "Y a-t-il des frais cachés ?",
+        answer: "Non. Vous payez l'abonnement mensuel fixe + les interventions que vous déclenchez réellement. Le tarif de chaque intervention est affiché avant confirmation. Aucune surprise.",
+      },
+      {
+        question: "Est-ce que le premier mois est vraiment gratuit ?",
+        answer: "Oui. Vous bénéficiez d'un mois d'essai complet sans engagement. Aucune carte bancaire requise pour démarrer l'essai.",
+      },
+    ],
+  },
+];
 ---
 
 <Base
-  title="FAQ — Questions fréquentes sur Edgward"
-  description="Toutes les réponses à vos questions sur Edgward : délais d'intervention, tarifs, zones couvertes, fonctionnement de l'application, sécurité des données."
+  title="FAQ — Questions fréquentes | Edgward"
+  description="Retrouvez les réponses aux questions les plus fréquentes sur Edgward : fonctionnement, tarifs, sécurité, communes et entreprises."
 >
-  <section class="page-hero">
+  <!-- HERO -->
+  <section class="hero">
     <div class="container">
-      <span class="section-eyebrow">Questions fréquentes</span>
-      <h1>Tout ce que vous devez<br><em>savoir sur Edgward</em></h1>
-      <p class="page-hero-sub">Délais, tarifs, zones couvertes, données personnelles… Retrouvez toutes les réponses ici.</p>
+      <div class="hero-inner">
+        <h1>Questions <em>fréquentes</em></h1>
+        <p>Tout ce que vous devez savoir sur Edgward — fonctionnement, tarifs, sécurité et plus encore.</p>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- FAQ -->
+  <section class="section faq-section">
     <div class="container">
-      <div class="placeholder-content">
-        <p>Contenu de la FAQ à venir.</p>
-        <a href="/" class="btn-ghost">← Retour à l'accueil</a>
+      <div class="faq-wrap">
+        {faqCategories.map(cat => (
+          <FAQAccordion items={cat.items} category={cat.category} />
+        ))}
       </div>
+    </div>
+  </section>
+
+  <!-- NOT FOUND + CONTACT FORM -->
+  <section class="section contact-section">
+    <div class="container">
+      <div class="not-found-block fade-in">
+        <div class="not-found-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+        </div>
+        <div>
+          <h3>Vous n'avez pas trouvé votre réponse ?</h3>
+          <p>Notre équipe vous répond sous 24h ouvrables.</p>
+        </div>
+      </div>
+      <ContactForm />
     </div>
   </section>
 </Base>
 
 <style>
-  .page-hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; }
-  .page-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; color: white; margin: 12px 0 20px; }
-  .page-hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
-  .page-hero-sub { font-size: 17px; color: #cbd5e1; max-width: 560px; margin: 0 auto; line-height: 1.6; }
-  .placeholder-content { text-align: center; padding: 48px; background: var(--soft); border-radius: var(--radius-lg); border: 2px dashed var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-muted); font-size: 15px; }
+  .hero {
+    background: var(--navy); color: white;
+    padding: 72px 0 56px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+  .hero h1 { font-size: clamp(36px, 4.5vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 16px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero p { font-size: 17px; color: #cbd5e1; line-height: 1.6; }
+
+  .faq-section { background: white; }
+  .faq-wrap { max-width: 720px; margin: 0 auto; }
+
+  .contact-section { background: var(--soft); }
+  .not-found-block {
+    display: flex; align-items: center; gap: 20px;
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px 28px;
+    max-width: 640px; margin: 0 auto 40px;
+  }
+  .not-found-icon {
+    width: 52px; height: 52px;
+    background: var(--brand-soft); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--brand); flex-shrink: 0;
+  }
+  .not-found-block h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .not-found-block p { font-size: 14px; color: var(--text-muted); }
 </style>

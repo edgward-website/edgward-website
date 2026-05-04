@@ -1,0 +1,124 @@
+---
+interface PriceRow {
+  label: string;
+  value: string;
+}
+
+interface Highlight {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  headline: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+  priceRows: PriceRow[];
+  highlight: Highlight;
+}
+
+const { headline, description, ctaLabel, ctaHref, priceRows, highlight } = Astro.props;
+---
+
+<div class="pricing-card fade-in">
+  <div class="pricing-text">
+    <h3>{headline}</h3>
+    <p>{description}</p>
+    <a href={ctaHref} class="btn-ghost">
+      {ctaLabel}
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <div class="price-table" aria-label="Grille tarifaire indicative">
+    {priceRows.map(row => (
+      <div class="price-row">
+        <span class="label">{row.label}</span>
+        <span class="value">{row.value}</span>
+      </div>
+    ))}
+    <div class="price-highlight">
+      <span>{highlight.label}</span>
+      <span>{highlight.value}</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .pricing-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .pricing-text h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .pricing-text p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--navy);
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--navy);
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .btn-ghost:hover { background: var(--navy); color: white; }
+  .price-table {
+    background: var(--soft);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 14px;
+  }
+  .price-row:last-of-type { border-bottom: none; }
+  .price-row .label { color: var(--text-muted); }
+  .price-row .value { color: var(--navy); font-weight: 600; }
+  .price-highlight {
+    margin-top: 14px;
+    padding-top: 18px;
+    border-top: 2px solid var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--brand);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 1024px) {
+    .pricing-card { grid-template-columns: 1fr; gap: 32px; }
+  }
+  @media (max-width: 768px) {
+    .pricing-card { padding: 32px 24px; }
+  }
+</style>

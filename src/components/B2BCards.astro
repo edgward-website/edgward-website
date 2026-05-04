@@ -1,0 +1,130 @@
+---
+interface Card {
+  eyebrow: string;
+  title: string;
+  description: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  ctaVariant?: 'primary' | 'dark';
+  featured?: boolean;
+}
+
+interface Props {
+  cards: Card[];
+}
+
+const { cards } = Astro.props;
+---
+
+<div class="b2b-grid">
+  {cards.map(card => (
+    <div class={`b2b-card fade-in ${card.featured ? 'featured' : ''}`}>
+      <span class="b2b-eyebrow">{card.eyebrow}</span>
+      <h3>{card.title}</h3>
+      <p>{card.description}</p>
+      <ul class="b2b-features">
+        {card.features.map(f => <li>{f}</li>)}
+      </ul>
+      <a href={card.ctaHref} class={`btn-${card.ctaVariant ?? 'dark'} btn-full`}>{card.ctaLabel}</a>
+    </div>
+  ))}
+</div>
+
+<style>
+  .b2b-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .b2b-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  .b2b-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .b2b-card.featured { border: 2px solid var(--brand); }
+  .b2b-card.featured::before {
+    content: 'LE PLUS POPULAIRE';
+    position: absolute;
+    top: -11px; left: 28px;
+    background: var(--brand);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .b2b-eyebrow {
+    font-size: 11px;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .b2b-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .b2b-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .b2b-features {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+  .b2b-features li {
+    font-size: 13px;
+    color: var(--text);
+    padding: 6px 0 6px 22px;
+    position: relative;
+  }
+  .b2b-features li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 12px; height: 6px;
+    border-left: 2px solid var(--brand);
+    border-bottom: 2px solid var(--brand);
+    transform: rotate(-45deg);
+  }
+  .btn-primary, .btn-dark {
+    width: 100%;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+  .btn-primary { background: var(--brand); color: white; box-shadow: 0 1px 3px rgba(70,120,220,0.3); }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .btn-dark { background: var(--navy); color: white; }
+  .btn-dark:hover { background: var(--navy-light); transform: translateY(-1px); }
+
+  @media (max-width: 1024px) {
+    .b2b-grid { grid-template-columns: 1fr; }
+  }
+</style>

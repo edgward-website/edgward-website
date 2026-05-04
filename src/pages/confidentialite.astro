@@ -1,33 +1,124 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const lastUpdated = '1er mai 2025';
 ---
 
 <Base
-  title="Politique de confidentialité — Edgward"
-  description="Comment Edgward collecte, utilise et protège vos données personnelles. Conforme à la loi fédérale sur la protection des données (nLPD)."
+  title="Politique de confidentialité | Edgward"
+  description="Politique de confidentialité d'Edgward. Comment nous collectons, utilisons et protégeons vos données personnelles. Conforme LPD et RGPD."
 >
-  <section class="page-hero">
+  <section class="legal-hero">
     <div class="container">
-      <span class="section-eyebrow">Légal</span>
-      <h1>Politique de <em>confidentialité</em></h1>
-      <p class="page-hero-sub">Vos données vous appartiennent. Voici comment nous les traitons, conformément à la nLPD suisse.</p>
+      <span class="legal-eyebrow">Légal</span>
+      <h1>Politique de confidentialité</h1>
+      <p class="legal-meta">Dernière mise à jour : {lastUpdated} · DBA Solutions sàrl</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="legal-body">
     <div class="container">
-      <div class="placeholder-content">
-        <p>Politique de confidentialité à venir.</p>
-        <a href="/" class="btn-ghost">← Retour à l'accueil</a>
+      <div class="legal-content">
+
+        <h2>1. Responsable du traitement</h2>
+        <p>DBA Solutions sàrl, Rue des Bains 35, 1205 Genève, Suisse est responsable du traitement des données personnelles collectées via la plateforme Edgward.</p>
+        <p>Contact : <a href="mailto:privacy@edgward.ch">privacy@edgward.ch</a></p>
+
+        <h2>2. Données collectées</h2>
+        <p>Nous collectons les données suivantes :</p>
+        <ul>
+          <li><strong>Données d'identification</strong> : nom, prénom, adresse email, numéro de téléphone</li>
+          <li><strong>Données de localisation</strong> : adresses de vos sites configurés dans l'application (chiffrées, stockées localement sur votre appareil)</li>
+          <li><strong>Données de paiement</strong> : traitées par notre prestataire de paiement (Stripe) — nous ne stockons pas vos données bancaires</li>
+          <li><strong>Données d'utilisation</strong> : historique des interventions, rapports, logs de connexion</li>
+          <li><strong>Données techniques</strong> : type d'appareil, système d'exploitation, adresse IP</li>
+        </ul>
+
+        <h2>3. Finalités du traitement</h2>
+        <p>Vos données sont utilisées pour :</p>
+        <ul>
+          <li>La fourniture et la gestion du service Edgward</li>
+          <li>La mise en relation avec les entreprises partenaires lors d'une intervention</li>
+          <li>La facturation et la gestion de l'abonnement</li>
+          <li>L'amélioration du service (analytics anonymisés)</li>
+          <li>L'envoi de communications liées au service (alertes, rapports d'intervention)</li>
+        </ul>
+
+        <h2>4. Partage des données</h2>
+        <p>Vos données personnelles (nom, adresse, consignes) ne sont transmises aux entreprises partenaires <strong>uniquement au moment de l'intervention demandée</strong>, et uniquement à l'agent assigné à votre mission.</p>
+        <p>Nous ne vendons jamais vos données à des tiers. Nos sous-traitants (hébergement, paiement) sont soumis à des obligations de confidentialité strictes.</p>
+
+        <h2>5. Conservation des données</h2>
+        <p>Vos données sont conservées pendant la durée de votre abonnement, puis 3 ans après la résiliation de votre compte pour des raisons légales et comptables.</p>
+        <p>Les rapports d'intervention sont conservés 5 ans conformément à la réglementation suisse.</p>
+
+        <h2>6. Vos droits</h2>
+        <p>Conformément à la LPD suisse et au RGPD, vous disposez des droits suivants :</p>
+        <ul>
+          <li><strong>Droit d'accès</strong> : obtenir une copie de vos données</li>
+          <li><strong>Droit de rectification</strong> : corriger des données inexactes</li>
+          <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données</li>
+          <li><strong>Droit d'opposition</strong> : vous opposer à certains traitements</li>
+          <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
+        </ul>
+        <p>Pour exercer ces droits : <a href="mailto:privacy@edgward.ch">privacy@edgward.ch</a></p>
+
+        <h2>7. Sécurité des données</h2>
+        <p>Vos données sont chiffrées en transit (TLS) et au repos. Vos adresses et consignes sont stockées localement sur votre appareil et ne transitent sur nos serveurs que pendant la durée d'une intervention active.</p>
+
+        <h2>8. Cookies</h2>
+        <p>Notre site web utilise des cookies techniques nécessaires au fonctionnement du service. Aucun cookie publicitaire n'est utilisé. Vous pouvez désactiver les cookies dans les paramètres de votre navigateur.</p>
+
+        <h2>9. Modifications</h2>
+        <p>Nous nous réservons le droit de modifier cette politique. Toute modification substantielle vous sera notifiée par email avec un préavis de 30 jours.</p>
+
+        <div class="legal-note">
+          <p>Ce document est fourni à titre informatif. Le contenu final sera défini en accord avec le conseil juridique d'Edgward. <strong>[TODO: révision par avocat spécialisé LPD/RGPD]</strong></p>
+        </div>
+
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .page-hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; }
-  .page-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; color: white; margin: 12px 0 20px; }
-  .page-hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
-  .page-hero-sub { font-size: 17px; color: #cbd5e1; max-width: 560px; margin: 0 auto; line-height: 1.6; }
-  .placeholder-content { text-align: center; padding: 48px; background: var(--soft); border-radius: var(--radius-lg); border: 2px dashed var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-muted); font-size: 15px; }
+  .legal-hero {
+    background: var(--navy); color: white;
+    padding: 60px 0 48px;
+  }
+  .legal-eyebrow {
+    display: inline-block;
+    font-size: 11px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 12px;
+  }
+  .legal-hero h1 {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.02em; margin-bottom: 12px; color: white;
+  }
+  .legal-meta { font-size: 14px; color: #94a3b8; }
+  .legal-body { padding: 64px 0 96px; background: white; }
+  .legal-content {
+    max-width: 680px; margin: 0 auto;
+    line-height: 1.75; color: var(--text);
+  }
+  .legal-content h2 {
+    font-size: 20px; font-weight: 700;
+    color: var(--navy); margin: 40px 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content p { font-size: 15px; color: var(--text-muted); margin-bottom: 12px; }
+  .legal-content ul { margin: 12px 0 12px 20px; display: flex; flex-direction: column; gap: 6px; }
+  .legal-content li { font-size: 15px; color: var(--text-muted); }
+  .legal-content strong { color: var(--text); }
+  .legal-content a { color: var(--brand); text-decoration: none; }
+  .legal-content a:hover { text-decoration: underline; }
+  .legal-note {
+    margin-top: 40px; padding: 16px 20px;
+    background: #fef9c3; border: 1px solid #fde047;
+    border-radius: var(--radius); font-size: 13px;
+  }
+  .legal-note p { margin: 0; color: #713f12; }
 </style>

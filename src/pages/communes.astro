@@ -1,33 +1,211 @@
 ---
 import Base from '../layouts/Base.astro';
+import SoralCallout from '../components/SoralCallout.astro';
+import Steps from '../components/Steps.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import ContactForm from '../components/ContactForm.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const steps = [
+  {
+    num: '1',
+    title: 'Convention simple',
+    description: "Votre commune signe une convention avec Edgward. Pas d'appel d'offre obligatoire, intégration administrative légère.",
+  },
+  {
+    num: '2',
+    title: 'Vos habitants s\'inscrivent',
+    description: "Chaque habitant télécharge l'app Edgward et active son abonnement. La commune reçoit la facture consolidée.",
+  },
+  {
+    num: '3',
+    title: 'Sécurité à la demande',
+    description: "Vos habitants commandent une patrouille en un clic, 24h/24. La commune garde le contrôle budgétaire via le tableau de bord.",
+  },
+];
+
+const benefits = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
+    title: 'Zéro gestion opérationnelle',
+    description: "Edgward gère l'ensemble des aspects opérationnels : dispatch des agents, rapports, facturation aux entreprises partenaires.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: 'Zéro installation technique',
+    description: "Pas de centrale d'alarme, pas de capteurs, pas d'infrastructure à gérer. Votre commune n'a besoin que de signer la convention.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>',
+    title: 'Pilotage budgétaire simple',
+    description: "Tableau de bord dédié pour suivre en temps réel le nombre d'interventions et l'utilisation du budget communal.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>',
+    title: 'Disponible 24h/24',
+    description: "Vos habitants bénéficient du même niveau de service qu'un abonné individuel, à tout moment de la journée ou de la nuit.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
+    title: 'Modèle reproductible',
+    description: "Le modèle Soral est documenté et prêt à être déployé dans toute commune de Suisse romande.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+    title: 'Sécurité de proximité',
+    description: "Des agents issus d'entreprises locales agréées, qui connaissent le territoire communal et ses spécificités.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Combien coûte le modèle communal Edgward ?",
+    answer: "La commune prend en charge CHF 50/an par habitant abonné. Ce montant couvre l'abonnement de base à la plateforme. Les interventions déclenchées par les habitants sont facturées séparément, selon un tarif transparent.",
+  },
+  {
+    question: "Comment se passe l'intégration administrative ?",
+    answer: "La mise en place est simple : signature d'une convention avec Edgward, communication aux habitants via les canaux habituels (journal communal, site web, affichage). Pas d'appel d'offre obligatoire pour les montants concernés.",
+  },
+  {
+    question: "La commune doit-elle gérer les interventions ?",
+    answer: "Non. Edgward s'occupe de tout : dispatch des agents, suivi en temps réel, rapport d'intervention. La commune accède uniquement à un tableau de bord de pilotage budgétaire.",
+  },
+  {
+    question: "Que se passe-t-il si le budget communal est épuisé ?",
+    answer: "La commune peut définir un plafond budgétaire mensuel ou annuel. Une alerte est envoyée automatiquement lorsque le seuil est atteint. Les habitants peuvent continuer à utiliser l'application en payant eux-mêmes leur abonnement.",
+  },
+  {
+    question: "Le modèle est-il adapté aux petites communes ?",
+    answer: "Oui, c'est précisément pour les petites communes que le modèle est le plus pertinent. Soral, première commune partenaire, compte moins de 300 habitants. Edgward leur permet d'offrir un service de sécurité professionnel sans les contraintes d'une police municipale.",
+  },
+];
 ---
 
 <Base
-  title="Communes — Edgward, sécurité de proximité subventionnée"
-  description="Le modèle Soral : votre commune subventionne l'abonnement Edgward pour ses habitants. Zéro installation, zéro gestion opérationnelle. Contactez-nous."
+  title="Communes — Sécurité subventionnée pour vos habitants | Edgward"
+  description="Le modèle Soral : votre commune subventionne l'abonnement Edgward pour ses habitants. CHF 50/an pris en charge. Zéro installation, zéro gestion opérationnelle."
 >
-  <section class="page-hero">
+  <!-- HERO -->
+  <section class="hero">
     <div class="container">
-      <span class="section-eyebrow">Communes</span>
-      <h1>Sécurité de proximité<br><em>pour vos habitants</em></h1>
-      <p class="page-hero-sub">Le modèle qui a séduit Soral : subventionnez l'abonnement pour vos habitants. CHF 50/an pris en charge. Aucune charge opérationnelle.</p>
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Communes</span>
+        <h1>Sécurité de proximité<br><em>pour vos habitants</em></h1>
+        <p>Le modèle qui a séduit Soral : subventionnez l'abonnement Edgward pour vos habitants. CHF 50/an pris en charge par la commune. Aucune charge opérationnelle.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">
+            Contacter notre équipe
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#comment-ca-marche" class="btn-secondary">
+            Voir comment ça marche
+          </a>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <strong>CHF 50</strong>
+            <span>/an par habitant</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <strong>0</strong>
+            <span>installation requise</span>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <strong>24/7</strong>
+            <span>disponibilité</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- SORAL CALLOUT -->
+  <section class="section" id="soral">
     <div class="container">
-      <div class="placeholder-content">
-        <p>Contenu de la page communes à venir.</p>
-        <a href="/" class="btn-ghost">← Retour à l'accueil</a>
+      <SoralCallout
+        badge="★ Première commune partenaire"
+        title="Soral subventionne Edgward pour ses habitants"
+        description="Soral est la première commune genevoise à avoir adopté le modèle Edgward. Un modèle reproductible pour toutes les communes romandes : CHF 50/an pris en charge, sécurité garantie, charge opérationnelle nulle."
+        ctaLabel="Lire le témoignage"
+        ctaHref="#contact"
+      />
+
+      <!-- STEPS -->
+      <SectionHeader
+        eyebrow="Mise en place"
+        title="3 étapes pour lancer <em>le service</em>"
+        subtitle="Du premier contact à l'activation : moins de 2 semaines."
+      />
+      <Steps steps={steps} />
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section benefits-section" id="avantages">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Avantages"
+        title="Pourquoi les communes <em>choisissent Edgward</em>"
+      />
+      <BenefitsGrid benefits={benefits} cols={3} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="Tout ce que vous devez <em>savoir</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faqItems} />
       </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Contact"
+        title="Parlez à notre équipe <em>communes</em>"
+        subtitle="Notre responsable partenariats communes répond sous 24h."
+      />
+      <ContactForm defaultSubject="Commune" />
     </div>
   </section>
 </Base>
 
 <style>
-  .page-hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; }
-  .page-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; color: white; margin: 12px 0 20px; }
-  .page-hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
-  .page-hero-sub { font-size: 17px; color: #cbd5e1; max-width: 560px; margin: 0 auto; line-height: 1.6; }
-  .placeholder-content { text-align: center; padding: 48px; background: var(--soft); border-radius: var(--radius-lg); border: 2px dashed var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-muted); font-size: 15px; }
+  .hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .hero-eyebrow { display: inline-block; font-size: 12px; color: var(--brand-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; opacity: 0.8; }
+  .hero h1 { font-size: clamp(36px, 5vw, 58px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero > .container > .hero-inner > p { font-size: 18px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .hero-ctas { display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: var(--brand); color: white; padding: 14px 24px; border-radius: 10px; font-size: 15px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; transition: all 0.2s ease; font-family: inherit; box-shadow: 0 1px 3px rgba(70,120,220,0.3); }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: white; padding: 14px 24px; border-radius: 10px; font-size: 15px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; transition: all 0.2s ease; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+  .hero-stat-row { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+  .hero-stat { text-align: center; }
+  .hero-stat strong { display: block; font-size: 32px; font-weight: 800; color: white; letter-spacing: -0.02em; }
+  .hero-stat span { font-size: 13px; color: #94a3b8; }
+  .hero-stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
+  .benefits-section { background: var(--soft); }
+  .faq-section { background: white; }
+  .faq-wrap { max-width: 720px; margin: 0 auto; }
+  .contact-section { background: var(--soft); }
+
+  @media (max-width: 768px) {
+    .hero { padding: 56px 0 48px; }
+    .hero-stat-divider { display: none; }
+    .hero-stat-row { gap: 24px; }
+  }
 </style>

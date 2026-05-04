@@ -1,0 +1,65 @@
+---
+interface Props {
+  mediaLogos?: string[];
+  rating?: string;
+  label?: string;
+}
+
+const {
+  mediaLogos = ['RTS', 'Léman Bleu', 'Tribune de Genève', '24heures'],
+  rating = '4,8/5 · 240+ utilisateurs',
+  label = 'Vu dans',
+} = Astro.props;
+---
+
+<section class="trust" aria-label="Presse et évaluations">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-label">{label}</div>
+      <div class="trust-logos">
+        {mediaLogos.map(logo => <span>{logo}</span>)}
+      </div>
+      <div class="trust-rating"><span class="star" aria-hidden="true">★</span> {rating}</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust {
+    background: var(--soft);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+  }
+  .trust-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .trust-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .trust-logos {
+    display: flex;
+    gap: 32px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: -0.02em;
+    align-items: center;
+  }
+  .trust-logos span { transition: color 0.2s ease; }
+  .trust-logos span:hover { color: var(--text); }
+  .trust-rating { font-size: 13px; color: var(--navy); font-weight: 600; }
+  .star { color: var(--brand); }
+
+  @media (max-width: 768px) {
+    .trust-inner { flex-direction: column; gap: 12px; text-align: center; }
+    .trust-logos { flex-wrap: wrap; justify-content: center; gap: 20px; }
+  }
+</style>

@@ -1,0 +1,82 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  category?: string;
+}
+
+const { items, category } = Astro.props;
+---
+
+<div class="faq-group">
+  {category && <h3 class="faq-category">{category}</h3>}
+  {items.map(item => (
+    <details class="faq-item">
+      <summary class="faq-question">
+        <span>{item.question}</span>
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="faq-answer">
+        <p set:html={item.answer} />
+      </div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-group { margin-bottom: 40px; }
+  .faq-category {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    overflow: hidden;
+    background: white;
+    transition: box-shadow 0.2s ease;
+  }
+  .faq-item[open] { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    gap: 16px;
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question span { flex: 1; }
+  .faq-chevron {
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+    color: var(--text-muted);
+  }
+  details[open] .faq-chevron { transform: rotate(180deg); }
+  .faq-answer {
+    padding: 0 20px 18px;
+    animation: faq-open 0.25s ease;
+  }
+  @keyframes faq-open {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .faq-answer p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+</style>
