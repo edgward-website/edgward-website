@@ -119,7 +119,7 @@ import Base from '../layouts/Base.astro';
         <div class="pricing-text">
           <h3>3× moins cher qu'un abonnement traditionnel de télésurveillance</h3>
           <p>Avec Edgward, pas d'installation à 2 000–6 000 CHF, pas d'engagement sur 3 ans. Vous payez l'abonnement à la plateforme + les interventions réellement déclenchées, c'est tout.</p>
-          <a href="/tarifs" class="btn-ghost">
+          <a href="/#telecharger" class="btn-ghost">
             Voir tous les tarifs
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -128,7 +128,7 @@ import Base from '../layouts/Base.astro';
           <div class="price-row"><span class="label">Abonnement mensuel</span><span class="value">CHF 15/mois</span></div>
           <div class="price-row"><span class="label">Intervention standard</span><span class="value">~CHF 60</span></div>
           <div class="price-row"><span class="label">Intervention urgente</span><span class="value">~CHF 95</span></div>
-          <div class="price-highlight"><span>Vs. télésurveillance classique</span><span>→ 3× moins cher</span></div>
+          <div class="price-highlight"><span>Essai gratuit</span><span>1 mois</span></div>
         </div>
       </div>
     </div>
@@ -144,20 +144,19 @@ import Base from '../layouts/Base.astro';
           <h4>Soral subventionne Edgward pour ses habitants</h4>
           <p>Un modèle reproductible pour toutes les communes genevoises. CHF 50/an pris en charge par la commune. Sécurité de proximité sans charge opérationnelle.</p>
         </div>
-        <a href="/communes" class="soral-cta">Modèle communes →</a>
+        <a href="/communes" class="soral-cta">Découvrir le modèle communes →</a>
       </div>
-      <p class="partners-title">9 entreprises de sécurité partenaires en Suisse romande</p>
+      <p class="partners-title">9 entreprises de sécurité partenaires</p>
       <div class="partners-grid fade-in" aria-label="Partenaires sécurité">
-        <div class="partner">GPA Sécurité</div>
-        <div class="partner">Global Sécurité</div>
+        <div class="partner">GPA SA</div>
+        <div class="partner">Global Sécurité (SPS)</div>
         <div class="partner">Juggers</div>
         <div class="partner">Alpshawk</div>
-        <div class="partner">Python Sécurité</div>
+        <div class="partner">Python Sécurité SA</div>
         <div class="partner">Wolfguard</div>
-        <div class="partner">Securice</div>
+        <div class="partner">Sécurice</div>
         <div class="partner">Roc Sécurité</div>
         <div class="partner">KRK Security</div>
-        <div class="partner partner-more">+ en développement</div>
       </div>
     </div>
   </section>
@@ -177,7 +176,7 @@ import Base from '../layouts/Base.astro';
             <div class="testimonial-avatar" aria-hidden="true">HT</div>
             <div>
               <div class="testimonial-name">Hélène T.</div>
-              <div class="testimonial-role">Particulière · Cologny (GE)</div>
+              <div class="testimonial-role">Cologny GE</div>
             </div>
           </footer>
         </article>
@@ -188,7 +187,7 @@ import Base from '../layouts/Base.astro';
             <div class="testimonial-avatar" aria-hidden="true">SC</div>
             <div>
               <div class="testimonial-name">Sandy C.</div>
-              <div class="testimonial-role">Particulière · Carouge (GE)</div>
+              <div class="testimonial-role">Carouge GE</div>
             </div>
           </footer>
         </article>
@@ -199,7 +198,7 @@ import Base from '../layouts/Base.astro';
             <div class="testimonial-avatar" aria-hidden="true">MK</div>
             <div>
               <div class="testimonial-name">Mike K.</div>
-              <div class="testimonial-role">Garage mécanique · Belmont (VD)</div>
+              <div class="testimonial-role">Belmont VD</div>
             </div>
           </footer>
         </article>
@@ -220,33 +219,33 @@ import Base from '../layouts/Base.astro';
           <h3>Protégez locaux, chantiers, commerces</h3>
           <p>Pour les PME et grandes structures qui veulent une alternative flexible à la télésurveillance classique.</p>
           <ul class="b2b-features">
-            <li>Multi-sites centralisés</li>
+            <li>Pas d'installation</li>
+            <li>Multi-sites</li>
             <li>Facturation consolidée</li>
-            <li>Reporting d'interventions</li>
           </ul>
-          <a href="/entreprises" class="btn-dark">En savoir plus</a>
+          <a href="/entreprises" class="btn-dark">Découvrir</a>
         </div>
         <div class="b2b-card featured fade-in">
           <span class="b2b-eyebrow">Communes</span>
           <h3>Sécurité de proximité pour vos habitants</h3>
           <p>Le modèle qui a séduit Soral : subventionnez l'abonnement pour vos habitants, sans aucune charge opérationnelle.</p>
           <ul class="b2b-features">
-            <li>Zéro installation technique</li>
+            <li>CHF 50/habitant/an</li>
             <li>Zéro gestion opérationnelle</li>
             <li>Pilotage budgétaire simple</li>
           </ul>
-          <a href="/communes" class="btn-primary">Parler à notre équipe</a>
+          <a href="/communes" class="btn-primary">Le modèle communes</a>
         </div>
         <div class="b2b-card fade-in">
           <span class="b2b-eyebrow">Centrales d'alarme</span>
           <h3>Déléguez vos levées de doute</h3>
           <p>Intégration par email structuré : dispatchez un agent Edgward depuis votre plateforme existante.</p>
           <ul class="b2b-features">
-            <li>Intégration sans surcoût logiciel</li>
-            <li>Couverture Suisse romande</li>
-            <li>Facturation à l'intervention</li>
+            <li>Intégration simple</li>
+            <li>Aucune API à développer</li>
+            <li>Rapport automatique</li>
           </ul>
-          <a href="/entreprises#centrales" class="btn-dark">Découvrir l'intégration</a>
+          <a href="/entreprises#centrales" class="btn-dark">En savoir plus</a>
         </div>
       </div>
     </div>

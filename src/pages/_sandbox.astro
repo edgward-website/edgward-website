@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import CoverageMap from '../components/CoverageMap.astro';
+---
+
+<Base
+  title="Sandbox — CoverageMap component"
+  description="Visual sandbox for the CoverageMap component."
+>
+  <section style="padding: 48px 24px; max-width: 1100px; margin: 0 auto;">
+    <h1 style="font-family: 'Manrope', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 8px; color: #0f172a;">
+      CoverageMap — Sandbox
+    </h1>
+    <p style="font-family: 'Manrope', sans-serif; color: #64748b; margin-bottom: 32px;">
+      Testing <code>CoverageMap.astro</code> with default props.
+    </p>
+
+    <CoverageMap />
+
+    <hr style="margin: 48px 0; border-color: #e2e8f0;" />
+
+    <h2 style="font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #0f172a;">
+      Without legend or stats
+    </h2>
+    <p style="font-family: 'Manrope', sans-serif; color: #64748b; margin-bottom: 24px;">
+      <code>showLegend={false}</code> <code>showStats={false}</code>
+    </p>
+    <CoverageMap showLegend={false} showStats={false} />
+
+    <hr style="margin: 48px 0; border-color: #e2e8f0;" />
+
+    <h2 style="font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #0f172a;">
+      Custom title
+    </h2>
+    <CoverageMap
+      title="Notre réseau d'intervention"
+      subtitle="Une couverture progressive sur l'ensemble de la Suisse romande."
+    />
+  </section>
+</Base>

@@ -9,57 +9,62 @@ import EdSonar from '../components/EdSonar.astro';
 
 const benefits = [
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
-    title: 'Protégez votre domicile',
-    description: "Un agent de sécurité chez vous en moins de 20 minutes sur simple demande depuis l'application.",
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
-    title: 'Disponible 24h/24, 7j/7',
-    description: 'Jour, nuit, weekend ou jour férié — le réseau Edgward est toujours actif pour répondre à votre appel.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>',
+    title: 'Pas d\'installation matérielle',
+    description: "Aucun câblage, aucun équipement à acheter ou entretenir. L'app est votre seul outil.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
-    title: 'Agents certifiés',
-    description: 'Tous nos partenaires sont des entreprises de sécurité agréées, soumises à la réglementation suisse.',
+    title: 'Réseau d\'agents certifiés',
+    description: '9 entreprises de sécurité agréées, sélectionnées pour leur réactivité et leur professionnalisme.',
   },
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>',
-    title: 'Rapport d\'intervention',
-    description: 'À la fin de chaque mission, vous recevez un rapport détaillé avec les constats de l\'agent.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z"/></svg>',
+    title: 'Tarif 100% transparent',
+    description: 'CHF 15/mois d\'abonnement. Interventions facturées à l\'acte : ~CHF 60 standard, ~CHF 95 urgente.',
   },
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
     title: 'Sans engagement',
-    description: 'Abonnement mensuel dès CHF 15. Résiliable à tout moment, sans frais ni pénalité.',
+    description: 'Résiliez à tout moment. Pas de contrat sur 3 ans, pas de frais de résiliation.',
   },
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>',
-    title: 'Vos données protégées',
-    description: 'Vos informations ne sont partagées qu\'au moment de l\'intervention, uniquement avec l\'agent mandaté.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+    title: 'Couverture 24h/24, 7j/7',
+    description: 'Les agents partenaires interviennent à toute heure, week-ends et jours fériés inclus.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
+    title: 'Rapport après chaque intervention',
+    description: 'Vous recevez un compte-rendu détaillé de chaque intervention directement dans l\'app.',
   },
 ];
 
 const services = [
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>',
-    title: 'Levée de doute',
-    description: 'Un bruit suspect, une alarme déclenchée ? Un agent se déplace pour vérifier et vous informer.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+    title: 'Ronde de surveillance',
+    description: 'Un agent passe vérifier votre domicile, votre résidence secondaire ou vos locaux à l\'heure de votre choix.',
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
-    title: 'Surveillance ponctuelle',
-    description: 'Partez en vacances l\'esprit tranquille : planifiez des rondes pendant votre absence.',
+    title: 'Vérification de domicile',
+    description: 'Vous êtes absent et quelque chose vous inquiète ? Un agent se rend sur place pour vérifier et vous faire un compte-rendu.',
   },
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>',
-    title: 'Assistance à distance',
-    description: 'Guidez l\'agent en temps réel depuis l\'app pour une intervention précise et efficace.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>',
+    title: 'Levée de doute',
+    description: 'Alarme déclenchée, bruit suspect ? Un agent intervient pour identifier la cause et sécuriser les lieux.',
   },
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>',
-    title: 'Rapport complet',
-    description: 'Chaque intervention donne lieu à un rapport détaillé consultable depuis l\'application.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
+    title: 'Accompagnement de personne',
+    description: 'Retour tardif, lieu isolé — un agent vous accompagne pour rentrer en sécurité.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
+    title: 'Présence rassurante',
+    description: 'Pour une soirée, un week-end, ou toute période où vous souhaitez une présence sécurisante à proximité.',
   },
 ];
 
@@ -67,20 +72,16 @@ const testimonials = [
   {
     quote: "Intervention très rapide, l'agent m'a appelée une fois sur place pour me rassurer. Le sérieux d'une vraie entreprise de sécurité, la simplicité d'une app.",
     name: 'Hélène T.',
-    role: 'Particulière · Cologny (GE)',
+    role: 'Cologny GE',
     initials: 'HT',
+    stars: 5,
   },
   {
     quote: "J'ai eu peur qu'il soit arrivé quelque chose à mon chien, j'ai demandé une intervention. Plus de peur que de mal, l'agent a été rapide et rassurant.",
     name: 'Sandy C.',
-    role: 'Particulière · Carouge (GE)',
+    role: 'Carouge GE',
     initials: 'SC',
-  },
-  {
-    quote: 'Depuis que je suis abonné, je pars en déplacement professionnel bien plus serein. Ma femme peut déclencher une intervention en deux clics si besoin.',
-    name: 'Laurent M.',
-    role: 'Particulier · Nyon (VD)',
-    initials: 'LM',
+    stars: 5,
   },
 ];
 ---
@@ -98,11 +99,11 @@ const testimonials = [
             <span class="hero-badge-dot" aria-hidden="true"></span>
             Disponible dans toute la Suisse romande
           </div>
-          <h1>Votre sécurité à domicile,<br><em>en un clic</em>.</h1>
-          <p>Un doute, une inquiétude, une urgence ? Commandez l'intervention d'un agent près de chez vous en quelques secondes. Sans installation, sans engagement.</p>
+          <h1>Votre maison, vos proches,<br>protégés <em>24h/24</em></h1>
+          <p>Un doute ? Une inquiétude ? Commandez l'intervention d'un agent de sécurité professionnel en quelques secondes. Sans installation, sans engagement.</p>
           <div class="hero-ctas">
             <a href="#telecharger" class="btn-primary">
-              Télécharger l'application
+              Télécharger l'app
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a href="#comment-ca-marche" class="btn-secondary">
@@ -138,7 +139,7 @@ const testimonials = [
     <div class="container">
       <SectionHeader
         eyebrow="Nos services"
-        title="Ce qu'un agent Edgward peut faire <em>pour vous</em>"
+        title="Ce que vous pouvez <em>commander</em>"
       />
       <BenefitsGrid benefits={services} cols={2} />
     </div>
@@ -151,9 +152,9 @@ const testimonials = [
         <div class="alert-content">
           <span class="alert-eyebrow">Nouveau</span>
           <h2>Le fil d'alerte de <em>votre quartier</em></h2>
-          <p>Restez informé des incidents signalés près de chez vous grâce au newsfeed Edgward. Une veille communautaire pour mieux anticiper les risques.</p>
-          <a href="/newsfeed" class="btn-primary">
-            Découvrir le newsfeed
+          <p>Restez informé des incidents signalés près de chez vous grâce aux alertes Edgward. Une veille communautaire pour mieux anticiper les risques.</p>
+          <a href="/alertes" class="btn-primary">
+            Découvrir les alertes
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -199,8 +200,10 @@ const testimonials = [
 
   <!-- FINAL CTA -->
   <FinalCTA
-    title="Prêt à sécuriser<br>votre <em>domicile</em> ?"
-    description="Téléchargez l'application et testez gratuitement pendant 1 mois. Résiliable à tout moment, sans frais."
+    title="Protégez votre domicile dès <em>aujourd'hui</em>"
+    description="Téléchargez Edgward et bénéficiez d'un mois d'essai gratuit. Résiliable à tout moment."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
   />
 </Base>
 

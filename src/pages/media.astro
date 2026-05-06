@@ -5,39 +5,33 @@ import SectionHeader from '../components/SectionHeader.astro';
 
 const articles = [
   {
-    mediaName: 'Tribune de Genève',
-    date: 'Janvier 2025',
-    excerpt: "Une startup genevoise veut démocratiser la sécurité privée en permettant à chacun de commander une patrouille comme on commande un taxi.",
-    url: '#',
-  },
-  {
     mediaName: 'RTS',
-    date: 'Décembre 2024',
-    excerpt: "Edgward, la plateforme qui connecte particuliers et entreprises de sécurité, lève le voile sur son modèle communal testé à Soral.",
-    url: '#',
-  },
-  {
-    mediaName: '24heures',
-    date: 'Novembre 2024',
-    excerpt: "La commune vaudoise de Soral fait figure de pionnière en subventionnant pour ses habitants un abonnement à la sécurité à la demande.",
-    url: '#',
+    date: 'Juillet 2024',
+    excerpt: "Une app genevoise propose un service de sécurité sur demande, permettant d'obtenir l'intervention d'un agent de sécurité en quelques minutes via une application mobile.",
+    url: 'https://www.rts.ch/info/suisse/2024/article/une-app-pour-un-service-de-securite-sur-demande-l-innovation-d-une-societe-genevoise-28584537.html',
   },
   {
     mediaName: 'Léman Bleu',
-    date: 'Octobre 2024',
-    excerpt: "Reportage sur l'essor des services de sécurité à la demande en Suisse romande. Edgward, au cœur du sujet.",
-    url: '#',
+    date: 'Juillet 2024',
+    excerpt: "Une plateforme genevoise veut révolutionner la sécurité privée en mettant en relation directe les particuliers et les entreprises de sécurité agréées.",
+    url: 'https://www.lemanbleu.ch/fr/Actualites/Geneve/Une-plateforme-genevoise-veut-revolutionner-la-securite-privee.html',
   },
   {
-    mediaName: 'Le Temps',
-    date: 'Septembre 2024',
-    excerpt: "L'économie à la demande s'invite dans la sécurité. Analyse du modèle Edgward et de son impact sur les entreprises de surveillance traditionnelles.",
-    url: '#',
+    mediaName: 'Tribune de Genève',
+    date: 'Janvier 2025',
+    excerpt: "La commune de Soral noue un partenariat avec Edgward, une application de sécurité privée à la demande. Une première en Suisse pour une commune.",
+    url: 'https://www.tdg.ch/geneve-soral-collabore-avec-une-societe-de-securite-privee-806996337368',
   },
   {
-    mediaName: 'PME Magazine',
-    date: 'Août 2024',
-    excerpt: "Edgward se positionne comme une alternative crédible aux contrats de télésurveillance classiques pour les PME romandes.",
+    mediaName: 'Radio Lac',
+    date: 'Février 2025',
+    excerpt: "Et si le futur de la sécurité privée passait par la demande ? Edgward propose une alternative innovante aux systèmes de télésurveillance classiques.",
+    url: 'https://www.radiolac.ch/publireportage/et-si-le-futur-passait-par-la-securite-a-la-demande/',
+  },
+  {
+    mediaName: '24 heures',
+    date: '[TODO: date à confirmer]',
+    excerpt: "[TODO: extrait à récupérer]",
     url: '#',
   },
 ];
@@ -85,6 +79,7 @@ const articles = [
         <h3>Contact presse</h3>
         <p>Pour toute demande d'interview, de visuels ou d'information supplémentaire :</p>
         <a href="mailto:presse@edgward.ch" class="press-email">presse@edgward.ch</a>
+        <p class="press-kit-note">Kit média disponible sur demande (logos, photos, biographie des fondateurs).</p>
         <div class="press-assets">
           <span class="assets-label">Ressources disponibles :</span>
           <div class="assets-tags">
@@ -143,6 +138,7 @@ const articles = [
     transition: color 0.15s ease;
   }
   .press-email:hover { color: var(--brand-dark); }
+  .press-kit-note { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
   .press-assets { text-align: center; }
   .assets-label { display: block; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 12px; }
   .assets-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }

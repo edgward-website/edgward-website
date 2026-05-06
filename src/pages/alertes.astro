@@ -8,36 +8,36 @@ import EdSonar from '../components/EdSonar.astro';
 const problems = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>',
-    title: 'Vous ne savez pas ce qui se passe près de chez vous',
-    description: "Les incidents de sécurité ne sont que rarement relayés localement. Cambriolages, tentatives d'intrusion, véhicules suspects — vous en êtes souvent le dernier informé.",
+    title: 'Caméras : vous êtes seul face à l\'info',
+    description: "Votre caméra enregistre — mais elle n'alerte personne d'autre. Vous êtes seul à analyser, seul à décider. Et si vous n'êtes pas là ?",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>',
-    title: 'Les alertes officielles arrivent trop tard',
-    description: "La police publie ses bulletins avec du retard. Les réseaux sociaux sont bruyants et peu fiables. Il manque une source d'information locale, filtrée et pertinente.",
+    title: 'Presse locale : trop tard, trop générique',
+    description: "Les faits divers paraissent des heures après les événements, sans localisation précise. Impossible de savoir si ça s'est passé à 200m de chez vous.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
-    title: 'Impossible d\'évaluer le niveau de risque réel',
-    description: "Sans données locales, difficile de savoir si votre quartier est vraiment concerné ou si vous sur-réagissez à un incident isolé.",
+    title: 'Bouche-à-oreille : incertain et partiel',
+    description: "Les groupes WhatsApp de quartier sont bruyants, peu filtrés, et souvent inexacts. L'information utile se noie dans le bruit.",
   },
 ];
 
 const solution = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>',
-    title: 'Alertes géolocalisées en temps réel',
-    description: "Recevez uniquement les alertes qui concernent votre zone. Configurez votre rayon de surveillance (500m, 1km, 2km).",
+    title: 'Événements géolocalisés',
+    description: "Chaque alerte est rattachée à une position précise. Vous définissez votre rayon (500m, 1km, 2km) et ne recevez que ce qui se passe dans votre zone.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
-    title: 'Sources vérifiées et filtrées',
-    description: "Chaque alerte est vérifiée par notre algorithme avant publication. Finis le bruit et les fausses alertes des réseaux sociaux.",
+    title: 'Sources vérifiées',
+    description: "Les signalements sont croisés et modérés avant diffusion. Pas de rumeurs, pas de panique inutile — seulement les informations qui méritent votre attention.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>',
-    title: 'Déclenchez une intervention immédiatement',
-    description: "Si une alerte vous préoccupe, commandez une patrouille en un clic directement depuis le newsfeed.",
+    title: 'Action en un clic',
+    description: "Une alerte vous préoccupe ? Commandez directement une intervention depuis le fil. L'agent le plus proche reçoit votre demande en temps réel.",
   },
 ];
 
@@ -45,24 +45,24 @@ const useCases = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
     title: 'Avant de partir en vacances',
-    description: "Vérifiez le niveau d'activité dans votre quartier et planifiez des rondes si nécessaire.",
+    description: "Consultez le fil des 30 derniers jours dans votre quartier. Si l'activité est élevée, renforcez votre sécurité avant de partir.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>',
-    title: 'La nuit, si vous entendez du bruit',
-    description: "Consultez le newsfeed pour voir si d'autres résidents signalent la même chose avant d'appeler la police.",
+    title: 'Après une alerte suspecte',
+    description: "Un voisin signale un rodeur ? Vérifiez l'étendue du signalement et décidez en connaissance de cause si une intervention est utile.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
-    title: 'Pour votre communauté',
-    description: "Partagez des alertes avec vos voisins et contribuez à un quartier plus sûr grâce à l'intelligence collective.",
+    title: 'Pour votre résidence secondaire',
+    description: "Recevez les alertes autour de votre chalet ou appartement de vacances — même quand vous êtes en ville.",
   },
 ];
 ---
 
 <Base
-  title="Newsfeed — Alertes sécurité de votre quartier | Edgward"
-  description="Restez informé des incidents de sécurité près de chez vous avec le newsfeed Edgward. Alertes géolocalisées, sources vérifiées, intervention en un clic."
+  title="Alertes & informations de sécurité | Edgward"
+  description="Restez informé des incidents de sécurité près de chez vous avec Edgward. Alertes géolocalisées, sources vérifiées, intervention en un clic."
 >
   <!-- HERO -->
   <section class="hero">
@@ -73,8 +73,8 @@ const useCases = [
             <span class="hero-badge-dot" aria-hidden="true"></span>
             Nouveau dans l'application
           </div>
-          <h1>Le fil d'alerte de <em>votre quartier</em>.</h1>
-          <p>Restez informé des incidents de sécurité signalés près de chez vous. Alertes géolocalisées, sources vérifiées, possibilité de déclencher une intervention directement.</p>
+          <h1>Restez informé de ce qui se passe<br><em>près de chez vous</em></h1>
+          <p>Des alertes de sécurité géolocalisées, vérifiées, et pertinentes — directement dans votre app. Sachez ce qui se passe dans votre quartier avant de le lire dans la presse.</p>
           <div class="hero-ctas">
             <a href="#telecharger" class="btn-primary">
               Découvrir dans l'app
@@ -88,7 +88,7 @@ const useCases = [
         <div class="hero-visual" aria-hidden="true">
           <div class="newsfeed-demo">
             <div class="demo-header">
-              <span class="demo-title">Newsfeed · Votre quartier</span>
+              <span class="demo-title">Alertes · Votre quartier</span>
               <span class="demo-radius">1 km</span>
             </div>
             <div class="demo-item demo-item--red">
@@ -143,8 +143,8 @@ const useCases = [
     <div class="container">
       <SectionHeader
         eyebrow="Notre solution"
-        title="Un newsfeed <em>intelligent et local</em>"
-        subtitle="Le newsfeed Edgward agrège et filtre les signalements de sécurité pour vous donner une vision claire de votre environnement."
+        title="Un fil d'alertes <em>intelligent et local</em>"
+        subtitle="Edgward agrège et filtre les signalements de sécurité pour vous donner une vision claire de votre environnement immédiat."
       />
       <BenefitsGrid benefits={solution} cols={3} />
     </div>
@@ -155,7 +155,7 @@ const useCases = [
     <div class="container">
       <SectionHeader
         eyebrow="Cas d'usage"
-        title="Quand utiliser le <em>newsfeed</em> ?"
+        title="Quand les alertes vous <em>sont utiles</em>"
       />
       <BenefitsGrid benefits={useCases} cols={3} />
     </div>
@@ -170,7 +170,7 @@ const useCases = [
         </div>
         <div class="privacy-content">
           <h3>Vos données restent les vôtres</h3>
-          <p>Les alertes du newsfeed sont anonymisées. Votre localisation n'est jamais partagée avec d'autres utilisateurs. Conformité RGPD et LPD garantie. <a href="/confidentialite">Lire notre politique de confidentialité →</a></p>
+          <p>Les alertes du fil sont anonymisées : aucun utilisateur ne peut voir qui a signalé quoi. Votre localisation n'est jamais partagée avec d'autres utilisateurs ou partenaires. Toutes les données sont traitées conformément au RGPD et à la Loi fédérale suisse sur la protection des données (LPD). <a href="/confidentialite">Lire notre politique de confidentialité →</a></p>
         </div>
       </div>
     </div>
@@ -178,8 +178,10 @@ const useCases = [
 
   <!-- FINAL CTA -->
   <FinalCTA
-    title="Découvrez le newsfeed dans <em>l'application</em>"
+    title="Découvrez les alertes dans <em>l'application</em>"
     description="Téléchargez Edgward et activez les alertes de votre quartier dès aujourd'hui."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
   />
 </Base>
 

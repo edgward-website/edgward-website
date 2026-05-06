@@ -1,6 +1,7 @@
 ---
 interface Benefit {
-  icon: string;
+  icon?: string;
+  eyebrow?: string;
   title: string;
   description: string;
 }
@@ -16,7 +17,8 @@ const { benefits, cols = 3 } = Astro.props;
 <div class={`benefits-grid benefits-grid--${cols}`}>
   {benefits.map(b => (
     <div class="benefit-card fade-in">
-      <div class="benefit-icon" aria-hidden="true" set:html={b.icon} />
+      {b.icon && <div class="benefit-icon" aria-hidden="true" set:html={b.icon} />}
+      {b.eyebrow && <span class="benefit-eyebrow">{b.eyebrow}</span>}
       <h3>{b.title}</h3>
       <p>{b.description}</p>
     </div>
@@ -50,6 +52,15 @@ const { benefits, cols = 3 } = Astro.props;
     margin-bottom: 16px;
   }
   :global(.benefit-icon svg) { width: 24px; height: 24px; }
+  .benefit-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand);
+    margin-bottom: 8px;
+  }
   .benefit-card h3 {
     font-size: 17px;
     font-weight: 700;

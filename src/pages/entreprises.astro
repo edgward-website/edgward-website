@@ -9,53 +9,68 @@ import EdSonar from '../components/EdSonar.astro';
 
 const useCases = [
   {
+    eyebrow: 'Commerce de détail',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>',
-    title: 'Commerces & boutiques',
-    description: "Protégez vos locaux commerciaux, stocks et caisses. Intervention rapide en cas de tentative d'intrusion ou de situation suspecte.",
+    title: 'Fermeture tardive, colis livré — agent requis',
+    description: "Gérez les situations imprévues sans coût fixe : vérification nocturne, accompagnement de caissier, levée d'alarme.",
   },
   {
+    eyebrow: 'Chantier',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 14l4-4 4 4M12 18V10M6 21h12a2 2 0 002-2V7l-5-5H6a2 2 0 00-2 2v15a2 2 0 002 2z"/></svg>',
-    title: 'Chantiers',
-    description: "Vols de matériaux, vandalisme, intrusions nocturnes — surveillez vos chantiers sans installation permanente.",
+    title: 'Surveillance nocturne sans gardien permanent',
+    description: "Matériel et équipement protégés la nuit. Intervention rapide en cas d'intrusion, sans coût fixe mensuel.",
   },
   {
+    eyebrow: 'Bureau / PME',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
-    title: 'Bureaux & espaces pros',
-    description: "Sécurisez vos espaces professionnels, serveurs et données sensibles. Rondes sur mesure adaptées à vos horaires.",
+    title: 'Sécurité flexible pour vos locaux',
+    description: "Rondes périodiques, vérification après alarme, accueil sécurisé d'événements. Vous choisissez, vous activez.",
   },
 ];
 
 const benefits = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
-    title: 'Gestion multi-sites',
-    description: 'Centralisez la sécurité de tous vos sites depuis une seule interface.',
+    title: 'Multi-sites centralisés',
+    description: 'Gérez tous vos sites depuis une seule interface. Commandez des interventions sur n\'importe quel lieu en quelques secondes.',
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>',
     title: 'Facturation consolidée',
-    description: 'Une facture mensuelle unique pour l\'ensemble de vos sites et interventions.',
+    description: 'Un seul interlocuteur, une seule facture mensuelle pour tous vos sites et toutes vos interventions.',
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>',
     title: "Reporting d'interventions",
-    description: "Tableau de bord avec historique complet, rapports et statistiques de sécurité par site.",
+    description: "Chaque intervention génère automatiquement un rapport horodaté avec photos et compte-rendu de l'agent.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>',
+    title: 'Zéro installation',
+    description: 'Aucun câblage, aucun investissement en matériel. Opérationnel en 24h sur n\'importe quel site.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>',
+    title: 'Flexibilité totale',
+    description: 'Activez ou désactivez des sites, ajustez vos niveaux de couverture selon vos besoins et votre budget.',
   },
 ];
 
 const testimonials = [
   {
-    quote: "Des inconnus dans notre garage de Belmont. L'agent est intervenu rapidement. Plus avantageux qu'un raccordement d'alarme classique.",
+    quote: "Des inconnus dans notre garage de Belmont. L'agent est intervenu à deux. Plus avantageux qu'un raccordement d'alarme classique.",
     name: 'Mike K.',
-    role: 'Garage mécanique · Belmont (VD)',
+    role: 'Belmont VD — Gérant de garage',
     initials: 'MK',
+    stars: 5,
   },
 ];
 
 const priceRows = [
-  { label: 'Abonnement mensuel (par site)', value: 'CHF 29/mois' },
+  { label: 'Abonnement plateforme', value: 'Sur devis' },
   { label: 'Intervention standard', value: '~CHF 60' },
   { label: 'Intervention urgente', value: '~CHF 95' },
+  { label: 'Installation matérielle', value: 'CHF 0' },
 ];
 ---
 
@@ -69,8 +84,8 @@ const priceRows = [
       <div class="hero-grid">
         <div class="hero-content">
           <span class="hero-eyebrow">Entreprises & Centrales d'alarme</span>
-          <h1>La sécurité professionnelle,<br><em>sans les contraintes</em></h1>
-          <p>Multi-sites, facturation consolidée, intégration technique. Conçu pour les PME, grandes entreprises et centrales d'alarme.</p>
+          <h1>Locaux, chantiers, commerces<br>protégés <em>à la demande</em></h1>
+          <p>Stoppez les dépenses fixes de télésurveillance. Avec Edgward, vous activez la sécurité quand vous en avez besoin, sur les sites qui le nécessitent.</p>
           <div class="hero-ctas">
             <a href="#contact" class="btn-primary">
               Demander un devis
@@ -120,12 +135,12 @@ const priceRows = [
         subtitle="Abonnement par site + interventions réellement déclenchées. Zéro surprise."
       />
       <PricingCard
-        headline="Moins cher qu'une télésurveillance classique, plus flexible"
-        description="Pas d'installation coûteuse, pas d'engagement sur 3 ans. Vous payez uniquement ce que vous utilisez."
-        ctaLabel="Demander un devis personnalisé"
+        headline="Tarification sur devis selon volume"
+        description="Pas d'installation à 2 000–6 000 CHF comme la télésurveillance classique. Pas d'engagement longue durée. Vous payez l'abonnement plateforme + les interventions déclenchées."
+        ctaLabel="Demander un devis"
         ctaHref="#contact"
         priceRows={priceRows}
-        highlight={{ label: 'Économie vs. télésurveillance', value: '→ 3× moins cher' }}
+        highlight={{ label: 'Économie vs. télésurveillance', value: '2 000–6 000 CHF' }}
       />
     </div>
   </section>

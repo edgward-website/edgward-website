@@ -9,20 +9,24 @@ const faqCategories = [
     category: 'Particuliers',
     items: [
       {
-        question: "Comment fonctionne Edgward concrètement ?",
-        answer: "Vous téléchargez l'application, créez votre compte et vous abonnez (dès CHF 15/mois). Depuis l'app, vous configurez votre adresse et vos consignes. En cas de besoin, vous commandez une intervention en un clic : un agent partenaire est dispatché et arrive en moins de 20 minutes.",
+        question: "Combien coûte Edgward ?",
+        answer: "L'abonnement à la plateforme est de CHF 15/mois (ou CHF 150/an). Cet abonnement donne accès au réseau des 9 entreprises de sécurité partenaires. Les interventions sont facturées séparément : environ CHF 60 pour une intervention standard, CHF 95 pour une intervention urgente. [TODO: tarifs à valider avec le client avant publication]",
       },
       {
-        question: "Quels sont les délais d'intervention ?",
-        answer: "Le délai moyen en zone urbaine (Genève, Lausanne) est de moins de 20 minutes. En zone péri-urbaine, comptez 20 à 35 minutes. Le temps réel est affiché dans l'app avant que vous confirmiez votre demande.",
+        question: "Quelle est la zone géographique couverte ?",
+        answer: "Edgward est actuellement disponible dans les cantons de Genève, Vaud et Neuchâtel (couverture complète). Les cantons de Fribourg et du Valais sont en cours de déploiement. Pour vérifier si votre adresse est couverte, téléchargez l'app et entrez votre adresse.",
+      },
+      {
+        question: "Faut-il installer du matériel ou un système d'alarme ?",
+        answer: "Non. Edgward fonctionne exclusivement via l'application mobile. Aucune installation physique, aucun câblage, aucun équipement à acheter. L'app est téléchargeable gratuitement sur l'App Store et Google Play.",
+      },
+      {
+        question: "Que se passe-t-il en cas d'urgence vitale — dois-je appeler la police ou Edgward ?",
+        answer: "En cas d'urgence vitale (agression en cours, incendie, malaise), appelez toujours le 117 (police), 118 (pompiers) ou 144 (ambulance) en premier. Edgward est complémentaire aux services d'urgence, pas un substitut. Les agents Edgward interviennent pour les situations qui ne nécessitent pas les secours d'urgence.",
       },
       {
         question: "Puis-je résilier à tout moment ?",
-        answer: "Oui, sans préavis ni frais. Votre abonnement est mensuel et peut être résilié depuis l'application à tout moment.",
-      },
-      {
-        question: "Mes données personnelles sont-elles en sécurité ?",
-        answer: "Vos données (adresse, consignes) restent chiffrées sur votre téléphone et ne sont transmises qu'au moment de l'intervention, uniquement à l'agent assigné. Edgward ne partage jamais vos données avec des tiers.",
+        answer: "Oui. L'abonnement mensuel est résiliable à tout moment, sans frais ni préavis. L'abonnement annuel est résiliable à son échéance. Aucun engagement sur la durée, aucun frais de résiliation.",
       },
     ],
   },
@@ -30,16 +34,20 @@ const faqCategories = [
     category: 'Entreprises',
     items: [
       {
-        question: "Puis-je gérer plusieurs sites depuis un seul compte ?",
-        answer: "Oui. Le compte entreprise permet la gestion multi-sites : ajoutez chaque adresse avec ses consignes spécifiques, déclenchez des interventions par site et consultez un tableau de bord consolidé.",
+        question: "Y a-t-il un tarif préférentiel pour les volumes importants ?",
+        answer: "Oui. Les entreprises avec plusieurs sites ou un volume d'interventions important bénéficient de conditions personnalisées. Contactez-nous via le formulaire entreprises pour recevoir un devis adapté à votre structure.",
       },
       {
-        question: "Comment fonctionne la facturation pour les entreprises ?",
-        answer: "Vous recevez une facture mensuelle unique regroupant l'abonnement de tous vos sites et les interventions déclenchées dans le mois. Paiement par virement bancaire ou carte.",
+        question: "Peut-on couvrir plusieurs sites sous un seul compte ?",
+        answer: "Oui. La plateforme entreprise permet de gérer plusieurs adresses sous un compte unique. Vous pouvez commander des interventions sur n'importe lequel de vos sites en quelques secondes, et recevoir les rapports centralisés.",
       },
       {
-        question: "Puis-je intégrer Edgward à ma centrale d'alarme existante ?",
-        answer: "Oui. Notre intégration par email structuré vous permet de dispatcher un agent Edgward directement depuis votre système existant, sans développement spécifique. Contactez notre équipe pour les détails techniques.",
+        question: "Comment se fait la facturation pour une entreprise ?",
+        answer: "Vous recevez une facture mensuelle consolidée reprenant l'abonnement plateforme et toutes les interventions du mois, par site. La facture est disponible dans votre espace client et envoyée par email. [TODO: validation processus de facturation]",
+      },
+      {
+        question: "Y a-t-il un reporting des interventions ?",
+        answer: "Oui. Chaque intervention génère automatiquement un rapport horodaté avec le nom de l'agent, l'heure d'arrivée et de départ, et les observations. Ces rapports sont accessibles dans votre espace client et peuvent être exportés en PDF.",
       },
     ],
   },
@@ -47,33 +55,45 @@ const faqCategories = [
     category: 'Communes',
     items: [
       {
-        question: "Quel est le coût pour une commune ?",
-        answer: "La commune prend en charge CHF 50/an par habitant abonné. Ce montant couvre l'abonnement de base. Les interventions sont facturées séparément selon un tarif transparent.",
+        question: "Comment fonctionne le partenariat commune ?",
+        answer: "La commune signe une convention avec Edgward définissant le montant de la subvention par habitant et les critères d'éligibilité. Les habitants s'inscrivent directement dans l'app — la commune ne gère aucune opération d'intervention. Un tableau de bord commune permet le suivi budgétaire mensuel.",
       },
       {
-        question: "Combien de temps dure la mise en place ?",
-        answer: "Moins de 2 semaines du premier contact à l'activation. Signature de la convention, communication aux habitants, activation — tout est documenté et accompagné par notre équipe.",
+        question: "Quel est le coût pour la commune ?",
+        answer: "Le modèle de base est de CHF 50/habitant/an pour l'abonnement à la plateforme. La commune peut choisir de subventionner tout ou partie de ce montant. Les interventions restent à la charge de l'habitant. [TODO: valider avec l'équipe commerciale]",
       },
       {
-        question: "La commune doit-elle gérer les demandes d'intervention ?",
-        answer: "Non. Edgward s'occupe de tout : dispatch des agents, suivi en temps réel, rapports d'intervention. La commune accède uniquement à un tableau de bord de pilotage budgétaire.",
+        question: "Faut-il installer du matériel dans les bâtiments communaux ?",
+        answer: "Non. Edgward est une solution 100% logicielle. Aucune infrastructure à déployer, aucun équipement à acheter ou maintenir. La mise en place se fait en quelques jours.",
+      },
+      {
+        question: "Comment communiquer le service aux habitants ?",
+        answer: "Edgward fournit un kit de communication complet : lettre habitant, affiche mairie, FAQ, bannière web. Notre équipe vous accompagne lors du lancement et reste disponible pour les questions.",
       },
     ],
   },
   {
-    category: 'Sécurité & agents',
+    category: 'Sécurité & confidentialité',
     items: [
       {
-        question: "Les agents Edgward sont-ils des professionnels certifiés ?",
-        answer: "Oui. Tous nos partenaires sont des entreprises de sécurité agréées par les autorités cantonales compétentes. Chaque agent est formé, assuré et respecte la réglementation suisse sur la sécurité privée.",
+        question: "Mes données personnelles sont-elles partagées ?",
+        answer: "Vos données (adresse, consignes d'accès) ne sont transmises à l'agent qu'au moment de l'intervention déclenchée. Elles ne sont jamais partagées entre agents, ni vendues à des tiers. Edgward est conforme au RGPD et à la LPD suisse.",
       },
       {
-        question: "Que se passe-t-il après l'intervention ?",
-        answer: "Vous recevez un rapport d'intervention détaillé directement dans l'application, avec les constats de l'agent, les photos si applicable, et la durée d'intervention.",
+        question: "Comment est sélectionné l'agent qui intervient ?",
+        answer: "L'algorithme Edgward sélectionne le partenaire sécurité le plus proche et disponible dans votre zone. Tous les partenaires sont des entreprises de sécurité agréées, avec du personnel formé et assuré. Vous voyez le nom du partenaire avant de confirmer l'intervention.",
       },
       {
-        question: "L'agent peut-il entrer dans ma propriété ?",
-        answer: "Uniquement si vous avez configuré les accès au préalable dans l'app (boîtier à clés, code d'accès). À défaut, l'agent réalise un tour de propriété extérieur et vous contacte pour toute anomalie constatée.",
+        question: "Quelle formation ont les agents ?",
+        answer: "Tous les agents intervenant via Edgward sont employés d'entreprises de sécurité agréées par les autorités cantonales. Ils disposent des certifications légales requises (brevet fédéral ou CFC agent de sécurité selon le canton). Edgward vérifie ces certifications lors de l'onboarding de chaque partenaire.",
+      },
+      {
+        question: "Que se passe-t-il avec mon code de boîte à clés ou mes consignes d'accès ?",
+        answer: "Ces informations sensibles sont chiffrées dans l'app et uniquement transmises à l'agent au moment où vous déclenchez une intervention. Après l'intervention, elles restent dans votre profil chiffré. Vous pouvez les modifier ou les supprimer à tout moment.",
+      },
+      {
+        question: "Edgward est-elle une entreprise de sécurité ?",
+        answer: "Non. Edgward est une plateforme de mise en relation entre particuliers/entreprises et des sociétés de sécurité privée agréées. Edgward ne fournit pas elle-même des services de sécurité — elle sélectionne, contractualise et coordonne des partenaires professionnels certifiés.",
       },
     ],
   },
@@ -81,16 +101,20 @@ const faqCategories = [
     category: 'Tarification',
     items: [
       {
-        question: "Quels sont les tarifs exacts ?",
-        answer: "L'abonnement particulier est à CHF 15/mois. Une intervention standard coûte environ CHF 60, une intervention urgente environ CHF 95. Pour les entreprises, l'abonnement par site est à CHF 29/mois. Ces tarifs sont indicatifs et peuvent varier selon la zone et la disponibilité.",
+        question: "Quel est l'abonnement minimum ?",
+        answer: "L'abonnement de base est de CHF 15/mois (sans engagement) ou CHF 150/an. Cet abonnement donne accès à la plateforme et au réseau de partenaires. Le premier mois est offert à titre d'essai gratuit.",
       },
       {
         question: "Y a-t-il des frais cachés ?",
-        answer: "Non. Vous payez l'abonnement mensuel fixe + les interventions que vous déclenchez réellement. Le tarif de chaque intervention est affiché avant confirmation. Aucune surprise.",
+        answer: "Non. L'abonnement couvre l'accès à la plateforme. Vous êtes informé du tarif exact de chaque intervention avant de la confirmer. Il n'y a pas de frais d'inscription, pas de frais de résiliation, pas de frais de mise en service.",
       },
       {
-        question: "Est-ce que le premier mois est vraiment gratuit ?",
-        answer: "Oui. Vous bénéficiez d'un mois d'essai complet sans engagement. Aucune carte bancaire requise pour démarrer l'essai.",
+        question: "Comment sont calculés les tarifs d'intervention ?",
+        answer: "Les tarifs dépendent du type d'intervention (standard ou urgente), de la distance et de la disponibilité du partenaire. Vous voyez le tarif en temps réel avant de confirmer. Environ CHF 60 pour une intervention standard, CHF 95 pour une intervention urgente. [TODO: validation tarifs finaux]",
+      },
+      {
+        question: "Que comprend l'essai gratuit ?",
+        answer: "Le premier mois d'abonnement est gratuit. Pendant cette période, vous avez accès à toutes les fonctionnalités de la plateforme. Les interventions éventuelles sont facturées au tarif normal même pendant l'essai. Aucune carte bancaire requise pour démarrer l'essai. [TODO: validation conditions essai]",
       },
     ],
   },

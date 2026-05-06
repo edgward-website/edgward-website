@@ -7,4 +7,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://edgward.ch',
   integrations: [sitemap()],
+  redirects: {
+    '/newsfeed': '/alertes',
+  },
 });
