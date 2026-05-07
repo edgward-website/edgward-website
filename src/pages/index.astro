@@ -23,25 +23,25 @@ import Base from '../layouts/Base.astro';
               Télécharger l'application
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#demo" class="btn-secondary">
+            <a href="/comment-ca-marche" class="btn-secondary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
               Voir la démo (45 s)
             </a>
           </div>
           <p class="hero-reassurance">1 mois d'essai gratuit · Résiliable à tout moment · Dès CHF 15/mois</p>
-          <div class="hero-audiences" role="tablist" aria-label="Type de client">
-            <button class="audience-card active" role="tab" aria-selected="true">
+          <div class="hero-audiences" aria-label="Type de client">
+            <a href="/particuliers" class="audience-card active">
               <div class="audience-title">Particuliers</div>
               <div class="audience-desc">Votre maison, vos proches, 24/7</div>
-            </button>
-            <button class="audience-card" role="tab" aria-selected="false">
+            </a>
+            <a href="/entreprises" class="audience-card">
               <div class="audience-title">Entreprises</div>
               <div class="audience-desc">Locaux, chantiers, commerces</div>
-            </button>
-            <button class="audience-card" role="tab" aria-selected="false">
+            </a>
+            <a href="/communes" class="audience-card">
               <div class="audience-title">Communes</div>
               <div class="audience-desc">Modèle Soral subventionné</div>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -66,10 +66,10 @@ import Base from '../layouts/Base.astro';
       <div class="trust-inner">
         <div class="trust-label">Vu dans</div>
         <div class="trust-logos">
-          <span>RTS</span>
-          <span>Léman Bleu</span>
-          <span>Tribune de Genève</span>
-          <span>24heures</span>
+          <a href="/media">RTS</a>
+          <a href="/media">Léman Bleu</a>
+          <a href="/media">Tribune de Genève</a>
+          <a href="/media">24heures</a>
         </div>
         <div class="trust-rating"><span class="star" aria-hidden="true">★</span> 4,8/5 · 240+ utilisateurs</div>
       </div>
@@ -119,17 +119,45 @@ import Base from '../layouts/Base.astro';
         <div class="pricing-text">
           <h3>3× moins cher qu'un abonnement traditionnel de télésurveillance</h3>
           <p>Avec Edgward, pas d'installation à 2 000–6 000 CHF, pas d'engagement sur 3 ans. Vous payez l'abonnement à la plateforme + les interventions réellement déclenchées, c'est tout.</p>
-          <a href="/#telecharger" class="btn-ghost">
-            Voir tous les tarifs
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
         </div>
-        <div class="price-table" aria-label="Grille tarifaire indicative">
-          <div class="price-row"><span class="label">Abonnement mensuel</span><span class="value">CHF 15/mois</span></div>
-          <div class="price-row"><span class="label">Intervention standard</span><span class="value">~CHF 60</span></div>
-          <div class="price-row"><span class="label">Intervention urgente</span><span class="value">~CHF 95</span></div>
-          <div class="price-highlight"><span>Essai gratuit</span><span>1 mois</span></div>
+        <div class="price-plans">
+          <div class="plan-card">
+            <h4>Particuliers</h4>
+            <div class="plan-price"><span class="plan-amount">CHF 15.-</span><span class="plan-period">/mois</span></div>
+            <p class="plan-note">ou CHF 150.-/an (dès CHF 12.50/mois)</p>
+            <ul class="plan-features">
+              <li>1 mois gratuit pour tester</li>
+              <li>Résidence principale</li>
+              <li>Résidence secondaire</li>
+              <li>Dépôt privé / parking</li>
+            </ul>
+            <a href="#telecharger" class="btn-primary plan-cta">Essai gratuit</a>
+          </div>
+          <div class="plan-card plan-card--featured">
+            <span class="plan-badge">Le plus populaire</span>
+            <h4>Particuliers — Annuel</h4>
+            <div class="plan-price"><span class="plan-amount">CHF 150.-</span><span class="plan-period">/an</span></div>
+            <p class="plan-note">Soit CHF 12.50/mois — 2 mois offerts</p>
+            <ul class="plan-features">
+              <li>Accès offre de lancement</li>
+              <li>Réseau d'entreprises de sécurité</li>
+              <li>Paiement à l'intervention</li>
+            </ul>
+            <a href="#telecharger" class="btn-primary plan-cta">Essai gratuit</a>
+          </div>
+          <div class="plan-card">
+            <h4>Entreprises</h4>
+            <div class="plan-price"><span class="plan-amount">CHF 15.-</span><span class="plan-period">/mois</span></div>
+            <p class="plan-note">1 mois gratuit pour tester Edgward</p>
+            <ul class="plan-features">
+              <li>Bureaux / commerces</li>
+              <li>Dépôts / parkings</li>
+              <li>Multi-sites</li>
+            </ul>
+            <a href="/entreprises" class="btn-dark plan-cta">Découvrir</a>
+          </div>
         </div>
+        <p class="pricing-reassurance">Pas de frais cachés · Pas d'engagement · Votre sécurité à portée de clic</p>
       </div>
     </div>
   </section>
@@ -148,15 +176,15 @@ import Base from '../layouts/Base.astro';
       </div>
       <p class="partners-title">9 entreprises de sécurité partenaires</p>
       <div class="partners-grid fade-in" aria-label="Partenaires sécurité">
-        <div class="partner">GPA SA</div>
-        <div class="partner">Global Sécurité (SPS)</div>
-        <div class="partner">Juggers</div>
-        <div class="partner">Alpshawk</div>
-        <div class="partner">Python Sécurité SA</div>
-        <div class="partner">Wolfguard</div>
-        <div class="partner">Sécurice</div>
-        <div class="partner">Roc Sécurité</div>
-        <div class="partner">KRK Security</div>
+        <a href="/partenaires" class="partner">GPA SA</a>
+        <a href="/partenaires" class="partner">Global Sécurité (SPS)</a>
+        <a href="/partenaires" class="partner">Juggers</a>
+        <a href="/partenaires" class="partner">Alpshawk</a>
+        <a href="/partenaires" class="partner">Python Sécurité SA</a>
+        <a href="/partenaires" class="partner">Wolfguard</a>
+        <a href="/partenaires" class="partner">Sécurice</a>
+        <a href="/partenaires" class="partner">Roc Sécurité</a>
+        <a href="/partenaires" class="partner">KRK Security</a>
       </div>
     </div>
   </section>
@@ -292,17 +320,6 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <script>
-  document.querySelectorAll('.audience-card').forEach(card => {
-    card.addEventListener('click', () => {
-      document.querySelectorAll('.audience-card').forEach(c => {
-        c.classList.remove('active');
-        c.setAttribute('aria-selected', 'false');
-      });
-      card.classList.add('active');
-      card.setAttribute('aria-selected', 'true');
-    });
-  });
-
   const form = document.getElementById('email-capture') as HTMLFormElement | null;
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -329,7 +346,7 @@ import Base from '../layouts/Base.astro';
   .hero-ctas { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
   .hero-reassurance { font-size: 13px; color: #94a3b8; margin-bottom: 32px; }
   .hero-audiences { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .audience-card { padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s ease; background: none; text-align: left; font-family: inherit; color: inherit; }
+  .audience-card { padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s ease; background: none; text-align: left; font-family: inherit; color: inherit; text-decoration: none; }
   .audience-card:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px); }
   .audience-card.active { background: var(--brand-soft); border-color: rgba(70,120,220,0.5); }
   .audience-card.active .audience-title { color: var(--brand-light); }
@@ -352,8 +369,8 @@ import Base from '../layouts/Base.astro';
   .trust-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
   .trust-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
   .trust-logos { display: flex; gap: 32px; font-size: 15px; font-weight: 700; color: var(--text-light); letter-spacing: -0.02em; align-items: center; }
-  .trust-logos span { transition: color 0.2s ease; }
-  .trust-logos span:hover { color: var(--text); }
+  .trust-logos a { transition: color 0.2s ease; text-decoration: none; color: inherit; }
+  .trust-logos a:hover { color: var(--text); }
   .trust-rating { font-size: 13px; color: var(--navy); font-weight: 600; }
   .star { color: var(--brand); }
 
@@ -368,15 +385,24 @@ import Base from '../layouts/Base.astro';
 
   /* PRICING */
   .pricing-section { background: var(--soft); }
-  .pricing-card { background: white; border-radius: var(--radius-lg); padding: 48px; border: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 980px; margin: 0 auto; }
+  .pricing-card { max-width: 980px; margin: 0 auto; }
   .pricing-text h3 { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; }
   .pricing-text p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
-  .price-table { background: var(--soft); border-radius: var(--radius); padding: 24px; }
-  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px dashed var(--border); font-size: 14px; }
-  .price-row:last-of-type { border-bottom: none; }
-  .price-row .label { color: var(--text-muted); }
-  .price-row .value { color: var(--navy); font-weight: 600; }
-  .price-highlight { margin-top: 14px; padding-top: 18px; border-top: 2px solid var(--navy); display: flex; justify-content: space-between; align-items: center; color: var(--brand); font-size: 14px; font-weight: 700; }
+  .price-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 960px; margin: 0 auto; }
+  .plan-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; display: flex; flex-direction: column; position: relative; transition: all 0.2s ease; }
+  .plan-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .plan-card--featured { border: 2px solid var(--brand); }
+  .plan-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--brand); color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
+  .plan-card h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; text-align: center; }
+  .plan-price { text-align: center; margin-bottom: 6px; }
+  .plan-amount { font-size: 36px; font-weight: 800; color: var(--brand); letter-spacing: -0.03em; }
+  .plan-period { font-size: 15px; color: var(--text-muted); font-weight: 500; }
+  .plan-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-bottom: 16px; }
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; flex: 1; }
+  .plan-features li { font-size: 13px; color: var(--text-muted); padding-left: 20px; position: relative; line-height: 1.4; }
+  .plan-features li::before { content: '✓'; position: absolute; left: 0; color: var(--brand); font-weight: 700; font-size: 12px; }
+  .plan-cta { justify-content: center; width: 100%; text-align: center; }
+  .pricing-reassurance { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 24px; font-weight: 500; }
 
   /* SORAL */
   .soral { background: var(--navy); color: white; border-radius: var(--radius-lg); padding: 28px 36px; display: flex; align-items: center; gap: 24px; margin-bottom: 64px; position: relative; overflow: hidden; }
@@ -392,7 +418,7 @@ import Base from '../layouts/Base.astro';
   /* PARTNERS */
   .partners-title { text-align: center; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 24px; }
   .partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
-  .partner { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 16px; text-align: center; font-size: 13px; color: var(--text-muted); font-weight: 600; letter-spacing: -0.01em; transition: all 0.2s ease; }
+  .partner { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 16px; text-align: center; font-size: 13px; color: var(--text-muted); font-weight: 600; letter-spacing: -0.01em; transition: all 0.2s ease; text-decoration: none; display: block; }
   .partner:hover { background: white; color: var(--navy); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
   .partner-more { color: var(--brand); }
 
@@ -450,7 +476,8 @@ import Base from '../layouts/Base.astro';
   .email-privacy a:hover { color: white; }
 
   @media (max-width: 1024px) {
-    .hero-grid, .pricing-card { grid-template-columns: 1fr; gap: 40px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .price-plans { grid-template-columns: 1fr; max-width: 400px; }
     .hero-visual { min-height: 360px; order: -1; }
     .ed-img { max-width: 280px; }
     .final-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }

@@ -1,33 +1,424 @@
 ---
 import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 ---
 
 <Base
   title="Comment ça marche — Edgward, sécurité à la demande"
   description="Commandez une intervention de sécurité en 3 étapes : abonnement, configuration de vos lieux, commande en 1 clic. Agent chez vous en moins de 20 minutes."
 >
-  <section class="page-hero">
+  <!-- HERO -->
+  <section class="hero">
     <div class="container">
-      <span class="section-eyebrow">Comment ça marche</span>
-      <h1>De l'abonnement<br>à l'<em>intervention en 3 étapes</em></h1>
-      <p class="page-hero-sub">Aucune installation matérielle. Aucun engagement long terme. Un agent chez vous en moins de 20 minutes.</p>
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Comment ça marche</span>
+        <h1>De l'abonnement<br>à l'<em>intervention en 3 étapes</em></h1>
+        <p>Aucune installation matérielle. Aucun engagement long terme. Un agent de sécurité professionnel chez vous en moins de 20 minutes.</p>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- VIDEO -->
+  <section class="section video-section">
     <div class="container">
-      <div class="placeholder-content">
-        <p>Contenu de la page "comment ça marche" à venir.</p>
-        <a href="/" class="btn-ghost">← Retour à l'accueil</a>
+      <SectionHeader
+        eyebrow="Découvrir Edgward"
+        title="Voyez <em>comment ça fonctionne</em>"
+        subtitle="Une courte vidéo pour comprendre le service Edgward en quelques minutes."
+      />
+      <div class="video-wrapper">
+        <div class="video-placeholder">
+          <div class="video-play">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <p>Vidéo de présentation à venir</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS DÉTAILLÉES -->
+  <section class="section steps-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="3 étapes simples"
+        title="Votre sécurité <em>en quelques clics</em>"
+      />
+      <div class="steps-detailed">
+        <div class="step-detail fade-in">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Téléchargez l'application et abonnez-vous</h3>
+            <p>Disponible sur iOS et Android. Créez votre compte en moins de 2 minutes et choisissez votre abonnement à partir de CHF 15/mois. Le premier mois est offert — résiliable à tout moment.</p>
+            <ul class="step-checklist">
+              <li>Inscription rapide avec email ou numéro suisse</li>
+              <li>Paiement sécurisé par carte bancaire</li>
+              <li>Aucun engagement, résiliation en 1 clic</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step-detail fade-in">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Configurez vos lieux à protéger</h3>
+            <p>Enregistrez votre domicile, votre bureau ou tout autre lieu que vous souhaitez sécuriser. Ajoutez des instructions spécifiques pour les agents : code d'accès, étage, consignes particulières.</p>
+            <ul class="step-checklist">
+              <li>Ajoutez autant d'adresses que nécessaire</li>
+              <li>Précisez les informations d'accès</li>
+              <li>Définissez des contacts d'urgence</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step-detail fade-in">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Commandez une intervention en 1 clic</h3>
+            <p>En cas de besoin, ouvrez l'application, sélectionnez votre lieu et confirmez. Un agent de sécurité professionnel et agréé est dispatché immédiatement. Suivez son arrivée en temps réel sur la carte.</p>
+            <ul class="step-checklist">
+              <li>Dispatching automatique vers l'agent le plus proche</li>
+              <li>Suivi en temps réel de l'intervention</li>
+              <li>Rapport d'intervention transmis après chaque mission</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CE QUI SE PASSE ENSUITE -->
+  <section class="section after-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Pendant l'intervention"
+        title="Ce qui se passe <em>après votre demande</em>"
+      />
+      <div class="after-grid">
+        <div class="after-card fade-in">
+          <div class="after-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>Réponse en &lt;20 min</h4>
+          <p>L'agent de sécurité le plus proche de votre adresse est alerté. En zone urbaine, le temps de réponse moyen est inférieur à 20 minutes.</p>
+        </div>
+        <div class="after-card fade-in">
+          <div class="after-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h4>Suivi en temps réel</h4>
+          <p>Visualisez la position de l'agent sur la carte et recevez des notifications à chaque étape : en route, sur place, mission terminée.</p>
+        </div>
+        <div class="after-card fade-in">
+          <div class="after-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h4>Rapport d'intervention</h4>
+          <p>Après chaque mission, un rapport détaillé est disponible dans l'application : heure d'arrivée, constatations, actions effectuées et recommandations.</p>
+        </div>
+        <div class="after-card fade-in">
+          <div class="after-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Agents certifiés</h4>
+          <p>Tous les agents sont employés par des entreprises agréées en Suisse romande. Ils disposent des certifications requises et sont formés aux procédures Edgward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="Tout ce qu'il faut <em>savoir</em>"
+      />
+      <div class="faq-container">
+        <FAQAccordion items={[
+          { question: "Combien coûte une intervention ?", answer: "L'abonnement Edgward commence à CHF 15/mois. Ce forfait inclut l'accès à l'application et au réseau de 9 entreprises de sécurité partenaires. Le coût de chaque intervention dépend de la prestation demandée et est affiché avant confirmation." },
+          { question: "En combien de temps l'agent arrive-t-il ?", answer: "En zone urbaine (Genève, Lausanne, Neuchâtel…), le temps de réponse moyen est inférieur à 20 minutes. En zone périurbaine ou rurale, il peut varier selon la disponibilité des agents dans votre secteur." },
+          { question: "Quels types d'interventions puis-je demander ?", answer: "Ronde de surveillance, vérification d'alarme, escorte, présence dissuasive, ouverture/fermeture de site, levée de doute… Edgward couvre un large éventail de missions de sécurité privée." },
+          { question: "Est-ce que je dois installer du matériel ?", answer: "Non. Edgward est 100 % logiciel. Vous n'avez besoin que de votre smartphone et de l'application. Aucune caméra, capteur ou centrale d'alarme n'est requis." },
+          { question: "Puis-je résilier à tout moment ?", answer: "Oui. Il n'y a aucun engagement minimum. Vous pouvez résilier votre abonnement directement depuis l'application, en un clic. La résiliation prend effet à la fin du mois en cours." },
+          { question: "Les agents sont-ils vraiment professionnels ?", answer: "Oui. Tous les agents du réseau Edgward sont employés par des entreprises de sécurité agréées par les autorités cantonales suisses. Ils disposent des certifications requises et suivent une formation continue." },
+        ]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-block fade-in">
+        <h2>Prêt à essayer <em>Edgward</em> ?</h2>
+        <p>Téléchargez l'application et bénéficiez d'un mois d'essai gratuit. Résiliable à tout moment.</p>
+        <div class="cta-buttons">
+          <a href="https://apps.apple.com/ch/app/edgward/id6503622410" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            Télécharger sur App Store
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=ch.edgward.app.clients" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+            Télécharger sur Google Play
+          </a>
+        </div>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .page-hero { background: var(--navy); color: white; padding: 80px 0 72px; text-align: center; }
-  .page-hero h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; color: white; margin: 12px 0 20px; }
-  .page-hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
-  .page-hero-sub { font-size: 17px; color: #cbd5e1; max-width: 560px; margin: 0 auto; line-height: 1.6; }
-  .placeholder-content { text-align: center; padding: 48px; background: var(--soft); border-radius: var(--radius-lg); border: 2px dashed var(--border); display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-muted); font-size: 15px; }
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 80px 0 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 4.5vw, 52px);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.025em; margin-bottom: 20px; color: white;
+  }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero p { font-size: 17px; color: #cbd5e1; line-height: 1.6; max-width: 540px; margin: 0 auto; }
+
+  /* VIDEO */
+  .video-section { background: white; }
+  .video-wrapper { max-width: 800px; margin: 0 auto; }
+  .video-placeholder {
+    aspect-ratio: 16 / 9;
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .video-play {
+    width: 80px; height: 80px;
+    background: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 32px rgba(70,120,220,0.4);
+  }
+  .video-placeholder p {
+    font-size: 14px;
+    color: #94a3b8;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* STEPS DETAILED */
+  .steps-section { background: var(--soft); }
+  .steps-detailed { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+  .step-detail {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-detail:last-child { border-bottom: none; }
+  .step-number {
+    width: 64px; height: 64px;
+    background: var(--navy);
+    color: var(--brand-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    flex-shrink: 0;
+  }
+  .step-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .step-content p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .step-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .step-checklist li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .step-checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  /* AFTER GRID */
+  .after-section { background: white; }
+  .after-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .after-card {
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: all 0.2s ease;
+  }
+  .after-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .after-icon {
+    width: 48px; height: 48px;
+    background: var(--navy);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--brand-light);
+  }
+  .after-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .after-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq-section { background: var(--soft); }
+  .faq-container { max-width: 720px; margin: 0 auto; }
+
+  /* CTA */
+  .cta-section { background: white; }
+  .cta-block {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-block h2 {
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-block h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .cta-block > p {
+    font-size: 16px;
+    color: #cbd5e1;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .btn-primary {
+    background: var(--brand); color: white;
+    padding: 14px 24px; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(70,120,220,0.3);
+  }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent; color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 14px 24px; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px;
+    transition: all 0.2s ease;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+  @media (max-width: 1024px) {
+    .after-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 56px 0 48px; }
+    .step-detail { grid-template-columns: 48px 1fr; gap: 16px; }
+    .step-number { width: 48px; height: 48px; font-size: 18px; }
+    .after-grid { grid-template-columns: 1fr; }
+    .cta-block { padding: 40px 24px; }
+  }
 </style>

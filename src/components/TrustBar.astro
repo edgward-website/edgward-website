@@ -17,7 +17,7 @@ const {
     <div class="trust-inner">
       <div class="trust-label">{label}</div>
       <div class="trust-logos">
-        {mediaLogos.map(logo => <span>{logo}</span>)}
+        {mediaLogos.map(logo => <a href="/media">{logo}</a>)}
       </div>
       <div class="trust-rating"><span class="star" aria-hidden="true">★</span> {rating}</div>
     </div>
@@ -53,8 +53,8 @@ const {
     letter-spacing: -0.02em;
     align-items: center;
   }
-  .trust-logos span { transition: color 0.2s ease; }
-  .trust-logos span:hover { color: var(--text); }
+  .trust-logos a { transition: color 0.2s ease; text-decoration: none; color: inherit; }
+  .trust-logos a:hover { color: var(--text); }
   .trust-rating { font-size: 13px; color: var(--navy); font-weight: 600; }
   .star { color: var(--brand); }
 

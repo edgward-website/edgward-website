@@ -20,7 +20,7 @@ const {
 {title && <p class="partners-title">{title}</p>}
 <div class="partners-grid fade-in" aria-label="Partenaires sécurité">
   {partners.map(p => (
-    <div class={`partner ${p.accent ? 'partner-accent' : ''}`}>{p.name}</div>
+    <a href="/partenaires" class={`partner ${p.accent ? 'partner-accent' : ''}`}>{p.name}</a>
   ))}
 </div>
 </div>
@@ -55,6 +55,8 @@ const {
     font-weight: 600;
     letter-spacing: -0.01em;
     transition: all 0.2s ease;
+    text-decoration: none;
+    display: block;
   }
   .partner:hover { background: white; color: var(--navy); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
   .partner-accent { color: var(--brand); }
