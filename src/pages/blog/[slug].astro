@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import { readingTime } from '../../utils/reading-time';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -42,6 +43,10 @@ const relatedPosts = allPosts
           <span>Par {post.data.author}</span>
           <span class="byline-sep">·</span>
           <time>{formatDate(post.data.date)}</time>
+          {post.body && <>
+            <span class="byline-sep">·</span>
+            <span>{readingTime(post.body)}</span>
+          </>}
         </div>
         <p class="article-description">{post.data.description}</p>
       </div>

@@ -14,7 +14,7 @@ const { name, zone, description, siteUrl, logo, initials } = Astro.props;
 <div class="partner-card">
   <div class="partner-logo">
     {logo ? (
-      <img src={logo} alt={`Logo ${name}`} width="80" height="40">
+      <img src={logo} alt={`Logo ${name}`} width="80" height="40" loading="lazy">
     ) : (
       <span class="partner-initials">{initials ?? name.substring(0, 2).toUpperCase()}</span>
     )}

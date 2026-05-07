@@ -2,9 +2,11 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import SectionHeader from '../../components/SectionHeader.astro';
+import { readingTime } from '../../utils/reading-time';
 
 const allPosts = await getCollection('blog');
 const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const categories = [...new Set(posts.map(p => p.data.category))].sort();
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -29,12 +31,21 @@ function formatDate(date: Date) {
   <!-- POSTS -->
   <section class="section blog-section">
     <div class="container">
+      {categories.length > 1 && (
+        <div class="category-filters" role="tablist" aria-label="Filtrer par catégorie">
+          <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">Tous</button>
+          {categories.map(cat => (
+            <button class="filter-btn" data-category={cat} role="tab" aria-selected="false">{cat}</button>
+          ))}
+        </div>
+      )}
+
       {posts.length === 0 ? (
         <p class="empty-state">Aucun article pour le moment. Revenez bientôt !</p>
       ) : (
         <div class="posts-grid">
           {posts.map(post => (
-            <article class="post-card fade-in">
+            <article class="post-card fade-in" data-category={post.data.category}>
               {post.data.image && (
                 <div class="post-image">
                   <img src={post.data.image} alt={post.data.title} loading="lazy">
@@ -43,7 +54,10 @@ function formatDate(date: Date) {
               <div class="post-body">
                 <div class="post-meta">
                   <span class="post-category">{post.data.category}</span>
-                  <time class="post-date">{formatDate(post.data.date)}</time>
+                  <div class="post-meta-right">
+                    <time class="post-date">{formatDate(post.data.date)}</time>
+                    {post.body && <span class="post-reading-time">{readingTime(post.body)}</span>}
+                  </div>
                 </div>
                 <h2 class="post-title">
                   <a href={`/blog/${post.id}`}>{post.data.title}</a>
@@ -63,6 +77,26 @@ function formatDate(date: Date) {
     </div>
   </section>
 </Base>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const category = (btn as HTMLElement).dataset.category;
+      document.querySelectorAll('.post-card').forEach(card => {
+        const el = card as HTMLElement;
+        const match = category === 'all' || el.dataset.category === category;
+        el.hidden = !match;
+      });
+    });
+  });
+</script>
 
 <style>
   .hero {
@@ -84,6 +118,32 @@ function formatDate(date: Date) {
   .hero p { font-size: 17px; color: #cbd5e1; line-height: 1.6; }
 
   .blog-section { background: white; }
+
+  .category-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text-muted);
+    transition: all 0.15s ease;
+  }
+  .filter-btn:hover { border-color: var(--brand); color: var(--brand); }
+  .filter-btn.active {
+    background: var(--brand);
+    color: white;
+    border-color: var(--brand);
+  }
+  .post-card[hidden] { display: none; }
 
   .posts-grid {
     display: grid;
@@ -116,7 +176,9 @@ function formatDate(date: Date) {
     background: var(--brand-soft);
     padding: 3px 10px; border-radius: 100px;
   }
+  .post-meta-right { display: flex; align-items: center; gap: 8px; }
   .post-date { font-size: 12px; color: var(--text-light); }
+  .post-reading-time { font-size: 11px; color: var(--text-light); padding-left: 8px; border-left: 1px solid var(--border); }
 
   .post-title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; letter-spacing: -0.01em; }
   .post-title a { text-decoration: none; color: inherit; transition: color 0.15s ease; }

@@ -85,6 +85,17 @@ button:focus-visible {
 .section-subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.6; }
 
 /* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
 .btn-primary {
   background: var(--brand);
   color: white;

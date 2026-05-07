@@ -12,7 +12,7 @@ const uid = Math.random().toString(36).slice(2);
 <div class="video-wrap" data-uid={uid}>
   {poster ? (
     <button class="video-poster" aria-label={`Lire la vidéo : ${title}`}>
-      <img src={poster} alt="" class="video-poster-img">
+      <img src={poster} alt="" class="video-poster-img" loading="lazy">
       <div class="video-play-btn" aria-hidden="true">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       </div>

@@ -13,7 +13,7 @@ const { mediaName, date, excerpt, url, logo } = Astro.props;
 <article class="media-card">
   <div class="media-header">
     {logo ? (
-      <img src={logo} alt={`Logo ${mediaName}`} class="media-logo" width="80" height="32">
+      <img src={logo} alt={`Logo ${mediaName}`} class="media-logo" width="80" height="32" loading="lazy">
     ) : (
       <span class="media-name-badge">{mediaName}</span>
     )}
