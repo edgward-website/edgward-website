@@ -1,0 +1,472 @@
+---
+import Base from '../layouts/Base.astro';
+import Steps from '../components/Steps.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const benefits = [
+  {
+    title: 'Diagnostic sécurité offert aux membres',
+    description: "Identifiez vos vulnérabilités et recevez des recommandations concrètes.",
+  },
+  {
+    title: 'Interventions sur demande via l\'app',
+    description: "Commandez une patrouille uniquement quand c'est nécessaire.",
+  },
+  {
+    title: 'Packs clé en main négociés SCCL',
+    description: "Une offre adaptée aux réalités des commerces lausannois.",
+  },
+];
+
+const howItWorks = [
+  { num: '1', title: 'Créez votre compte', description: "Ajoutez votre commerce et votre lieu." },
+  { num: '2', title: 'Déclenchez une intervention', description: "En quelques secondes, une patrouille est envoyée." },
+  { num: '3', title: 'Recevez un rapport', description: "Vous êtes informé une fois l'intervention réalisée." },
+];
+
+const activationSteps = [
+  { num: '1', title: 'Choisissez votre pack', description: "Sélectionnez votre pack dédié SCCL et recevez votre code promotionnel." },
+  { num: '2', title: 'Installez votre système de sécurité', description: "Si votre pack inclut des caméras ou un boîtier à clé, installez-les selon les recommandations. Besoin d'aide ? Nous pouvons vous accompagner." },
+  { num: '3', title: 'Téléchargez l\'application Edgward', description: "Installez Edgward depuis l'App Store ou le Play Store pour accéder aux patrouilles à la demande." },
+  { num: '4', title: 'Configurez l\'adresse de votre commerce', description: "Ajoutez l'adresse exacte pour faciliter l'intervention rapide des agents." },
+  { num: '5', title: 'Activez votre code promotionnel', description: "Activez votre code pour bénéficier d'une protection complète. La première intervention est remboursée." },
+];
+---
+
+<Base
+  title="SCCL — Offre exclusive commerçants lausannois | Edgward"
+  description="Offre Edgward exclusive pour les membres de la Société Coopérative des Commerçants Lausannois. Diagnostic sécurité offert, packs négociés, intervention sur demande."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">En partenariat avec la Société Coopérative des Commerçants Lausannois</span>
+        <h1>Sécurisez votre commerce <em>en quelques minutes</em></h1>
+        <p>Des patrouilles de sécurité locales, sur simple demande. Idéal après une fermeture tardive, une alarme ou juste un doute.</p>
+        <div class="hero-ctas">
+          <a href="#offres" class="btn-primary">
+            Les offres SCCL
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#comment-ca-marche" class="btn-secondary">Comment ça marche ?</a>
+        </div>
+        <div class="hero-apps">
+          <span>Téléchargez l'application :</span>
+          <div class="hero-apps-links">
+            <a href="https://apps.apple.com/ch/app/edgward/id6503622410" target="_blank" rel="noopener noreferrer" class="store-btn">App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=ch.edgward.app.clients" target="_blank" rel="noopener noreferrer" class="store-btn">Play Store</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section intro-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Offre exclusive pour les membres SCCL"
+        title="Sécurité à la demande pour <em>votre commerce</em>"
+        subtitle="Protéger votre établissement ne devrait pas être un parcours compliqué ni un contrat rigide."
+      />
+      <p class="intro-lead">Grâce au partenariat <strong>Edgward × SCCL</strong>, vous accédez à une solution simple et concrète : <strong>diagnostic</strong>, <strong>packs négociés</strong> et <strong>intervention sur demande</strong>.</p>
+      <div class="benefits-list">
+        {benefits.map(b => (
+          <div class="benefit-item fade-in">
+            <svg class="benefit-check" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            <div>
+              <strong>{b.title}</strong>
+              <p>{b.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="benefits-tagline"><strong>Vous décidez quand agir.</strong> Vous gardez la maîtrise.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section steps-section" id="comment-ca-marche">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Comment ça marche ?"
+        title="Déclenchez une intervention <em>depuis votre téléphone</em>"
+        subtitle="En quelques étapes simples, vous pouvez déclencher une intervention directement depuis votre téléphone."
+      />
+      <Steps steps={howItWorks} />
+      <div class="steps-more">
+        <a href="/comment-ca-marche" class="btn-outline">Plus d'informations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKS -->
+  <section class="section packs-section" id="offres">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Packs exclusifs aux membres SCCL"
+        title="Deux solutions simples pour <em>sécuriser votre commerce</em>"
+        subtitle="Offres réservées aux membres SCCL. Première intervention remboursée en partenariat avec les entreprises de sécurité participantes."
+      />
+      <div class="packs-grid">
+        <!-- PACK A -->
+        <div class="pack-card fade-in">
+          <div class="pack-header">
+            <h3>Pack A — Diagnostic + Application</h3>
+          </div>
+          <div class="pack-price">
+            <span class="price">CHF 99.-</span>
+            <span class="price-period">/ an</span>
+          </div>
+          <ul class="pack-features">
+            <li>Diagnostic sécurité offert</li>
+            <li>Application Edgward à tarif préférentiel</li>
+            <li class="feature-highlight">Première intervention remboursée</li>
+          </ul>
+          <div class="pack-ideal">
+            <strong>Idéal pour</strong>
+            <p>Commerces déjà équipés (alarme/caméras) ou besoin ponctuel et flexible.</p>
+          </div>
+          <a href="#contact" class="btn-primary pack-cta">Choisir ce pack</a>
+        </div>
+
+        <!-- PACK B -->
+        <div class="pack-card pack-card--featured fade-in">
+          <span class="pack-badge">Pack complet</span>
+          <div class="pack-header">
+            <h3>Pack B — Sécurité "basic" clé en main</h3>
+          </div>
+          <div class="pack-price">
+            <span class="price">CHF 199.-</span>
+          </div>
+          <ul class="pack-features">
+            <li>Diagnostic sécurité offert</li>
+            <li>2 caméras (indoor / outdoor)</li>
+            <li>1 boîtier à clé</li>
+            <li>Abonnement annuel Edgward inclus (12 mois)</li>
+            <li class="feature-highlight">Première intervention remboursée</li>
+          </ul>
+          <div class="pack-ideal">
+            <strong>Idéal pour</strong>
+            <p>Commerces souhaitant un équipement complet et une protection immédiate.</p>
+          </div>
+          <a href="#contact" class="btn-primary pack-cta">Choisir ce pack</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACK DETAILS -->
+  <section class="section details-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Détails des packs"
+        title="Ce que vous recevez <em>exactement</em>"
+        subtitle="Et comment cela se met en place."
+      />
+      <div class="details-grid">
+        <div class="detail-card fade-in">
+          <h3>Pack A — Diagnostic + Application</h3>
+          <h4>Inclus</h4>
+          <ul>
+            <li>Diagnostic sécurité (accès, fermetures, zones sensibles)</li>
+            <li>Recommandations prioritaires "quick wins"</li>
+            <li>Abonnement Edgward (1 année)</li>
+            <li>Première intervention remboursée (selon conditions)</li>
+          </ul>
+          <h4>Déroulé</h4>
+          <ol>
+            <li>Diagnostic &amp; recommandations</li>
+            <li>Activation de votre commerce dans l'app</li>
+            <li>Commande d'intervention quand c'est utile</li>
+          </ol>
+        </div>
+        <div class="detail-card fade-in">
+          <h3>Pack B — Sécurité "basic" clé en main</h3>
+          <h4>Inclus</h4>
+          <ul>
+            <li>Tout le Pack A</li>
+            <li>2 caméras (indoor / outdoor) adaptées au commerce</li>
+            <li>1 boîtier à clé pour faciliter l'accès en cas de contrôle</li>
+            <li>Abonnement Edgward (1 année)</li>
+            <li>Première intervention remboursée (selon conditions)</li>
+          </ul>
+          <h4>Déroulé</h4>
+          <ol>
+            <li>Diagnostic &amp; recommandations</li>
+            <li>Mise en place du matériel (selon options)</li>
+            <li>Activation + protection au quotidien via l'app</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVATION STEPS -->
+  <section class="section activation-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Mise en route en quelques minutes"
+        title="Comment activer la protection <em>de mon commerce ?</em>"
+      />
+      <div class="activation-grid">
+        {activationSteps.map(step => (
+          <div class="activation-step fade-in">
+            <div class="activation-num">{step.num}</div>
+            <div class="activation-content">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL CALLOUT -->
+  <section class="section legal-section">
+    <div class="container">
+      <div class="legal-callout fade-in">
+        <div class="legal-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h3>Conseils sécurité &amp; vidéosurveillance (LPD / LTr)</h3>
+          <p>Installer des caméras : OUI mais correctement — où filmer, quoi éviter, et les bons réflexes pour rester conforme en Suisse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Contact & inscription"
+        title="Demandez votre <em>diagnostic gratuit</em>"
+        subtitle="Réservé aux membres SCCL. Notre équipe vous recontacte sous 24h."
+      />
+      <ContactForm defaultSubject="Membre SCCL" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    background: var(--navy); color: white;
+    padding: 80px 0 72px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 660px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: inline-block; font-size: 11px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 4.5vw, 54px); font-weight: 800; line-height: 1.08;
+    letter-spacing: -0.025em; margin-bottom: 20px; color: white;
+  }
+  .hero h1 em {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-weight: 400; color: var(--brand-light);
+  }
+  .hero > .container > .hero-inner > p {
+    font-size: 17px; color: #cbd5e1; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+  .btn-primary {
+    background: var(--brand); color: white;
+    padding: 14px 24px; border-radius: 10px; font-size: 15px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: none; cursor: pointer; transition: all 0.2s ease; font-family: inherit;
+    box-shadow: 0 1px 3px rgba(70,120,220,0.3);
+  }
+  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent; color: white;
+    padding: 14px 24px; border-radius: 10px; font-size: 15px; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,255,255,0.25); cursor: pointer; transition: all 0.2s ease;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+  .hero-apps { margin-top: 8px; }
+  .hero-apps span { font-size: 13px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 10px; }
+  .hero-apps-links { display: flex; gap: 10px; justify-content: center; }
+  .store-btn {
+    background: rgba(255,255,255,0.1); color: white;
+    padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s ease;
+  }
+  .store-btn:hover { background: rgba(255,255,255,0.18); }
+
+  /* INTRO */
+  .intro-section { background: white; }
+  .intro-lead {
+    font-size: 17px; color: var(--text-muted); line-height: 1.7;
+    max-width: 640px; margin: -16px auto 32px; text-align: center;
+  }
+  .intro-lead strong { color: var(--text); }
+  .benefits-list {
+    max-width: 580px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .benefit-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--soft); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+    border-left: 3px solid var(--brand);
+  }
+  .benefit-check { color: var(--brand); flex-shrink: 0; margin-top: 2px; }
+  .benefit-item strong { font-size: 15px; color: var(--navy); display: block; margin-bottom: 4px; }
+  .benefit-item p { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+  .benefits-tagline {
+    text-align: center; margin-top: 28px;
+    font-size: 16px; color: var(--text-muted);
+  }
+  .benefits-tagline strong { color: var(--navy); }
+
+  /* STEPS */
+  .steps-section { background: var(--soft); }
+  .steps-more { text-align: center; margin-top: 32px; }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 10px;
+    border: 1px solid var(--border); background: white;
+    color: var(--navy); font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s ease;
+  }
+  .btn-outline:hover { border-color: var(--brand); color: var(--brand); transform: translateY(-2px); }
+
+  /* PACKS */
+  .packs-section { background: white; }
+  .packs-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; max-width: 800px; margin: 0 auto;
+  }
+  .pack-card {
+    border: 2px solid var(--border); border-radius: var(--radius-lg);
+    padding: 32px 28px; display: flex; flex-direction: column;
+    position: relative; transition: all 0.2s ease;
+  }
+  .pack-card:hover { border-color: var(--brand); box-shadow: 0 8px 24px rgba(70,120,220,0.08); }
+  .pack-card--featured { border-color: var(--brand); }
+  .pack-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--brand); color: white;
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 4px 16px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .pack-header h3 {
+    font-size: 16px; font-weight: 700; color: var(--navy);
+    text-align: center; margin-bottom: 16px;
+  }
+  .pack-price { text-align: center; margin-bottom: 24px; }
+  .price {
+    font-size: 42px; font-weight: 800; color: var(--brand);
+    letter-spacing: -0.03em;
+  }
+  .price-period { font-size: 16px; color: var(--text-muted); font-weight: 500; }
+  .pack-features {
+    list-style: none; display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 20px; flex: 1;
+  }
+  .pack-features li {
+    font-size: 14px; color: var(--text-muted); padding-left: 24px;
+    position: relative; line-height: 1.5;
+  }
+  .pack-features li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--brand); font-weight: 700;
+  }
+  .feature-highlight { color: var(--navy) !important; font-weight: 600; }
+  .pack-ideal {
+    background: var(--soft); border-radius: var(--radius);
+    padding: 14px 16px; margin-bottom: 20px;
+  }
+  .pack-ideal strong { font-size: 13px; color: var(--navy); display: block; margin-bottom: 4px; }
+  .pack-ideal p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+  .pack-cta { justify-content: center; width: 100%; }
+
+  /* DETAILS */
+  .details-section { background: var(--soft); }
+  .details-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; max-width: 800px; margin: 0 auto;
+  }
+  .detail-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px;
+  }
+  .detail-card h3 {
+    font-size: 16px; font-weight: 700; color: var(--navy);
+    margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .detail-card h4 {
+    font-size: 13px; font-weight: 700; color: var(--brand);
+    text-transform: uppercase; letter-spacing: 0.06em; margin: 16px 0 8px;
+  }
+  .detail-card h4:first-of-type { margin-top: 0; }
+  .detail-card ul, .detail-card ol {
+    padding-left: 20px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .detail-card li { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ACTIVATION */
+  .activation-section { background: white; }
+  .activation-grid {
+    max-width: 640px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .activation-step {
+    display: flex; align-items: flex-start; gap: 18px;
+    background: var(--navy); border-radius: var(--radius-lg);
+    padding: 24px; color: white;
+  }
+  .activation-num {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: white; color: var(--navy);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800;
+  }
+  .activation-content h3 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 6px; }
+  .activation-content p { font-size: 14px; color: #cbd5e1; line-height: 1.5; margin: 0; }
+
+  /* LEGAL CALLOUT */
+  .legal-section { background: var(--soft); }
+  .legal-callout {
+    display: flex; align-items: flex-start; gap: 20px;
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px;
+    max-width: 640px; margin: 0 auto;
+  }
+  .legal-icon {
+    width: 52px; height: 52px; flex-shrink: 0;
+    background: var(--brand-soft); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--brand);
+  }
+  .legal-callout h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .legal-callout p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+  /* CONTACT */
+  .contact-section { background: white; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 56px 0 48px; }
+    .packs-grid { grid-template-columns: 1fr; }
+    .details-grid { grid-template-columns: 1fr; }
+    .legal-callout { flex-direction: column; text-align: center; }
+    .legal-icon { margin: 0 auto; }
+  }
+</style>
