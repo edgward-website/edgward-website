@@ -20,7 +20,7 @@ const { benefits, cols = 3 } = Astro.props;
       {b.icon && <div class="benefit-icon" aria-hidden="true" set:html={b.icon} />}
       {b.eyebrow && <span class="benefit-eyebrow">{b.eyebrow}</span>}
       <h3>{b.title}</h3>
-      <p>{b.description}</p>
+      {b.description.split('\n\n').map(par => <p>{par}</p>)}
     </div>
   ))}
 </div>
@@ -73,6 +73,7 @@ const { benefits, cols = 3 } = Astro.props;
     color: var(--text-muted);
     line-height: 1.6;
   }
+  .benefit-card p + p { margin-top: 12px; }
 
   @media (max-width: 1024px) {
     .benefits-grid--4 { grid-template-columns: repeat(2, 1fr); }
