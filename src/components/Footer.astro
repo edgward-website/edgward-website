@@ -46,17 +46,22 @@ const year = new Date().getFullYear();
         <ul>
           <li><a href="/cgu">Conditions générales</a></li>
           <li><a href="/confidentialite">Politique de confidentialité</a></li>
-          <li><a href="/media">Espace presse</a></li>
+          <li><a href="/medias">Espace presse</a></li>
           <li><a href="mailto:info@edgward.ch">Contact</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© {year} Edgward by DBA Solutions sàrl. Tous droits réservés.</div>
+      <div>© <span id="footer-year">{year}</span> Edgward by DBA Solutions sàrl. Tous droits réservés.</div>
       <div>Fait à Genève 🇨🇭</div>
     </div>
   </div>
 </footer>
+
+<script>
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+</script>
 
 <style>
   footer {

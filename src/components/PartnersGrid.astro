@@ -1,7 +1,7 @@
 ---
 interface Partner {
   name: string;
-  accent?: boolean;
+  logo?: string | null;
 }
 
 interface Props {
@@ -20,7 +20,11 @@ const {
 {title && <p class="partners-title">{title}</p>}
 <div class="partners-grid fade-in" aria-label="Partenaires sécurité">
   {partners.map(p => (
-    <a href="/partenaires" class={`partner ${p.accent ? 'partner-accent' : ''}`}>{p.name}</a>
+    <a href="/partenaires" class="partner" aria-label={p.name}>
+      {p.logo
+        ? <img src={p.logo} alt={p.name} class="partner-logo" loading="lazy" width="120" height="56">
+        : <span class="partner-name">{p.name}</span>}
+    </a>
   ))}
 </div>
 </div>
@@ -45,10 +49,11 @@ const {
     margin: 0 auto;
   }
   .partner {
-    background: var(--soft);
+    background: white;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 22px 16px;
+    padding: 18px 16px;
+    min-height: 84px;
     text-align: center;
     font-size: 13px;
     color: var(--text-muted);
@@ -56,10 +61,23 @@ const {
     letter-spacing: -0.01em;
     transition: all 0.2s ease;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .partner:hover { background: white; color: var(--navy); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-  .partner-accent { color: var(--brand); }
+  .partner:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .partner-logo {
+    max-width: 100%;
+    max-height: 44px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.65;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+  .partner:hover .partner-logo { filter: grayscale(0); opacity: 1; }
+  .partner-name { color: var(--text-muted); }
 
   @media (max-width: 768px) {
     .partners-grid { grid-template-columns: repeat(3, 1fr); }

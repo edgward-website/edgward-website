@@ -9,5 +9,6 @@ export default defineConfig({
   integrations: [sitemap()],
   redirects: {
     '/newsfeed': '/alertes',
+    '/media': '/medias',
   },
 });

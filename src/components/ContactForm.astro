@@ -24,14 +24,20 @@ const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 
         <input type="email" id="cf-email" name="email" placeholder="jean@example.ch" autocomplete="email" required>
       </div>
     </div>
-    <div class="form-group">
-      <label for="cf-sujet">Sujet</label>
-      <select id="cf-sujet" name="sujet" required>
-        <option value="" disabled selected={!defaultSubject}>Choisissez un sujet</option>
-        {subjects.map(s => (
-          <option value={s} selected={defaultSubject === s}>{s}</option>
-        ))}
-      </select>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cf-telephone">Téléphone</label>
+        <input type="tel" id="cf-telephone" name="telephone" placeholder="+41 79 123 45 67" autocomplete="tel" inputmode="tel" required>
+      </div>
+      <div class="form-group">
+        <label for="cf-sujet">Sujet</label>
+        <select id="cf-sujet" name="sujet" required>
+          <option value="" disabled selected={!defaultSubject}>Choisissez un sujet</option>
+          {subjects.map(s => (
+            <option value={s} selected={defaultSubject === s}>{s}</option>
+          ))}
+        </select>
+      </div>
     </div>
     <div class="form-group">
       <label for="cf-message">Message</label>

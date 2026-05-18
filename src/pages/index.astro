@@ -1,5 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const partners = [
+  { name: 'GPA SA', logo: '/assets/partners/gpa.png' },
+  { name: 'Global Sécurité (SPS)', logo: '/assets/partners/global-securite.png' },
+  { name: 'Juggers', logo: '/assets/partners/juggers.png' },
+  { name: 'Alpshawk', logo: '/assets/partners/alpshawk.png' },
+  { name: 'Python Sécurité SA', logo: '/assets/partners/python.png' },
+  { name: 'Wolfguard', logo: '/assets/partners/wolfguard.png' },
+  { name: 'Sécurice', logo: '/assets/partners/securice.png' },
+  { name: 'Roc Sécurité', logo: '/assets/partners/roc-securite.png' },
+  { name: 'KRK Security', logo: '/assets/partners/krk.png' },
+];
 ---
 
 <Base
@@ -66,10 +78,10 @@ import Base from '../layouts/Base.astro';
       <div class="trust-inner">
         <div class="trust-label">Vu dans</div>
         <div class="trust-logos">
-          <a href="/media">RTS</a>
-          <a href="/media">Léman Bleu</a>
-          <a href="/media">Tribune de Genève</a>
-          <a href="/media">24heures</a>
+          <a href="/medias">RTS</a>
+          <a href="/medias">Léman Bleu</a>
+          <a href="/medias">Tribune de Genève</a>
+          <a href="/medias">24heures</a>
         </div>
         <div class="trust-rating"><span class="star" aria-hidden="true">★</span> 4,8/5 · 240+ utilisateurs</div>
       </div>
@@ -144,15 +156,13 @@ import Base from '../layouts/Base.astro';
       </div>
       <p class="partners-title">Sélection d’entreprises de sécurité partenaires</p>
       <div class="partners-grid fade-in" aria-label="Partenaires sécurité">
-        <a href="/partenaires" class="partner">GPA SA</a>
-        <a href="/partenaires" class="partner">Global Sécurité (SPS)</a>
-        <a href="/partenaires" class="partner">Juggers</a>
-        <a href="/partenaires" class="partner">Alpshawk</a>
-        <a href="/partenaires" class="partner">Python Sécurité SA</a>
-        <a href="/partenaires" class="partner">Wolfguard</a>
-        <a href="/partenaires" class="partner">Sécurice</a>
-        <a href="/partenaires" class="partner">Roc Sécurité</a>
-        <a href="/partenaires" class="partner">KRK Security</a>
+        {partners.map(p => (
+          <a href="/partenaires" class="partner" aria-label={p.name}>
+            {p.logo
+              ? <img src={p.logo} alt={p.name} class="partner-logo" loading="lazy" width="120" height="56">
+              : <span class="partner-name">{p.name}</span>}
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -376,8 +386,11 @@ import Base from '../layouts/Base.astro';
   /* PARTNERS */
   .partners-title { text-align: center; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 24px; }
   .partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
-  .partner { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 16px; text-align: center; font-size: 13px; color: var(--text-muted); font-weight: 600; letter-spacing: -0.01em; transition: all 0.2s ease; text-decoration: none; display: block; }
-  .partner:hover { background: white; color: var(--navy); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .partner { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 16px; min-height: 84px; text-align: center; font-size: 13px; color: var(--text-muted); font-weight: 600; letter-spacing: -0.01em; transition: all 0.2s ease; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+  .partner:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .partner-logo { max-width: 100%; max-height: 44px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.65; transition: filter 0.2s ease, opacity 0.2s ease; }
+  .partner:hover .partner-logo { filter: grayscale(0); opacity: 1; }
+  .partner-name { color: var(--text-muted); }
   .partner-more { color: var(--brand); }
 
   /* TESTIMONIALS */

@@ -5,9 +5,16 @@ interface Props {
   excerpt: string;
   url: string;
   logo?: string;
+  type?: 'article' | 'radio' | 'video';
 }
 
-const { mediaName, date, excerpt, url, logo } = Astro.props;
+const { mediaName, date, excerpt, url, logo, type = 'article' } = Astro.props;
+
+const cta = {
+  article: 'Lire l\'article',
+  radio: 'Écouter le podcast',
+  video: 'Voir l\'émission',
+}[type];
 ---
 
 <article class="media-card">
@@ -21,8 +28,16 @@ const { mediaName, date, excerpt, url, logo } = Astro.props;
   </div>
   <p class="media-excerpt">{excerpt}</p>
   <a href={url} class="media-link" target="_blank" rel="noopener noreferrer">
-    Lire l'article
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+    {cta}
+    {type === 'article' && (
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+    )}
+    {type === 'radio' && (
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a1 1 0 01-1-1v-3a1 1 0 011-1h3zM3 19a2 2 0 002 2h1a1 1 0 001-1v-3a1 1 0 00-1-1H3z"/></svg>
+    )}
+    {type === 'video' && (
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+    )}
   </a>
 </article>
 
