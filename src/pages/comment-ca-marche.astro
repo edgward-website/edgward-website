@@ -28,12 +28,11 @@ import FAQAccordion from '../components/FAQAccordion.astro';
         subtitle="Une courte vidéo pour comprendre le service Edgward en quelques minutes."
       />
       <div class="video-wrapper">
-        <div class="video-placeholder">
-          <div class="video-play">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <p>Vidéo de présentation à venir</p>
-        </div>
+        <video class="video-frame" controls preload="metadata" playsinline>
+          <source src="/assets/tuto-app.mp4" type="video/mp4">
+          Votre navigateur ne permet pas la lecture de la vidéo.
+          <a href="/assets/tuto-app.mp4">Télécharger la vidéo</a>.
+        </video>
       </div>
     </div>
   </section>
@@ -204,43 +203,15 @@ import FAQAccordion from '../components/FAQAccordion.astro';
   /* VIDEO */
   .video-section { background: white; }
   .video-wrapper { max-width: 800px; margin: 0 auto; }
-  .video-placeholder {
-    aspect-ratio: 16 / 9;
+  .video-frame {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 9 / 16;
     background: var(--navy);
     border-radius: var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-  .video-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .video-play {
-    width: 80px; height: 80px;
-    background: var(--brand);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 8px 32px rgba(70,120,220,0.4);
-  }
-  .video-placeholder p {
-    font-size: 14px;
-    color: #94a3b8;
-    position: relative;
-    z-index: 1;
+    object-fit: contain;
   }
 
   /* STEPS DETAILED */
