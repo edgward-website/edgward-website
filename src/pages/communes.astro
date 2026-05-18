@@ -44,7 +44,7 @@ const benefits = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>',
     title: 'Budget prévisible',
-    description: "CHF 50/habitant/an pour l'abonnement de base. Vous définissez le plafond. Aucune mauvaise surprise.",
+    description: "En moyenne CHF 50 subvention pour l'abonnement de base. Vous définissez le plafond. Aucune mauvaise surprise.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>',
@@ -54,18 +54,18 @@ const benefits = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
     title: 'Pour toute taille de commune',
-    description: "Le modèle fonctionne pour 200 comme pour 5 000 habitants. Soral l'a prouvé — d'autres communes du canton de Genève suivent.",
+    description: "Le modèle fonctionne quelque soit le nombre d’habitants. Offrez une couche supplémentaire de sécurité à vos communiers.",
   },
 ];
 
 const faqItems = [
   {
     question: "Comment ça s'intègre avec notre police municipale ?",
-    answer: "Edgward ne remplace pas la police — il la complète. Les agents Edgward sont des professionnels de la sécurité privée (gardiennage, surveillance) qui interviennent pour les situations qui ne nécessitent pas l'intervention des forces de l'ordre : vérification de domicile, levée de doute, ronde préventive. En cas d'urgence réelle, ils ont l'obligation de contacter le 117.",
+    answer: "Edgward ne remplace pas la police — il la complète. Les sociétés de sécurité répondent toutes aux conditions régissant la profession (concordat sur les entreprises de sécurité CES) qui interviennent pour les situations qui ne nécessitent pas l'intervention des forces de l'ordre : vérification de domicile, levée de doute, ronde préventive. En cas d'urgence réelle, ils ont l'obligation de contacter le 117.",
   },
   {
     question: "Combien ça coûte vraiment pour la commune ?",
-    answer: "Le modèle de base : CHF 50/habitant/an pour l'abonnement à la plateforme. La commune peut choisir de subventionner tout ou partie de cet abonnement. Les interventions sont toujours à la charge de l'habitant (environ CHF 60–95 selon le type). [TODO: validation client sur les chiffres exacts]",
+    answer: " La commune peut choisir de subventionner tout ou une partie de l’abonnement à la plateforme. Edgward peut également directement travailler avec un/plusieurs sociétés de sécurité déjà en service pour la commune. Edgward s’adapte toujours aux contraintes budgétaires de la commune ainsi qu’à son objectif en matière de sécurité communale.",
   },
   {
     question: "Faut-il déployer du matériel ou de l'infrastructure ?",
@@ -77,14 +77,14 @@ const faqItems = [
   },
   {
     question: "Que se passe-t-il en cas d'urgence vitale ?",
-    answer: "Edgward ne remplace jamais les services d'urgence. En cas d'urgence vitale (incendie, santé, agression), les habitants doivent toujours appeler le 117/118/144. Les agents Edgward ont une obligation légale de contacter les secours si la situation l'exige.",
+    answer: "Edgward ne remplace jamais les services d'urgence. En cas d'urgence vitale (incendie, santé, agression), les habitants doivent toujours appeler le 117/118/144 (également directement via l’application). Les agents de sécurité ont une obligation légale de contacter les secours si la situation l'exige.",
   },
 ];
 ---
 
 <Base
   title="Communes — Sécurité de proximité pour vos habitants | Edgward"
-  description="Le modèle Soral : votre commune subventionne l'abonnement Edgward pour ses habitants. Ils accèdent à un réseau de 9 entreprises de sécurité agréées, vous gérez le budget — pas les interventions."
+  description="Le modèle standard : votre commune subventionne une partie de l'abonnement Edgward pour ses habitants. Ils accèdent ainsi facilement à un service de sécurité, à la demande, jour et nuit. Un modèle pratique dans des communes qui ne disposent pas 24/7 de patrouilles institutionnelles ou privées."
 >
   <!-- HERO -->
   <section class="hero">
@@ -92,7 +92,7 @@ const faqItems = [
       <div class="hero-inner">
         <div class="hero-stat-row">
           <div class="hero-stat">
-            <strong>3</strong>
+            <strong>5</strong>
             <span>cantons couverts</span>
           </div>
           <div class="hero-stat-divider"></div>
@@ -107,7 +107,7 @@ const faqItems = [
           </div>
         </div>
         <h1>Sécurité de proximité pour vos habitants,<br>sans <em>charge opérationnelle</em></h1>
-        <p>Le modèle Soral : votre commune subventionne l'abonnement Edgward pour ses habitants. Ils accèdent à un réseau de 9 entreprises de sécurité agréées, vous gérez le budget — pas les interventions.</p>
+        <p>Le modèle standard : votre commune subventionne une partie de l'abonnement Edgward pour ses habitants. Ils accèdent ainsi facilement à un service de sécurité, à la demande, jour et nuit. Un modèle pratique dans des communes qui ne disposent pas 24/7 de patrouilles institutionnelles ou privées.</p>
         <div class="hero-ctas">
           <a href="#contact" class="btn-primary">
             Contacter notre équipe
@@ -137,7 +137,7 @@ const faqItems = [
       <SectionHeader
         eyebrow="Mise en place"
         title="3 étapes pour lancer <em>le service</em>"
-        subtitle="Du premier contact à l'activation : moins de 2 semaines."
+        subtitle="Du premier contact à l’activation : nous sommes prêt en moins de 30 jours."
         id="comment-ca-marche"
       />
       <Steps steps={steps} />
@@ -149,7 +149,7 @@ const faqItems = [
     <div class="container">
       <SectionHeader
         eyebrow="Avantages"
-        title="Pourquoi les communes <em>choisissent Edgward</em>"
+        title="Notre équipe vous répond généralement <em>sous 24h</em>"
       />
       <BenefitsGrid benefits={benefits} cols={3} />
     </div>
@@ -173,7 +173,7 @@ const faqItems = [
     <div class="container">
       <SectionHeader
         eyebrow="Contact"
-        title="Parlez à notre équipe <em>communes</em>"
+        title="Notre équipe vous répond généralement <em>sous 24h</em>"
         subtitle="Notre responsable partenariats communes répond sous 24h."
       />
       <ContactForm defaultSubject="Commune" />
