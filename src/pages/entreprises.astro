@@ -12,7 +12,7 @@ const useCases = [
     eyebrow: 'Commerce de détail',
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>',
     title: 'Fermeture tardive, colis livré — agent requis',
-    description: "Gérez les situations imprévues sans coût fixe : vérification nocturne, accompagnement de caissier, levée d'alarme.",
+    description: "Gérez les situations imprévues sans coût fixe : vérification nocturne, levée d'alarme, présence rassurante.",
   },
   {
     eyebrow: 'Chantier',
@@ -84,7 +84,7 @@ const priceRows = [
       <div class="hero-grid">
         <div class="hero-content">
           <span class="hero-eyebrow">Entreprises & Centrales d'alarme</span>
-          <h1>Locaux, chantiers, commerces<br>protégés <em>à la demande</em></h1>
+          <h1>Commerces, locaux, chantiers<br>protégés <em>à la demande</em></h1>
           <p>Stoppez les dépenses fixes de télésurveillance. Avec Edgward, vous activez la sécurité quand vous en avez besoin, sur les sites qui le nécessitent.</p>
           <div class="hero-ctas">
             <a href="#contact" class="btn-primary">
@@ -93,7 +93,7 @@ const priceRows = [
             </a>
             <a href="#avantages" class="btn-secondary">En savoir plus</a>
           </div>
-          <p class="hero-reassurance">Sans installation · Sans engagement long terme · Dès CHF 29/mois par site</p>
+          <p class="hero-reassurance">Sans installation · Sans engagement long terme · Dès CHF 15/mois par site</p>
         </div>
         <div class="hero-visual" aria-hidden="true">
           <EdSonar image="/assets/ed-pose.png" />
@@ -107,7 +107,7 @@ const priceRows = [
     <div class="container">
       <SectionHeader
         eyebrow="Cas d'usage"
-        title="Trois situations où Edgward <em>fait la différence</em>"
+        title="Commerces, locaux, chantiers protégés <em>à la demande </em>"
         subtitle="Commerce, chantier, bureau — une solution unique pour tous vos besoins de sécurité."
       />
       <BenefitsGrid benefits={useCases} cols={3} />
