@@ -28,34 +28,6 @@ const useCases = [
   },
 ];
 
-const benefits = [
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>',
-    title: 'Multi-sites centralisés',
-    description: 'Gérez tous vos sites depuis une seule interface. Commandez des interventions sur n\'importe quel lieu en quelques secondes.',
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>',
-    title: 'Facturation consolidée',
-    description: 'Un seul interlocuteur, une seule facture mensuelle pour tous vos sites et toutes vos interventions.',
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>',
-    title: "Reporting d'interventions",
-    description: "Chaque intervention génère automatiquement un rapport horodaté avec photos et compte-rendu de l'agent.",
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>',
-    title: 'Zéro installation',
-    description: 'Aucun câblage, aucun investissement en matériel. Opérationnel en 24h sur n\'importe quel site.',
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>',
-    title: 'Flexibilité totale',
-    description: 'Activez ou désactivez des sites, ajustez vos niveaux de couverture selon vos besoins et votre budget.',
-  },
-];
-
 const testimonials = [
   {
     quote: "Des inconnus dans notre garage de Belmont. L'agent est intervenu à deux. Plus avantageux qu'un raccordement d'alarme classique.",
@@ -67,10 +39,8 @@ const testimonials = [
 ];
 
 const priceRows = [
-  { label: 'Abonnement plateforme', value: 'Sur devis' },
-  { label: 'Intervention standard', value: '~CHF 60' },
-  { label: 'Intervention urgente', value: '~CHF 95' },
-  { label: 'Installation matérielle', value: 'CHF 0' },
+  { label: 'Abonnement (base annuelle)', value: 'CHF 12.50/mois' },
+  { label: 'Intervention (prix moyen par intervention)', value: '~CHF 105 - 170' },
 ];
 ---
 
@@ -114,18 +84,6 @@ const priceRows = [
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section class="section benefits-section" id="avantages">
-    <div class="container">
-      <SectionHeader
-        eyebrow="Fonctionnalités"
-        title="Conçu pour les <em>professionnels</em>"
-        subtitle="Des outils pensés pour simplifier la gestion sécurité multi-sites."
-      />
-      <BenefitsGrid benefits={benefits} cols={3} />
-    </div>
-  </section>
-
   <!-- PRICING -->
   <section class="section pricing-section" id="tarifs">
     <div class="container">
@@ -156,7 +114,8 @@ const priceRows = [
     </div>
   </section>
 
-  <!-- CENTRALES D'ALARME -->
+{/* 
+<!-- CENTRALES D'ALARME -->
   <section class="section centrales-section" id="centrales">
     <div class="container">
       <div class="centrale-block fade-in">
@@ -196,13 +155,14 @@ const priceRows = [
       </div>
     </div>
   </section>
+*/}
 
   <!-- CONTACT -->
   <section class="section contact-section" id="contact">
     <div class="container">
       <SectionHeader
         eyebrow="Contact"
-        title="Parlons de votre <em>besoin</em>"
+        title="Notre équipe vous répond généralement <em>sous 24h</em>"
         subtitle="Notre équipe vous répond sous 24h avec une offre personnalisée."
       />
       <ContactForm defaultSubject="Entreprise" />
