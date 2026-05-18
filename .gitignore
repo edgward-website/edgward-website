@@ -4,3 +4,20 @@ node_modules/
 .env.*
 !.env.example
 .DS_Store
+
+# Astro / tooling caches
+.astro/
+.claude/
+
+# Local-only source assets & scratch (never ship or commit)
+/assets/
+/studio/
+/coverage-map-source.html
+/index_4.html
+/PLAN_EDGWARD_V2.md
+/dev.sh
+/roc securite.png
+
+# macOS Finder duplicate artifacts ("file 2.ext")
+* 2.*
+*.local

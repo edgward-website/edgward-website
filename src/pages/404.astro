@@ -60,10 +60,6 @@ import Base from '../layouts/Base.astro';
     animation: ed-float 6s ease-in-out infinite;
     margin: 0 auto;
   }
-  @keyframes ed-float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
   .error-code {
     display: block;
     font-size: 96px;
@@ -99,18 +95,6 @@ import Base from '../layouts/Base.astro';
     justify-content: center;
     flex-wrap: wrap;
   }
-  .btn-primary {
-    background: var(--brand); color: white;
-    padding: 14px 24px; border-radius: 10px;
-    font-size: 15px; font-weight: 600;
-    text-decoration: none; display: inline-flex;
-    align-items: center; gap: 8px;
-    border: none; cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(70,120,220,0.3);
-    font-family: inherit;
-  }
-  .btn-primary:hover { background: var(--brand-dark); transform: translateY(-2px); }
   .btn-ghost {
     background: transparent; color: white;
     padding: 14px 24px; border-radius: 10px;
