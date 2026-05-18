@@ -6,16 +6,13 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://edgward.ch',
-  integrations: [
-    sitemap({
-      filter: (page) => !page.includes('/mentions-legales'),
-    }),
-  ],
+  integrations: [sitemap()],
   redirects: {
     '/newsfeed': '/alertes',
     '/media': '/medias',
     '/contact': '/faq',
     '/tarifs': '/particuliers',
     '/actualites': '/blog',
+    '/mentions-legales': '/cgu',
   },
 });

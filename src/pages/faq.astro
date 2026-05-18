@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import ContactForm from '../components/ContactForm.astro';
 import SectionHeader from '../components/SectionHeader.astro';
@@ -125,15 +126,11 @@ const faqCategories = [
   title="FAQ — Questions fréquentes | Edgward"
   description="Retrouvez les réponses aux questions les plus fréquentes sur Edgward : fonctionnement, tarifs, sécurité, communes et entreprises."
 >
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <h1>Questions <em>fréquentes</em></h1>
-        <p>Tout ce que vous devez savoir sur Edgward — fonctionnement, tarifs, sécurité et plus encore.</p>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    title="Questions <em>fréquentes</em>"
+    subtitle="Tout ce que vous devez savoir sur Edgward — fonctionnement, tarifs, sécurité et plus encore."
+    maxWidth="560px"
+  />
 
   <!-- FAQ -->
   <section class="section faq-section">
@@ -164,22 +161,6 @@ const faqCategories = [
 </Base>
 
 <style>
-  .hero {
-    background: var(--navy); color: white;
-    padding: 72px 0 56px; text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute;
-    top: -200px; left: 50%; transform: translateX(-50%);
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .hero-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
-  .hero h1 { font-size: clamp(36px, 4.5vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 16px; color: white; }
-  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
-  .hero p { font-size: 17px; color: #cbd5e1; line-height: 1.6; }
 
   .faq-section { background: white; }
   .faq-wrap { max-width: 720px; margin: 0 auto; }

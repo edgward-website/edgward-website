@@ -12,7 +12,7 @@
   --border: #e5e7eb;
   --text: #0a1929;
   --text-muted: #64748b;
-  --text-light: #94a3b8;
+  --text-light: #6b7280;
   --radius: 10px;
   --radius-lg: 14px;
   --container: 1200px;
@@ -48,6 +48,23 @@ button:focus-visible {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  background: var(--navy);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
 }
 
 /* SECTIONS */

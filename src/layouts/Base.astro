@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
 import '../styles/global.css';
 
 interface Props {
@@ -18,6 +19,24 @@ const {
   canonicalURL = Astro.url.href,
   noindex = false,
 } = Astro.props;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  legalName: site.legalName,
+  url: site.url,
+  logo: new URL('/assets/og-default.png', site.url).toString(),
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    postalCode: site.address.postalCode,
+    addressLocality: site.address.city,
+    addressCountry: site.address.country,
+  },
+  sameAs: [site.social.linkedin, site.social.instagram, site.social.facebook],
+};
 ---
 
 <!doctype html>
@@ -45,6 +64,7 @@ const {
   <link rel="canonical" href={canonicalURL}>
   <link rel="alternate" type="application/rss+xml" title="Edgward Blog" href="/rss.xml">
   <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} is:inline />
 
   <link rel="icon" type="image/png" href="/assets/sigle.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,8 +73,9 @@ const {
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a href="#main" class="skip-link">Aller au contenu</a>
   <Nav />
-  <main>
+  <main id="main">
     <slot />
   </main>
   <Footer />
