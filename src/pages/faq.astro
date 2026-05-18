@@ -10,11 +10,11 @@ const faqCategories = [
     items: [
       {
         question: "Combien coûte Edgward ?",
-        answer: "L'abonnement à la plateforme est de CHF 15/mois (ou CHF 150/an). Cet abonnement donne accès au réseau des 9 entreprises de sécurité partenaires. Les interventions sont facturées séparément : environ CHF 60 pour une intervention standard, CHF 95 pour une intervention urgente. [TODO: tarifs à valider avec le client avant publication]",
+        answer: "L'abonnement à la plateforme est de CHF 15/mois (ou CHF 150/an). Cet abonnement donne accès à notre réseau d’entreprises partenaire. Les interventions sont facturées séparément : environ CHF 105 à 170 par intervention (prix fixé par nos partenaires).",
       },
       {
         question: "Quelle est la zone géographique couverte ?",
-        answer: "Edgward est actuellement disponible dans les cantons de Genève, Vaud et Neuchâtel (couverture complète). Les cantons de Fribourg et du Valais sont en cours de déploiement. Pour vérifier si votre adresse est couverte, téléchargez l'app et entrez votre adresse.",
+        answer: "Edgward est actuellement pleinement disponible dans les cantons de Genève, Vaud et Neuchâtel. Les cantons de Fribourg et du Valais sont partiellement couverts.",
       },
       {
         question: "Faut-il installer du matériel ou un système d'alarme ?",
@@ -39,15 +39,15 @@ const faqCategories = [
       },
       {
         question: "Peut-on couvrir plusieurs sites sous un seul compte ?",
-        answer: "Oui. La plateforme entreprise permet de gérer plusieurs adresses sous un compte unique. Vous pouvez commander des interventions sur n'importe lequel de vos sites en quelques secondes, et recevoir les rapports centralisés.",
+        answer: "Oui. La plateforme entreprise permet de gérer plusieurs adresses sous un compte unique (pour l’instant maximum 2 sites).",
       },
       {
         question: "Comment se fait la facturation pour une entreprise ?",
-        answer: "Vous recevez une facture mensuelle consolidée reprenant l'abonnement plateforme et toutes les interventions du mois, par site. La facture est disponible dans votre espace client et envoyée par email. [TODO: validation processus de facturation]",
+        answer: "Les factures de chaque intervention sont directement disponibles sur votre application. Vos factures sont accessibles dans votre espace client et peuvent être exportées en PDF.",
       },
       {
         question: "Y a-t-il un reporting des interventions ?",
-        answer: "Oui. Chaque intervention génère automatiquement un rapport horodaté avec le nom de l'agent, l'heure d'arrivée et de départ, et les observations. Ces rapports sont accessibles dans votre espace client et peuvent être exportés en PDF.",
+        answer: "Oui. Chaque intervention génère automatiquement un rapport horodaté avec le numéro de l'agent, l'heure d'arrivée et de départ, et les observations. Ces rapports sont accessibles dans votre espace client et peuvent être exportés en PDF.",
       },
     ],
   },
@@ -60,7 +60,7 @@ const faqCategories = [
       },
       {
         question: "Quel est le coût pour la commune ?",
-        answer: "Le modèle de base est de CHF 50/habitant/an pour l'abonnement à la plateforme. La commune peut choisir de subventionner tout ou partie de ce montant. Les interventions restent à la charge de l'habitant. [TODO: valider avec l'équipe commerciale]",
+        answer: "Le modèle de base est généralement d’une subvention de CHF 50/habitant/an. Edgward ne facture que ce qui est réellement consommé. La commune peut s’engager sur un montant maximum négocié avec notre équipe commerciale.",
       },
       {
         question: "Faut-il installer du matériel dans les bâtiments communaux ?",
@@ -80,8 +80,8 @@ const faqCategories = [
         answer: "Vos données (adresse, consignes d'accès) ne sont transmises à l'agent qu'au moment de l'intervention déclenchée. Elles ne sont jamais partagées entre agents, ni vendues à des tiers. Edgward est conforme au RGPD et à la LPD suisse.",
       },
       {
-        question: "Comment est sélectionné l'agent qui intervient ?",
-        answer: "L'algorithme Edgward sélectionne le partenaire sécurité le plus proche et disponible dans votre zone. Tous les partenaires sont des entreprises de sécurité agréées, avec du personnel formé et assuré. Vous voyez le nom du partenaire avant de confirmer l'intervention.",
+        question: "Comment sont sélectionnées les patrouilles disponibles?",
+        answer: "Edgward affiche les patrouilles disponibles dans un rayon de 60 minutes de l’adresse d’intervention. Tous les partenaires sont des entreprises de sécurité agréées, avec du personnel formé et assuré. Vous voyez le nom du partenaire, son prix et le temps d’intervetion estimé avant de confirmer l'intervention.",
       },
       {
         question: "Quelle formation ont les agents ?",
@@ -110,11 +110,11 @@ const faqCategories = [
       },
       {
         question: "Comment sont calculés les tarifs d'intervention ?",
-        answer: "Les tarifs dépendent du type d'intervention (standard ou urgente), de la distance et de la disponibilité du partenaire. Vous voyez le tarif en temps réel avant de confirmer. Environ CHF 60 pour une intervention standard, CHF 95 pour une intervention urgente. [TODO: validation tarifs finaux]",
+        answer: "Nos partenaires décident librement du prix d’intervention selon votre commune, la date et l’heure. Les créneaux horaires susceptibles d’avoir une demande importante peuvent avoir une tarification plus élevée.",
       },
       {
         question: "Que comprend l'essai gratuit ?",
-        answer: "Le premier mois d'abonnement est gratuit. Pendant cette période, vous avez accès à toutes les fonctionnalités de la plateforme. Les interventions éventuelles sont facturées au tarif normal même pendant l'essai. Aucune carte bancaire requise pour démarrer l'essai. [TODO: validation conditions essai]",
+        answer: "Le premier mois d'abonnement est gratuit. Des codes promotions donnent également parfois droit à une période d’accès à Edgward sans frais. Les demandes d’intervention durant l’essai restent payantes, selon la tarification indiquée lors de la commande.",
       },
     ],
   },
