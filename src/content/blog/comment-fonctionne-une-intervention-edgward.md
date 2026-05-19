@@ -42,5 +42,3 @@ Les agents Edgward sont formés pour contacter eux-mêmes les secours si la situ
 ---
 
 Edgward se positionne comme la couche intermédiaire entre "je suis inquiet, mais ce n'est pas grave au point d'appeler la police" et "j'ai besoin des secours immédiatement". C'est cette zone grise — souvent source d'hésitation — qu'Edgward est conçu pour couvrir. Savoir qu'un professionnel est en route, que vous serez informé en temps réel et que vous recevrez un rapport à la fin : c'est ça, la tranquillité d'esprit.
-
-> *[TODO: relecture client avant publication]*

@@ -46,5 +46,3 @@ Le fil d'alertes Edgward vous permet de rester informé des incidents de sécuri
 ---
 
 Ces 5 réflexes ne demandent pas plus d'une heure à mettre en place avant votre départ. Le coût de la prévention est toujours inférieur au coût d'un cambriolage — en argent, en démarches administratives, et en sentiment d'insécurité qui peut durer longtemps après les faits. Partez serein.
-
-> *[TODO: relecture client avant publication]*
