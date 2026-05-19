@@ -68,21 +68,6 @@ const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 
     "Centrale d'alarme": '4',
     'Autre': '5',
   };
-  // Convertit un numéro saisi librement vers le format Brevo SMS
-  // (indicatif pays + numéro, sans + ni 0). Suisse par défaut.
-  function normalizePhone(raw: string): string | null {
-    const s = (raw || '').trim();
-    let digits = s.replace(/[^\d]/g, '');
-    if (!digits) return null;
-    if (digits.startsWith('00')) digits = digits.slice(2);
-    let intl: string;
-    if (digits.startsWith('41')) intl = digits;
-    else if (digits.startsWith('0')) intl = '41' + digits.replace(/^0+/, '');
-    else if (s.startsWith('+')) intl = digits;
-    else intl = '41' + digits;
-    if (intl.length < 8 || intl.length > 17) return null;
-    return intl;
-  }
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const honeypot = (form.elements.namedItem('email_address_check') as HTMLInputElement)?.value;
@@ -101,7 +86,6 @@ const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 
     btn.disabled = true;
     btn.textContent = 'Envoi…';
     const ctx = (form.getAttribute('data-context') || '').trim();
-    const phoneIntl = normalizePhone(telephone);
     let composed = message;
     if (telephone) composed = 'Tél : ' + telephone + ' — ' + composed;
     if (ctx && !SUBJECT_MAP[ctx]) composed = composed + ' [Contexte : ' + ctx + ']';
@@ -111,10 +95,6 @@ const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 
     params.append('EMAIL', email);
     params.append('SUJET', SUBJECT_MAP[sujet] || '5');
     params.append('MESSAGE', composed);
-    if (phoneIntl) {
-      params.append('SMS', phoneIntl);
-      params.append('SMS__COUNTRY_CODE', '+41');
-    }
     params.append('email_address_check', '');
     params.append('locale', 'en');
     fetch(BREVO_CONTACT_ACTION, {
