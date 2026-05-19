@@ -54,7 +54,6 @@ import { partners } from '../data/partners';
               <div class="ed-ring"></div>
               <div class="ed-ring"></div>
             </div>
-            <img src="/assets/ed-pouce.png" alt="" class="ed-img" width="400" height="400">
           </div>
         </div>
       </div>
@@ -322,14 +321,13 @@ import { partners } from '../data/partners';
 
   /* HERO VISUAL */
   .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 440px; }
-  .ed-container { position: relative; width: 100%; max-width: 440px; display: flex; align-items: center; justify-content: center; }
+  .ed-container { position: relative; width: 100%; max-width: 360px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
   .ed-halo { position: absolute; top: 50%; left: 50%; width: 120%; height: 120%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--brand-glow) 0%, transparent 55%); pointer-events: none; }
   .ed-rings { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 100%; aspect-ratio: 1; pointer-events: none; }
   .ed-ring { position: absolute; top: 50%; left: 50%; border: 1.5px solid rgba(107,147,232,0.3); border-radius: 50%; transform: translate(-50%,-50%); animation: ring-pulse 3s ease-out infinite; }
   .ed-ring:nth-child(1) { width: 60%; height: 60%; animation-delay: 0s; }
   .ed-ring:nth-child(2) { width: 80%; height: 80%; animation-delay: 1s; }
   .ed-ring:nth-child(3) { width: 100%; height: 100%; animation-delay: 2s; }
-  .ed-img { position: relative; z-index: 2; width: 100%; max-width: 200px; filter: drop-shadow(0 20px 60px rgba(70,120,220,0.35)); animation: ed-float 6s ease-in-out infinite; }
 
   /* TRUST */
   .trust { background: var(--soft); border-bottom: 1px solid var(--border); padding: 18px 0; }
@@ -377,8 +375,7 @@ import { partners } from '../data/partners';
   .partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
   .partner { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 16px; min-height: 84px; text-align: center; font-size: 13px; color: var(--text-muted); font-weight: 600; letter-spacing: -0.01em; transition: all 0.2s ease; text-decoration: none; display: flex; align-items: center; justify-content: center; }
   .partner:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-  .partner-logo { max-width: 100%; max-height: 44px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.65; transition: filter 0.2s ease, opacity 0.2s ease; }
-  .partner:hover .partner-logo { filter: grayscale(0); opacity: 1; }
+  .partner-logo { max-width: 100%; max-height: 44px; width: auto; height: auto; object-fit: contain; }
   .partner-name { color: var(--text-muted); }
   .partner-more { color: var(--brand); }
 
@@ -437,8 +434,7 @@ import { partners } from '../data/partners';
 
   @media (max-width: 1024px) {
     .hero-grid, .pricing-card { grid-template-columns: 1fr; gap: 40px; }
-    .hero-visual { min-height: 360px; order: -1; }
-    .ed-img { max-width: 160px; }
+    .hero-visual { min-height: 320px; order: -1; }
     .final-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
     .final-ed { margin: 0 auto; width: 140px; }
     .stores { justify-content: center; }

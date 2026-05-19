@@ -1,11 +1,4 @@
 ---
-interface Props {
-  image?: string;
-  alt?: string;
-  size?: number;
-}
-
-const { image = '/assets/ed-pouce.png', alt = 'Ed, la mascotte Edgward', size = 400 } = Astro.props;
 ---
 
 <div class="ed-container">
@@ -15,14 +8,14 @@ const { image = '/assets/ed-pouce.png', alt = 'Ed, la mascotte Edgward', size = 
     <div class="ed-ring"></div>
     <div class="ed-ring"></div>
   </div>
-  <img src={image} alt={alt} class="ed-img" width={size} height={size}>
 </div>
 
 <style>
   .ed-container {
     position: relative;
     width: 100%;
-    max-width: 440px;
+    max-width: 360px;
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,20 +50,5 @@ const { image = '/assets/ed-pouce.png', alt = 'Ed, la mascotte Edgward', size = 
   @keyframes ring-pulse {
     0% { opacity: 0.8; transform: translate(-50%,-50%) scale(0.6); }
     100% { opacity: 0; transform: translate(-50%,-50%) scale(1.1); }
-  }
-  .ed-img {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 200px;
-    filter: drop-shadow(0 20px 60px rgba(70,120,220,0.35));
-    animation: ed-float 6s ease-in-out infinite;
-  }
-  @media (max-width: 1024px) {
-    .ed-img { max-width: 160px; }
-  }
-  @keyframes ed-float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
   }
 </style>
