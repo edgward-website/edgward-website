@@ -13,7 +13,7 @@ export const site = {
   social: {
     linkedin: 'https://linkedin.com/company/edgward',
     instagram: 'https://instagram.com/edgward.ch',
-    facebook: 'https://facebook.com/edgward',
+    facebook: 'https://www.facebook.com/people/Edgward/61556735881166',
   },
   apps: {
     appStore: 'https://apps.apple.com/ch/app/edgward/id6503622410',
