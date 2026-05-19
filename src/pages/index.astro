@@ -271,13 +271,24 @@ import { partners } from '../data/partners';
           </div>
         </div>
         <div class="email-card">
-          <h4>Pas encore prêt ?</h4>
-          <p>Recevez notre guide « Sécuriser son domicile » par email.</p>
-          <form class="email-form" id="email-capture" novalidate>
-            <input type="email" name="email" placeholder="votre@email.ch" aria-label="Votre adresse email" autocomplete="email" required>
-            <button type="submit">Recevoir</button>
-          </form>
-          <p class="email-privacy">En vous inscrivant, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+          <div class="email-default" id="email-capture-default">
+            <h4>Pas encore prêt ?</h4>
+            <p>Téléchargez gratuitement notre guide « Sécuriser son domicile ».</p>
+            <form class="email-form" id="email-capture" novalidate>
+              <input type="email" name="EMAIL" placeholder="votre@email.ch" aria-label="Votre adresse email" autocomplete="email" required>
+              <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="email-hp">
+              <button type="submit">Recevoir</button>
+            </form>
+            <p class="email-privacy">En vous inscrivant, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+          </div>
+          <div class="email-success" id="email-capture-success" hidden>
+            <h4>Merci&nbsp;!</h4>
+            <p>Votre guide « Sécuriser son domicile » est prêt à télécharger.</p>
+            <a href="/assets/guide-securiser-son-domicile.pdf" download class="email-download">
+              Télécharger le guide
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -287,14 +298,39 @@ import { partners } from '../data/partners';
 
 <script>
   const form = document.getElementById('email-capture') as HTMLFormElement | null;
+  const defaultBox = document.getElementById('email-capture-default');
+  const successBox = document.getElementById('email-capture-success');
+  const BREVO_ACTION = 'https://87714af1.sibforms.com/serve/MUIFAMrrWdxPBYrsJbVl3DEx2xLkeG0iVWB5XkCoCcZ22ARhk_U-AcqM-P-P1NLYOuD2EH-OCwsPhS2Wwh-tKXHv36Va4XMMimuN2LOwPbVFNIP6mpmrNr1rga5vuBAxweX_kAFYUbz6_lpfaMZREUftQYz6VOiO2LSXfcpcjqLFyrGdOBWBAfnvmeBotpNVxMQDfQSnDaVHxwYB';
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
+    const honeypot = (form.elements.namedItem('email_address_check') as HTMLInputElement)?.value;
+    if (honeypot) return;
     const input = form.querySelector('input[type="email"]') as HTMLInputElement;
-    if (!input.validity.valid) { input.focus(); return; }
+    const email = input.value.trim();
+    if (!input.validity.valid || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      input.focus();
+      input.reportValidity();
+      return;
+    }
     const btn = form.querySelector('button') as HTMLButtonElement;
-    btn.textContent = 'Envoyé ✓';
     btn.disabled = true;
-    input.disabled = true;
+    btn.textContent = 'Envoi…';
+    const params = new URLSearchParams();
+    params.append('EMAIL', email);
+    params.append('email_address_check', '');
+    params.append('locale', 'en');
+    fetch(BREVO_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params,
+      keepalive: true,
+    }).catch(() => {});
+    if (defaultBox) defaultBox.hidden = true;
+    if (successBox) {
+      successBox.hidden = false;
+      (successBox.querySelector('.email-download') as HTMLAnchorElement | null)?.focus();
+    }
   });
 </script>
 
@@ -420,7 +456,7 @@ import { partners } from '../data/partners';
   .store-btn .store-main { font-size: 13px; font-weight: 600; display: block; line-height: 1.2; }
   .email-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 24px; }
   .email-card h4 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 6px; letter-spacing: -0.01em; }
-  .email-card > p { font-size: 12px; color: #cbd5e1; margin-bottom: 14px; line-height: 1.5; }
+  .email-card p:not(.email-privacy) { font-size: 12px; color: #cbd5e1; margin-bottom: 14px; line-height: 1.5; }
   .email-form { display: flex; gap: 8px; margin-bottom: 10px; }
   .email-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 10px 12px; border-radius: 8px; font-size: 13px; font-family: inherit; outline: none; transition: border-color 0.2s ease; min-width: 0; }
   .email-form input::placeholder { color: #94a3b8; }
@@ -431,6 +467,23 @@ import { partners } from '../data/partners';
   .email-privacy { font-size: 11px; color: #64748b; }
   .email-privacy a { color: #94a3b8; }
   .email-privacy a:hover { color: white; }
+  .email-default[hidden], .email-success[hidden] { display: none; }
+  .email-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .email-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--brand);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .email-download:hover { background: var(--brand-dark); }
 
   @media (max-width: 1024px) {
     .hero-grid, .pricing-card { grid-template-columns: 1fr; gap: 40px; }
