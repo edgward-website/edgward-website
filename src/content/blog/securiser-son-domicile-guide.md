@@ -21,9 +21,9 @@ Une maison vide est une cible. Les cambrioleurs observent avant d'agir. Des minu
 
 Un boîtier à clés (code key box) vous permet de donner accès à votre domicile à des personnes de confiance sans laisser de copie de clé. C'est aussi indispensable si vous utilisez Edgward : en configurant votre boîtier dans l'app, l'agent mandaté peut vérifier l'intérieur en cas d'intervention.
 
-## 4. Rejoignez une communauté de surveillance de voisinage
+## 4. Dissuadez les intrus
 
-Le réseau de surveillance de voisinage est l'un des outils de prévention les plus efficaces. Des études montrent qu'il réduit jusqu'à 26 % les cambriolages dans les zones concernées. Le newsfeed Edgward s'inscrit dans cette logique : partager les signalements locaux bénéficie à toute la communauté.
+Dissuadez les éventuels intrus par une présence visible de certains éléments de sécurité, que ce soit par la présence de caméras, de spots lumineux à détection de mouvement ou de pancartes “site surveillé” ou “vidéosurveillance” (disponibles grâcieusement pour les abonnés Edgward).
 
 ## 5. Sachez à qui vous adresser en cas de doute
 
