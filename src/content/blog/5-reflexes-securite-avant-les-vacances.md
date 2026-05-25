@@ -37,11 +37,11 @@ Via l'application Edgward, vous pouvez planifier des rondes de surveillance à v
 
 À chaque passage, vous recevez un rapport avec les observations de l'agent. Si quelque chose est anormal, vous êtes alerté immédiatement et pouvez décider de la suite. Cette fonctionnalité est particulièrement appréciée pour les maisons individuelles et les résidences secondaires.
 
-## 5. Activer les alertes de votre quartier
+## 5. Activez les alertes autour de chez vous
 
-Le fil d'alertes Edgward vous permet de rester informé des incidents de sécurité signalés à proximité de votre adresse — même depuis l'autre bout du monde. Si une tentative d'intrusion ou un comportement suspect est signalé près de chez vous, vous le voyez immédiatement dans l'application.
+Le fil d’alertes Edgward vous permet de rester informé des incidents de sécurité signalés à proximité de votre adresse — même depuis l’autre bout du monde. Vous pouvez à tout moment savoir s’il existe un risque de sécurité autour de votre lieu protégé. 
 
-À partir de cette alerte, vous pouvez commander une intervention à distance en quelques secondes. Pas besoin d'être sur place, pas besoin de déranger un voisin : l'agent Edgward s'en charge.
+À partir de ces informations, vous pouvez commander une intervention à distance en quelques secondes. Pas besoin d’être sur place, pas besoin de déranger un voisin : l’agent Edgward s’en charge.
 
 ---
 
