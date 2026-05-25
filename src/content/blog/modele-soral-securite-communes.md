@@ -23,20 +23,12 @@ La commune a opté pour un modèle simple : prendre en charge CHF 50 par an pour
 
 **Ce que la commune ne gère pas :** les interventions, les agents, la logistique — tout cela est pris en charge par Edgward et ses partenaires.
 
-## Les premiers mois : des résultats concrets
-
-Plusieurs mois après le lancement, le bilan est positif :
-
-- **Taux d'adoption** : environ 30 % des foyers de la commune ont activé leur abonnement
-- **Interventions déclenchées** : une dizaine, principalement des levées de doute nocturnes
-- **Satisfaction** : 4,9/5 en moyenne sur les retours d'intervention
+Edgward permet aux communes, ne disposant pas de services de sécurité insitutionnels ou privé, de proposer auprès de leurs habitants d’un service de sécurité facilement accessible. 
 
 ## Un modèle reproductible
 
 Le modèle Soral est conçu pour être reproduit dans n'importe quelle commune romande. Edgward a documenté l'ensemble du processus — convention type, guide de communication aux habitants, paramétrage — pour faciliter le déploiement.
 
-> « On cherchait une solution qui ne nous crée pas de charge administrative supplémentaire. Edgward coche toutes les cases. Nos habitants sont rassurés, et nous aussi. »
-> — Représentant de la commune de Soral
 
 ---
 
