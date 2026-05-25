@@ -12,9 +12,9 @@ import FAQAccordion from '../components/FAQAccordion.astro';
   <section class="hero">
     <div class="container">
       <div class="hero-inner">
-        <span class="hero-eyebrow">Comment ça marche</span>
+        <span class="hero-eyebrow">Comment ça marche?</span>
         <h1>De l'abonnement<br>à l'<em>intervention en 3 étapes</em></h1>
-        <p>Aucune installation matérielle. Aucun engagement long terme. Un agent de sécurité professionnel chez vous en moins de 20 minutes.</p>
+        <p>Aucune installation matérielle. Aucun engagement long terme. Un agent de sécurité professionnel chez vous en quelques minutes.</p>
       </div>
     </div>
   </section>
@@ -24,8 +24,8 @@ import FAQAccordion from '../components/FAQAccordion.astro';
     <div class="container">
       <SectionHeader
         eyebrow="Découvrir Edgward"
-        title="Voyez <em>comment ça fonctionne</em>"
-        subtitle="Une courte vidéo pour comprendre le service Edgward en quelques minutes."
+        title="Découvrez <em>la facilité d'utilisation</em>"
+        subtitle="Une courte vidéo pour comprendre le service Edgward en moins d'une minute."
       />
       <div class="video-wrapper">
         <video class="video-frame" controls preload="metadata" playsinline>
@@ -49,7 +49,7 @@ import FAQAccordion from '../components/FAQAccordion.astro';
           <div class="step-number">1</div>
           <div class="step-content">
             <h3>Téléchargez l'application et abonnez-vous</h3>
-            <p>Disponible sur iOS et Android. Créez votre compte en moins de 2 minutes et choisissez votre abonnement à partir de CHF 15/mois. Le premier mois est offert — résiliable à tout moment.</p>
+            <p>Créez votre compte en quelques étapes et découvrez Edgward gratuitement pendant un mois - résiliable à tout moment.</p>
             <ul class="step-checklist">
               <li>Inscription rapide avec email ou numéro suisse</li>
               <li>Paiement sécurisé par carte bancaire</li>
@@ -64,7 +64,7 @@ import FAQAccordion from '../components/FAQAccordion.astro';
             <h3>Configurez vos lieux à protéger</h3>
             <p>Enregistrez votre domicile, votre bureau ou tout autre lieu que vous souhaitez sécuriser. Ajoutez des instructions spécifiques pour les agents : code d'accès, étage, consignes particulières.</p>
             <ul class="step-checklist">
-              <li>Ajoutez autant d'adresses que nécessaire</li>
+              <li>Configuration possible jusqu’à 2 lieux (privé / professionnel)</li>
               <li>Précisez les informations d'accès</li>
               <li>Définissez des contacts d'urgence</li>
             </ul>
@@ -75,9 +75,9 @@ import FAQAccordion from '../components/FAQAccordion.astro';
           <div class="step-number">3</div>
           <div class="step-content">
             <h3>Commandez une intervention en 1 clic</h3>
-            <p>En cas de besoin, ouvrez l'application, sélectionnez votre lieu et confirmez. Un agent de sécurité professionnel et agréé est dispatché immédiatement. Suivez son arrivée en temps réel sur la carte.</p>
+            <p>En cas de besoin, ouvrez l'application, demandez une intervention et sélectionnez l’entreprise de votre choix selon vos critères (temps ou prix).</p>
             <ul class="step-checklist">
-              <li>Dispatching automatique vers l'agent le plus proche</li>
+              <li>Affichage des patrouilles les plus proches</li>
               <li>Suivi en temps réel de l'intervention</li>
               <li>Rapport d'intervention transmis après chaque mission</li>
             </ul>
@@ -99,15 +99,15 @@ import FAQAccordion from '../components/FAQAccordion.astro';
           <div class="after-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h4>Réponse en &lt;20 min</h4>
-          <p>L'agent de sécurité le plus proche de votre adresse est alerté. En zone urbaine, le temps de réponse moyen est inférieur à 20 minutes.</p>
+          <h4>Patrouilles à choix</h4>
+          <p>Optez pour l’une des patrouilles disponible selon vos critères: entreprise, temps d’arrivée sur site ou prix.</p>
         </div>
         <div class="after-card fade-in">
           <div class="after-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <h4>Suivi en temps réel</h4>
-          <p>Visualisez la position de l'agent sur la carte et recevez des notifications à chaque étape : en route, sur place, mission terminée.</p>
+          <p>Visualisez les étapes d’intervention de la commande à la fin de l’intervention. La patrouille vous contactera si vous le souhaitez.</p>
         </div>
         <div class="after-card fade-in">
           <div class="after-icon">
@@ -121,7 +121,7 @@ import FAQAccordion from '../components/FAQAccordion.astro';
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h4>Agents certifiés</h4>
-          <p>Tous les agents sont employés par des entreprises agréées en Suisse romande. Ils disposent des certifications requises et sont formés aux procédures Edgward.</p>
+          <p>Nous ne travaillons qu’avec des entreprises de sécurité reconnues et acréditées auprès des autorités cantonales.</p>
         </div>
       </div>
     </div>
@@ -136,12 +136,12 @@ import FAQAccordion from '../components/FAQAccordion.astro';
       />
       <div class="faq-container">
         <FAQAccordion items={[
-          { question: "Combien coûte une intervention ?", answer: "L'abonnement Edgward commence à CHF 15/mois. Ce forfait inclut l'accès à l'application et au réseau de 9 entreprises de sécurité partenaires. Le coût de chaque intervention dépend de la prestation demandée et est affiché avant confirmation." },
-          { question: "En combien de temps l'agent arrive-t-il ?", answer: "En zone urbaine (Genève, Lausanne, Neuchâtel…), le temps de réponse moyen est inférieur à 20 minutes. En zone périurbaine ou rurale, il peut varier selon la disponibilité des agents dans votre secteur." },
+          { question: "Combien coûte une intervention ?", answer: "Chaque entreprise partenaire définit librement le coût de son intervention selon ses critères propres (date, horaire et lieu d’intervention). Le prix inclut le déplacement et 60minutes d’intervention sur place." },
+          { question: "En combien de temps l'agent arrive-t-il ?", answer: "En zone urbaine, le temps de réponse moyen est inférieur à 15 minutes. En zone périurbaine ou rurale, il peut varier selon la disponibilité des agents dans votre secteur." },
           { question: "Quels types d'interventions puis-je demander ?", answer: "Ronde de surveillance, vérification d'alarme, escorte, présence dissuasive, ouverture/fermeture de site, levée de doute… Edgward couvre un large éventail de missions de sécurité privée." },
-          { question: "Est-ce que je dois installer du matériel ?", answer: "Non. Edgward est 100 % logiciel. Vous n'avez besoin que de votre smartphone et de l'application. Aucune caméra, capteur ou centrale d'alarme n'est requis." },
-          { question: "Puis-je résilier à tout moment ?", answer: "Oui. Il n'y a aucun engagement minimum. Vous pouvez résilier votre abonnement directement depuis l'application, en un clic. La résiliation prend effet à la fin du mois en cours." },
-          { question: "Les agents sont-ils vraiment professionnels ?", answer: "Oui. Tous les agents du réseau Edgward sont employés par des entreprises de sécurité agréées par les autorités cantonales suisses. Ils disposent des certifications requises et suivent une formation continue." },
+          { question: "Est-ce que je dois installer du matériel ?", answer: "Non. Vous n'avez besoin que de votre smartphone et de l'application. Aucune caméra, capteur ou centrale d'alarme n'est requis. Vous pouvez utiliser votre propre matériel déjà installé ou utiliser vos outils en autosurveillance." },
+          { question: "Puis-je résilier à tout moment ?", answer: "Oui. Il n'y a aucun engagement minimum. Vous pouvez résilier votre abonnement directement depuis l'application, en un clic. La résiliation prend effet à la fin de la période déjà réglée." },
+          { question: "Les agents sont-ils vraiment professionnels ?", answer: "Oui. Les patrouilles affichées proviennent uniquement d’entreprises de sécurité dûment agréées." },
         ]} />
       </div>
     </div>
