@@ -13,11 +13,14 @@ Beaucoup de personnes se posent la même question avant d'utiliser Edgward pour 
 
 Tout commence dans l'application Edgward. Vous sélectionnez le type d'intervention dont vous avez besoin — ronde de surveillance, vérification de domicile, levée de doute, contrôle d'un accès ou d'un local — puis vous renseignez votre adresse ainsi que les instructions d'accès utiles pour l'agent (code d'entrée, localisation d'une clé, présence d'un animal, etc.).
 
-Avant de confirmer, l'app vous affiche une estimation du prix en temps réel, calculée selon la prestation choisie et votre localisation. Pas de surprise : vous savez exactement ce que vous payez avant d'engager quoi que ce soit.
+Avant de confirmer, l’app vous affiche le prix de l’intervention (déplacement et jusqu’à 60minutes sur place). Au besoin, l’intervention peut être prolongée. Pas de surprise : vous savez exactement ce que vous payez avant d'engager quoi que ce soit.
 
-## 2. L'algorithme trouve l'agent le plus proche
+## 2. L’app identifie les patrouilles les plus proches
 
-Une fois votre demande soumise, l'algorithme Edgward identifie immédiatement le partenaire de sécurité certifié le plus proche et disponible. Vous voyez apparaître dans l'app le nom de l'entreprise partenaire, ainsi que le temps d'arrivée estimé — généralement inférieur à 20 minutes.
+Une fois votre demande soumise, Edgward identifie immédiatement les partenaires de sécurité les plus proches.
+
+Vous voyez apparaître dans l’app le nom de l’entreprise partenaire, ainsi que le temps d’arrivée estimé et le prix.
+Une fois sélectionné, la patrouille confirme la prise en charge de l’intervention et vous validez la demande par votre paiement sur l’app.
 
 À ce stade, vous pouvez encore confirmer ou annuler : rien n'est débité tant que vous n'avez pas validé. Cette étape vous garantit la transparence et le contrôle total sur votre demande.
 
