@@ -9,54 +9,63 @@ const partners = [
     zone: 'Arc lémanique',
     description: "Acteur reconnu de la sécurité humaine, Global Sécurité propose surveillance, contrôles d'accès et interventions rapides sur l'Arc lémanique. Disponible 24h/24.",
     siteUrl: 'https://global-securite.ch/',
+    logo: '/assets/partners/global-securite.png',
   },
   {
     name: 'GPA SA',
     zone: 'Suisse romande',
     description: "Acteur incontournable de la sécurité en Suisse romande. Intervient 24h/24, spécialisé dans la surveillance mobile et l'intervention rapide sur l'ensemble du territoire romand.",
     siteUrl: 'https://www.gpa.ch/',
+    logo: '/assets/partners/gpa.png',
   },
   {
     name: 'Python Sécurité SA',
     zone: 'Genève (20+ ans d\'expérience)',
     description: "Plus de 20 ans d'expertise à Genève. Python Sécurité offre des solutions sur mesure : surveillance de sites, intervention mobile et gestion des accès pour particuliers et entreprises.",
     siteUrl: 'https://python-securite.ch/',
+    logo: '/assets/partners/python.png',
   },
   {
     name: 'Sécurice',
     zone: 'Neuchâtel',
     description: "Spécialiste de la sécurité dans le canton de Neuchâtel. Sécurice assure rondes de surveillance, intervention 24/7 et protection des biens pour les particuliers et les entreprises.",
     siteUrl: 'https://www.securice.ch/',
+    logo: '/assets/partners/securice.png',
   },
   {
     name: 'Juggers',
     zone: 'Vaud',
     description: "Entreprise de sécurité active sur Genève et Vaud. Juggers intervient rapidement pour des missions de surveillance, gardiennage et sécurité événementielle.",
     siteUrl: 'https://www.juggers.ch/',
+    logo: '/assets/partners/juggers.png',
   },
   {
     name: 'Alpshawk',
     zone: 'Valais',
     description: "Basée dans le canton de Vaud, Alpshawk assure des prestations de sécurité sur mesure : rondes, interventions et surveillance pour particuliers et professionnels.",
     siteUrl: 'https://www.alpshawk.ch/',
+    logo: '/assets/partners/alpshawk.png',
   },
   {
     name: 'Wolfguard',
     zone: 'Vaud',
     description: "Spécialiste de la sécurité à Genève, Wolfguard propose gardiennage, rondes de surveillance et interventions rapides pour la protection des biens et des personnes.",
     siteUrl: 'https://www.wolfguard.ch/',
+    logo: '/assets/partners/wolfguard.png',
   },
   {
     name: 'Roc Sécurité',
     zone: 'Valais',
     description: "Entreprise valaisanne de sécurité privée. Roc Sécurité offre des services de surveillance, d'intervention et de protection adaptés aux besoins du canton.",
     siteUrl: 'https://www.rocsecurite.ch/',
+    logo: '/assets/partners/roc-securite.png',
   },
   {
     name: 'KRK Security',
     zone: 'Genève',
     description: "Active dans le canton de Fribourg, KRK Security assure gardiennage, patrouilles et interventions pour sécuriser commerces, entreprises et particuliers.",
     siteUrl: 'https://krksecurity.ch/',
+    logo: '/assets/partners/krk.png',
   },
 ];
 ---
@@ -91,6 +100,7 @@ const partners = [
             zone={p.zone}
             description={p.description}
             siteUrl={p.siteUrl}
+            logo={p.logo}
           />
         ))}
       </div>
