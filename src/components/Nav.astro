@@ -15,8 +15,8 @@ const links = [
 <nav class="nav" id="nav" aria-label="Navigation principale">
   <div class="nav-inner">
     <a href="/" class="logo">
-      <img src="/assets/sigle.png" alt="Edgward" width="36" height="36">
-      <span>Edgward</span>
+      <img src="/assets/sigle.png" alt="" width="36" height="36">
+      <img class="logo-wordmark" src="/assets/wordmark-edgward.png" alt="Edgward" height="19">
     </a>
 
     <ul class="nav-links" id="nav-links" role="list">
@@ -105,6 +105,7 @@ const links = [
     letter-spacing: 0.02em;
   }
   .logo img { border-radius: 9px; }
+  .logo .logo-wordmark { height: 19px; width: auto; border-radius: 0; display: block; }
 
   .nav-links {
     display: flex;
