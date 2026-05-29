@@ -242,15 +242,16 @@ const activationSteps = [
   <!-- LEGAL CALLOUT -->
   <section class="section legal-section">
     <div class="container">
-      <div class="legal-callout fade-in">
+      <a href="/sccl-conseils" class="legal-callout fade-in">
         <div class="legal-icon" aria-hidden="true">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div>
+        <div class="legal-content">
           <h3>Conseils sécurité &amp; vidéosurveillance (LPD / LTr)</h3>
           <p>Installer des caméras : OUI mais correctement — où filmer, quoi éviter, et les bons réflexes pour rester conforme en Suisse.</p>
         </div>
-      </div>
+        <svg class="legal-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </section>
 
@@ -462,10 +463,17 @@ const activationSteps = [
   /* LEGAL CALLOUT */
   .legal-section { background: var(--soft); }
   .legal-callout {
-    display: flex; align-items: flex-start; gap: 20px;
+    display: flex; align-items: center; gap: 20px;
     background: white; border: 1px solid var(--border);
     border-radius: var(--radius-lg); padding: 28px;
     max-width: 640px; margin: 0 auto;
+    text-decoration: none; color: inherit;
+    transition: all 0.2s ease;
+  }
+  .legal-callout:hover {
+    border-color: var(--brand);
+    box-shadow: 0 8px 24px rgba(70,120,220,0.1);
+    transform: translateY(-2px);
   }
   .legal-icon {
     width: 52px; height: 52px; flex-shrink: 0;
@@ -473,8 +481,14 @@ const activationSteps = [
     display: flex; align-items: center; justify-content: center;
     color: var(--brand);
   }
+  .legal-content { flex: 1; }
   .legal-callout h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
   .legal-callout p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+  .legal-arrow {
+    flex-shrink: 0; color: var(--brand);
+    transition: transform 0.2s ease;
+  }
+  .legal-callout:hover .legal-arrow { transform: translateX(4px); }
 
   /* CONTACT */
   .contact-section { background: white; }
