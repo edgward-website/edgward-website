@@ -42,7 +42,12 @@ const activationSteps = [
   <section class="hero">
     <div class="container">
       <div class="hero-inner">
-        <span class="hero-eyebrow">En partenariat avec la Société Coopérative des Commerçants Lausannois</span>
+        <div class="hero-partner">
+          <span class="hero-partner-label">En partenariat avec</span>
+          <span class="hero-partner-badge">
+            <img src="/assets/sccl-logo.webp" alt="Société Coopérative des Commerçants Lausannois — Lausanne, c'est mon choix !" width="240" height="104" class="hero-partner-logo" loading="eager">
+          </span>
+        </div>
         <h1>Sécurisez votre commerce <em>en quelques minutes</em></h1>
         <p>Des patrouilles de sécurité locales, sur simple demande. Idéal après une fermeture tardive, une alarme ou juste un doute.</p>
         <div class="hero-ctas">
@@ -95,6 +100,13 @@ const activationSteps = [
         title="Déclenchez une intervention <em>depuis votre téléphone</em>"
         subtitle="En quelques étapes simples, vous pouvez déclencher une intervention directement depuis votre téléphone."
       />
+      <div class="video-wrapper">
+        <video class="video-frame" controls preload="metadata" playsinline>
+          <source src="/assets/tuto-app.mp4" type="video/mp4">
+          Votre navigateur ne permet pas la lecture de la vidéo.
+          <a href="/assets/tuto-app.mp4">Télécharger la vidéo</a>.
+        </video>
+      </div>
       <Steps steps={howItWorks} />
       <div class="steps-more">
         <a href="/comment-ca-marche" class="btn-outline">Plus d'informations</a>
@@ -121,15 +133,16 @@ const activationSteps = [
             <span class="price-period">/ an</span>
           </div>
           <ul class="pack-features">
-            <li>Diagnostic sécurité offert</li>
-            <li>Application Edgward à tarif préférentiel</li>
-            <li class="feature-highlight">Première intervention remboursée</li>
+            <li>Diagnostic sécurité (accès, fermetures, zones sensibles)</li>
+            <li>Recommandations prioritaires "quick wins"</li>
+            <li>Abonnement à l'application Edgward (1 an)</li>
+            <li class="feature-highlight">Première intervention remboursée (selon conditions)</li>
           </ul>
           <div class="pack-ideal">
             <strong>Idéal pour</strong>
             <p>Commerces déjà équipés (alarme/caméras) ou besoin ponctuel et flexible.</p>
           </div>
-          <a href="#contact" class="btn-primary pack-cta">Choisir ce pack</a>
+          <a href="https://buy.stripe.com/4gM3cw94mbkl4FIfVT8Ra00" target="_blank" rel="noopener noreferrer" class="btn-primary pack-cta">Choisir ce pack</a>
         </div>
 
         <!-- PACK B -->
@@ -142,17 +155,18 @@ const activationSteps = [
             <span class="price">CHF 199.-</span>
           </div>
           <ul class="pack-features">
-            <li>Diagnostic sécurité offert</li>
-            <li>2 caméras (indoor / outdoor)</li>
-            <li>1 boîtier à clé</li>
-            <li>Abonnement annuel Edgward inclus (12 mois)</li>
-            <li class="feature-highlight">Première intervention remboursée</li>
+            <li>2 caméras (indoor / outdoor) adaptées au commerce</li>
+            <li>1 boîtier à clé pour faciliter l'accès en cas de contrôle</li>
+            <li>Abonnement à l'application Edgward (1 an)</li>
+            <li>Diagnostic sécurité (accès, fermetures, zones sensibles)</li>
+            <li>Recommandations prioritaires "quick wins"</li>
+            <li class="feature-highlight">Première intervention remboursée (selon conditions)</li>
           </ul>
           <div class="pack-ideal">
             <strong>Idéal pour</strong>
             <p>Commerces souhaitant un équipement complet et une protection immédiate.</p>
           </div>
-          <a href="#contact" class="btn-primary pack-cta">Choisir ce pack</a>
+          <a href="https://buy.stripe.com/7sY28s94m8890ps7pn8Ra01" target="_blank" rel="noopener noreferrer" class="btn-primary pack-cta">Choisir ce pack</a>
         </div>
       </div>
     </div>
@@ -267,9 +281,21 @@ const activationSteps = [
     pointer-events: none;
   }
   .hero-inner { position: relative; z-index: 1; max-width: 660px; margin: 0 auto; }
-  .hero-eyebrow {
-    display: inline-block; font-size: 11px; color: var(--brand-light);
-    font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+  .hero-partner {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 12px; margin-bottom: 22px;
+  }
+  .hero-partner-label {
+    font-size: 11px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .hero-partner-badge {
+    display: inline-flex; background: #fff;
+    border-radius: 14px; padding: 14px 22px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+  }
+  .hero-partner-logo {
+    display: block; width: 220px; max-width: 58vw; height: auto;
   }
   .hero h1 {
     font-size: clamp(34px, 4.5vw, 54px); font-weight: 800; line-height: 1.08;
@@ -322,6 +348,12 @@ const activationSteps = [
 
   /* STEPS */
   .steps-section { background: var(--soft); }
+  .video-wrapper { max-width: 800px; margin: 0 auto 40px; }
+  .video-frame {
+    display: block; margin: 0 auto; width: 100%; max-width: 380px;
+    aspect-ratio: 9 / 16; background: var(--navy);
+    border-radius: var(--radius-lg); object-fit: contain;
+  }
   .steps-more { text-align: center; margin-top: 32px; }
   .btn-outline {
     display: inline-flex; align-items: center; gap: 8px;
