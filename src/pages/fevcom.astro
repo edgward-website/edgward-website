@@ -14,8 +14,8 @@ const benefits = [
     description: "Commandez une patrouille uniquement quand c'est nécessaire.",
   },
   {
-    title: 'Packs clé en main négociés SCCL',
-    description: "Une offre adaptée aux réalités des commerces lausannois.",
+    title: 'Packs clé en main négociés FEVCOM',
+    description: "Une offre adaptée aux réalités des commerces vaudois.",
   },
 ];
 
@@ -26,7 +26,7 @@ const howItWorks = [
 ];
 
 const activationSteps = [
-  { num: '1', title: 'Choisissez votre pack', description: "Sélectionnez votre pack dédié SCCL et recevez votre code promotionnel." },
+  { num: '1', title: 'Choisissez votre pack', description: "Sélectionnez votre pack dédié FEVCOM et recevez votre code promotionnel." },
   { num: '2', title: 'Installez votre système de sécurité', description: "Si votre pack inclut des caméras ou un boîtier à clé, installez-les selon les recommandations. Besoin d'aide ? Nous pouvons vous accompagner." },
   { num: '3', title: 'Téléchargez l\'application Edgward', description: "Installez Edgward depuis l'App Store ou le Play Store pour accéder aux patrouilles à la demande." },
   { num: '4', title: 'Configurez l\'adresse de votre commerce', description: "Ajoutez l'adresse exacte pour faciliter l'intervention rapide des agents." },
@@ -35,8 +35,8 @@ const activationSteps = [
 ---
 
 <Base
-  title="SCCL — Offre exclusive commerçants lausannois | Edgward"
-  description="Offre Edgward exclusive pour les membres de la Société Coopérative des Commerçants Lausannois. Diagnostic sécurité offert, packs négociés, intervention sur demande."
+  title="FEVCOM — Offre exclusive commerces vaudois | Edgward"
+  description="Offre Edgward exclusive pour les membres de la Fédération Vaudoise du Commerce de Détail. Diagnostic sécurité offert, packs négociés, intervention sur demande."
 >
   <!-- HERO -->
   <section class="hero">
@@ -44,15 +44,15 @@ const activationSteps = [
       <div class="hero-inner">
         <div class="hero-partner">
           <span class="hero-partner-label">En partenariat avec</span>
-          <a href="https://www.commercants-lausannois.ch/" target="_blank" rel="noopener noreferrer" class="hero-partner-badge" aria-label="Site de la SCCL (nouvelle fenêtre)">
-            <img src="/assets/sccl-logo.webp" alt="Société Coopérative des Commerçants Lausannois — Lausanne, c'est mon choix !" width="240" height="104" class="hero-partner-logo" loading="eager">
+          <a href="https://fevcom.ch/" target="_blank" rel="noopener noreferrer" class="hero-partner-badge" aria-label="Site de la FEVCOM (nouvelle fenêtre)">
+            <img src="/assets/fevcom-logo.jpg" alt="FEVCOM — Fédération Vaudoise du Commerce de Détail" width="240" height="104" class="hero-partner-logo" loading="eager">
           </a>
         </div>
         <h1>Sécurisez votre commerce <em>en quelques minutes</em></h1>
         <p>Des patrouilles de sécurité locales, sur simple demande. Idéal après une fermeture tardive, une alarme ou juste un doute.</p>
         <div class="hero-ctas">
           <a href="#offres" class="btn-primary">
-            Les offres SCCL
+            Les offres FEVCOM
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="#comment-ca-marche" class="btn-secondary">Comment ça marche ?</a>
@@ -72,11 +72,11 @@ const activationSteps = [
   <section class="section intro-section">
     <div class="container">
       <SectionHeader
-        eyebrow="Offre exclusive pour les membres SCCL"
+        eyebrow="Offre exclusive pour les membres FEVCOM"
         title="Sécurité à la demande pour <em>votre commerce</em>"
         subtitle="Protéger votre établissement ne devrait pas être un parcours compliqué ni un contrat rigide."
       />
-      <p class="intro-lead">Grâce au partenariat <strong>Edgward × SCCL</strong>, vous accédez à une solution simple et concrète : <strong>diagnostic</strong>, <strong>packs négociés</strong> et <strong>intervention sur demande</strong>.</p>
+      <p class="intro-lead">Grâce au partenariat <strong>Edgward × FEVCOM</strong>, vous accédez à une solution simple et concrète : <strong>diagnostic</strong>, <strong>packs négociés</strong> et <strong>intervention sur demande</strong>.</p>
       <div class="benefits-list">
         {benefits.map(b => (
           <div class="benefit-item fade-in">
@@ -118,9 +118,9 @@ const activationSteps = [
   <section class="section packs-section" id="offres">
     <div class="container">
       <SectionHeader
-        eyebrow="Packs exclusifs aux membres SCCL"
+        eyebrow="Packs exclusifs aux membres FEVCOM"
         title="Deux solutions simples pour <em>sécuriser votre commerce</em>"
-        subtitle="Offres réservées aux membres SCCL. Première intervention remboursée en partenariat avec les entreprises de sécurité participantes."
+        subtitle="Offres réservées aux membres FEVCOM. Première intervention remboursée en partenariat avec les entreprises de sécurité participantes."
       />
       <div class="packs-grid">
         <!-- PACK A -->
@@ -242,7 +242,7 @@ const activationSteps = [
   <!-- LEGAL CALLOUT -->
   <section class="section legal-section">
     <div class="container">
-      <a href="/sccl-conseils" class="legal-callout fade-in">
+      <a href="/fevcom-conseils" class="legal-callout fade-in">
         <div class="legal-icon" aria-hidden="true">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
@@ -261,9 +261,9 @@ const activationSteps = [
       <SectionHeader
         eyebrow="Contact & inscription"
         title="Demandez votre <em>diagnostic gratuit</em>"
-        subtitle="Réservé aux membres SCCL. Notre équipe vous recontacte sous 24h."
+        subtitle="Réservé aux membres FEVCOM. Notre équipe vous recontacte sous 24h."
       />
-      <ContactForm defaultSubject="Membre SCCL" />
+      <ContactForm defaultSubject="Membre FEVCOM" />
     </div>
   </section>
 </Base>

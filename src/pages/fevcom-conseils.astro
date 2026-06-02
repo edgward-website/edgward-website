@@ -1,0 +1,412 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const priorities = [
+  {
+    title: 'Fermeture : routine "propre"',
+    description: "Vérifiez toujours les accès secondaires, arrière-boutique et issues. La constance = sécurité.",
+  },
+  {
+    title: 'Caisse & valeurs',
+    description: "Réduisez le cash visible et sécurisez la zone (arrière-caisse / réserve). Moins d'attractivité, moins de risques.",
+  },
+  {
+    title: 'Accès arrière & livraisons',
+    description: "Formalisez une procédure simple : sonnette, contrôle visuel, jamais de porte arrière « entre-ouverte ».",
+  },
+  {
+    title: 'Clés & codes',
+    description: "Limitez les détenteurs, changez les codes en cas de départ, et évitez les duplicatas non maîtrisés.",
+  },
+  {
+    title: 'Visibilité & dissuasion',
+    description: "Éclairage, vitrines dégagées, signalétique : la dissuasion simple est souvent la plus efficace.",
+  },
+  {
+    title: 'En cas de doute',
+    description: "Ne vous exposez pas, privilégiez votre sécurité avant tout !",
+  },
+];
+
+const cameraZones = [
+  {
+    title: 'Entrée principale',
+    description: "Visage + flux. Angle qui évite de filmer trop de voie publique.",
+  },
+  {
+    title: 'Caisse / point de paiement',
+    description: "Zone sensible. Évitez le champ constant sur les employés si inutile.",
+  },
+  {
+    title: 'Accès arrière / livraison',
+    description: "Souvent l'accès le plus vulnérable. Prioritaire si vous recevez des livraisons.",
+  },
+  {
+    title: 'Réserve / stock',
+    description: "Cible fréquente. Combinez contrôle d'accès + vidéo si pertinent.",
+  },
+  {
+    title: 'Vitrine (dissuasion)',
+    description: "Utile si elle est exposée. Attention aux reflets et à la captation du voisinage.",
+  },
+  {
+    title: 'Zone technique',
+    description: "Tableau électrique, local informatique, armoire sensible : caméra si risque réel.",
+  },
+];
+
+const avoid = [
+  {
+    title: 'Zones privées',
+    description: "WC, vestiaires, espaces de pause : à exclure.",
+  },
+  {
+    title: 'Voie publique & voisinage',
+    description: "Réduisez la captation au strict nécessaire (angles, masquage, cadrage).",
+  },
+  {
+    title: 'Surveillance "performance"',
+    description: "Évitez l'usage des images pour contrôler le travail : la finalité doit rester la sécurité.",
+  },
+];
+
+const checklist = [
+  'Finalité clairement définie : sécurité / prévention',
+  'Signalisation visible pour le public (entrée / zones filmées)',
+  'Information claire des collaborateurs (LTr : pas de contrôle de performance)',
+  'Accès aux images limité (responsable désigné, traçabilité si possible)',
+  'Conservation proportionnée : généralement ≤ 30 jours (sauf justification particulière)',
+  "Images utilisées uniquement en cas d'incident / besoin de sécurité",
+];
+---
+
+<Base
+  title="Conseils sécurité & vidéosurveillance FEVCOM | Edgward"
+  description="Conseils pratiques pour les membres FEVCOM : sécuriser son commerce et installer une vidéosurveillance conforme au cadre suisse (LPD / LTr)."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-partner">
+          <span class="hero-partner-label">Conseils pratiques pour les membres FEVCOM</span>
+          <a href="https://fevcom.ch/" target="_blank" rel="noopener noreferrer" class="hero-partner-badge" aria-label="Site de la FEVCOM (nouvelle fenêtre)">
+            <img src="/assets/fevcom-logo.jpg" alt="FEVCOM — Fédération Vaudoise du Commerce de Détail" width="240" height="104" class="hero-partner-logo" loading="eager">
+          </a>
+        </div>
+        <h1>Sécurité &amp; vidéosurveillance : <em>utile, conforme, efficace</em></h1>
+        <p>Une page simple pour renforcer la sécurité de votre commerce au quotidien et installer une vidéosurveillance dans le respect du cadre suisse<sup>*</sup>.</p>
+        <div class="hero-apps">
+          <span>Téléchargez l'application :</span>
+          <div class="hero-apps-links">
+            <a href="https://apps.apple.com/ch/app/edgward/id6503622410" target="_blank" rel="noopener noreferrer" class="store-btn">App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=ch.edgward.app.clients" target="_blank" rel="noopener noreferrer" class="store-btn">Play Store</a>
+          </div>
+        </div>
+        <p class="hero-footnote">*Cette page donne des recommandations générales. Nous adaptons les conseils lors du diagnostic selon votre configuration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIORITES -->
+  <section class="section priorities-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Priorités simples"
+        title="Des réflexes <em>concrets</em> qui réduisent les opportunités"
+        subtitle="Quelques gestes simples qui font une vraie différence au quotidien."
+      />
+      <div class="cards-grid">
+        {priorities.map(item => (
+          <div class="info-card fade-in">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMERAS -->
+  <section class="section cameras-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Vidéosurveillance"
+        title="Où placer <em>les caméras ?</em>"
+        subtitle="L'objectif : couvrir les accès et zones sensibles, sans surcaptation inutile."
+      />
+      <div class="cards-grid">
+        {cameraZones.map(item => (
+          <div class="info-card info-card--accent fade-in">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- A EVITER -->
+  <section class="section avoid-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="À éviter"
+        title="Ce qu'il <em>ne faut pas</em> faire"
+        subtitle="Pour rester proportionné et respecter la personnalité des personnes."
+      />
+      <div class="cards-grid cards-grid--three">
+        {avoid.map(item => (
+          <div class="info-card info-card--warning fade-in">
+            <div class="warning-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFORMITE -->
+  <section class="section compliance-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="LPD / LTr"
+        title="Conformité <em>en 60 secondes</em>"
+        subtitle="Les points essentiels à mettre en place pour une vidéosurveillance responsable."
+      />
+      <div class="checklist-card fade-in">
+        <div class="checklist-header">
+          <div class="checklist-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Checklist rapide</h3>
+        </div>
+        <ul class="checklist">
+          {checklist.map(item => (
+            <li>
+              <svg class="check-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="checklist-footnote">*Conseils généraux. Les modalités exactes dépendent du contexte, de l'emplacement et de la configuration du commerce.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-card fade-in">
+        <h2>Besoin d'un avis adapté <em>à votre commerce ?</em></h2>
+        <p>Le diagnostic de sécurité permet de vous accompagner sur les points de vigilance et de sécurité de votre commerce et vous aide à valider les accès, les priorités et une vidéosurveillance efficace (et proportionnée).</p>
+        <div class="cta-actions">
+          <a href="/fevcom#contact" class="btn-primary">
+            Demander mon diagnostic
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="/fevcom#offres" class="btn-outline-dark">Voir les packs FEVCOM</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* HERO */
+  .hero {
+    background: var(--navy); color: white;
+    padding: 80px 0 64px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .hero-partner {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 12px; margin-bottom: 22px;
+  }
+  .hero-partner-label {
+    font-size: 11px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .hero-partner-badge {
+    display: inline-flex; background: #fff;
+    border-radius: 14px; padding: 14px 22px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  a.hero-partner-badge { text-decoration: none; }
+  a.hero-partner-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+  }
+  .hero-partner-logo {
+    display: block; width: 200px; max-width: 56vw; height: auto;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 4vw, 48px); font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.025em; margin-bottom: 18px; color: white;
+  }
+  .hero h1 em {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-weight: 400; color: var(--brand-light);
+  }
+  .hero > .container > .hero-inner > p {
+    font-size: 17px; color: #cbd5e1; line-height: 1.6;
+    max-width: 560px; margin: 0 auto 28px;
+  }
+  .hero-apps { margin-top: 4px; }
+  .hero-apps span { font-size: 13px; color: #94a3b8; font-weight: 600; display: block; margin-bottom: 10px; }
+  .hero-apps-links { display: flex; gap: 10px; justify-content: center; }
+  .store-btn {
+    background: rgba(255,255,255,0.1); color: white;
+    padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    text-decoration: none; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s ease;
+  }
+  .store-btn:hover { background: rgba(255,255,255,0.18); }
+  .hero-footnote {
+    font-size: 12px; color: #94a3b8; margin-top: 28px;
+    max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5;
+  }
+
+  /* CARDS GRIDS */
+  .priorities-section { background: white; }
+  .cameras-section { background: var(--soft); }
+  .avoid-section { background: white; }
+
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px; max-width: 960px; margin: 0 auto;
+  }
+  .cards-grid--three { grid-template-columns: repeat(3, 1fr); max-width: 880px; }
+
+  .info-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 22px 22px 24px;
+    transition: all 0.2s ease;
+    border-left: 3px solid var(--brand);
+  }
+  .info-card:hover { box-shadow: 0 8px 24px rgba(70,120,220,0.08); transform: translateY(-2px); }
+  .info-card h3 {
+    font-size: 16px; font-weight: 700; color: var(--navy);
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .info-card p {
+    font-size: 14px; color: var(--text-muted); line-height: 1.55; margin: 0;
+  }
+  .info-card--accent {
+    background: white;
+    border-left-color: var(--brand);
+  }
+  .info-card--warning {
+    border-left-color: #e0a800;
+    background: #fffaf0;
+  }
+  .info-card--warning:hover { box-shadow: 0 8px 24px rgba(224,168,0,0.12); }
+  .warning-icon {
+    width: 38px; height: 38px;
+    background: #fff3cd; color: #856404;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  /* COMPLIANCE */
+  .compliance-section { background: var(--soft); }
+  .checklist-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 32px;
+    max-width: 720px; margin: 0 auto;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+  }
+  .checklist-header {
+    display: flex; align-items: center; gap: 14px;
+    padding-bottom: 18px; margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .checklist-icon {
+    width: 44px; height: 44px;
+    background: var(--brand-soft); color: var(--brand);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .checklist-header h3 {
+    font-size: 17px; font-weight: 700; color: var(--navy); margin: 0;
+  }
+  .checklist {
+    list-style: none; display: flex; flex-direction: column; gap: 12px;
+    margin-bottom: 22px; padding: 0;
+  }
+  .checklist li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px; color: var(--text); line-height: 1.55;
+  }
+  .check-icon {
+    color: var(--brand); flex-shrink: 0; margin-top: 2px;
+  }
+  .checklist-footnote {
+    font-size: 12px; color: var(--text-muted);
+    padding-top: 16px; border-top: 1px solid var(--border);
+    margin: 0; line-height: 1.5;
+  }
+
+  /* CTA */
+  .cta-section { background: white; padding-top: 0; }
+  .cta-card {
+    background: var(--navy); color: white;
+    border-radius: var(--radius-lg); padding: 48px 40px;
+    text-align: center; position: relative; overflow: hidden;
+    max-width: 880px; margin: 0 auto;
+  }
+  .cta-card::before {
+    content: ''; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-card > * { position: relative; z-index: 1; }
+  .cta-card h2 {
+    font-size: clamp(26px, 3vw, 34px); font-weight: 800;
+    color: white; margin-bottom: 14px; line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .cta-card h2 em {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-weight: 400; color: var(--brand-light);
+  }
+  .cta-card p {
+    font-size: 16px; color: #cbd5e1; line-height: 1.6;
+    max-width: 600px; margin: 0 auto 28px;
+  }
+  .cta-actions {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn-outline-dark {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.25); background: transparent;
+    color: white; font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s ease;
+  }
+  .btn-outline-dark:hover { border-color: var(--brand-light); background: rgba(255,255,255,0.06); }
+
+  @media (max-width: 900px) {
+    .cards-grid, .cards-grid--three { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 56px 0 48px; }
+    .cards-grid, .cards-grid--three { grid-template-columns: 1fr; }
+    .cta-card { padding: 36px 24px; }
+    .checklist-card { padding: 24px 22px; }
+  }
+</style>
