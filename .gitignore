@@ -21,3 +21,8 @@ node_modules/
 # macOS Finder duplicate artifacts ("file 2.ext")
 * 2.*
 *.local
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
