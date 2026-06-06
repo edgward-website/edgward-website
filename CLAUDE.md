@@ -26,6 +26,16 @@ développeur** et utilise Claude Code pour faire évoluer le site.
 - Images : `public/assets/`.
 - Démarrage : `npm run dev` (requiert Node.js ≥ 22).
 
+## Publication / Git
+
+- Le propriétaire autorise les commits **et le push direct sur `main`** dès
+  qu'une modification est validée. Pas besoin de passer par une branche +
+  Pull Request : `git commit` puis `git push origin main` est le flux normal.
+- Le push sur `main` déclenche automatiquement le déploiement GitHub Pages
+  (workflow `.github/workflows/deploy.yml`).
+- Toujours faire valider visuellement la modification (aperçu local) **avant**
+  de pousser.
+
 ## Garde-fous
 
 - Ne modifie pas les textes juridiques (`/cgu`, `/confidentialite`) sans demande
