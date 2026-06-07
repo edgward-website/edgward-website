@@ -1,0 +1,214 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+
+const contexte = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
+    title: 'Contrôles aux frontières',
+    description: "La Suisse rétablit des contrôles temporaires à sa frontière avec la France du 10 au 19 juin 2026. Les déplacements transfrontaliers sont à anticiper.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'Espace aérien restreint',
+    description: "Une zone d'interdiction temporaire de survol couvre la région lémanique du 10 juin à 13h au 18 juin à 3h.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
+    title: 'Circulation & mobilisations',
+    description: "Trafic fortement perturbé autour d'Évian et dans le Chablais, et une manifestation d'ampleur annoncée à Genève le 14 juin.",
+  },
+];
+
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: 'Alertes géolocalisées',
+    description: "Définissez votre localité — Genève, Vaud, Chablais — et le type d'information que vous souhaitez suivre. L'essentiel pour votre zone, sans le bruit.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
+    title: 'Sources vérifiées',
+    description: "Pendant un événement aussi dense, l'information est éclatée entre cantons, préfecture et communes. Edgward la recoupe, la modère et vous renvoie vers la source officielle.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'Action en un clic',
+    description: "Une situation vous préoccupe ? Commandez directement une intervention auprès d'une patrouille proche du lieu souhaité — sans abonnement de longue durée.",
+  },
+];
+
+const usages = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
+    title: 'Vous êtes frontalier',
+    description: "Vous franchissez la frontière chaque jour ? Anticipez les contrôles renforcés et les perturbations de circulation entre le 10 et le 19 juin.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1M9 13h1m4 0h1M9 17h1m4 0h1"/></svg>',
+    title: 'Vous dirigez une entreprise',
+    description: "Sécurisez vos sites et vos équipes pendant le sommet : information vérifiée au même endroit et intervention à la demande si la situation l'exige.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
+    title: 'Vous habitez le bassin lémanique',
+    description: "Suivez en temps réel ce qui se passe autour de chez vous, sans éplucher dix canaux officiels. L'info utile, au bon moment.",
+  },
+];
+---
+
+<Base
+  title="Sécurité pendant le G7 d'Évian (15–17 juin 2026) | Edgward"
+  description="G7 à Évian du 15 au 17 juin 2026 : contrôles aux frontières, espace aérien restreint, circulation perturbée autour du Léman. Restez informé en temps réel avec les alertes vérifiées d'Edgward."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Sommet du G7 · 15–17 juin 2026
+          </div>
+          <h1>Sécurité pendant le <em>G7 d'Évian</em><br>restez informé autour du Léman</h1>
+          <p>Du 15 au 17 juin 2026, le bassin lémanique est aux premières loges d'un sommet international. Contrôles aux frontières, espace aérien restreint, circulation perturbée : suivez les informations vérifiées et géolocalisées qui vous concernent, directement dans l'app. <a href="/blog/securite-g7-alertes">Lire notre article sur le G7 et le module Alertes →</a></p>
+          <div class="hero-ctas">
+            <a href="#telecharger" class="btn-primary">
+              Découvrir dans l'app
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="/alertes" class="btn-secondary">
+              Le module Alertes
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="newsfeed-demo">
+            <div class="demo-header">
+              <span class="demo-title">Alertes · Bassin lémanique</span>
+              <span class="demo-radius">G7</span>
+            </div>
+            <div class="demo-item demo-item--red">
+              <div class="demo-dot demo-dot--red"></div>
+              <div class="demo-content">
+                <strong>Contrôle frontière renforcé</strong>
+                <span>Frontière FR/CH · 10–19 juin</span>
+              </div>
+              <button class="demo-cta">Voir</button>
+            </div>
+            <div class="demo-item demo-item--orange">
+              <div class="demo-dot demo-dot--orange"></div>
+              <div class="demo-content">
+                <strong>Espace aérien restreint</strong>
+                <span>Région lémanique · 10–18 juin</span>
+              </div>
+            </div>
+            <div class="demo-item demo-item--yellow">
+              <div class="demo-dot demo-dot--yellow"></div>
+              <div class="demo-content">
+                <strong>Manifestation annoncée</strong>
+                <span>Genève centre · 14 juin</span>
+              </div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-dot demo-dot--green"></div>
+              <div class="demo-content">
+                <strong>Circulation rétablie ✓</strong>
+                <span>Axe Chablais · mise à jour récente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXTE -->
+  <section class="section problem-section" id="contexte">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Le contexte"
+        title="Un sommet en France, <em>des effets bien réels en Suisse</em>"
+        subtitle="L'événement se tient sur la rive française du lac, mais Genève, Vaud, le Valais et la Confédération sont mobilisés. Plusieurs mesures auront un impact concret sur le quotidien."
+      />
+      <BenefitsGrid benefits={contexte} cols={3} />
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre solution"
+        title="L'essentiel, vérifié, <em>au même endroit</em>"
+        subtitle="Le vrai défi n'est pas le manque d'information, mais sa dispersion. Edgward agrège les sources fiables et vous dirige vers l'info qui vous concerne, maintenant."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- USAGES -->
+  <section class="section usecases-section" id="usages">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Pour qui ?"
+        title="Que vous soyez frontalier, entreprise <em>ou résident</em>"
+      />
+      <BenefitsGrid benefits={usages} cols={3} />
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Restez informé pendant <em>le G7</em>"
+    description="Téléchargez Edgward et activez les alertes du bassin lémanique dès aujourd'hui. Découvrez aussi le module Alertes & Informations."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+  .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* NEWSFEED DEMO */
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .newsfeed-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 20px; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; }
+  .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .demo-title { font-size: 13px; font-weight: 600; color: white; }
+  .demo-radius { font-size: 11px; color: var(--brand-light); background: var(--brand-soft); padding: 2px 8px; border-radius: 100px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .demo-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.06); }
+  .demo-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .demo-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.6); }
+  .demo-dot--orange { background: #f97316; box-shadow: 0 0 6px rgba(249,115,22,0.6); }
+  .demo-dot--yellow { background: #eab308; }
+  .demo-dot--green { background: #22c55e; }
+  .demo-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .demo-content strong { font-size: 12px; color: white; font-weight: 600; }
+  .demo-content span { font-size: 10px; color: #94a3b8; }
+  .demo-cta { background: var(--brand); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s ease; }
+  .demo-cta:hover { background: var(--brand-dark); }
+
+  .problem-section { background: white; }
+  .solution-section { background: var(--soft); }
+  .usecases-section { background: white; }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+  }
+</style>
