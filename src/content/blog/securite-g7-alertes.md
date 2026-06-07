@@ -1,13 +1,13 @@
 ---
 title: "G7 à Évian : ce qui change autour du Léman"
 date: 2026-06-06
-description: "Sommet du G7 à Évian (15–17 juin 2026) : impacts concrets pour le bassin lémanique et comment le module Alertes & Informations d'Edgward vous aide à rester informé."
+description: "Sommet du G7 à Évian (15 - 17 juin 2026) : impacts concrets pour le bassin lémanique et comment le module Alertes & Informations d'Edgward vous aide à rester informé."
 author: "Équipe Edgward"
 category: "Sécurité"
 featured: false
 ---
 
-Du 15 au 17 juin 2026, le bassin lémanique se retrouve aux premières loges d'un sommet international. Voici ce que cela implique concrètement pour les habitants et les entreprises de la région — et comment le nouveau module Alertes & Informations d'Edgward vous aide à rester informé, au bon moment.
+Du 15 au 17 juin 2026, le bassin lémanique se retrouve aux premières loges d'un sommet international. Voici ce que cela implique concrètement pour les habitants et les entreprises de la région, mais aussi comment le nouveau module Alertes & Informations d'Edgward vous aide à rester informé, au bon moment.
 
 ## Un sommet en France, des effets bien réels en Suisse
 
@@ -28,7 +28,7 @@ Rien d'alarmant en soi : le dispositif est précisément conçu pour que la vie 
 
 ## Le vrai défi : trouver la bonne info, au bon moment
 
-C'est là que les choses se compliquent. L'information existe — elle est même abondante — mais elle est **éclatée entre une multitude de canaux** : décisions du Conseil fédéral, communications des cantons de Genève, Vaud et du Valais, arrêtés préfectoraux français, annonces des communes du Chablais, lignes d'information dédiées, sans oublier la couverture des médias régionaux.
+C'est là que les choses se compliquent. L'information existe - elle est même abondante — mais elle est **éclatée entre une multitude de canaux** : décisions du Conseil fédéral, communications des cantons de Genève, Vaud et du Valais, arrêtés préfectoraux français, annonces des communes du Chablais, lignes d'information dédiées, sans oublier la couverture des médias régionaux.
 
 Pour un particulier ou un responsable d'entreprise, le problème n'est pas le manque d'information. C'est l'inverse : **comment consolider toutes ces sources, faire le tri, et savoir ce qui me concerne réellement, maintenant ?**
 
@@ -43,7 +43,7 @@ Le principe est simple : rassembler en un seul flux ce qui compte vraiment pour 
 Concrètement, le module vous permet de :
 
 - **Suivre en temps réel** les informations pertinentes pour votre zone, sans avoir à éplucher dix canaux différents ;
-- **Recevoir des alertes** lorsqu'un élément mérite votre attention — perturbation de circulation, mesure exceptionnelle, point de vigilance ;
+- **Recevoir des alertes** lorsqu'un élément mérite votre attention - perturbation de circulation, mesure exceptionnelle, point de vigilance ;
 - **Vous appuyer sur une information factuelle et recoupée**, pensée pour informer sans dramatiser.
 
 Le G7 d'Évian illustre parfaitement la valeur de cette approche : un événement ponctuel, à fort impact régional, où la capacité à rester informé calmement fait toute la différence entre subir les perturbations et les anticiper.
