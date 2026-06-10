@@ -69,9 +69,12 @@ const useCases = [
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="hero-badge-dot" aria-hidden="true"></span>
-            Nouveau dans l'application
+          <div class="hero-badges">
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              Nouveau dans l'application
+            </div>
+            <div class="hero-badge hero-badge--free">✓ 100% gratuit</div>
           </div>
           <h1>Restez informé de ce qui se passe<br><em>près de chez vous</em></h1>
           <p>Des alertes de sécurité géolocalisées, vérifiées, et pertinentes — directement dans votre app. Comprendre ce qui se passe autour de vous pour pouvoir anticiper et agir sur votre sécurité.</p>
@@ -82,6 +85,9 @@ const useCases = [
             </a>
             <a href="#solution" class="btn-secondary">
               Comment ça marche
+            </a>
+            <a href="/activer-les-alertes" class="btn-secondary">
+              Activer les alertes
             </a>
           </div>
           <p class="hero-note">
@@ -178,7 +184,9 @@ const useCases = [
   .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
   .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 22px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .hero-badge--free { background: rgba(74,222,128,0.12); color: #4ade80; border-color: rgba(74,222,128,0.4); font-weight: 700; }
   .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
   .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }

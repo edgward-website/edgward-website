@@ -1,0 +1,280 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+
+<Base
+  title="Activer les alertes — Edgward"
+  description="Activez gratuitement les alertes de sécurité Edgward : sélectionnez vos cantons, vos types d'alertes et recevez les notifications push en temps réel. Tutoriel vidéo."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-badges">
+          <span class="hero-eyebrow">Alertes &amp; informations</span>
+          <span class="badge-free">✓ 100% gratuit</span>
+        </div>
+        <h1>Activez les alertes<br>et recevez-les <em>en temps réel</em></h1>
+        <p>Configurez <strong>gratuitement</strong> vos préférences d'alertes dans l'application Edgward et activez les notifications push. Suivez la vidéo, c'est l'affaire de 30 secondes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section video-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Tutoriel · 30 secondes"
+        title="Activer les alertes, <em>pas à pas</em>"
+        subtitle="Une courte vidéo pour configurer vos notifications de sécurité en quelques gestes."
+      />
+      <div class="video-wrapper">
+        <video class="video-frame" controls preload="metadata" playsinline>
+          <source src="/assets/tuto-alertes.mp4" type="video/mp4">
+          Votre navigateur ne permet pas la lecture de la vidéo.
+          <a href="/assets/tuto-alertes.mp4">Télécharger la vidéo</a>.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS DÉTAILLÉES -->
+  <section class="section steps-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="3 étapes simples"
+        title="Ne manquez <em>plus rien</em>"
+        subtitle="Configurez vos préférences une seule fois : vous recevez ensuite une notification push dès qu'une alerte correspond à vos critères."
+      />
+      <div class="steps-detailed">
+        <div class="step-detail fade-in">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Sélectionnez le module Alertes &amp; informations</h3>
+            <p>Sur l'écran d'accueil Edgward, touchez l'icône cloche <span class="inline-emoji">🔔</span> située en bas de votre écran.</p>
+          </div>
+        </div>
+
+        <div class="step-detail fade-in">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Configurez vos alertes</h3>
+            <p>Touchez l'icône de préférences <svg class="inline-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="8" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="16" y2="21"/><circle cx="8" cy="15" r="2.6" fill="currentColor" stroke="none"/><circle cx="16" cy="9" r="2.6" fill="currentColor" stroke="none"/></svg> en haut à droite de l'écran.</p>
+            <ul class="step-checklist">
+              <li>Choisissez votre localisation : un ou plusieurs cantons</li>
+              <li>Sélectionnez le type d'alertes souhaité</li>
+              <li>Activez les notifications push</li>
+              <li>Pensez à sauvegarder vos préférences</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step-detail fade-in">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Consultez le flux d'actualité</h3>
+            <p>Le flux d'informations de sécurité se met à jour en continu, dès qu'une information pertinente survient. Selon les préférences que vous avez définies, vous êtes alerté par notification push à chaque information importante pour votre région.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-block fade-in">
+        <h2>Les alertes Edgward, <em>c'est gratuit</em></h2>
+        <p>Téléchargez l'application, activez les alertes de votre région et restez informé en temps réel.</p>
+        <div class="cta-buttons">
+          <a href="https://apps.apple.com/ch/app/edgward/id6503622410" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            Télécharger sur App Store
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=ch.edgward.app.clients" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+            Télécharger sur Google Play
+          </a>
+        </div>
+        <p class="cta-back"><a href="/alertes">← Revenir à la page Alertes</a></p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 80px 0 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .badge-free {
+    display: inline-flex; align-items: center;
+    font-size: 12px; font-weight: 700;
+    color: #4ade80;
+    background: rgba(74,222,128,0.12);
+    border: 1px solid rgba(74,222,128,0.4);
+    padding: 4px 12px; border-radius: 100px;
+    letter-spacing: 0.04em;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 4.5vw, 52px);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.025em; margin-bottom: 20px; color: white;
+  }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero p { font-size: 17px; color: #cbd5e1; line-height: 1.6; max-width: 540px; margin: 0 auto; }
+  .hero p strong { color: white; font-weight: 700; }
+
+  /* VIDEO */
+  .video-section { background: white; }
+  .video-wrapper { max-width: 800px; margin: 0 auto; }
+  .video-frame {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 9 / 16;
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    object-fit: contain;
+  }
+
+  /* STEPS DETAILED */
+  .steps-section { background: var(--soft); }
+  .steps-detailed { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+  .step-detail {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-detail:last-child { border-bottom: none; }
+  .step-number {
+    width: 64px; height: 64px;
+    background: var(--navy);
+    color: var(--brand-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    flex-shrink: 0;
+  }
+  .step-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .step-content p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .inline-icon { vertical-align: -3px; margin: 0 2px; color: var(--navy); }
+  .inline-emoji { font-style: normal; }
+  .step-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .step-checklist li {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .step-checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  /* CTA */
+  .cta-section { background: white; }
+  .cta-block {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-block h2 {
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-block h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .cta-block > p {
+    font-size: 16px;
+    color: #cbd5e1;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-back { margin-top: 20px; margin-bottom: 0; font-size: 14px; position: relative; z-index: 1; }
+  .cta-back a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; }
+  .cta-back a:hover { color: white; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 56px 0 48px; }
+    .step-detail { grid-template-columns: 48px 1fr; gap: 16px; }
+    .step-number { width: 48px; height: 48px; font-size: 18px; }
+    .cta-block { padding: 40px 24px; }
+  }
+</style>
