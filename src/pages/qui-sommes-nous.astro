@@ -1,0 +1,206 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+---
+
+<Base
+  title="Qui sommes-nous — La conviction derrière Edgward"
+  description="Derrière Edgward, il y a des gens et une conviction simple : rendre la sécurité accessible à tous, en quelques secondes, depuis un smartphone."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Qui sommes-nous</span>
+        <h1>Derrière Edgward, <em>une conviction simple</em></h1>
+        <p>La sécurité ne devrait pas être un privilège. Nous la rendons accessible à tous, en quelques secondes, depuis votre smartphone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI EDGWARD -->
+  <section class="section why-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre raison d'être"
+        title="Tout, depuis un smartphone. <em>Sauf la sécurité.</em>"
+      />
+      <div class="prose fade-in">
+        <p>Aujourd'hui, on commande un taxi, un repas ou presque n'importe quel produit en quelques secondes depuis son téléphone. Pourtant, accéder à la sécurité restait compliqué : il fallait souscrire un abonnement coûteux auprès d'un prestataire, puis dépendre de la disponibilité de ses patrouilles.</p>
+
+        <h3>Nous pensons autrement.</h3>
+        <p>Notre mission est simple : rendre la sécurité accessible à tous. Edgward s'appuie sur des entreprises de sécurité reconnues, mais aussi modernes, celles qui, comme nous, sont convaincues que l'avenir de la sécurité passe par cette accessibilité. C'est de cette idée qu'est né Edgward : permettre à chacun de commander une patrouille de sécurité, simplement, dès qu'il le juge utile.</p>
+
+        <p>On entend souvent : «&nbsp;en cas de problème, j'appelle la police&nbsp;». Mais la police est un service institutionnel, qui intervient selon ses propres priorités. C'est précisément pour cela qu'existent les entreprises de sécurité privée, et Edgward les met enfin à portée de main.</p>
+
+        <h3>Votre sécurité, à votre façon.</h3>
+        <p>Avec Edgward, vous composez votre propre dispositif, à la carte. Avec votre système d'alarme, avec une installation que vous mettez en place vous-même, ou sans aucun équipement : c'est vous qui décidez. Pour vous rassurer, vous et vos proches (un parent âgé, un enfant qui vit seul), ou pour veiller sur ce qui compte : une résidence secondaire, un local, un garage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FONDATEUR -->
+  <section class="section founder-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Le fondateur"
+        title="Daniel Barouch, <em>un homme du métier</em>"
+      />
+      <div class="founder-grid">
+        <aside class="founder-card fade-in">
+          <img class="founder-photo" src="/assets/daniel-barouch.jpg" alt="Daniel Barouch, fondateur d'Edgward" width="400" height="500" loading="lazy">
+          <p class="founder-name">Daniel Barouch</p>
+          <p class="founder-role">Fondateur d'Edgward</p>
+          <ul class="founder-chips" role="list">
+            <li><span aria-hidden="true">✦</span> 20+ ans dans la sécurité et la sûreté</li>
+            <li><span aria-hidden="true">✦</span> Certifié CPP (ASIS International)</li>
+            <li><span aria-hidden="true">✦</span> Master en management</li>
+          </ul>
+        </aside>
+        <div class="founder-bio fade-in">
+          <p>À l'origine d'Edgward, il y a quelqu'un qui connaît la sécurité de l'intérieur. Daniel Barouch évolue depuis près de vingt ans dans la sécurité et la sûreté, du terrain à la direction.</p>
+          <p>Au fil de sa carrière, il a dirigé des départements opérationnels réunissant plusieurs centaines de collaborateurs et piloté la sécurité de mandats sensibles : organisations internationales, événements diplomatiques, visites de chefs d'État et de gouvernement. Il a aussi fondé et dirigé sa propre entreprise de sécurité, responsable de plus de 200 événements en Suisse romande.</p>
+          <p>Titulaire de la certification Certified Protection Professional (CPP), la plus haute qualification internationale en management de la sécurité, il est également diplômé d'un Master en management et formé à la communication de crise. Il est aussi actif depuis plus de vingt ans au sein de l'armée suisse, dans diverses fonctions.</p>
+          <p>C'est cette double expérience, du terrain et de la direction, qui l'a convaincu d'une chose : une sécurité de qualité ne devrait pas être réservée aux grandes organisations. Avec Edgward, il veut la rendre accessible à chacun.</p>
+          <blockquote class="founder-quote">
+            <p>«&nbsp;Pendant des années, j'ai protégé des institutions, des événements et des personnalités. Avec Edgward, je veux mettre ce savoir-faire au service de tout le monde.&nbsp;»</p>
+            <cite>- Daniel Barouch, fondateur d'Edgward</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <FinalCTA
+    title="Prêt à essayer <em>Edgward</em> ?"
+    description="Téléchargez l'application et commandez une patrouille de sécurité en quelques secondes, où que vous soyez en Suisse romande."
+  />
+</Base>
+
+<style>
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 80px 0 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 4.5vw, 52px);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.025em; margin-bottom: 20px; color: white;
+  }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero p { font-size: 17px; color: #cbd5e1; line-height: 1.6; max-width: 540px; margin: 0 auto; }
+
+  .why-section { background: white; }
+  .prose {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .prose p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 22px;
+  }
+  .prose h3 {
+    font-size: clamp(20px, 2.4vw, 24px);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    margin: 36px 0 14px;
+  }
+  .prose h3:first-child { margin-top: 0; }
+
+  /* FONDATEUR */
+  .founder-section { background: var(--soft); }
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 44px;
+    align-items: start;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .founder-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    text-align: center;
+    position: sticky;
+    top: 100px;
+  }
+  .founder-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    background: var(--navy);
+  }
+  .founder-name { font-size: 20px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  .founder-role { font-size: 14px; color: var(--text-muted); margin-bottom: 22px; }
+  .founder-chips { list-style: none; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+  .founder-chips li {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-dark);
+    background: var(--brand-soft);
+    padding: 9px 13px;
+    border-radius: 8px;
+    line-height: 1.4;
+  }
+  .founder-chips li span { color: var(--brand); margin-right: 6px; }
+
+  .founder-bio p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .founder-quote {
+    margin-top: 28px;
+    border-left: 3px solid var(--brand);
+    padding-left: 22px;
+  }
+  .founder-quote p {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .founder-quote cite {
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 860px) {
+    .founder-grid { grid-template-columns: 1fr; gap: 28px; max-width: 680px; }
+    .founder-card { position: static; }
+  }
+</style>
