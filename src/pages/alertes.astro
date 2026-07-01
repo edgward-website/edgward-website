@@ -168,6 +168,10 @@ const useCases = [
         title="Quand les alertes vous <em>sont utiles</em>"
       />
       <BenefitsGrid benefits={useCases} cols={3} />
+      <p class="usecase-more">
+        Vous partez bientôt ? Lisez notre guide :
+        <a href="/blog/surveiller-son-domicile-pendant-les-vacances">Surveiller son domicile à distance pendant les vacances →</a>
+      </p>
     </div>
   </section>
 
@@ -220,6 +224,9 @@ const useCases = [
   .problem-section { background: white; }
   .solution-section { background: var(--soft); }
   .usecases-section { background: white; }
+  .usecase-more { text-align: center; margin-top: 28px; font-size: 15px; color: var(--text-muted); }
+  .usecase-more a { color: var(--brand); text-decoration: none; font-weight: 600; }
+  .usecase-more a:hover { text-decoration: underline; }
 
   /* PRIVACY */
   .privacy-section { background: var(--soft); }
