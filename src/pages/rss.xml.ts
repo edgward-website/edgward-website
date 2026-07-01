@@ -7,7 +7,7 @@ export async function GET(context: APIContext) {
   const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
-    title: 'Edgward — Blog sécurité',
+    title: 'Edgward - Blog sécurité',
     description: 'Conseils sécurité, actualités et guides pratiques par Edgward.',
     site: context.site!,
     items: sorted.map((post) => ({

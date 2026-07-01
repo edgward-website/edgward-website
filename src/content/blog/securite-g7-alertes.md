@@ -19,7 +19,7 @@ L'événement a beau se dérouler de l'autre côté de la frontière, la région
 
 - **Contrôles aux frontières.** La Suisse rétablit des contrôles temporaires à sa frontière intérieure avec la France entre le 10 et le 19 juin 2026.
 - **Restriction de l'espace aérien.** Une zone d'interdiction temporaire couvre la région lémanique, du 10 juin à 13h00 au 18 juin à 3h00.
-- **Dispositif renforcé côté français.** Des périmètres sécurisés — « zone rouge » resserrée autour des sites du sommet, « zone bleue » de protection élargie — entrent en vigueur dès le 11 juin.
+- **Dispositif renforcé côté français.** Des périmètres sécurisés - « zone rouge » resserrée autour des sites du sommet, « zone bleue » de protection élargie - entrent en vigueur dès le 11 juin.
 - **Circulation perturbée.** Le trafic sera fortement affecté autour d'Évian et sur les axes du Chablais, avec des répercussions possibles sur les déplacements transfrontaliers.
 - **Mobilisations annoncées.** Une coalition associative et syndicale prévoit une manifestation d'ampleur à Genève le 14 juin, veille de l'ouverture du sommet.
 - **Vigilance cyber.** Les autorités alertent sur une possible recrudescence de cyberfraudes particulièrement sophistiquées en marge de l'événement.
@@ -28,7 +28,7 @@ Rien d'alarmant en soi : le dispositif est précisément conçu pour que la vie 
 
 ## Le vrai défi : trouver la bonne info, au bon moment
 
-C'est là que les choses se compliquent. L'information existe - elle est même abondante — mais elle est **éclatée entre une multitude de canaux** : décisions du Conseil fédéral, communications des cantons de Genève, Vaud et du Valais, arrêtés préfectoraux français, annonces des communes du Chablais, lignes d'information dédiées, sans oublier la couverture des médias régionaux.
+C'est là que les choses se compliquent. L'information existe - elle est même abondante - mais elle est **éclatée entre une multitude de canaux** : décisions du Conseil fédéral, communications des cantons de Genève, Vaud et du Valais, arrêtés préfectoraux français, annonces des communes du Chablais, lignes d'information dédiées, sans oublier la couverture des médias régionaux.
 
 Pour un particulier ou un responsable d'entreprise, le problème n'est pas le manque d'information. C'est l'inverse : **comment consolider toutes ces sources, faire le tri, et savoir ce qui me concerne réellement, maintenant ?**
 
@@ -38,7 +38,7 @@ Pendant une période aussi dense, passer d'un site officiel à l'autre pour reco
 
 C'est exactement pour répondre à ce besoin qu'Edgward lance son module **Alertes & Informations**.
 
-Le principe est simple : rassembler en un seul flux ce qui compte vraiment pour votre sécurité et votre organisation dans la région, à partir de **sources fiables et identifiées** — et compléter cette agrégation par des **informations vérifiées et sourcées produites par Edgward** lorsque la situation l'exige.
+Le principe est simple : rassembler en un seul flux ce qui compte vraiment pour votre sécurité et votre organisation dans la région, à partir de **sources fiables et identifiées** - et compléter cette agrégation par des **informations vérifiées et sourcées produites par Edgward** lorsque la situation l'exige.
 
 Concrètement, le module vous permet de :
 
@@ -52,7 +52,7 @@ Le G7 d'Évian illustre parfaitement la valeur de cette approche : un événemen
 
 Edgward ne se limite pas à informer. C'est d'abord un service de **sécurité à la demande**, qui met en relation, en temps réel, particuliers et entreprises avec des sociétés de sécurité partenaires.
 
-L'intérêt du module Alertes prend alors tout son sens : il ne s'agit pas seulement de *savoir*, mais de pouvoir *agir* si une situation l'exige. Dans un contexte régional plus sensible que d'ordinaire, disposer au même endroit de l'information vérifiée **et** d'un accès direct à une réponse sécuritaire constitue une tranquillité d'esprit concrète — sans abonnement de longue durée, sans engagement.
+L'intérêt du module Alertes prend alors tout son sens : il ne s'agit pas seulement de *savoir*, mais de pouvoir *agir* si une situation l'exige. Dans un contexte régional plus sensible que d'ordinaire, disposer au même endroit de l'information vérifiée **et** d'un accès direct à une réponse sécuritaire constitue une tranquillité d'esprit concrète - sans abonnement de longue durée, sans engagement.
 
 ## Restez informé, restez serein
 

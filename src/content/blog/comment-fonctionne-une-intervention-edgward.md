@@ -1,7 +1,7 @@
 ---
 title: "Comment fonctionne une intervention Edgward, étape par étape"
 date: 2025-03-15
-description: "Vous vous demandez concrètement ce qui se passe quand vous commandez une intervention ? De la demande dans l'app jusqu'au rapport de fin d'intervention — voici le déroulé complet."
+description: "Vous vous demandez concrètement ce qui se passe quand vous commandez une intervention ? De la demande dans l'app jusqu'au rapport de fin d'intervention - voici le déroulé complet."
 category: Conseils
 author: Équipe Edgward
 featured: true
@@ -11,7 +11,7 @@ Beaucoup de personnes se posent la même question avant d'utiliser Edgward pour 
 
 ## 1. Vous déclenchez la demande dans l'app
 
-Tout commence dans l'application Edgward. Vous sélectionnez le type d'intervention dont vous avez besoin — ronde de surveillance, vérification de domicile, levée de doute, contrôle d'un accès ou d'un local — puis vous renseignez votre adresse ainsi que les instructions d'accès utiles pour l'agent (code d'entrée, localisation d'une clé, présence d'un animal, etc.).
+Tout commence dans l'application Edgward. Vous sélectionnez le type d'intervention dont vous avez besoin - ronde de surveillance, vérification de domicile, levée de doute, contrôle d'un accès ou d'un local - puis vous renseignez votre adresse ainsi que les instructions d'accès utiles pour l'agent (code d'entrée, localisation d'une clé, présence d'un animal, etc.).
 
 Avant de confirmer, l’app vous affiche le prix de l’intervention (déplacement et jusqu’à 60minutes sur place). Au besoin, l’intervention peut être prolongée. Pas de surprise : vous savez exactement ce que vous payez avant d'engager quoi que ce soit.
 
@@ -38,10 +38,10 @@ Le rapport est conservé dans votre historique Edgward et peut être télécharg
 
 ## En cas d'urgence vitale
 
-Il est important de le rappeler : Edgward n'est pas un substitut aux services d'urgence. Pour toute situation qui engage des vies — agression en cours, incendie, malaise grave — composez immédiatement le **117** (police), le **118** (pompiers) ou le **144** (ambulance).
+Il est important de le rappeler : Edgward n'est pas un substitut aux services d'urgence. Pour toute situation qui engage des vies - agression en cours, incendie, malaise grave - composez immédiatement le **117** (police), le **118** (pompiers) ou le **144** (ambulance).
 
 Les agents Edgward sont formés pour contacter eux-mêmes les secours si la situation l'exige lors d'une intervention. Mais ne prenez aucun risque : en cas de doute sur la gravité, appelez le 117 en premier.
 
 ---
 
-Edgward se positionne comme la couche intermédiaire entre "je suis inquiet, mais ce n'est pas grave au point d'appeler la police" et "j'ai besoin des secours immédiatement". C'est cette zone grise — souvent source d'hésitation — qu'Edgward est conçu pour couvrir. Savoir qu'un professionnel est en route, que vous serez informé en temps réel et que vous recevrez un rapport à la fin : c'est ça, la tranquillité d'esprit.
+Edgward se positionne comme la couche intermédiaire entre "je suis inquiet, mais ce n'est pas grave au point d'appeler la police" et "j'ai besoin des secours immédiatement". C'est cette zone grise - souvent source d'hésitation - qu'Edgward est conçu pour couvrir. Savoir qu'un professionnel est en route, que vous serez informé en temps réel et que vous recevrez un rapport à la fin : c'est ça, la tranquillité d'esprit.

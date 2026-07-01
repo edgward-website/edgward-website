@@ -11,7 +11,7 @@ Chaque année, plusieurs milliers de cambriolages sont signalés en Suisse roman
 
 ## 1. Sécurisez vos points d'entrée
 
-Les portes et fenêtres représentent 90 % des points d'accès utilisés par les cambrioleurs. Vérifiez que vos serrures sont en bon état et envisagez l'installation de crémones ou de verrous supplémentaires — un investissement de quelques dizaines de francs qui peut tout changer.
+Les portes et fenêtres représentent 90 % des points d'accès utilisés par les cambrioleurs. Vérifiez que vos serrures sont en bon état et envisagez l'installation de crémones ou de verrous supplémentaires - un investissement de quelques dizaines de francs qui peut tout changer.
 
 ## 2. Créez l'illusion d'une présence
 
@@ -27,7 +27,7 @@ Dissuadez les éventuels intrus par une présence visible de certains éléments
 
 ## 5. Sachez à qui vous adresser en cas de doute
 
-Une alarme qui se déclenche, un bruit suspect, des inconnus qui rôdent — dans ces cas, savoir qu'une patrouille professionnelle peut être chez vous en moins de 20 minutes change tout. L'abonnement Edgward, c'est avant tout ce filet de sécurité mental.
+Une alarme qui se déclenche, un bruit suspect, des inconnus qui rôdent - dans ces cas, savoir qu'une patrouille professionnelle peut être chez vous en moins de 20 minutes change tout. L'abonnement Edgward, c'est avant tout ce filet de sécurité mental.
 
 ---
 
