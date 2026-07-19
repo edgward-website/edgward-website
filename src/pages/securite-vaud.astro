@@ -1,0 +1,341 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+import Testimonials from '../components/Testimonials.astro';
+import PartnersGrid from '../components/PartnersGrid.astro';
+import { partners } from '../data/partners';
+
+// Partenaires actifs sur le canton de Vaud (sous-ensemble du réseau).
+const vaudNames = ['Wolfguard', 'Global Sécurité (SPS)', 'GPA SA', 'Roc Sécurité', 'Juggers'];
+const partenairesVD = partners.filter(p => vaudNames.includes(p.name));
+
+// Chiffres officiels - Bilan 2025 de la criminalité, Police cantonale vaudoise / État de Vaud (vd.ch).
+const contexte = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>',
+    title: 'Une criminalité globalement stable',
+    description: "En 2025, le canton de Vaud a enregistré 72'969 infractions au droit fédéral, soit +0,3% par rapport à 2024. Une stabilité d'ensemble, dans la tendance suisse.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>',
+    title: 'Mais les cambriolages progressent',
+    description: "Les cambriolages augmentent de 8,8%, soit environ 576 cas de plus en un an. Les vols par effraction, eux, bondissent de 10%. Les habitations restent une cible.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v4M12 16h.01"/></svg>',
+    title: 'De nouvelles arnaques ciblent les habitants',
+    description: "Les arnaques aux faux policiers explosent : 936 événements en 2025 (+153%), pour un préjudice de plus de 1,4 million de francs. La vigilance reste de mise.",
+  },
+];
+
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: 'Savoir - alertes géolocalisées',
+    description: "Suivez ce qui se passe réellement dans votre quartier vaudois : signalements vérifiés, modérés, rattachés à votre localité. L'essentiel, sans le bruit des groupes WhatsApp.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'Agir - intervention à la demande',
+    description: "Une situation vous préoccupe ? Commandez une patrouille d'une de nos sociétés partenaires vaudoises en quelques secondes, sans avoir à souscrire un abonnement de gardiennage.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
+    title: 'Sans engagement',
+    description: "Pas d'abonnement de longue durée ni de contrat contraignant. Vous activez Edgward quand vous en avez besoin, partout dans le canton de Vaud.",
+  },
+];
+
+const usages = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
+    title: 'Vous habitez le canton',
+    description: "De Lausanne à Yverdon-les-Bains, de La Côte au Chablais, suivez l'activité autour de chez vous et renforcez votre sécurité au bon moment - avant les vacances ou après un signalement suspect.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1M9 13h1m4 0h1M9 17h1m4 0h1"/></svg>',
+    title: 'Vous dirigez un commerce ou une entreprise',
+    description: "Protégez vos locaux et vos équipes, en centre-ville comme en zone d'activités. Information vérifiée et intervention à la demande, sans agent posté à demeure.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10M9 21v-6h6v6"/></svg>',
+    title: 'Vous possédez une villa ou un bien',
+    description: "Villas, résidences, PPE : les habitations figurent parmi les cibles les plus touchées. Recevez les alertes de votre secteur et faites intervenir une patrouille en cas de doute.",
+  },
+];
+
+const temoignages = [
+  {
+    quote: "Une installation complète des caméras et des panneaux, avec une explication détaillée de l'utilisation de l'application Edgward, vraiment top !",
+    name: 'Aline E.',
+    role: 'Cliente à Tannay',
+    initials: 'AE',
+  },
+  {
+    quote: "Budget vraiment intéressant pour ma boutique. Installation et application largement meilleur marché qu'avec un système relié à un opérateur dédié.",
+    name: 'Luc S.',
+    role: 'Commerçant à Lausanne',
+    initials: 'LS',
+    stars: 4,
+  },
+  {
+    quote: "L'application est vraiment utile avec son système d'information gratuit, et en cas d'événement à mon domicile. Je cherchais un complément à mes caméras : l'abonnement à CHF 15.-/mois est imbattable.",
+    name: 'Gwendoline F.',
+    role: 'Cliente à Nyon',
+    initials: 'GF',
+  },
+];
+
+// Communes classées par importance (population / recherches Google), les plus grandes en tête.
+// href = lien vers la page locale dédiée (maillage interne) quand elle existe.
+const communes = [
+  { name: 'Lausanne', href: '/securite-lausanne' },
+  { name: 'Yverdon-les-Bains', href: '/securite-yverdon' },
+  { name: 'Montreux', href: '/securite-montreux' },
+  { name: 'Nyon', href: '/securite-nyon' },
+  { name: 'Vevey', href: '/securite-vevey' },
+  { name: 'Renens' },
+  { name: 'Morges' },
+  { name: 'Gland', href: '/securite-gland' },
+  { name: 'Rolle', href: '/securite-rolle' },
+  { name: 'Coppet', href: '/securite-coppet' },
+  { name: 'Pully' },
+  { name: 'Prilly' },
+  { name: 'Écublens' },
+  { name: 'La Tour-de-Peilz' },
+  { name: 'Aigle' },
+];
+---
+
+<Base
+  title="Sécurité dans le canton de Vaud : alertes et intervention à la demande | Edgward"
+  description="Comprenez ce qui se passe près de chez vous dans le canton de Vaud et faites intervenir une patrouille à la demande. Alertes géolocalisées vérifiées et sécurité sans engagement, de La Côte au Chablais."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg class="canton-flag" width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="2.5" fill="#ffffff"/><rect y="7" width="20" height="7" fill="#007a3d"/><rect x="3.2" y="5.1" width="13.6" height="1.3" rx="0.65" fill="#007a3d"/></svg>
+            Canton de Vaud
+          </div>
+          <h1>La sécurité dans le canton de Vaud,<br><em>sans laisser au hasard</em></h1>
+          <p>Comprendre ce qui se passe autour de vous <strong>et</strong> pouvoir agir immédiatement si besoin - au même endroit, partout dans le canton. Alertes géolocalisées vérifiées et intervention d'une patrouille à la demande.</p>
+          <div class="hero-ctas">
+            <a href="#telecharger" class="btn-primary">
+              Découvrir dans l'app
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#solution" class="btn-secondary">
+              Comment ça marche
+            </a>
+          </div>
+          <p class="hero-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Découvrez le <a href="/alertes">module Alertes &amp; Informations</a> ou nos solutions pour <a href="/entreprises">entreprises</a>.
+          </p>
+        </div>
+        <div class="hero-visual">
+          <div class="newsfeed-demo" aria-label="Exemple d'alertes dans le canton de Vaud">
+            <div class="demo-header">
+              <span class="demo-title">Alertes · Vaud</span>
+              <span class="demo-radius">1 km</span>
+            </div>
+            <div class="demo-item demo-item--red">
+              <div class="demo-dot demo-dot--red"></div>
+              <div class="demo-content">
+                <strong>Cambriolage d'une villa</strong>
+                <span>Pully · il y a 35 min</span>
+              </div>
+              <a href="/alertes" class="demo-cta">Intervenir</a>
+            </div>
+            <div class="demo-item demo-item--orange">
+              <div class="demo-dot demo-dot--orange"></div>
+              <div class="demo-content">
+                <strong>Véhicule suspect signalé</strong>
+                <span>Morges · il y a 2h</span>
+              </div>
+            </div>
+            <div class="demo-item demo-item--yellow">
+              <div class="demo-dot demo-dot--yellow"></div>
+              <div class="demo-content">
+                <strong>Manifestation au centre-ville</strong>
+                <span>Lausanne · aujourd'hui</span>
+              </div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-dot demo-dot--blue"></div>
+              <div class="demo-content">
+                <strong>Alerte météo sur le canton</strong>
+                <span>Vaud · il y a 1h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXTE -->
+  <section class="section problem-section" id="contexte">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Le contexte vaudois"
+        title="Dans le canton de Vaud, la criminalité est stable - <em>mais pas l'effraction</em>"
+        subtitle="Les chiffres officiels 2025 racontent une histoire en deux temps : un volume global stable, mais une pression accrue sur les cambriolages et les habitations."
+      />
+      <BenefitsGrid benefits={contexte} cols={3} />
+      <p class="source-note">
+        Source : Bilan 2025 de la criminalité, Police cantonale vaudoise -
+        <a href="https://www.vd.ch/actualites/communiques-de-presse-de-letat-de-vaud/detail/communique/bilan-2025-stabilite-de-la-criminalite-dans-le-canton-de-vaud-comme-en-suisse" target="_blank" rel="noopener">vd.ch</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre solution"
+        title="Savoir ce qui se passe, <em>et pouvoir agir</em>"
+        subtitle="Edgward réunit deux choses au même endroit : l'information de sécurité fiable de votre quartier, et la possibilité de déclencher une intervention quand vous en avez besoin."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- COUVERTURE -->
+  <section class="section coverage-section" id="couverture">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Couverture"
+        title="Tout le canton de Vaud, <em>couvert</em>"
+        subtitle="Edgward s'appuie sur un réseau de sociétés de sécurité vaudoises pour intervenir dans le canton, en ville comme en périphérie."
+      />
+      <div class="coverage-stats">
+        <div class="cstat">
+          <span class="cstat-num">Tout le canton</span>
+          <span class="cstat-label">de La Côte au Chablais, en passant par le Nord vaudois</span>
+        </div>
+        <div class="cstat">
+          <span class="cstat-num">Intervention rapide</span>
+          <span class="cstat-label">une patrouille partenaire déclenchée en quelques secondes</span>
+        </div>
+        <div class="cstat">
+          <span class="cstat-num">Sans engagement</span>
+          <span class="cstat-label">à la demande, quand vous le décidez</span>
+        </div>
+      </div>
+      <ul class="communes" aria-label="Communes couvertes dans le canton de Vaud">
+        {communes.map(c => <li>{c.href ? <a href={c.href}>{c.name}</a> : c.name}</li>)}
+        <li class="communes-more">…et toutes les autres communes vaudoises</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- USAGES -->
+  <section class="section usecases-section" id="usages">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Pour qui ?"
+        title="Que vous soyez résident, commerçant <em>ou propriétaire</em>"
+      />
+      <BenefitsGrid benefits={usages} cols={3} />
+    </div>
+  </section>
+
+  <!-- CONFIANCE -->
+  <section class="section trust-section" id="confiance">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Ils nous font confiance"
+        title="Des Vaudois·es <em>déjà protégé·es</em>"
+      />
+      <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <PartnersGrid
+    title="Nos sociétés de sécurité partenaires dans le canton de Vaud"
+    partners={partenairesVD}
+  />
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Reprenez le contrôle de <em>votre sécurité dans le canton de Vaud</em>"
+    description="Téléchargez Edgward et activez les alertes de votre quartier dès aujourd'hui. Information vérifiée et intervention à la demande, partout dans le canton."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
+  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+  .hero h1 { font-size: clamp(34px, 4.3vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-note { margin-top: 20px; font-size: 14px; line-height: 1.55; color: #cbd5e1; max-width: 480px; }
+  .hero-note svg { color: var(--brand-light); vertical-align: -2px; margin-right: 6px; }
+  .hero-note a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+  .hero-note a:hover { color: white; }
+
+  /* NEWSFEED DEMO */
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .newsfeed-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 20px; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; }
+  .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .demo-title { font-size: 13px; font-weight: 600; color: white; }
+  .demo-radius { font-size: 11px; color: var(--brand-light); background: var(--brand-soft); padding: 2px 8px; border-radius: 100px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .demo-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.06); }
+  .demo-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .demo-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.6); }
+  .demo-dot--orange { background: #f97316; box-shadow: 0 0 6px rgba(249,115,22,0.6); }
+  .demo-dot--yellow { background: #eab308; }
+  .demo-dot--blue { background: var(--brand-light); box-shadow: 0 0 6px rgba(70,120,220,0.6); }
+  .demo-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .demo-content strong { font-size: 12px; color: white; font-weight: 600; }
+  .demo-content span { font-size: 10px; color: #94a3b8; }
+  .demo-cta { background: var(--brand); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s ease; text-decoration: none; display: inline-block; }
+  .demo-cta:hover { background: var(--brand-dark); }
+
+  .problem-section { background: white; }
+  .solution-section { background: var(--soft); }
+  .coverage-section { background: white; }
+  .usecases-section { background: var(--soft); }
+  .trust-section { background: white; }
+
+  /* SOURCE NOTE */
+  .source-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 28px; }
+  .source-note a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* COVERAGE */
+  .coverage-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 36px; }
+  .cstat { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; }
+  .cstat-num { display: block; font-size: 26px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 6px; }
+  .cstat-label { display: block; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+  .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .communes li { background: var(--soft); border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); transition: all 0.15s ease; }
+  .communes li:has(a) { border-color: rgba(70,120,220,0.35); }
+  .communes li:has(a):hover { background: var(--brand-soft); border-color: var(--brand); }
+  .communes li a { color: var(--brand); text-decoration: none; }
+  .communes-more { background: transparent !important; border: none !important; color: var(--text-muted) !important; font-weight: 400 !important; font-style: italic; }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+    .coverage-stats { grid-template-columns: 1fr; }
+  }
+</style>

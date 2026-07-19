@@ -26,6 +26,22 @@ const deploymentCards = [
   },
 ];
 
+// Pages locales dédiées (maillage interne SEO).
+const pagesCantons = [
+  { name: 'Genève', href: '/securite-geneve' },
+  { name: 'Canton de Vaud', href: '/securite-vaud' },
+];
+const pagesVillesVD = [
+  { name: 'Lausanne', href: '/securite-lausanne' },
+  { name: 'Nyon', href: '/securite-nyon' },
+  { name: 'Coppet', href: '/securite-coppet' },
+  { name: 'Gland', href: '/securite-gland' },
+  { name: 'Rolle', href: '/securite-rolle' },
+  { name: 'Yverdon-les-Bains', href: '/securite-yverdon' },
+  { name: 'Vevey', href: '/securite-vevey' },
+  { name: 'Montreux', href: '/securite-montreux' },
+];
+
 ---
 
 <Base
@@ -42,6 +58,32 @@ const deploymentCards = [
   <section class="map-section">
     <div class="container">
       <CoverageMap />
+    </div>
+  </section>
+
+  <!-- PAGES LOCALES -->
+  <section class="section local-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Près de chez vous"
+        title="La sécurité <em>dans votre région</em>"
+        subtitle="Alertes géolocalisées vérifiées et intervention à la demande, canton par canton et ville par ville."
+        align="center"
+      />
+      <div class="local-groups">
+        <div class="local-group">
+          <span class="local-label">Par canton</span>
+          <ul class="local-links">
+            {pagesCantons.map(p => <li><a href={p.href}>{p.name}</a></li>)}
+          </ul>
+        </div>
+        <div class="local-group">
+          <span class="local-label">Villes vaudoises</span>
+          <ul class="local-links">
+            {pagesVillesVD.map(p => <li><a href={p.href}>{p.name}</a></li>)}
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -112,6 +154,19 @@ const deploymentCards = [
 <style>
   /* MAP */
   .map-section { background: var(--soft); padding: 56px 0; }
+
+  /* PAGES LOCALES */
+  .local-section { background: white; }
+  .local-groups { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; max-width: 820px; margin-left: auto; margin-right: auto; }
+  .local-group { text-align: center; }
+  .local-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 14px; }
+  .local-links { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .local-links a {
+    display: inline-block; background: var(--soft); border: 1px solid rgba(70,120,220,0.35);
+    border-radius: 100px; padding: 8px 18px; font-size: 14px; font-weight: 600;
+    color: var(--brand); text-decoration: none; transition: all 0.15s ease;
+  }
+  .local-links a:hover { background: var(--brand-soft); border-color: var(--brand); }
 
   /* WHY */
   .why-section { background: white; }
