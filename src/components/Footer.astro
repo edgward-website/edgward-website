@@ -53,6 +53,7 @@ const year = new Date().getFullYear();
     </div>
     <div class="footer-bottom">
       <div>© <span id="footer-year">{year}</span> Edgward by DBA Solutions sàrl. Tous droits réservés.</div>
+      <div>Réalisé par <a href="https://vagar.ch" target="_blank" rel="noopener noreferrer" class="footer-credit">Vägar</a></div>
     </div>
   </div>
 </footer>
@@ -91,6 +92,8 @@ const year = new Date().getFullYear();
   .footer-social { display: flex; gap: 12px; }
   .footer-social a { color: #64748b; transition: color 0.15s ease; display: flex; align-items: center; }
   .footer-social a:hover { color: var(--brand-light); }
+  .footer-credit { color: #94a3b8; text-decoration: none; transition: color 0.15s ease; }
+  .footer-credit:hover { color: var(--brand-light); }
   .footer-bottom {
     padding-top: 24px;
     border-top: 1px solid rgba(255,255,255,0.08);
