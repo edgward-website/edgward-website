@@ -7,7 +7,14 @@ import { readingTime } from '../../utils/reading-time';
 
 const allPosts = await getCollection('blog');
 const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const categories = [...new Set(posts.map(p => p.data.category))].sort();
+
+// « À la une » : les articles featured les plus récents (max 3).
+// Le reste (y compris les featured non retenus) reste dans la grille par date.
+const FEATURED_LIMIT = 3;
+const featuredPosts = posts.filter(p => p.data.featured).slice(0, FEATURED_LIMIT);
+const featuredIds = new Set(featuredPosts.map(p => p.id));
+const restPosts = posts.filter(p => !featuredIds.has(p.id));
+const categories = [...new Set(restPosts.map(p => p.data.category))].sort();
 
 function formatDate(date: Date) {
   return date.toLocaleDateString('fr-CH', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -25,6 +32,39 @@ function formatDate(date: Date) {
     maxWidth="560px"
   />
 
+  {featuredPosts.length > 0 && (
+    <section class="section featured-section">
+      <div class="container">
+        <h2 class="featured-heading">À la une</h2>
+        <div class="featured-grid">
+          {featuredPosts.map(post => (
+            <article class={`featured-card fade-in${post.data.image ? '' : ' featured-card--no-image'}`}>
+              {post.data.image && (
+                <a href={`/blog/${post.id}`} class="featured-image">
+                  <img src={post.data.image} alt={post.data.title} loading="eager">
+                </a>
+              )}
+              <div class="featured-body">
+                <div class="post-meta">
+                  <span class="post-category">{post.data.category}</span>
+                  <div class="post-meta-right">
+                    <time class="post-date">{formatDate(post.data.date)}</time>
+                    {post.body && <span class="post-reading-time">{readingTime(post.body)}</span>}
+                  </div>
+                </div>
+                <h3 class="featured-title">
+                  <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                </h3>
+                <p class="featured-excerpt">{post.data.description}</p>
+                <a href={`/blog/${post.id}`} class="post-read-more">Lire l'article →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- POSTS -->
   <section class="section blog-section">
     <div class="container">
@@ -37,11 +77,11 @@ function formatDate(date: Date) {
         </div>
       )}
 
-      {posts.length === 0 ? (
-        <p class="empty-state">Aucun article pour le moment. Revenez bientôt !</p>
+      {restPosts.length === 0 ? (
+        <p class="empty-state">Aucun autre article pour le moment. Revenez bientôt !</p>
       ) : (
         <div class="posts-grid">
-          {posts.map(post => (
+          {restPosts.map(post => (
             <article class="post-card fade-in" data-category={post.data.category}>
               {post.data.image && (
                 <div class="post-image">
@@ -97,6 +137,39 @@ function formatDate(date: Date) {
 
 <style>
   .blog-section { background: white; }
+
+  /* À la une */
+  .featured-section { background: white; padding-bottom: 0; }
+  .featured-heading {
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--brand); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .featured-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .featured-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .featured-card {
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    background: white; border: 2px solid var(--brand);
+    border-radius: var(--radius-lg); overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  .featured-card:hover { box-shadow: 0 16px 40px rgba(70,120,220,0.15); transform: translateY(-3px); }
+  .featured-card--no-image { grid-template-columns: 1fr; }
+  .featured-card--no-image .featured-body { padding: 28px 32px; }
+  .featured-image { display: block; overflow: hidden; background: var(--soft); aspect-ratio: 16/10; }
+  .featured-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+  .featured-card:hover .featured-image img { transform: scale(1.03); }
+  .featured-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+  .featured-title { font-size: 24px; font-weight: 800; color: var(--navy); line-height: 1.25; letter-spacing: -0.02em; margin: 14px 0 12px; }
+  .featured-title a { text-decoration: none; color: inherit; transition: color 0.15s ease; }
+  .featured-title a:hover { color: var(--brand); }
+  .featured-excerpt { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+  @media (max-width: 768px) {
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-body { padding: 24px; }
+    .featured-title { font-size: 20px; }
+  }
 
   .category-filters {
     display: flex;
