@@ -2,11 +2,13 @@
 interface Props {
   action?: string;
   defaultSubject?: string;
+  submitLabel?: string;
 }
 
 const {
   action = 'mailto:info@edgward.ch',
   defaultSubject,
+  submitLabel = 'Envoyer le message',
 } = Astro.props;
 
 const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 'Autre'];
@@ -45,7 +47,7 @@ const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 
     </div>
     <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="cf-hp">
     <button type="submit" class="btn-submit">
-      Envoyer le message
+      {submitLabel}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
     <p class="form-privacy">En envoyant ce message, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>.</p>

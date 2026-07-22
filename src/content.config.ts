@@ -11,6 +11,7 @@ const blog = defineCollection({
     author: z.string().default('Équipe Edgward'),
     category: z.enum(['Sécurité', 'Conseils', 'Entreprises', 'Communes', 'Actualités']).default('Actualités'),
     featured: z.boolean().default(false),
+    contact: z.boolean().default(false),
   }),
 });
 

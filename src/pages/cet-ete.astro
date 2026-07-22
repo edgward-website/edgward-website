@@ -1,0 +1,449 @@
+---
+// Landing de campagne "Cet été" (Instagram / LinkedIn) - design autonome.
+// Volontairement hors layout Base : page bespoke, noindex pour éviter le
+// duplicate content avec l'article de blog /blog/cet-ete-proteger-votre-maison.
+// Le formulaire poste vers Brevo (même endpoint que le composant ContactForm).
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, follow" />
+<title>L'été, les maisons se vident. La vigilance, non. - Edgward</title>
+<meta name="description" content="Caméras, signalétique dissuasive, intervention à la demande. Edgward met les particuliers, les PME et les communes en relation avec des professionnels de la sécurité en Suisse romande. Dès CHF 15/mois, sans engagement." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<!-- Google tag (gtag.js) - même propriété que le reste du site -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LTTFHHNJE1" is:inline></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LTTFHHNJE1');
+</script>
+<style is:global>
+  :root{
+    --paper:#ffffff;
+    --mist:#f4f7fc;
+    --ink:#12203b;
+    --muted:#5a6b88;
+    --navy:#0a1730;
+    --navy2:#0e2350;
+    --blue:#4678dc;
+    --blue-ink:#2f57ac;
+    --blue-soft:rgba(70,120,220,.10);
+    --line:#e3e9f4;
+    --radius:16px;
+    --shadow:0 24px 60px -28px rgba(14,35,80,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Manrope",system-ui,sans-serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .col{max-width:720px;margin:0 auto}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav__in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .brand .sigle{width:34px;height:34px;flex:none;border-radius:8px;display:block}
+  .brand .wordmark{height:19px;width:auto;display:block}
+  .nav__cta{
+    text-decoration:none;color:var(--blue-ink);font-weight:700;font-size:15px;
+    padding:9px 16px;border:1px solid var(--line);border-radius:999px;transition:.2s;
+  }
+  .nav__cta:hover{border-color:var(--blue);color:var(--blue)}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 40px;overflow:hidden}
+  .hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .eyebrow{
+    font-weight:700;font-size:13px;letter-spacing:.22em;color:var(--blue-ink);
+    display:inline-flex;align-items:center;gap:10px;margin:0 0 22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--blue);display:inline-block}
+  h1.title{
+    font-family:"Instrument Serif",Georgia,serif;
+    font-weight:400;font-size:clamp(40px,5.4vw,68px);line-height:1.03;
+    letter-spacing:-.01em;margin:0 0 22px;
+  }
+  h1.title em{font-style:italic;color:var(--blue)}
+  .lede{font-size:19px;color:var(--muted);margin:0 0 26px;max-width:34em}
+  .meta{font-size:13.5px;color:var(--muted);letter-spacing:.02em;margin:0 0 30px}
+  .meta span{color:var(--ink);font-weight:600}
+  .actions{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;
+    padding:14px 26px;border-radius:999px;text-decoration:none;border:1px solid transparent;
+    transition:transform .15s ease,box-shadow .2s ease,background .2s;
+    display:inline-flex;align-items:center;gap:9px;
+  }
+  .btn--primary{background:var(--blue);color:#fff;box-shadow:0 12px 26px -12px rgba(70,120,220,.7)}
+  .btn--primary:hover{transform:translateY(-2px);background:#3a6bd0}
+  .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn--ghost:hover{border-color:var(--blue);color:var(--blue-ink)}
+
+  /* phone frame - ratio calé sur la vidéo (9/16) pour ne rien rogner du texte incrusté */
+  .phone{
+    justify-self:center;position:relative;width:340px;max-width:100%;aspect-ratio:9/16;
+    background:#0a1730;border-radius:38px;padding:10px;
+    box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06);
+  }
+  .phone::before{
+    content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);
+    width:78px;height:20px;background:#0a1730;border-radius:0 0 14px 14px;z-index:2;
+  }
+  .phone video{width:100%;height:100%;object-fit:contain;border-radius:29px;display:block;background:#0a1730}
+  .phone__tag{
+    position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+    background:#fff;color:var(--blue-ink);font-weight:700;font-size:12px;letter-spacing:.04em;
+    padding:7px 15px;border-radius:999px;box-shadow:0 10px 24px -12px rgba(14,35,80,.5);white-space:nowrap;
+  }
+
+  /* ---------- Article ---------- */
+  .article{padding:26px 0 8px}
+  .article p{margin:0 0 22px}
+  .article .first{font-size:21px;line-height:1.6}
+  .article .first::first-letter{
+    font-family:"Instrument Serif",serif;font-size:64px;line-height:.8;
+    float:left;margin:6px 12px 0 0;color:var(--blue);
+  }
+  h2.sub{
+    font-family:"Instrument Serif",serif;font-weight:400;font-size:32px;
+    letter-spacing:-.01em;margin:44px 0 14px;
+  }
+
+  /* three promises */
+  .promises{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:40px 0;padding:8px 0}
+  .promise{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:24px 0;align-items:baseline}
+  .promise+.promise{border-top:1px solid var(--line)}
+  .promise .k{
+    font-family:"Instrument Serif",serif;font-size:26px;color:var(--blue);font-style:italic;
+  }
+  .promise .v{margin:0;color:var(--ink)}
+  .promise .v b{font-weight:700}
+
+  .quote{
+    font-family:"Instrument Serif",serif;font-style:italic;font-size:30px;line-height:1.3;
+    color:var(--navy2);border-left:3px solid var(--blue);padding:6px 0 6px 26px;margin:40px 0;
+  }
+
+  .offer{
+    background:var(--mist);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 30px;margin:40px 0 8px;display:flex;align-items:center;justify-content:space-between;
+    gap:22px;flex-wrap:wrap;
+  }
+  .offer .price{font-weight:800;font-size:22px;letter-spacing:-.01em}
+  .offer .price small{display:block;font-weight:600;font-size:14px;color:var(--muted);letter-spacing:.02em;margin-top:3px}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--navy);color:#eaf0fb;margin-top:64px;padding:74px 0}
+  .contact__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .contact .eyebrow{color:#8fb0ee}
+  .contact .eyebrow::before{background:#8fb0ee}
+  h2.ctitle{
+    font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(34px,4vw,50px);
+    line-height:1.05;margin:0 0 16px;color:#fff;letter-spacing:-.01em;
+  }
+  .contact__p{color:#aebfdd;font-size:17px;margin:0 0 22px;max-width:30em}
+  .assure{list-style:none;margin:22px 0 0;padding:0}
+  .assure li{display:flex;gap:12px;align-items:flex-start;margin:0 0 12px;color:#c3d1ee;font-size:15px}
+  .assure svg{flex:none;margin-top:3px}
+
+  .card{background:#fff;color:var(--ink);border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-weight:600;font-size:13.5px;margin:0 0 7px;color:var(--ink)}
+  .field .req{color:var(--blue)}
+  .field input,.field select,.field textarea{
+    width:100%;font-family:inherit;font-size:15.5px;color:var(--ink);
+    padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:#fff;transition:.15s;
+  }
+  .field textarea{resize:vertical;min-height:96px}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--blue);box-shadow:0 0 0 4px var(--blue-soft);
+  }
+  .consent{display:flex;gap:11px;align-items:flex-start;margin:6px 0 20px;font-size:13.5px;color:var(--muted);line-height:1.5}
+  .consent input{width:18px;height:18px;margin-top:2px;flex:none;accent-color:var(--blue)}
+  .consent a{color:var(--blue-ink)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .submit{width:100%;justify-content:center;font-size:16.5px;padding:15px}
+  .status{margin-top:16px;font-size:14.5px;border-radius:11px;padding:0;line-height:1.5}
+  .status.show{padding:13px 15px}
+  .status.ok{background:#eaf6ee;color:#1c6b3a;border:1px solid #bfe3cb}
+  .status.err{background:#fdecec;color:#a12626;border:1px solid #f3c9c9}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy2);color:#9fb2d8;padding:34px 0;font-size:14px}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .foot a{color:#dbe6fb;text-decoration:none;font-weight:600}
+  .foot a:hover{color:#fff}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:860px){
+    .hero__grid{grid-template-columns:1fr;gap:44px}
+    .phone{order:-1}
+    .contact__grid{grid-template-columns:1fr;gap:36px}
+  }
+  @media (max-width:560px){
+    body{font-size:17px}
+    .hero{padding:44px 0 30px}
+    .grid2{grid-template-columns:1fr}
+    .promise{grid-template-columns:1fr;gap:6px}
+    .offer{flex-direction:column;align-items:flex-start}
+    .card{padding:22px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="https://edgward.ch" aria-label="Edgward, accueil">
+      <img class="sigle" src="/assets/sigle.png" alt="" width="34" height="34" />
+      <img class="wordmark" src="/assets/wordmark-edgward.png" alt="Edgward" height="19" />
+    </a>
+    <a class="nav__cta" href="https://edgward.ch">Découvrir l'app</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="reveal in">
+        <p class="eyebrow">SÉCURITÉ · PRÉVENTION</p>
+        <h1 class="title">L'été, les maisons se vident.<br />La <em>vigilance</em>, non.</h1>
+        <p class="lede">Caméras, signalétique dissuasive, intervention à la demande. Edgward met les particuliers, les PME et les communes en relation avec des professionnels de la sécurité près de chez eux.</p>
+        <p class="meta"><span>Juillet 2026</span> &nbsp;·&nbsp; 4 min de lecture &nbsp;·&nbsp; Par l'équipe Edgward</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#contact">Être recontacté</a>
+          <a class="btn btn--ghost" href="https://edgward.ch">Voir edgward.ch</a>
+        </div>
+      </div>
+      <div class="phone reveal in">
+        <video src="/assets/blog/edgward-ete-final.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <span class="phone__tag">Protégé par Edgward</span>
+      </div>
+    </div>
+  </section>
+
+  <article class="article">
+    <div class="col">
+      <p class="first reveal">Les beaux jours reviennent, et avec eux les logements qui restent vides plus longtemps. Volets fermés, boîte aux lettres qui déborde, voiture absente de l'allée : autant de signaux qu'un cambrioleur d'occasion sait lire. La bonne nouvelle, c'est que la dissuasion fonctionne, et qu'elle n'a plus besoin d'être compliquée ni hors de prix.</p>
+
+      <h2 class="sub reveal">Une protection à portée de main</h2>
+      <p class="reveal">Pendant longtemps, sécuriser un bien a été réservé aux grandes entreprises et aux budgets qui vont avec. Edgward inverse la logique. Nous ne sommes pas un opérateur de sécurité de plus : nous sommes la plateforme qui vous met en relation avec des professionnels de terrain, près de chez vous, et qui vous laisse garder la main.</p>
+      <p class="reveal">Vous décrivez votre besoin, nous vous orientons vers le bon partenaire, et la protection se met en place. Simplement.</p>
+
+      <div class="promises reveal">
+        <div class="promise">
+          <div class="k">Facile</div>
+          <p class="v">Une demande, un partenaire près de chez vous. <b>Pas de dossier interminable</b> ni de démarchage insistant.</p>
+        </div>
+        <div class="promise">
+          <div class="k">Rapide</div>
+          <p class="v">Caméras et signalétique installées <b>en quelques heures</b>, pas en quelques semaines.</p>
+        </div>
+        <div class="promise">
+          <div class="k">Accessible</div>
+          <p class="v">Dès <b>CHF 15/mois, sans engagement</b>, partout en Suisse romande.</p>
+        </div>
+      </div>
+
+      <p class="quote reveal">La sécurité ne devrait pas être un privilège réservé aux grands budgets.</p>
+
+      <h2 class="sub reveal">Pourquoi s'y prendre maintenant</h2>
+      <p class="reveal">L'été est un déclencheur, pas une fin en soi. Une caméra visible, un panneau clair, une intervention possible à la demande : ces signaux découragent avant même qu'un incident n'arrive, et ils protègent toute l'année. Se mettre en ordre pendant l'accalmie estivale, c'est aborder la rentrée l'esprit tranquille.</p>
+
+      <div class="offer reveal">
+        <div class="price">Dès CHF 15/mois
+          <small>Sans engagement · Suisse romande</small>
+        </div>
+        <a class="btn btn--primary" href="#contact">Demander à être recontacté</a>
+      </div>
+    </div>
+  </article>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact__grid">
+      <div class="reveal">
+        <p class="eyebrow">PRISE DE CONTACT</p>
+        <h2 class="ctitle">Parlons de votre sécurité.</h2>
+        <p class="contact__p">Laissez-nous vos coordonnées. Nous revenons vers vous rapidement avec une proposition adaptée à votre situation.</p>
+        <ul class="assure">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#8fb0ee" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Réponse d'un interlocuteur, pas d'un robot.</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#8fb0ee" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Vos données servent uniquement à vous recontacter.</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#8fb0ee" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Aucune revente, aucun spam.</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <form id="contactForm" novalidate>
+          <div class="grid2">
+            <div class="field">
+              <label for="prenom">Prénom <span class="req">*</span></label>
+              <input id="prenom" name="prenom" type="text" autocomplete="given-name" required />
+            </div>
+            <div class="field">
+              <label for="nom">Nom <span class="req">*</span></label>
+              <input id="nom" name="nom" type="text" autocomplete="family-name" required />
+            </div>
+          </div>
+          <div class="grid2">
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="tel">Téléphone</label>
+              <input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="Facultatif" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="profil">Vous êtes <span class="req">*</span></label>
+            <select id="profil" name="profil" required>
+              <option value="" selected disabled>Choisir...</option>
+              <option>Un particulier</option>
+              <option>Une PME ou un commerce</option>
+              <option>Une commune ou collectivité</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Votre besoin en quelques mots</label>
+            <textarea id="message" name="message" placeholder="Facultatif : type de bien, ce que vous cherchez à protéger..."></textarea>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="website">Ne pas remplir</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" id="consent" name="consent" required />
+            <span>J'accepte qu'Edgward me recontacte au sujet de ma demande. Mes données sont traitées conformément à la loi suisse sur la protection des données (nLPD).</span>
+          </label>
+
+          <button class="btn btn--primary submit" type="submit" id="submitBtn">Être recontacté</button>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr"></span> Edgward · <a href="https://edgward.ch">edgward.ch</a></span>
+    <span>Une solution DBA Solutions Sàrl, Genève</span>
+  </div>
+</footer>
+
+<script is:inline>
+  // Endpoint Brevo (identique au composant ContactForm du site).
+  const BREVO_CONTACT_ACTION = 'https://87714af1.sibforms.com/serve/MUIFACeUMEzMccQ08jYHlzrdNpWoRrnKzHQmfX53dXh3078PAXXC3bDI0rzN0FcL7yQIGvijOqpaNaHdOjgoOWJ0h_xT7KN4dQy7e-dZ-47FALbyi6DffXwBux4VqYLN-Z7VKjeO_D3znDM-oK3wufPUoBSGyWitQx2h1rhHU_u3hjMH8qe9N4GbLlzOUn60ndvujAgptth1dR8i';
+  const SUBJECT_MAP = {
+    'Un particulier': '1',
+    'Une PME ou un commerce': '2',
+    'Une commune ou collectivité': '3',
+    'Autre': '5',
+  };
+  const CONTACT_EMAIL = 'info@edgward.ch';
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Reveal au scroll
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .14 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+
+  const form = document.getElementById('contactForm');
+  const statusEl = document.getElementById('status');
+  const btn = document.getElementById('submitBtn');
+
+  function setStatus(type, msg) {
+    statusEl.className = 'status show ' + type;
+    statusEl.textContent = msg;
+  }
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    if (form.website.value) { return; } // honeypot
+
+    const data = {
+      prenom: form.prenom.value.trim(),
+      nom: form.nom.value.trim(),
+      email: form.email.value.trim(),
+      tel: form.tel.value.trim(),
+      profil: form.profil.value,
+      message: form.message.value.trim(),
+    };
+
+    if (!data.prenom || !data.nom || !data.email || !data.profil) {
+      setStatus('err', "Merci de remplir les champs marqués d'un astérisque."); return;
+    }
+    if (!isEmail(data.email)) { setStatus('err', "L'adresse email ne semble pas valide."); return; }
+    if (!form.consent.checked) { setStatus('err', "Merci de cocher la case de consentement."); return; }
+
+    btn.disabled = true;
+    const label = btn.textContent;
+    btn.textContent = 'Envoi...';
+
+    let composed = data.message;
+    if (data.tel) composed = 'Tél : ' + data.tel + ' - ' + composed;
+    composed = (composed + ' [Profil : ' + data.profil + ' - source : landing cet-ete]').slice(0, 255);
+
+    const params = new URLSearchParams();
+    params.append('NOM', (data.prenom + ' ' + data.nom).trim());
+    params.append('EMAIL', data.email);
+    params.append('SUJET', SUBJECT_MAP[data.profil] || '5');
+    params.append('MESSAGE', composed);
+    params.append('email_address_check', '');
+    params.append('locale', 'en');
+
+    try {
+      await fetch(BREVO_CONTACT_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params,
+        keepalive: true,
+      });
+      form.reset();
+      setStatus('ok', "Merci, votre demande est bien partie. Nous vous recontactons rapidement.");
+    } catch (e) {
+      setStatus('err', "L'envoi a échoué. Réessayez, ou écrivez-nous à " + CONTACT_EMAIL + ".");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = label;
+    }
+  });
+</script>
+</body>
+</html>

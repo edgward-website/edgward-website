@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import { readingTime } from '../../utils/reading-time';
 import { site } from '../../data/site';
+import ContactForm from '../../components/ContactForm.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -88,6 +90,20 @@ const blogPostingSchema = {
       </div>
     </div>
   </article>
+
+  <!-- CONTACT -->
+  {post.data.contact && (
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <SectionHeader
+          eyebrow="Prise de contact"
+          title="Parlons de votre <em>sécurité</em>"
+          subtitle="Une question ou un projet de sécurité ? Écrivez-nous, notre équipe vous répond rapidement."
+        />
+        <ContactForm defaultSubject="Particulier" submitLabel="Être recontacté" />
+      </div>
+    </section>
+  )}
 
   <!-- RELATED POSTS -->
   {relatedPosts.length > 0 && (
