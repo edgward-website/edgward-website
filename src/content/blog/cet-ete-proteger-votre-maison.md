@@ -12,7 +12,7 @@ contact: true
 Les beaux jours reviennent, et avec eux les logements qui restent vides plus longtemps. Volets fermés, boîte aux lettres qui déborde, voiture absente de l'allée : autant de signaux qu'un cambrioleur d'occasion sait lire. La bonne nouvelle, c'est que la dissuasion fonctionne, et qu'elle n'a plus besoin d'être compliquée ni hors de prix.
 
 <figure class="phone-shot">
-  <video src="/assets/blog/edgward-ete-final.mp4" autoplay muted loop playsinline preload="metadata" poster="/assets/blog/cet-ete-cover.jpg" style="width:100%;border-radius:18px;box-shadow:0 12px 32px rgba(0,0,0,0.18);display:block;"></video>
+  <video src="/assets/blog/edgward-ete-final.mp4" autoplay muted loop playsinline preload="metadata" style="width:100%;border-radius:18px;box-shadow:0 12px 32px rgba(0,0,0,0.18);display:block;background:#0a1730;"></video>
   <figcaption>Une installation Edgward, filmée cet été.</figcaption>
 </figure>
 
