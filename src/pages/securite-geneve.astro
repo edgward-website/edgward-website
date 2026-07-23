@@ -88,10 +88,23 @@ const temoignages = [
 ];
 
 // Communes classées par importance (population / recherches Google), les plus grandes en tête.
+// href = lien vers la page locale dédiée (maillage interne) quand elle existe.
 const communes = [
-  'Genève', 'Vernier', 'Lancy', 'Meyrin', 'Carouge', 'Onex',
-  'Thônex', 'Versoix', 'Le Grand-Saconnex', 'Chêne-Bougeries',
-  'Plan-les-Ouates', 'Veyrier', 'Bernex', 'Cologny', 'Confignon',
+  { name: 'Genève' },
+  { name: 'Vernier' },
+  { name: 'Lancy', href: '/securite-lancy' },
+  { name: 'Meyrin' },
+  { name: 'Carouge', href: '/securite-carouge' },
+  { name: 'Onex', href: '/securite-onex' },
+  { name: 'Thônex', href: '/securite-thonex' },
+  { name: 'Chêne-Bougeries', href: '/securite-chene-bougeries' },
+  { name: 'Veyrier', href: '/securite-veyrier' },
+  { name: 'Plan-les-Ouates', href: '/securite-plan-les-ouates' },
+  { name: 'Pregny-Chambésy', href: '/securite-pregny-chambesy' },
+  { name: 'Versoix' },
+  { name: 'Le Grand-Saconnex' },
+  { name: 'Bernex' },
+  { name: 'Cologny' },
 ];
 ---
 
@@ -216,7 +229,7 @@ const communes = [
         </div>
       </div>
       <ul class="communes" aria-label="Communes couvertes à Genève">
-        {communes.map(c => <li>{c}</li>)}
+        {communes.map(c => <li>{c.href ? <a href={c.href}>{c.name}</a> : c.name}</li>)}
         <li class="communes-more">…et toutes les autres communes genevoises</li>
       </ul>
     </div>
@@ -310,7 +323,10 @@ const communes = [
   .cstat-num { display: block; font-size: 26px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 6px; }
   .cstat-label { display: block; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
   .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .communes li { background: var(--soft); border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .communes li { background: var(--soft); border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); transition: all 0.15s ease; }
+  .communes li:has(a) { border-color: rgba(70,120,220,0.35); }
+  .communes li:has(a):hover { background: var(--brand-soft); border-color: var(--brand); }
+  .communes li a { color: var(--brand); text-decoration: none; }
   .communes-more { background: transparent !important; border: none !important; color: var(--text-muted) !important; font-weight: 400 !important; font-style: italic; }
 
   @media (max-width: 1024px) {

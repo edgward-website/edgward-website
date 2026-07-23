@@ -1,0 +1,326 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+import Testimonials from '../components/Testimonials.astro';
+import PartnersGrid from '../components/PartnersGrid.astro';
+import Steps from '../components/Steps.astro';
+import { partners } from '../data/partners';
+
+// --- Données propres à la commune ---
+const commune = 'Lancy';
+const quartiers = [
+  'Grand-Lancy', 'Petit-Lancy', 'Pont-Rouge', 'Les Palettes',
+  'La Chapelle', 'Le Bachet', 'Les Marbriers', 'Surville',
+];
+
+const geneveNames = ['GPA SA', 'Python Sécurité SA', 'KRK Security', 'Global Sécurité (SPS)'];
+const partenairesGE = partners.filter(p => geneveNames.includes(p.name));
+
+// Chiffres officiels 2025 - Statistique policière de la criminalité par commune, Corps de police GE (ge.ch).
+const chiffres = [
+  { num: '135', label: 'cambriolages par effraction' },
+  { num: '27', label: 'introductions clandestines' },
+  { num: '50', label: 'effractions de véhicule' },
+  { num: "1'845", label: 'infractions contre le patrimoine' },
+];
+
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: 'Savoir - les alertes de votre quartier',
+    description: "Recevez les signalements vérifiés de votre secteur, à Lancy : cambriolages, véhicules suspects, tentatives d'intrusion. Une information modérée avant publication, sans le bruit des groupes de quartier.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'Agir - une patrouille à la demande',
+    description: "Un doute en rentrant chez vous, une absence prolongée, une alerte dans votre immeuble ? Déclenchez l'intervention d'une société de sécurité partenaire genevoise. Délai moyen : 10 à 15 minutes.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
+    title: 'Sans engagement',
+    description: "Pas d'abonnement de gardiennage ni de contrat de longue durée. Les alertes sont gratuites, et vous ne payez une intervention que si vous en déclenchez une.",
+  },
+];
+
+const etapes = [
+  { num: '1', title: "Téléchargez l'application", description: "Edgward est disponible sur l'App Store et Google Play. La création de votre compte prend deux minutes." },
+  { num: '2', title: 'Activez les alertes de Lancy', description: "Renseignez votre adresse et suivez les signalements vérifiés de votre secteur. Cette partie est 100% gratuite." },
+  { num: '3', title: 'Déclenchez une intervention', description: "En cas de doute, commandez une patrouille depuis l'app et recevez un rapport une fois l'intervention réalisée." },
+];
+
+const temoignages = [
+  {
+    quote: "Le module d'alertes et informations est super utile.",
+    name: 'Caroline M.',
+    role: 'Utilisatrice à Genève',
+    initials: 'CM',
+    stars: 4,
+  },
+  {
+    quote: "Intervention rapide et agent très sympa, merci !",
+    name: 'Emmanuelle F.',
+    role: 'Cliente à Genève',
+    initials: 'EF',
+  },
+  {
+    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
+    name: 'Marc M.',
+    role: 'Client à Genève',
+    initials: 'MM',
+  },
+];
+---
+
+<Base
+  title="Sécurité à Lancy : alertes de quartier et intervention à la demande | Edgward"
+  description="135 cambriolages par effraction recensés à Lancy en 2025. Suivez les alertes vérifiées de votre quartier et faites intervenir une patrouille en 10-15 min, sans engagement."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg class="canton-flag" width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="2.5" fill="#f4c300"/><path d="M10 0 H17.5 A2.5 2.5 0 0 1 20 2.5 V11.5 A2.5 2.5 0 0 1 17.5 14 H10 Z" fill="#d8232a"/><g fill="#f4c300"><circle cx="15" cy="4.3" r="1.6"/><rect x="14.35" y="5.2" width="1.3" height="6" rx="0.5"/><rect x="15.5" y="8.4" width="1.8" height="1.1" rx="0.3"/><rect x="15.5" y="10.1" width="1.3" height="1.1" rx="0.3"/></g><circle cx="15" cy="4.3" r="0.6" fill="#d8232a"/></svg>
+            Lancy · Canton de Genève
+          </div>
+          <h1>Votre sécurité à Lancy,<br><em>du Petit-Lancy à Pont-Rouge</em></h1>
+          <p>Suivez ce qui se passe réellement près de chez vous <strong>et</strong> faites intervenir une patrouille à la demande. Alertes géolocalisées vérifiées et gratuites, intervention en 10 à 15 minutes.</p>
+          <div class="hero-ctas">
+            <a href="#comment-ca-marche" class="btn-primary">
+              Comment ça marche
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="/securite-geneve" class="btn-secondary">
+              Voir tout le canton de Genève
+            </a>
+          </div>
+          <p class="hero-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Découvrez le <a href="/alertes">module Alertes &amp; Informations</a> ou nos solutions pour <a href="/entreprises">entreprises</a>.
+          </p>
+        </div>
+        <div class="hero-visual">
+          <div class="newsfeed-demo" aria-label="Exemple d'alertes à Lancy">
+            <div class="demo-header">
+              <span class="demo-title">Alertes · {commune}</span>
+              <span class="demo-radius">1 km</span>
+            </div>
+            <div class="demo-item demo-item--red">
+              <div class="demo-dot demo-dot--red"></div>
+              <div class="demo-content">
+                <strong>Cambriolage d'une cave</strong>
+                <span>Les Palettes · il y a 35 min</span>
+              </div>
+              <a href="/alertes" class="demo-cta">Intervenir</a>
+            </div>
+            <div class="demo-item demo-item--orange">
+              <div class="demo-dot demo-dot--orange"></div>
+              <div class="demo-content">
+                <strong>Véhicule suspect signalé</strong>
+                <span>Le Bachet · il y a 2h</span>
+              </div>
+            </div>
+            <div class="demo-item demo-item--yellow">
+              <div class="demo-dot demo-dot--yellow"></div>
+              <div class="demo-content">
+                <strong>Manifestation au centre-ville</strong>
+                <span>Pont-Rouge · aujourd'hui</span>
+              </div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-dot demo-dot--blue"></div>
+              <div class="demo-content">
+                <strong>Alerte météo sur le canton</strong>
+                <span>Genève · il y a 1h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO LOCALE -->
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-prose">
+        <p><strong>Lancy est l'une des plus grandes communes du canton</strong>, et l'une de celles qui ont le plus changé. Entre les barres du Grand-Lancy, les villas du Petit-Lancy et le nouveau quartier de Pont-Rouge, elle concentre une densité de logements, de parkings souterrains et d'axes de transit peu comparable au reste de la rive gauche.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIFFRES COMMUNAUX -->
+  <section class="section figures-section" id="chiffres">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Les chiffres 2025"
+        title="Ce que disent vraiment <em>les statistiques à Lancy</em>"
+        subtitle="La police cantonale genevoise publie chaque année le détail des infractions commune par commune. Voici le millésime 2025 pour Lancy."
+      />
+      <div class="figures">
+        {chiffres.map(c => (
+          <div class="figure">
+            <span class="figure-num">{c.num}</span>
+            <span class="figure-label">{c.label}</span>
+          </div>
+        ))}
+      </div>
+      <div class="figures-text">
+        <p>Avec <strong>162 cambriolages en une année</strong> et 1'845 infractions contre le patrimoine, Lancy figure parmi les communes genevoises les plus concernées en volume, hors Ville de Genève. Les <strong>50 effractions de véhicule</strong> sont également le chiffre le plus élevé des communes de la rive gauche que nous couvrons.</p>
+        <p>À l'échelle du canton, la criminalité recule pourtant : 50'020 infractions au Code pénal en 2025 contre 52'146 en 2024, soit -4%. Mais l'effraction, elle, progresse de 7%.</p>
+        <p><strong>Le fait marquant de 2025 concerne directement une commune d'immeubles comme Lancy :</strong> les cambriolages de caves bondissent de 65% dans le canton (668 cas), alors que ceux visant les villas diminuent. Une porte de cave est souvent légère, le local mal éclairé et sans vis-à-vis. Il suffit d'entrer une fois dans un hall pour accéder à l'ensemble des caves de l'immeuble.</p>
+      </div>
+      <p class="source-note">
+        Source : Statistique policière de la criminalité 2025 par commune, Corps de police du canton de Genève -
+        <a href="https://www.ge.ch/document/statistique-policiere-criminalite-2025-commune" target="_blank" rel="noopener">ge.ch</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre solution"
+        title="Savoir ce qui se passe à Lancy, <em>et pouvoir agir</em>"
+        subtitle="Deux fonctions au même endroit : l'information de sécurité fiable de votre quartier, et la possibilité de faire intervenir une patrouille quand vous en avez besoin."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- COMMENT CA MARCHE -->
+  <section class="section how-section" id="comment-ca-marche">
+    <div class="container">
+      <SectionHeader
+        eyebrow="L'application"
+        title="Comment ça marche, <em>concrètement</em>"
+        subtitle="Trois étapes, depuis votre téléphone. Les alertes de votre quartier sont gratuites ; vous ne payez que si vous déclenchez une intervention."
+      />
+      <Steps steps={etapes} />
+      <div class="how-ctas">
+        <a href="/comment-ca-marche" class="btn-primary">
+          Voir le fonctionnement en détail
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="/activer-les-alertes" class="btn-secondary">Activer les alertes - 100% gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUARTIERS -->
+  <section class="section coverage-section" id="quartiers">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Couverture"
+        title="Présents dans <em>tous les quartiers de Lancy</em>"
+        subtitle="Du Grand-Lancy aux Marbriers, en passant par Pont-Rouge et Surville, Edgward couvre votre secteur grâce à un réseau de sociétés de sécurité genevoises."
+      />
+      <ul class="communes" aria-label="Quartiers couverts à Lancy">
+        {quartiers.map(q => <li>{q}</li>)}
+        <li class="communes-more">…et tous les autres secteurs lancéens</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONFIANCE -->
+  <section class="section trust-section" id="confiance">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Ils nous font confiance"
+        title="Des Genevois·es <em>déjà protégé·es</em>"
+      />
+      <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <PartnersGrid
+    title="Nos sociétés de sécurité partenaires à Genève"
+    partners={partenairesGE}
+  />
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Reprenez le contrôle de <em>votre sécurité à Lancy</em>"
+    description="Téléchargez l'application, activez gratuitement les alertes de votre quartier, et gardez la possibilité de faire intervenir une patrouille en 10 à 15 minutes."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; }
+  .hero h1 { font-size: clamp(32px, 4.1vw, 50px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-note { margin-top: 20px; font-size: 14px; line-height: 1.55; color: #cbd5e1; max-width: 480px; }
+  .hero-note svg { color: var(--brand-light); vertical-align: -2px; margin-right: 6px; }
+  .hero-note a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+  .hero-note a:hover { color: white; }
+
+  /* NEWSFEED DEMO */
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .newsfeed-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 20px; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; }
+  .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .demo-title { font-size: 13px; font-weight: 600; color: white; }
+  .demo-radius { font-size: 11px; color: var(--brand-light); background: var(--brand-soft); padding: 2px 8px; border-radius: 100px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .demo-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.06); }
+  .demo-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .demo-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.6); }
+  .demo-dot--orange { background: #f97316; box-shadow: 0 0 6px rgba(249,115,22,0.6); }
+  .demo-dot--yellow { background: #eab308; }
+  .demo-dot--blue { background: var(--brand-light); box-shadow: 0 0 6px rgba(70,120,220,0.6); }
+  .demo-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .demo-content strong { font-size: 12px; color: white; font-weight: 600; }
+  .demo-content span { font-size: 10px; color: #94a3b8; }
+  .demo-cta { background: var(--brand); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s ease; text-decoration: none; display: inline-block; }
+  .demo-cta:hover { background: var(--brand-dark); }
+
+  .intro-section { background: white; padding-bottom: 0; }
+  .intro-prose { max-width: 760px; margin: 0 auto; }
+  .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); }
+  .intro-prose strong { color: var(--navy); }
+
+  /* CHIFFRES */
+  .figures-section { background: white; }
+  .figures { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 36px; }
+  .figure { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; }
+  .figure-num { display: block; font-size: 34px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 6px; }
+  .figure-label { display: block; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+  .figures-text { max-width: 760px; margin: 0 auto; }
+  .figures-text p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
+  .figures-text p:last-child { margin-bottom: 0; }
+  .figures-text strong { color: var(--navy); }
+  .source-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 28px; }
+  .source-note a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+
+  .solution-section { background: var(--soft); }
+  .how-section { background: white; }
+  .how-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+  .coverage-section { background: var(--soft); }
+  .trust-section { background: white; }
+
+  /* COVERAGE */
+  .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .communes li { background: white; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .communes-more { background: transparent !important; border: none !important; color: var(--text-muted) !important; font-weight: 400 !important; font-style: italic; }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+    .figures { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+    .figures { grid-template-columns: 1fr; }
+  }
+</style>

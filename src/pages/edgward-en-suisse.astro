@@ -31,6 +31,16 @@ const pagesCantons = [
   { name: 'Genève', href: '/securite-geneve' },
   { name: 'Vaud', href: '/securite-vaud' },
 ];
+const pagesCommunesGE = [
+  { name: 'Carouge', href: '/securite-carouge' },
+  { name: 'Lancy', href: '/securite-lancy' },
+  { name: 'Onex', href: '/securite-onex' },
+  { name: 'Thônex', href: '/securite-thonex' },
+  { name: 'Chêne-Bougeries', href: '/securite-chene-bougeries' },
+  { name: 'Veyrier', href: '/securite-veyrier' },
+  { name: 'Plan-les-Ouates', href: '/securite-plan-les-ouates' },
+  { name: 'Pregny-Chambésy', href: '/securite-pregny-chambesy' },
+];
 const pagesVillesVD = [
   { name: 'Lausanne', href: '/securite-lausanne' },
   { name: 'Nyon', href: '/securite-nyon' },
@@ -75,6 +85,12 @@ const pagesVillesVD = [
           <span class="local-label">Par canton</span>
           <ul class="local-links">
             {pagesCantons.map(p => <li><a href={p.href}>{p.name}</a></li>)}
+          </ul>
+        </div>
+        <div class="local-group">
+          <span class="local-label">Communes genevoises</span>
+          <ul class="local-links">
+            {pagesCommunesGE.map(p => <li><a href={p.href}>{p.name}</a></li>)}
           </ul>
         </div>
         <div class="local-group">
