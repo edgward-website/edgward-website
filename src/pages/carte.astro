@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import CarteEvenements from '../components/CarteEvenements.astro';
+import data from '../data/evenements-securite.json';
+
+const evenements = data.evenements ?? [];
+const dateMaj = data.genereLe
+  ? new Intl.DateTimeFormat('fr-CH', { timeZone: 'Europe/Zurich', day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit' }).format(new Date(data.genereLe))
+  : '';
+
+const title = 'Carte des événements de sécurité — Suisse romande | Edgward';
+const description = "Carte des principaux événements de sécurité (cambriolages, agressions, incendies, accidents, cyber…) relayés en Suisse romande sur les dernières 24 heures. Actualisée automatiquement 2× par jour.";
+---
+
+<Base title={title} description={description} noindex={true}>
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Veille sécurité</span>
+        <h2>Carte des <em>événements</em> · Suisse romande</h2>
+        <p class="section-subtitle">
+          Les principaux événements de sécurité relayés dans les médias et les communiqués de police au cours des dernières 24 heures.
+          {dateMaj && ` Dernière mise à jour : ${dateMaj}.`}
+        </p>
+      </div>
+      <CarteEvenements evenements={evenements} genereLe={data.genereLe} />
+    </div>
+  </section>
+</Base>

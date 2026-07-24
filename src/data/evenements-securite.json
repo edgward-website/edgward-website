@@ -1,0 +1,15 @@
+{
+  "genereLe": "2026-07-24T13:47:00.000Z",
+  "source": "collecte automatique",
+  "evenements": [
+    { "titre": "Fuite de données à l'Ifage", "resume": "Cyberattaque contre un centre de formation genevois ; l'ampleur des données concernées est en cours d'évaluation.", "commune": "Genève", "canton": "GE", "categorie": "cyber", "lon": 6.145, "lat": 46.204, "heure": "auj. 09:16", "source": "Tribune de Genève", "recent": true },
+    { "titre": "Agression à l'arme blanche", "resume": "Une personne a été blessée à l'arme blanche dans un véhicule ; intervention de la police et des secours.", "commune": "Lausanne", "canton": "VD", "categorie": "agression", "lon": 6.633, "lat": 46.519, "heure": "auj. 09:13", "source": "24 heures", "recent": true },
+    { "titre": "Incendie d'une menuiserie", "resume": "Les flammes ont pu être confinées par les pompiers ; intervention en cours au moment de la publication.", "commune": "Sion", "canton": "VS", "categorie": "incendie", "lon": 7.359, "lat": 46.233, "heure": "auj. 10:02", "source": "Rhône FM", "recent": true },
+    { "titre": "Cambriolage d'une station-service", "resume": "Effraction nocturne signalée dans une station-service ; enquête en cours.", "commune": "Monthey", "canton": "VS", "categorie": "cambriolage", "lon": 6.954, "lat": 46.254, "heure": "nuit", "source": "Rhône FM", "recent": true },
+    { "titre": "Accident mortel avec un véhicule de chantier", "resume": "Un véhicule de travail a dévalé une pente ; le conducteur est décédé. Constat de la police en cours.", "commune": "Troistorrents", "canton": "VS", "categorie": "accident", "lon": 6.913, "lat": 46.234, "heure": "auj. 07:45", "source": "Le Nouvelliste", "recent": true },
+    { "titre": "Cambriolage à l'explosif de bancomats", "resume": "Deux distributeurs bancaires visés à l'explosif ; quartier temporairement bouclé le temps de l'intervention.", "commune": "Lausanne — Chailly", "canton": "VD", "categorie": "cambriolage", "lon": 6.655, "lat": 46.532, "heure": "hier 21:25", "source": "24 heures", "recent": false },
+    { "titre": "Chute mortelle sur un chantier", "resume": "Un ouvrier a fait une chute mortelle sur un chantier ; une enquête a été ouverte.", "commune": "Les Diablerets", "canton": "VD", "categorie": "accident", "lon": 7.203, "lat": 46.353, "heure": "auj. 14:54", "source": "24 heures", "recent": true },
+    { "titre": "Sculptures vandalisées", "resume": "Des œuvres exposées en plein air ont été dégradées ; la police recherche des témoins.", "commune": "Séprais", "canton": "JU", "categorie": "ordre", "lon": 7.283, "lat": 47.343, "heure": "hier 21:07", "source": "RTS", "recent": false },
+    { "titre": "Interpellation lors d'un contrôle", "resume": "Plusieurs individus interpellés à la suite d'un contrôle de police en ville.", "commune": "Genève", "canton": "GE", "categorie": "ordre", "lon": 6.142, "lat": 46.208, "heure": "hier 16:28", "source": "Tribune de Genève", "recent": false }
+  ]
+}
