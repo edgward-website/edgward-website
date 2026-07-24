@@ -30,6 +30,25 @@ const deploymentCards = [
 const pagesCantons = [
   { name: 'Genève', href: '/securite-geneve' },
   { name: 'Vaud', href: '/securite-vaud' },
+  { name: 'Neuchâtel', href: '/securite-neuchatel' },
+];
+const pagesCommunesNE = [
+  { name: 'La Chaux-de-Fonds', href: '/securite-la-chaux-de-fonds' },
+  { name: 'Le Locle', href: '/securite-le-locle' },
+  { name: 'Val-de-Ruz', href: '/securite-val-de-ruz' },
+  { name: 'Laténa', href: '/securite-latena' },
+  { name: 'Val-de-Travers', href: '/securite-val-de-travers' },
+  { name: 'Milvignes', href: '/securite-milvignes' },
+  { name: 'La Grande Béroche', href: '/securite-la-grande-beroche' },
+  { name: 'Boudry', href: '/securite-boudry' },
+  { name: 'Cortaillod', href: '/securite-cortaillod' },
+  { name: 'Le Landeron', href: '/securite-le-landeron' },
+  { name: 'Cressier', href: '/securite-cressier' },
+  { name: 'Cornaux', href: '/securite-cornaux' },
+  { name: 'Rochefort', href: '/securite-rochefort' },
+  { name: 'Les Ponts-de-Martel', href: '/securite-les-ponts-de-martel' },
+  { name: 'La Sagne', href: '/securite-la-sagne' },
+  { name: 'Lignières', href: '/securite-lignieres' },
 ];
 const pagesCommunesGE = [
   { name: 'Carouge', href: '/securite-carouge' },
@@ -104,6 +123,12 @@ const pagesVillesVD = [
           <span class="local-label">Villes vaudoises</span>
           <ul class="local-links">
             {[...pagesVillesVD].sort((a, b) => a.name.localeCompare(b.name, 'fr')).map(p => <li><a href={p.href}>{p.name}</a></li>)}
+          </ul>
+        </div>
+        <div class="local-group">
+          <span class="local-label">Communes neuchâteloises</span>
+          <ul class="local-links">
+            {[...pagesCommunesNE].sort((a, b) => a.name.localeCompare(b.name, 'fr')).map(p => <li><a href={p.href}>{p.name}</a></li>)}
           </ul>
         </div>
       </div>

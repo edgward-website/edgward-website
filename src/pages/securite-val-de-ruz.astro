@@ -1,0 +1,301 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+import Testimonials from '../components/Testimonials.astro';
+import PartnersGrid from '../components/PartnersGrid.astro';
+import Steps from '../components/Steps.astro';
+import { partners } from '../data/partners';
+
+// --- Données propres à la commune ---
+const commune = "Val-de-Ruz";
+const quartiers = [
+  "Cernier", "Fontainemelon", "Les Geneveys-sur-Coffrane", "Chézard-Saint-Martin", "Dombresson", "Fontaines", "Savagnier", "Les Hauts-Geneveys",
+];
+
+const neuchatelNames = ['GPA SA', 'Sécurice'];
+const partenairesNE = partners.filter(p => neuchatelNames.includes(p.name));
+
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: 'Savoir - les alertes de votre secteur',
+    description: "Recevez les signalements vérifiés autour de chez vous, dans le Val-de-Ruz : cambriolages, véhicules suspects, démarchage douteux. Une information modérée avant publication, sans le bruit des groupes de quartier.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'Agir - une patrouille à la demande',
+    description: "Une absence prolongée, un doute au retour, une alerte dans votre rue ? Déclenchez l'intervention d'une société de sécurité partenaire neuchâteloise en quelques secondes.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
+    title: 'Sans engagement',
+    description: "Pas d'abonnement de gardiennage ni de contrat de longue durée. Les alertes sont gratuites, et vous ne payez une intervention que si vous en déclenchez une.",
+  },
+];
+
+const etapes = [
+  { num: '1', title: "Téléchargez l'application", description: "Edgward est disponible sur l'App Store et Google Play. La création de votre compte prend deux minutes." },
+  { num: '2', title: 'Activez les alertes dans le Val-de-Ruz', description: "Renseignez votre adresse et suivez les signalements vérifiés autour de chez vous. Cette partie est 100% gratuite." },
+  { num: '3', title: 'Déclenchez une intervention', description: "En cas de doute, commandez une patrouille depuis l'app et recevez un rapport une fois l'intervention réalisée." },
+];
+
+const temoignages = [
+  {
+    quote: "Le module d'alertes et informations est super utile.",
+    name: "Caroline M.",
+    role: "Utilisatrice en Suisse romande",
+    initials: "CM",
+    stars: 4,
+  },
+  {
+    quote: "Intervention rapide et agent très sympa, merci !",
+    name: "Emmanuelle F.",
+    role: "Cliente en Suisse romande",
+    initials: "EF",
+  },
+  {
+    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
+    name: "Marc M.",
+    role: "Client en Suisse romande",
+    initials: "MM",
+  },
+];
+---
+
+<Base
+  title="Sécurité dans le Val-de-Ruz : alertes et intervention à la demande | Edgward"
+  description="Dans le Val-de-Ruz, suivez les alertes vérifiées de votre village et faites intervenir une patrouille à la demande. Sécurité sans engagement dès CHF 15.-/mois."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <img class="canton-flag" src="/assets/flag-neuchatel.png" width="22" height="22" alt="" aria-hidden="true">
+            Val-de-Ruz · Canton de Neuchâtel
+          </div>
+          <h1>Votre sécurité dans le Val-de-Ruz,<br><em>au cœur du vallon</em></h1>
+          <p>Suivez ce qui se passe réellement près de chez vous <strong>et</strong> faites intervenir une patrouille à la demande. Alertes géolocalisées vérifiées et gratuites, sans engagement.</p>
+          <div class="hero-ctas">
+            <a href="#comment-ca-marche" class="btn-primary">
+              Comment ça marche
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="/securite-neuchatel" class="btn-secondary">
+              Voir tout le canton de Neuchâtel
+            </a>
+          </div>
+          <p class="hero-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Découvrez le <a href="/alertes">module Alertes &amp; Informations</a> ou nos solutions pour <a href="/entreprises">entreprises</a>.
+          </p>
+        </div>
+        <div class="hero-visual">
+          <div class="newsfeed-demo" aria-label="Exemple d'alertes dans le Val-de-Ruz">
+            <div class="demo-header">
+              <span class="demo-title">Alertes · {commune}</span>
+              <span class="demo-radius">1 km</span>
+            </div>
+            <div class="demo-item demo-item--red">
+              <div class="demo-dot demo-dot--red"></div>
+              <div class="demo-content">
+                <strong>Cambriolage d'une villa</strong>
+                <span>Chézard · il y a 35 min</span>
+              </div>
+              <a href="/alertes" class="demo-cta">Intervenir</a>
+            </div>
+            <div class="demo-item demo-item--orange">
+              <div class="demo-dot demo-dot--orange"></div>
+              <div class="demo-content">
+                <strong>Véhicule suspect signalé</strong>
+                <span>Dombresson · il y a 2h</span>
+              </div>
+            </div>
+            <div class="demo-item demo-item--yellow">
+              <div class="demo-dot demo-dot--yellow"></div>
+              <div class="demo-content">
+                <strong>Démarchage à domicile suspect</strong>
+                <span>Cernier · aujourd'hui</span>
+              </div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-dot demo-dot--blue"></div>
+              <div class="demo-content">
+                <strong>Alerte météo sur le canton</strong>
+                <span>Neuchâtel · il y a 1h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO LOCALE -->
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-prose">
+        <p><strong>Née de la fusion de quinze villages</strong>, la commune de Val-de-Ruz s'étend sur tout un vallon agricole entre Neuchâtel et les Montagnes. Un habitat dispersé, fait de villages et de fermes isolées, où les distances et le calme donnent tout son sens à la vigilance de voisinage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEXTE CANTONAL -->
+  <section class="section figures-section" id="contexte">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Le contexte 2025"
+        title="Ce que disent <em>les chiffres neuchâtelois</em>"
+        subtitle="La police neuchâteloise ne publie pas de statistiques par commune, mais le bilan cantonal 2025 donne le cadre."
+      />
+      <div class="figures-text">
+        <p><strong>Bonne nouvelle d'abord :</strong> en 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel, et les violences comme la cybercriminalité diminuent aussi.</p>
+        <p>Mais un chiffre remet les choses en perspective : <strong>les atteintes au patrimoine représentent 69% de la criminalité neuchâteloise</strong>, avec 8'584 infractions en 2025. Vols, cambriolages et dommages restent ce qui touche le plus directement les habitants.</p>
+        <p>Dans un vallon aussi étendu, fait de villages espacés et de fermes à l'écart, l'enjeu n'est pas le volume d'infractions : c'est de savoir vite ce qui se passe chez le voisin, et de pouvoir faire venir quelqu'un sans attendre.</p>
+      </div>
+      <p class="source-note">
+        Source : Bilan 2025 de la criminalité, Police neuchâteloise -
+        <a href="https://www.ne.ch/autorites/dsdc/pone/statistiques-policieres" target="_blank" rel="noopener">ne.ch</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre solution"
+        title="Savoir ce qui se passe dans le Val-de-Ruz, <em>et pouvoir agir</em>"
+        subtitle="Deux fonctions au même endroit : l'information de sécurité fiable de votre secteur, et la possibilité de faire intervenir une patrouille quand vous en avez besoin."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- COMMENT CA MARCHE -->
+  <section class="section how-section" id="comment-ca-marche">
+    <div class="container">
+      <SectionHeader
+        eyebrow="L'application"
+        title="Comment ça marche, <em>concrètement</em>"
+        subtitle="Trois étapes, depuis votre téléphone. Les alertes de votre secteur sont gratuites ; vous ne payez que si vous déclenchez une intervention."
+      />
+      <Steps steps={etapes} />
+      <div class="how-ctas">
+        <a href="/comment-ca-marche" class="btn-primary">
+          Voir le fonctionnement en détail
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="/activer-les-alertes" class="btn-secondary">Activer les alertes - 100% gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUVERTURE -->
+  <section class="section coverage-section" id="quartiers">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Couverture"
+        title="Présents dans tous les villages <em>du Val-de-Ruz</em>"
+        subtitle="De Cernier à Dombresson, en passant par Fontainemelon et les Geneveys-sur-Coffrane, Edgward couvre votre secteur grâce à un réseau de sociétés de sécurité neuchâteloises."
+      />
+      <ul class="communes" aria-label="Secteurs couverts dans le Val-de-Ruz">
+        {quartiers.map(q => <li>{q}</li>)}
+        <li class="communes-more">…et tous les autres villages du vallon</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONFIANCE -->
+  <section class="section trust-section" id="confiance">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Ils nous font confiance"
+        title="Des habitant·es du Val-de-Ruz <em>déjà protégé·es</em>"
+      />
+      <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <PartnersGrid
+    title="Nos sociétés de sécurité partenaires dans le canton de Neuchâtel"
+    partners={partenairesNE}
+  />
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Reprenez le contrôle de <em>votre sécurité dans le Val-de-Ruz</em>"
+    description="Téléchargez l'application, activez gratuitement les alertes de votre secteur, et gardez la possibilité de faire intervenir une patrouille en cas de besoin."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; object-fit: cover; }
+  .hero h1 { font-size: clamp(32px, 4.1vw, 50px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-note { margin-top: 20px; font-size: 14px; line-height: 1.55; color: #cbd5e1; max-width: 480px; }
+  .hero-note svg { color: var(--brand-light); vertical-align: -2px; margin-right: 6px; }
+  .hero-note a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+  .hero-note a:hover { color: white; }
+
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .newsfeed-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 20px; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; }
+  .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .demo-title { font-size: 13px; font-weight: 600; color: white; }
+  .demo-radius { font-size: 11px; color: var(--brand-light); background: var(--brand-soft); padding: 2px 8px; border-radius: 100px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .demo-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.06); }
+  .demo-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .demo-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.6); }
+  .demo-dot--orange { background: #f97316; box-shadow: 0 0 6px rgba(249,115,22,0.6); }
+  .demo-dot--yellow { background: #eab308; }
+  .demo-dot--blue { background: var(--brand-light); box-shadow: 0 0 6px rgba(70,120,220,0.6); }
+  .demo-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .demo-content strong { font-size: 12px; color: white; font-weight: 600; }
+  .demo-content span { font-size: 10px; color: #94a3b8; }
+  .demo-cta { background: var(--brand); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s ease; text-decoration: none; display: inline-block; }
+  .demo-cta:hover { background: var(--brand-dark); }
+
+  .intro-section { background: white; padding-bottom: 0; }
+  .intro-prose { max-width: 760px; margin: 0 auto; }
+  .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); }
+  .intro-prose strong { color: var(--navy); }
+
+  .figures-section { background: white; }
+  .figures-text { max-width: 760px; margin: 0 auto; }
+  .figures-text p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
+  .figures-text p:last-child { margin-bottom: 0; }
+  .figures-text strong { color: var(--navy); }
+  .source-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 28px; }
+  .source-note a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+
+  .solution-section { background: var(--soft); }
+  .how-section { background: white; }
+  .how-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+  .coverage-section { background: var(--soft); }
+  .trust-section { background: white; }
+
+  .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .communes li { background: white; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .communes-more { background: transparent !important; border: none !important; color: var(--text-muted) !important; font-weight: 400 !important; font-style: italic; }
+  .cover-prose { max-width: 680px; margin: 0 auto; text-align: center; font-size: 16px; line-height: 1.7; color: var(--text-muted); }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+  }
+</style>
