@@ -5,63 +5,69 @@ import FinalCTA from '../components/FinalCTA.astro';
 import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
+import Steps from '../components/Steps.astro';
 import { partners } from '../data/partners';
 
-// --- Données propres à la ville (à adapter pour chaque page locale) ---
-const ville = 'Coppet';
+// --- Données propres à la commune ---
+const commune = 'Le Locle';
 const quartiers = [
-  'Coppet - Bourg', 'Le Port', 'Commugny', 'Founex',
-  'Tannay', 'Mies', 'Chavannes-de-Bogis', 'Céligny',
+  'Centre / Grande-Rue', 'Le Communal', 'Les Jeanneret', 'Les Monts',
+  'La Jaluse', 'Le Verger', 'Les Replattes', 'Bellevue',
 ];
 
-// Partenaires actifs sur le canton de Vaud (sous-ensemble du réseau).
-const vaudNames = ['Wolfguard', 'Global Sécurité (SPS)', 'GPA SA', 'Roc Sécurité', 'Juggers'];
-const partenairesVD = partners.filter(p => vaudNames.includes(p.name));
+const neuchatelNames = ['GPA SA', 'Sécurice'];
+const partenairesNE = partners.filter(p => neuchatelNames.includes(p.name));
 
 const solution = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-    title: 'Savoir - les alertes de votre secteur',
-    description: "Recevez les signalements vérifiés de votre secteur, à Coppet et en Terre Sainte : cambriolages, véhicules suspects, tentatives d'intrusion. Une information fiable et modérée, sans le bruit des groupes de quartier.",
+    title: 'Savoir - les alertes de votre quartier',
+    description: "Recevez les signalements vérifiés de votre secteur, au Locle : cambriolages, véhicules suspects, tentatives d'intrusion. Une information modérée avant publication, sans le bruit des groupes de quartier.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
     title: 'Agir - une patrouille à la demande',
-    description: "Un doute en rentrant chez vous, une absence prolongée, une alerte dans votre rue ? Déclenchez l'intervention d'une société de sécurité partenaire à Coppet en quelques secondes.",
+    description: "Un doute en rentrant chez vous, une absence prolongée, une alerte dans votre immeuble ? Déclenchez l'intervention d'une société de sécurité partenaire neuchâteloise en quelques secondes.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
     title: 'Sans engagement',
-    description: "Pas d'abonnement de gardiennage ni de contrat de longue durée. Vous activez Edgward quand vous en avez besoin, où que vous soyez dans la région.",
+    description: "Pas d'abonnement de gardiennage ni de contrat de longue durée. Les alertes sont gratuites, et vous ne payez une intervention que si vous en déclenchez une.",
   },
+];
+
+const etapes = [
+  { num: '1', title: "Téléchargez l'application", description: "Edgward est disponible sur l'App Store et Google Play. La création de votre compte prend deux minutes." },
+  { num: '2', title: 'Activez les alertes du Locle', description: "Renseignez votre adresse et suivez les signalements vérifiés de votre secteur. Cette partie est 100% gratuite." },
+  { num: '3', title: 'Déclenchez une intervention', description: "En cas de doute, commandez une patrouille depuis l'app et recevez un rapport une fois l'intervention réalisée." },
 ];
 
 const temoignages = [
   {
-    quote: "Une installation complète des caméras et des panneaux, avec une explication détaillée de l'utilisation de l'application Edgward, vraiment top !",
-    name: 'Aline E.',
-    role: 'Cliente à Tannay',
-    initials: 'AE',
+    quote: "Intervention rapide et agent très sympa, merci !",
+    name: 'Emmanuelle F.',
+    role: 'Cliente en Suisse romande',
+    initials: 'EF',
   },
   {
-    quote: "L'application est vraiment utile avec son système d'information gratuit, et en cas d'événement à mon domicile. Je cherchais un complément à mes caméras : l'abonnement à CHF 15.-/mois est imbattable.",
-    name: 'Gwendoline F.',
-    role: 'Cliente à Nyon',
-    initials: 'GF',
-  },
-  {
-    quote: "Budget vraiment intéressant pour ma boutique. Installation et application largement meilleur marché qu'avec un système relié à un opérateur dédié.",
-    name: 'Luc S.',
-    role: 'Commerçant à Lausanne',
-    initials: 'LS',
+    quote: "Le module d'alertes et informations est super utile.",
+    name: 'Caroline M.',
+    role: 'Utilisatrice en Suisse romande',
+    initials: 'CM',
     stars: 4,
+  },
+  {
+    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
+    name: 'Marc M.',
+    role: 'Client en Suisse romande',
+    initials: 'MM',
   },
 ];
 ---
 
 <Base
-  title="Sécurité à Coppet et en Terre Sainte : alertes et intervention à la demande | Edgward"
-  description="À Coppet et dans la région de Terre Sainte, recevez les alertes vérifiées de votre secteur et faites intervenir une patrouille à la demande. Sécurité sans engagement dès CHF 15.-/mois."
+  title="Sécurité au Locle : alertes de quartier et intervention à la demande | Edgward"
+  description="Au Locle, suivez les alertes vérifiées de votre quartier et faites intervenir une patrouille à la demande. Sécurité sans engagement dès CHF 15.-/mois."
 >
   <!-- HERO -->
   <section class="hero">
@@ -69,18 +75,18 @@ const temoignages = [
       <div class="hero-grid">
         <div class="hero-content">
           <div class="hero-badge">
-            <img class="canton-flag" src="/assets/flag-vaud.png" width="22" height="22" alt="" aria-hidden="true">
-            Coppet · Terre Sainte
+            <img class="canton-flag" src="/assets/flag-neuchatel.png" width="22" height="22" alt="" aria-hidden="true">
+            Le Locle · Canton de Neuchâtel
           </div>
-          <h1>Votre sécurité à Coppet,<br><em>et en Terre Sainte</em></h1>
-          <p>Suivez ce qui se passe réellement près de chez vous <strong>et</strong> faites intervenir une patrouille à la demande, du bourg au bord du lac. Alertes géolocalisées vérifiées, sans engagement.</p>
+          <h1>Votre sécurité au Locle,<br><em>quartier par quartier</em></h1>
+          <p>Suivez ce qui se passe réellement près de chez vous <strong>et</strong> faites intervenir une patrouille à la demande, du centre aux Monts. Alertes géolocalisées vérifiées et gratuites, sans engagement.</p>
           <div class="hero-ctas">
-            <a href="#telecharger" class="btn-primary">
-              Découvrir dans l'app
+            <a href="#comment-ca-marche" class="btn-primary">
+              Comment ça marche
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="/securite-vaud" class="btn-secondary">
-              Voir tout le canton de Vaud
+            <a href="/securite-neuchatel" class="btn-secondary">
+              Voir tout le canton de Neuchâtel
             </a>
           </div>
           <p class="hero-note">
@@ -89,16 +95,16 @@ const temoignages = [
           </p>
         </div>
         <div class="hero-visual">
-          <div class="newsfeed-demo" aria-label="Exemple d'alertes à Coppet">
+          <div class="newsfeed-demo" aria-label="Exemple d'alertes au Locle">
             <div class="demo-header">
-              <span class="demo-title">Alertes · {ville}</span>
+              <span class="demo-title">Alertes · {commune}</span>
               <span class="demo-radius">1 km</span>
             </div>
             <div class="demo-item demo-item--red">
               <div class="demo-dot demo-dot--red"></div>
               <div class="demo-content">
-                <strong>Cambriolage d'une villa</strong>
-                <span>Founex · il y a 35 min</span>
+                <strong>Cambriolage d'un appartement</strong>
+                <span>Les Jeanneret · il y a 35 min</span>
               </div>
               <a href="/alertes" class="demo-cta">Intervenir</a>
             </div>
@@ -106,21 +112,21 @@ const temoignages = [
               <div class="demo-dot demo-dot--orange"></div>
               <div class="demo-content">
                 <strong>Véhicule suspect signalé</strong>
-                <span>Le Port · il y a 2h</span>
+                <span>Le Communal · il y a 2h</span>
               </div>
             </div>
             <div class="demo-item demo-item--yellow">
               <div class="demo-dot demo-dot--yellow"></div>
               <div class="demo-content">
                 <strong>Manifestation au centre-ville</strong>
-                <span>Commugny · aujourd'hui</span>
+                <span>Grande-Rue · aujourd'hui</span>
               </div>
             </div>
             <div class="demo-item">
               <div class="demo-dot demo-dot--blue"></div>
               <div class="demo-content">
                 <strong>Alerte météo sur le canton</strong>
-                <span>Vaud · il y a 1h</span>
+                <span>Neuchâtel · il y a 1h</span>
               </div>
             </div>
           </div>
@@ -133,9 +139,28 @@ const temoignages = [
   <section class="section intro-section">
     <div class="container">
       <div class="intro-prose">
-        <p><strong>Petite cité au bord du Léman</strong>, entre Genève et Lausanne, Coppet et la région de Terre Sainte séduisent par leur cadre résidentiel et leurs villas. Un attrait qui n'échappe pas aux cambrioleurs, alors même que les vols par effraction progressent dans le canton de Vaud.</p>
-        <p>Edgward vous aide à garder un œil sur votre secteur et à réagir vite : suivez les alertes vérifiées de votre quartier et, en cas de doute, déclenchez l'intervention d'une patrouille partenaire, sans abonnement de gardiennage. <a href="/securite-vaud">Voir la sécurité dans tout le canton de Vaud →</a></p>
+        <p><strong>Ville horlogère nichée dans une vallée du Jura</strong>, Le Locle partage avec sa voisine La Chaux-de-Fonds l'inscription de son urbanisme au patrimoine mondial de l'UNESCO. Une commune compacte, cernée par les crêtes et la frontière française toute proche, où l'on se connaît mais où l'hiver et l'isolement demandent une vigilance particulière.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- CONTEXTE CANTONAL -->
+  <section class="section figures-section" id="contexte">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Le contexte 2025"
+        title="Ce que disent <em>les chiffres neuchâtelois</em>"
+        subtitle="La police neuchâteloise ne publie pas de statistiques par commune, mais le bilan cantonal 2025 donne le cadre."
+      />
+      <div class="figures-text">
+        <p><strong>Bonne nouvelle d'abord :</strong> en 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel, et les violences comme la cybercriminalité diminuent aussi.</p>
+        <p>Mais un chiffre remet les choses en perspective : <strong>les atteintes au patrimoine représentent 69% de la criminalité neuchâteloise</strong>, avec 8'584 infractions en 2025. Vols, cambriolages et dommages restent ce qui touche le plus directement les habitants.</p>
+        <p>Au Locle, ville frontière et de passage, l'enjeu n'est pas le volume : c'est le temps qu'il faut, un soir d'hiver, pour que quelqu'un remarque une présence anormale. Savoir vite ce qui se passe dans son quartier, et pouvoir faire venir une patrouille, y change tout.</p>
+      </div>
+      <p class="source-note">
+        Source : Bilan 2025 de la criminalité, Police neuchâteloise -
+        <a href="https://www.ne.ch/autorites/dsdc/pone/statistiques-policieres" target="_blank" rel="noopener">ne.ch</a>.
+      </p>
     </div>
   </section>
 
@@ -143,11 +168,30 @@ const temoignages = [
   <section class="section solution-section" id="solution">
     <div class="container">
       <SectionHeader
-        eyebrow="Comment ça marche"
-        title="Savoir ce qui se passe à Coppet, <em>et pouvoir agir</em>"
-        subtitle="Deux fonctions au même endroit : l'information de sécurité fiable de votre secteur, et la possibilité de faire intervenir une patrouille quand vous en avez besoin."
+        eyebrow="Notre solution"
+        title="Savoir ce qui se passe au Locle, <em>et pouvoir agir</em>"
+        subtitle="Deux fonctions au même endroit : l'information de sécurité fiable de votre quartier, et la possibilité de faire intervenir une patrouille quand vous en avez besoin."
       />
       <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- COMMENT CA MARCHE -->
+  <section class="section how-section" id="comment-ca-marche">
+    <div class="container">
+      <SectionHeader
+        eyebrow="L'application"
+        title="Comment ça marche, <em>concrètement</em>"
+        subtitle="Trois étapes, depuis votre téléphone. Les alertes de votre quartier sont gratuites ; vous ne payez que si vous déclenchez une intervention."
+      />
+      <Steps steps={etapes} />
+      <div class="how-ctas">
+        <a href="/comment-ca-marche" class="btn-primary">
+          Voir le fonctionnement en détail
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="/activer-les-alertes" class="btn-secondary">Activer les alertes - 100% gratuit</a>
+      </div>
     </div>
   </section>
 
@@ -156,12 +200,12 @@ const temoignages = [
     <div class="container">
       <SectionHeader
         eyebrow="Couverture"
-        title="Présents à Coppet <em>et dans toute la Terre Sainte</em>"
-        subtitle="Du bourg de Coppet aux communes voisines, Edgward couvre votre secteur grâce à un réseau de sociétés de sécurité vaudoises."
+        title="Présents dans <em>tous les quartiers du Locle</em>"
+        subtitle="Du centre aux Monts, en passant par le Communal et la Jaluse, Edgward couvre votre secteur grâce à un réseau de sociétés de sécurité neuchâteloises."
       />
-      <ul class="communes" aria-label="Secteurs couverts autour de Coppet">
+      <ul class="communes" aria-label="Quartiers couverts au Locle">
         {quartiers.map(q => <li>{q}</li>)}
-        <li class="communes-more">…et toutes les communes voisines de la région</li>
+        <li class="communes-more">…et tous les autres secteurs de la ville</li>
       </ul>
     </div>
   </section>
@@ -171,21 +215,21 @@ const temoignages = [
     <div class="container">
       <SectionHeader
         eyebrow="Ils nous font confiance"
-        title="Des habitant·es de la région <em>déjà protégé·es</em>"
+        title="Des Romands·es <em>déjà protégé·es</em>"
       />
       <Testimonials items={temoignages} />
     </div>
   </section>
 
   <PartnersGrid
-    title="Nos sociétés de sécurité partenaires dans le canton de Vaud"
-    partners={partenairesVD}
+    title="Nos sociétés de sécurité partenaires dans le canton de Neuchâtel"
+    partners={partenairesNE}
   />
 
   <!-- FINAL CTA -->
   <FinalCTA
-    title="Reprenez le contrôle de <em>votre sécurité à Coppet</em>"
-    description="Téléchargez Edgward et activez les alertes de votre secteur dès aujourd'hui. Information vérifiée et intervention à la demande, sans engagement."
+    title="Reprenez le contrôle de <em>votre sécurité au Locle</em>"
+    description="Téléchargez l'application, activez gratuitement les alertes de votre quartier, et gardez la possibilité de faire intervenir une patrouille en cas de besoin."
     appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
     playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
   />
@@ -196,9 +240,7 @@ const temoignages = [
   .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
-  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
   .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; object-fit: cover; }
-  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
   .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
   .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
   .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
@@ -227,20 +269,29 @@ const temoignages = [
   .demo-cta { background: var(--brand); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s ease; text-decoration: none; display: inline-block; }
   .demo-cta:hover { background: var(--brand-dark); }
 
-  .intro-section { background: white; }
+  .intro-section { background: white; padding-bottom: 0; }
   .intro-prose { max-width: 760px; margin: 0 auto; }
-  .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-  .intro-prose p:last-child { margin-bottom: 0; }
+  .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); }
   .intro-prose strong { color: var(--navy); }
-  .intro-prose a { color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* CONTEXTE */
+  .figures-section { background: white; }
+  .figures-text { max-width: 760px; margin: 0 auto; }
+  .figures-text p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
+  .figures-text p:last-child { margin-bottom: 0; }
+  .figures-text strong { color: var(--navy); }
+  .source-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 28px; }
+  .source-note a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
 
   .solution-section { background: var(--soft); }
-  .coverage-section { background: white; }
-  .trust-section { background: var(--soft); }
+  .how-section { background: white; }
+  .how-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+  .coverage-section { background: var(--soft); }
+  .trust-section { background: white; }
 
   /* COVERAGE */
   .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .communes li { background: var(--soft); border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .communes li { background: white; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }
   .communes-more { background: transparent !important; border: none !important; color: var(--text-muted) !important; font-weight: 400 !important; font-style: italic; }
 
   @media (max-width: 1024px) {

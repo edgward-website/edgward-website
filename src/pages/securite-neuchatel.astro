@@ -7,26 +7,26 @@ import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
 import { partners } from '../data/partners';
 
-// Partenaires actifs sur le canton de Vaud (sous-ensemble du réseau).
-const vaudNames = ['Wolfguard', 'Global Sécurité (SPS)', 'GPA SA', 'Roc Sécurité', 'Juggers'];
-const partenairesVD = partners.filter(p => vaudNames.includes(p.name));
+// Partenaires actifs sur le canton de Neuchâtel (sous-ensemble du réseau).
+const neuchatelNames = ['GPA SA', 'Sécurice'];
+const partenairesNE = partners.filter(p => neuchatelNames.includes(p.name));
 
-// Chiffres officiels - Bilan 2025 de la criminalité, Police cantonale vaudoise / État de Vaud (vd.ch).
+// Chiffres officiels - Bilan 2025 de la criminalité, Police neuchâteloise (ne.ch).
 const contexte = [
   {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>',
-    title: 'Une criminalité globalement stable',
-    description: "En 2025, le canton de Vaud a enregistré 72'969 infractions au droit fédéral, soit +0,3% par rapport à 2024. Une stabilité d'ensemble, dans la tendance suisse.",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M19 15l-5-5-4 4-3-3"/></svg>',
+    title: 'La criminalité recule',
+    description: "En 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel. Les violences et la cybercriminalité diminuent également. Une tendance d'ensemble rassurante.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>',
-    title: 'Mais les cambriolages progressent',
-    description: "Les cambriolages augmentent de 8,8%, soit environ 576 cas de plus en un an. Les vols par effraction, eux, bondissent de 10%. Les habitations restent une cible.",
+    title: 'Le patrimoine, cible principale',
+    description: "Les atteintes au patrimoine (vols, cambriolages, dommages) représentent 69% de la criminalité neuchâteloise, avec 8'584 infractions en 2025. C'est là que se concentre le risque pour les habitants.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v4M12 16h.01"/></svg>',
-    title: 'De nouvelles arnaques ciblent les habitants',
-    description: "Les arnaques aux faux policiers explosent : 936 événements en 2025 (+153%), pour un préjudice de plus de 1,4 million de francs. La vigilance reste de mise.",
+    title: 'Les cambriolages restent une menace',
+    description: "Malgré la baisse générale, les vols et cambriolages demeurent la première préoccupation des ménages. Neuchâtel participe d'ailleurs à la journée romande de prévention contre les cambriolages.",
   },
 ];
 
@@ -34,17 +34,17 @@ const solution = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
     title: 'Savoir - alertes géolocalisées',
-    description: "Suivez ce qui se passe réellement dans votre quartier vaudois : signalements vérifiés, modérés, rattachés à votre localité. L'essentiel, sans le bruit des groupes WhatsApp.",
+    description: "Suivez ce qui se passe réellement dans votre quartier neuchâtelois : signalements vérifiés, modérés, rattachés à votre localité. L'essentiel, sans le bruit des groupes WhatsApp.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
     title: 'Agir - intervention à la demande',
-    description: "Une situation vous préoccupe ? Commandez une patrouille d'une de nos sociétés partenaires vaudoises en quelques secondes, sans avoir à souscrire un abonnement de gardiennage.",
+    description: "Une situation vous préoccupe ? Commandez une patrouille d'une de nos sociétés partenaires neuchâteloises en quelques secondes, sans avoir à souscrire un abonnement de gardiennage.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
     title: 'Sans engagement',
-    description: "Pas d'abonnement de longue durée ni de contrat contraignant. Vous activez Edgward quand vous en avez besoin, partout dans le canton de Vaud.",
+    description: "Pas d'abonnement de longue durée ni de contrat contraignant. Vous activez Edgward quand vous en avez besoin, partout dans le canton de Neuchâtel.",
   },
 ];
 
@@ -52,12 +52,12 @@ const usages = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
     title: 'Vous habitez le canton',
-    description: "De Lausanne à Yverdon-les-Bains, de La Côte au Chablais, suivez l'activité autour de chez vous et renforcez votre sécurité au bon moment - avant les vacances ou après un signalement suspect.",
+    description: "Du Littoral aux Montagnes, de Neuchâtel à La Chaux-de-Fonds, suivez l'activité autour de chez vous et renforcez votre sécurité au bon moment - avant les vacances ou après un signalement suspect.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1M9 13h1m4 0h1M9 17h1m4 0h1"/></svg>',
     title: 'Vous dirigez un commerce ou une entreprise',
-    description: "Protégez vos locaux et vos équipes, en centre-ville comme en zone d'activités. Information vérifiée et intervention à la demande, sans agent posté à demeure.",
+    description: "Protégez vos locaux et vos équipes, en centre-ville comme en zone industrielle ou horlogère. Information vérifiée et intervention à la demande, sans agent posté à demeure.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10M9 21v-6h6v6"/></svg>',
@@ -68,50 +68,49 @@ const usages = [
 
 const temoignages = [
   {
-    quote: "Une installation complète des caméras et des panneaux, avec une explication détaillée de l'utilisation de l'application Edgward, vraiment top !",
-    name: 'Aline E.',
-    role: 'Cliente à Tannay',
-    initials: 'AE',
-  },
-  {
-    quote: "Budget vraiment intéressant pour ma boutique. Installation et application largement meilleur marché qu'avec un système relié à un opérateur dédié.",
-    name: 'Luc S.',
-    role: 'Commerçant à Lausanne',
-    initials: 'LS',
+    quote: "Le module d'alertes et informations est super utile.",
+    name: 'Caroline M.',
+    role: 'Utilisatrice en Suisse romande',
+    initials: 'CM',
     stars: 4,
   },
   {
-    quote: "L'application est vraiment utile avec son système d'information gratuit, et en cas d'événement à mon domicile. Je cherchais un complément à mes caméras : l'abonnement à CHF 15.-/mois est imbattable.",
-    name: 'Gwendoline F.',
-    role: 'Cliente à Nyon',
-    initials: 'GF',
+    quote: "Intervention rapide et agent très sympa, merci !",
+    name: 'Emmanuelle F.',
+    role: 'Cliente en Suisse romande',
+    initials: 'EF',
+  },
+  {
+    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
+    name: 'Marc M.',
+    role: 'Client en Suisse romande',
+    initials: 'MM',
   },
 ];
 
-// Communes classées par importance (population / recherches Google), les plus grandes en tête.
+// Communes classées par population, les plus grandes en tête.
 // href = lien vers la page locale dédiée (maillage interne) quand elle existe.
 const communes = [
-  { name: 'Lausanne', href: '/securite-lausanne' },
-  { name: 'Yverdon-les-Bains', href: '/securite-yverdon' },
-  { name: 'Montreux', href: '/securite-montreux' },
-  { name: 'Nyon', href: '/securite-nyon' },
-  { name: 'Vevey', href: '/securite-vevey' },
-  { name: 'Renens' },
-  { name: 'Morges' },
-  { name: 'Gland', href: '/securite-gland' },
-  { name: 'Rolle', href: '/securite-rolle' },
-  { name: 'Coppet', href: '/securite-coppet' },
-  { name: 'Pully' },
-  { name: 'Prilly' },
-  { name: 'Écublens' },
-  { name: 'La Tour-de-Peilz' },
-  { name: 'Aigle' },
+  { name: 'Neuchâtel' },
+  { name: 'La Chaux-de-Fonds', href: '/securite-la-chaux-de-fonds' },
+  { name: 'Val-de-Ruz' },
+  { name: 'Laténa' },
+  { name: 'Le Locle', href: '/securite-le-locle' },
+  { name: 'Val-de-Travers' },
+  { name: 'Milvignes' },
+  { name: 'La Grande Béroche' },
+  { name: 'Boudry' },
+  { name: 'Cortaillod' },
+  { name: 'Le Landeron' },
+  { name: 'Cressier' },
+  { name: 'Cornaux' },
+  { name: 'Rochefort' },
 ];
 ---
 
 <Base
-  title="Sécurité dans le canton de Vaud : alertes et intervention à la demande | Edgward"
-  description="Comprenez ce qui se passe près de chez vous dans le canton de Vaud et faites intervenir une patrouille à la demande. Alertes géolocalisées vérifiées et sécurité sans engagement, de La Côte au Chablais."
+  title="Sécurité dans le canton de Neuchâtel : alertes et intervention à la demande | Edgward"
+  description="Comprenez ce qui se passe près de chez vous dans le canton de Neuchâtel et faites intervenir une patrouille à la demande. Alertes géolocalisées vérifiées et sécurité sans engagement, du Littoral aux Montagnes."
 >
   <!-- HERO -->
   <section class="hero">
@@ -119,10 +118,10 @@ const communes = [
       <div class="hero-grid">
         <div class="hero-content">
           <div class="hero-badge">
-            <img class="canton-flag" src="/assets/flag-vaud.png" width="22" height="22" alt="" aria-hidden="true">
-            Canton de Vaud
+            <img class="canton-flag" src="/assets/flag-neuchatel.png" width="22" height="22" alt="" aria-hidden="true">
+            Canton de Neuchâtel
           </div>
-          <h1>La sécurité dans le canton de Vaud,<br><em>sans laisser au hasard</em></h1>
+          <h1>La sécurité dans le canton de Neuchâtel,<br><em>sans laisser au hasard</em></h1>
           <p>Comprendre ce qui se passe autour de vous <strong>et</strong> pouvoir agir immédiatement si besoin - au même endroit, partout dans le canton. Alertes géolocalisées vérifiées et intervention d'une patrouille à la demande.</p>
           <div class="hero-ctas">
             <a href="#telecharger" class="btn-primary">
@@ -139,16 +138,16 @@ const communes = [
           </p>
         </div>
         <div class="hero-visual">
-          <div class="newsfeed-demo" aria-label="Exemple d'alertes dans le canton de Vaud">
+          <div class="newsfeed-demo" aria-label="Exemple d'alertes dans le canton de Neuchâtel">
             <div class="demo-header">
-              <span class="demo-title">Alertes · Vaud</span>
+              <span class="demo-title">Alertes · Neuchâtel</span>
               <span class="demo-radius">1 km</span>
             </div>
             <div class="demo-item demo-item--red">
               <div class="demo-dot demo-dot--red"></div>
               <div class="demo-content">
                 <strong>Cambriolage d'une villa</strong>
-                <span>Pully · il y a 35 min</span>
+                <span>Le Locle · il y a 35 min</span>
               </div>
               <a href="/alertes" class="demo-cta">Intervenir</a>
             </div>
@@ -156,21 +155,21 @@ const communes = [
               <div class="demo-dot demo-dot--orange"></div>
               <div class="demo-content">
                 <strong>Véhicule suspect signalé</strong>
-                <span>Morges · il y a 2h</span>
+                <span>Val-de-Ruz · il y a 2h</span>
               </div>
             </div>
             <div class="demo-item demo-item--yellow">
               <div class="demo-dot demo-dot--yellow"></div>
               <div class="demo-content">
                 <strong>Manifestation au centre-ville</strong>
-                <span>Lausanne · aujourd'hui</span>
+                <span>La Chaux-de-Fonds · aujourd'hui</span>
               </div>
             </div>
             <div class="demo-item">
               <div class="demo-dot demo-dot--blue"></div>
               <div class="demo-content">
                 <strong>Alerte météo sur le canton</strong>
-                <span>Vaud · il y a 1h</span>
+                <span>Neuchâtel · il y a 1h</span>
               </div>
             </div>
           </div>
@@ -183,14 +182,14 @@ const communes = [
   <section class="section problem-section" id="contexte">
     <div class="container">
       <SectionHeader
-        eyebrow="Le contexte vaudois"
-        title="Dans le canton de Vaud, la criminalité est stable - <em>mais pas l'effraction</em>"
-        subtitle="Les chiffres officiels 2025 racontent une histoire en deux temps : un volume global stable, mais une pression accrue sur les cambriolages et les habitations."
+        eyebrow="Le contexte neuchâtelois"
+        title="À Neuchâtel, la criminalité recule - <em>mais le patrimoine reste visé</em>"
+        subtitle="Les chiffres officiels 2025 racontent une histoire en deux temps : une baisse générale rassurante, mais des atteintes au patrimoine qui restent largement majoritaires."
       />
       <BenefitsGrid benefits={contexte} cols={3} />
       <p class="source-note">
-        Source : Bilan 2025 de la criminalité, Police cantonale vaudoise -
-        <a href="https://www.vd.ch/actualites/communiques-de-presse-de-letat-de-vaud/detail/communique/bilan-2025-stabilite-de-la-criminalite-dans-le-canton-de-vaud-comme-en-suisse" target="_blank" rel="noopener">vd.ch</a>.
+        Source : Bilan 2025 de la criminalité, Police neuchâteloise -
+        <a href="https://www.ne.ch/autorites/dsdc/pone/statistiques-policieres" target="_blank" rel="noopener">ne.ch</a>.
       </p>
     </div>
   </section>
@@ -212,16 +211,16 @@ const communes = [
     <div class="container">
       <SectionHeader
         eyebrow="Couverture"
-        title="Tout le canton de Vaud, <em>couvert</em>"
-        subtitle="Edgward s'appuie sur un réseau de sociétés de sécurité vaudoises pour intervenir dans le canton, en ville comme en périphérie."
+        title="Tout le canton de Neuchâtel, <em>couvert</em>"
+        subtitle="Edgward s'appuie sur un réseau de sociétés de sécurité pour intervenir dans le canton, du Littoral aux Montagnes neuchâteloises."
       />
       <div class="coverage-stats">
         <div class="cstat">
           <span class="cstat-num">Tout le canton</span>
-          <span class="cstat-label">de La Côte au Chablais, en passant par le Nord vaudois</span>
+          <span class="cstat-label">du Littoral aux Montagnes, en passant par les Vallées</span>
         </div>
         <div class="cstat">
-          <span class="cstat-num">Intervention rapide</span>
+          <span class="cstat-num">Intervention à la demande</span>
           <span class="cstat-label">une patrouille partenaire déclenchée en quelques secondes</span>
         </div>
         <div class="cstat">
@@ -229,9 +228,9 @@ const communes = [
           <span class="cstat-label">à la demande, quand vous le décidez</span>
         </div>
       </div>
-      <ul class="communes" aria-label="Communes couvertes dans le canton de Vaud">
+      <ul class="communes" aria-label="Communes couvertes dans le canton de Neuchâtel">
         {communes.map(c => <li>{c.href ? <a href={c.href}>{c.name}</a> : c.name}</li>)}
-        <li class="communes-more">…et toutes les autres communes vaudoises</li>
+        <li class="communes-more">…et toutes les autres communes neuchâteloises</li>
       </ul>
     </div>
   </section>
@@ -252,20 +251,20 @@ const communes = [
     <div class="container">
       <SectionHeader
         eyebrow="Ils nous font confiance"
-        title="Des Vaudois·es <em>déjà protégé·es</em>"
+        title="Des Romands·es <em>déjà protégé·es</em>"
       />
       <Testimonials items={temoignages} />
     </div>
   </section>
 
   <PartnersGrid
-    title="Nos sociétés de sécurité partenaires dans le canton de Vaud"
-    partners={partenairesVD}
+    title="Nos sociétés de sécurité partenaires dans le canton de Neuchâtel"
+    partners={partenairesNE}
   />
 
   <!-- FINAL CTA -->
   <FinalCTA
-    title="Reprenez le contrôle de <em>votre sécurité dans le canton de Vaud</em>"
+    title="Reprenez le contrôle de <em>votre sécurité dans le canton de Neuchâtel</em>"
     description="Téléchargez Edgward et activez les alertes de votre quartier dès aujourd'hui. Information vérifiée et intervention à la demande, partout dans le canton."
     appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
     playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
@@ -277,10 +276,8 @@ const communes = [
   .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
-  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
   .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; object-fit: cover; }
-  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
-  .hero h1 { font-size: clamp(34px, 4.3vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 { font-size: clamp(32px, 4.1vw, 50px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
   .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
   .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
   .hero-content > p strong { color: white; font-weight: 700; }
@@ -321,7 +318,7 @@ const communes = [
   /* COVERAGE */
   .coverage-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 36px; }
   .cstat { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; }
-  .cstat-num { display: block; font-size: 26px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 6px; }
+  .cstat-num { display: block; font-size: 24px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 6px; }
   .cstat-label { display: block; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
   .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .communes li { background: var(--soft); border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); transition: all 0.15s ease; }

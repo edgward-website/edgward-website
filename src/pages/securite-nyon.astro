@@ -69,7 +69,7 @@ const temoignages = [
       <div class="hero-grid">
         <div class="hero-content">
           <div class="hero-badge">
-            <svg class="canton-flag" width="26" height="18" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="2.5" fill="#ffffff"/><rect y="7" width="20" height="7" fill="#007a3d"/><rect x="3.2" y="5.1" width="13.6" height="1.3" rx="0.65" fill="#007a3d"/></svg>
+            <img class="canton-flag" src="/assets/flag-vaud.png" width="22" height="22" alt="" aria-hidden="true">
             Nyon · La Côte
           </div>
           <h1>Votre sécurité à Nyon,<br><em>quartier par quartier</em></h1>
@@ -197,7 +197,7 @@ const temoignages = [
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
   .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
-  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; }
+  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; object-fit: cover; }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
   .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
   .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
