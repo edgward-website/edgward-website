@@ -1,0 +1,39 @@
+name: Carte sécurité — collecte 2x/jour
+
+# Midi et soir (heure suisse ≈ 12h / 19h ; UTC ne gère pas l'heure d'été,
+# léger décalage d'1h possible selon la saison — sans conséquence).
+on:
+  schedule:
+    - cron: "0 10 * * *"   # ~12h00 (CEST) / 11h00 (CET)
+    - cron: "0 17 * * *"   # ~19h00 (CEST) / 18h00 (CET)
+  workflow_dispatch:        # bouton « Run » manuel dans l'onglet Actions
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Collecte + tri IA
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/carte-securite/collecte.mjs
+
+      - name: Ouvrir une demande de validation
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: maj-carte-securite
+          base: main
+          add-paths: src/data/evenements-securite.json
+          commit-message: "Carte sécurité — mise à jour automatique"
+          title: "🛡️ Carte sécurité — proposition de mise à jour"
+          body-path: scripts/carte-securite/resume-pr.md
+          delete-branch: true
