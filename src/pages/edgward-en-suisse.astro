@@ -91,19 +91,19 @@ const pagesVillesVD = [
         <div class="local-group">
           <span class="local-label">Par canton</span>
           <ul class="local-links">
-            {pagesCantons.map(p => <li><a href={p.href}>{p.name}</a></li>)}
+            {[...pagesCantons].sort((a, b) => a.name.localeCompare(b.name, 'fr')).map(p => <li><a href={p.href}>{p.name}</a></li>)}
           </ul>
         </div>
         <div class="local-group">
           <span class="local-label">Communes genevoises</span>
           <ul class="local-links">
-            {pagesCommunesGE.map(p => <li><a href={p.href}>{p.name}</a></li>)}
+            {[...pagesCommunesGE].sort((a, b) => a.name.localeCompare(b.name, 'fr')).map(p => <li><a href={p.href}>{p.name}</a></li>)}
           </ul>
         </div>
         <div class="local-group">
           <span class="local-label">Villes vaudoises</span>
           <ul class="local-links">
-            {pagesVillesVD.map(p => <li><a href={p.href}>{p.name}</a></li>)}
+            {[...pagesVillesVD].sort((a, b) => a.name.localeCompare(b.name, 'fr')).map(p => <li><a href={p.href}>{p.name}</a></li>)}
           </ul>
         </div>
       </div>
