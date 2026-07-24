@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Carte des événements de sécurité — Suisse romande
+// Carte des événements de sécurité - Suisse romande
 // Collecte (RSS) → tri/dédup/filtrage France (IA Claude) → géocodage → JSON
 //
 // Sans aucune dépendance : Node 20+ (fetch natif). Lancé par GitHub Actions
@@ -81,7 +81,7 @@ async function collecter() {
         const cle = titre.toLowerCase().slice(0, 60);
         if (vus.has(cle)) continue;
         vus.add(cle);
-        items.push({ titre, source: source || "—", lien, heure: heureLocale(new Date(ts)), ts });
+        items.push({ titre, source: source || "-", lien, heure: heureLocale(new Date(ts)), ts });
       }
     } catch (e) {
       console.warn(`Échec source : ${url}\n  ${e.message}`);
@@ -129,7 +129,7 @@ Règles STRICTES :
 - EXCLURE tout ce qui est en France : département du Jura FRANÇAIS, Ain, Haute-Savoie (Annemasse, Bonneville, Thonon…), et toute commune française. Le "Jura" ne compte que s'il s'agit du canton suisse (communes comme Delémont, Porrentruy, Saignelégier, Glovelier, St-Brais…).
 - EXCLURE le hors-sujet : sécheresse, interdictions de feu, procès, politique, sport, agenda, météo, communiqués administratifs.
 - DÉDOUBLONNER (strict) : un même événement couvert par plusieurs médias = UN seul point. Choisis la source la plus fiable (police cantonale > média régional). Fusionne aussi deux entrées qui décrivent très probablement le MÊME fait (même type d'événement + récit similaire + dates proches), même si la commune ou l'heure indiquées diffèrent légèrement ; garde alors la localisation la plus précise. En cas de doute sérieux entre deux incidents quasi identiques le même jour, considère qu'il s'agit d'un seul événement.
-- Reformule un titre et un résumé NEUTRES, SOBRES et courts, SANS aucune donnée personnelle (pas de nom, pas d'adresse précise). Évite tout terme cru ou sensationnaliste : pour les faits violents, privilégie une formulation factuelle et retenue (ex. « Agression à l'arme blanche » plutôt que « Femme poignardée »), sans détails graphiques.
+- Reformule un titre et un résumé NEUTRES, SOBRES et courts, SANS aucune donnée personnelle (pas de nom, pas d'adresse précise). Évite tout terme cru ou sensationnaliste : pour les faits violents, privilégie une formulation factuelle et retenue (ex. « Agression à l'arme blanche » plutôt que « Femme poignardée »), sans détails graphiques. N'utilise QUE des tirets courts (-), jamais de tiret long (— ou –).
 - Fournis la commune, le canton (code), la catégorie, et les coordonnées lon/lat de la commune (WGS84, degrés décimaux). En cas de doute sur les coordonnées, place le point au centre de la commune.
 - "heure" : reprends l'horodatage fourni sous forme courte (ex. "auj. 08:20", "hier 23:10").
 - "recent" = true si l'événement date de moins de ~12h.
@@ -189,9 +189,9 @@ async function ecrire(evenements) {
   await writeFile(SORTIE_JSON, JSON.stringify(payload, null, 2) + "\n", "utf8");
 
   const lignes = evenements.length
-    ? evenements.map((e) => `- **${e.commune} (${e.canton})** — ${e.categorie} · ${e.heure} · ${e.source}\n  ${e.titre}`).join("\n")
+    ? evenements.map((e) => `- **${e.commune} (${e.canton})** - ${e.categorie} · ${e.heure} · ${e.source}\n  ${e.titre}`).join("\n")
     : "_Aucun événement de sécurité majeur détecté sur la fenêtre (journée calme)._";
-  const resume = `### Proposition de mise à jour — carte sécurité\n\n${evenements.length} événement(s) · généré le ${heureLocale(new Date())}\n\n${lignes}\n\n---\nFusionner cette demande pour publier ces événements sur la carte. Fermer pour ignorer.`;
+  const resume = `### Proposition de mise à jour - carte sécurité\n\n${evenements.length} événement(s) · généré le ${heureLocale(new Date())}\n\n${lignes}\n\n---\nFusionner cette demande pour publier ces événements sur la carte. Fermer pour ignorer.`;
   await writeFile(SORTIE_RESUME, resume, "utf8");
 
   console.log(`Écrit : ${SORTIE_JSON}`);
