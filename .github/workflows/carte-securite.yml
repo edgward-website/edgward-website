@@ -8,9 +8,10 @@ on:
     - cron: "0 17 * * *"   # ~19h00 (CEST) / 18h00 (CET)
   workflow_dispatch:        # bouton « Run » manuel dans l'onglet Actions
 
+# Le robot n'a besoin que d'écrire une branche (pas de création de PR côté
+# Actions, interdite par l'organisation). C'est toi qui ouvres/fusionnes la PR.
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   collecte:
@@ -27,13 +28,20 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/carte-securite/collecte.mjs
 
-      - name: Ouvrir une demande de validation
-        uses: peter-evans/create-pull-request@v6
-        with:
-          branch: maj-carte-securite
-          base: main
-          add-paths: src/data/evenements-securite.json
-          commit-message: "Carte sécurité — mise à jour automatique"
-          title: "🛡️ Carte sécurité — proposition de mise à jour"
-          body-path: scripts/carte-securite/resume-pr.md
-          delete-branch: true
+      - name: Résumé lisible (page du run)
+        if: always()
+        run: cat scripts/carte-securite/resume-pr.md >> "$GITHUB_STEP_SUMMARY" || true
+
+      - name: Déposer la proposition sur une branche
+        run: |
+          if git diff --quiet -- src/data/evenements-securite.json; then
+            echo "Aucun changement depuis la dernière publication — rien à proposer."
+            exit 0
+          fi
+          git config user.name "Robot Carte Edgward"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B maj-carte-securite
+          git add src/data/evenements-securite.json
+          git commit -m "Carte sécurité — mise à jour automatique"
+          git push --force origin maj-carte-securite
+          echo "Branche 'maj-carte-securite' prête. Ouvre la PR : https://github.com/edgward-website/edgward-website/compare/main...maj-carte-securite?expand=1"
