@@ -8,9 +8,10 @@ on:
     - cron: "0 17 * * *"   # ~19h00 (CEST) / 18h00 (CET)
   workflow_dispatch:        # bouton « Run » manuel dans l'onglet Actions
 
+# Mode test : lecture seule. Le robot NE publie PAS ; il produit un aperçu
+# téléchargeable (pièce jointe) + affiche le résumé dans le journal.
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   collecte:
@@ -27,13 +28,19 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/carte-securite/collecte.mjs
 
-      - name: Ouvrir une demande de validation
-        uses: peter-evans/create-pull-request@v6
+      - name: Afficher le résumé dans le journal
+        if: always()
+        run: |
+          echo "===== RÉSUMÉ ====="
+          cat scripts/carte-securite/resume-pr.md || echo "(pas de résumé généré)"
+          echo "=================="
+
+      - name: Déposer l'aperçu (pièce jointe téléchargeable)
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          branch: maj-carte-securite
-          base: main
-          add-paths: src/data/evenements-securite.json
-          commit-message: "Carte sécurité — mise à jour automatique"
-          title: "🛡️ Carte sécurité — proposition de mise à jour"
-          body-path: scripts/carte-securite/resume-pr.md
-          delete-branch: true
+          name: apercu-carte-securite
+          path: |
+            src/data/evenements-securite.json
+            scripts/carte-securite/resume-pr.md
+          if-no-files-found: warn
