@@ -6,6 +6,7 @@ import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
 import Steps from '../components/Steps.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import { partners } from '../data/partners';
 
 // --- Données propres à la commune ---
@@ -18,7 +19,7 @@ const solution = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
     title: 'Savoir - les alertes de votre secteur',
-    description: "Recevez les signalements vérifiés autour de chez vous, à Cornaux : cambriolages, véhicules suspects, démarchage douteux. Une information modérée avant publication, sans le bruit des groupes de quartier.",
+    description: "Recevez les signalements vérifiés autour de chez vous, à Cornaux : cambriolages, véhicules suspects, démarchage douteux. Des signalements vérifiés et modérés, loin des rumeurs des groupes WhatsApp.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
@@ -28,17 +29,38 @@ const solution = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
     title: 'Sans engagement',
-    description: "Pas d'abonnement de gardiennage ni de contrat de longue durée. Les alertes sont gratuites, et vous ne payez une intervention que si vous en déclenchez une.",
+    description: "Aucun contrat contraignant : les alertes de votre secteur sont gratuites, et l'intervention se paie à l'usage, uniquement quand vous la demandez.",
   },
 ];
 
 const etapes = [
-  { num: '1', title: "Téléchargez l'application", description: "Edgward est disponible sur l'App Store et Google Play. La création de votre compte prend deux minutes." },
+  { num: '1', title: "Téléchargez l'application", description: "Disponible sur iPhone et Android, Edgward s'installe en un instant ; la création du compte prend deux minutes." },
   { num: '2', title: 'Activez les alertes à Cornaux', description: "Renseignez votre adresse et suivez les signalements vérifiés autour de chez vous. Cette partie est 100% gratuite." },
-  { num: '3', title: 'Déclenchez une intervention', description: "En cas de doute, commandez une patrouille depuis l'app et recevez un rapport une fois l'intervention réalisée." },
+  { num: '3', title: 'Déclenchez une intervention', description: "Si une situation vous inquiète, commandez une patrouille en quelques secondes et recevez un rapport après le passage de l'agent." },
+];
+
+const faq = [
+  {
+    "question": "Edgward est-il disponible à Cornaux ?",
+    "answer": "Oui. Edgward couvre votre secteur grâce à ses sociétés de sécurité partenaires du canton, GPA et Sécurice. Vous recevez les alertes vérifiées près de chez vous et pouvez déclencher l'intervention d'une patrouille à la demande, sans abonnement de gardiennage."
+  },
+  {
+    "question": "Cornaux, village et zone d'activités : tout est couvert ?",
+    "answer": "Oui. Cornaux présente deux visages : quartiers résidentiels et zone d'activités désertée le soir. Edgward couvre les deux, avec des alertes vérifiées et l'intervention d'une patrouille partenaire à la demande."
+  },
+  {
+    "question": "Combien coûte Edgward et comment l'activer à Cornaux ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une. Il suffit de télécharger l'application, d'indiquer votre adresse à Cornaux et d'activer les alertes."
+  }
 ];
 
 const temoignages = [
+  {
+    quote: "Intervention rapide et agent très sympa, merci !",
+    name: "Emmanuelle F.",
+    role: "Cliente en Suisse romande",
+    initials: "EF",
+  },
   {
     quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
     name: "Marc M.",
@@ -51,12 +73,6 @@ const temoignages = [
     role: "Utilisatrice en Suisse romande",
     initials: "CM",
     stars: 4,
-  },
-  {
-    quote: "Intervention rapide et agent très sympa, merci !",
-    name: "Emmanuelle F.",
-    role: "Cliente en Suisse romande",
-    initials: "EF",
   },
 ];
 ---
@@ -149,8 +165,7 @@ const temoignages = [
         subtitle="La police neuchâteloise ne publie pas de statistiques par commune, mais le bilan cantonal 2025 donne le cadre."
       />
       <div class="figures-text">
-        <p><strong>Bonne nouvelle d'abord :</strong> en 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel, et les violences comme la cybercriminalité diminuent aussi.</p>
-        <p>Mais un chiffre remet les choses en perspective : <strong>les atteintes au patrimoine représentent 69% de la criminalité neuchâteloise</strong>, avec 8'584 infractions en 2025. Vols, cambriolages et dommages restent ce qui touche le plus directement les habitants.</p>
+        <p>Le bilan 2025 neuchâtelois est en baisse (-5% d'infractions). Reste que les atteintes au patrimoine pèsent 69% de la criminalité cantonale (8'584 cas en 2025) : vols et cambriolages demeurent la première préoccupation des ménages.</p>
         <p>Entre quartiers résidentiels et zone d'activités désertée le soir, Cornaux présente deux visages. Dans les deux cas, savoir vite ce qui se passe et pouvoir faire intervenir une patrouille fait la différence.</p>
       </div>
       <p class="source-note">
@@ -178,7 +193,7 @@ const temoignages = [
       <SectionHeader
         eyebrow="L'application"
         title="Comment ça marche, <em>concrètement</em>"
-        subtitle="Trois étapes, depuis votre téléphone. Les alertes de votre secteur sont gratuites ; vous ne payez que si vous déclenchez une intervention."
+        subtitle="En trois étapes depuis votre mobile. Les alertes de votre quartier sont gratuites ; une intervention n'est facturée que si vous la commandez."
       />
       <Steps steps={etapes} />
       <div class="how-ctas">
@@ -211,6 +226,19 @@ const temoignages = [
         title="Des habitant·es de Cornaux <em>déjà protégé·es</em>"
       />
       <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité à Cornaux, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
     </div>
   </section>
 
@@ -279,6 +307,8 @@ const temoignages = [
   .how-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
   .coverage-section { background: var(--soft); }
   .trust-section { background: white; }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
 
   .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .communes li { background: white; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }

@@ -6,6 +6,7 @@ import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
 import Steps from '../components/Steps.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import { partners } from '../data/partners';
 
 // --- Données propres à la commune ---
@@ -21,27 +22,48 @@ const solution = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
     title: 'Savoir - les alertes de votre secteur',
-    description: "Recevez les signalements vérifiés autour de chez vous, à Cortaillod : cambriolages, véhicules suspects, démarchage douteux. Une information modérée avant publication, sans le bruit des groupes de quartier.",
+    description: "Recevez les signalements vérifiés autour de chez vous, à Cortaillod : cambriolages, véhicules suspects, démarchage douteux. Une information fiable, vérifiée avant diffusion, sans le bruit des groupes de voisinage.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
     title: 'Agir - une patrouille à la demande',
-    description: "Une absence prolongée, un doute au retour, une alerte dans votre rue ? Déclenchez l'intervention d'une société de sécurité partenaire neuchâteloise en quelques secondes.",
+    description: "Un bruit suspect, un rôdeur signalé, une absence à couvrir ? Faites intervenir une patrouille de nos partenaires neuchâtelois, directement depuis l'application.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
     title: 'Sans engagement',
-    description: "Pas d'abonnement de gardiennage ni de contrat de longue durée. Les alertes sont gratuites, et vous ne payez une intervention que si vous en déclenchez une.",
+    description: "Vous activez le service quand vous en avez besoin. Les alertes sont offertes ; seule une intervention réellement déclenchée est facturée.",
   },
 ];
 
 const etapes = [
-  { num: '1', title: "Téléchargez l'application", description: "Edgward est disponible sur l'App Store et Google Play. La création de votre compte prend deux minutes." },
+  { num: '1', title: "Téléchargez l'application", description: "Rendez-vous sur l'App Store ou Google Play pour installer Edgward. L'inscription se fait en deux minutes." },
   { num: '2', title: 'Activez les alertes à Cortaillod', description: "Renseignez votre adresse et suivez les signalements vérifiés autour de chez vous. Cette partie est 100% gratuite." },
   { num: '3', title: 'Déclenchez une intervention', description: "En cas de doute, commandez une patrouille depuis l'app et recevez un rapport une fois l'intervention réalisée." },
 ];
 
+const faq = [
+  {
+    "question": "Edgward est-il disponible à Cortaillod ?",
+    "answer": "Oui. Edgward couvre votre secteur (Bas de Cortaillod, Haut de Cortaillod, Petit-Cortaillod) grâce à ses sociétés de sécurité partenaires du canton, GPA et Sécurice. Vous recevez les alertes vérifiées près de chez vous et pouvez déclencher l'intervention d'une patrouille à la demande, sans abonnement de gardiennage."
+  },
+  {
+    "question": "Ma maison à Cortaillod est-elle exposée pendant les vacances ?",
+    "answer": "Village prisé au bord de l'eau, Cortaillod compte de nombreuses villas et résidences avec jardin, particulièrement exposées lors des absences prolongées. Les alertes de secteur et la possibilité de faire passer une patrouille rassurent quand vous êtes loin."
+  },
+  {
+    "question": "Combien coûte Edgward et comment l'activer à Cortaillod ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une. Il suffit de télécharger l'application, d'indiquer votre adresse à Cortaillod et d'activer les alertes."
+  }
+];
+
 const temoignages = [
+  {
+    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
+    name: "Marc M.",
+    role: "Client en Suisse romande",
+    initials: "MM",
+  },
   {
     quote: "Le module d'alertes et informations est super utile.",
     name: "Caroline M.",
@@ -54,12 +76,6 @@ const temoignages = [
     name: "Emmanuelle F.",
     role: "Cliente en Suisse romande",
     initials: "EF",
-  },
-  {
-    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
-    name: "Marc M.",
-    role: "Client en Suisse romande",
-    initials: "MM",
   },
 ];
 ---
@@ -152,8 +168,7 @@ const temoignages = [
         subtitle="La police neuchâteloise ne publie pas de statistiques par commune, mais le bilan cantonal 2025 donne le cadre."
       />
       <div class="figures-text">
-        <p><strong>Bonne nouvelle d'abord :</strong> en 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel, et les violences comme la cybercriminalité diminuent aussi.</p>
-        <p>Mais un chiffre remet les choses en perspective : <strong>les atteintes au patrimoine représentent 69% de la criminalité neuchâteloise</strong>, avec 8'584 infractions en 2025. Vols, cambriolages et dommages restent ce qui touche le plus directement les habitants.</p>
+        <p>En 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel. Mais les atteintes au patrimoine - vols, cambriolages, dommages - en représentent 69%, avec 8'584 cas : c'est ce qui touche le plus directement les habitants.</p>
         <p>Village prisé au bord de l'eau, Cortaillod compte nombre de villas et de résidences avec jardin - un habitat qui gagne à être surveillé collectivement, surtout pendant les absences.</p>
       </div>
       <p class="source-note">
@@ -217,6 +232,19 @@ const temoignages = [
         title="Des habitant·es de Cortaillod <em>déjà protégé·es</em>"
       />
       <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité à Cortaillod, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
     </div>
   </section>
 
@@ -285,6 +313,8 @@ const temoignages = [
   .how-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
   .coverage-section { background: var(--soft); }
   .trust-section { background: white; }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
 
   .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .communes li { background: white; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }

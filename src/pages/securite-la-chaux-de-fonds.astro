@@ -6,13 +6,13 @@ import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
 import Steps from '../components/Steps.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import { partners } from '../data/partners';
 
 // --- Données propres à la commune ---
-const commune = 'La Chaux-de-Fonds';
+const commune = "La Chaux-de-Fonds";
 const quartiers = [
-  'Centre / Place du Marché', 'Les Forges', 'Les Éplatures', 'La Recorne',
-  'Les Cornes-Morel', 'Bel-Air', 'Montbrillant', 'La Charrière',
+  "Centre / Place du Marché", "Les Forges", "Les Éplatures", "La Recorne", "Les Cornes-Morel", "Bel-Air", "Montbrillant", "La Charrière",
 ];
 
 const neuchatelNames = ['GPA SA', 'Sécurice'];
@@ -21,13 +21,13 @@ const partenairesNE = partners.filter(p => neuchatelNames.includes(p.name));
 const solution = [
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-    title: 'Savoir - les alertes de votre quartier',
-    description: "Recevez les signalements vérifiés de votre secteur, à La Chaux-de-Fonds : cambriolages, véhicules suspects, tentatives d'intrusion. Une information modérée avant publication, sans le bruit des groupes de quartier.",
+    title: 'Savoir - les alertes de votre secteur',
+    description: "Recevez les signalements vérifiés autour de chez vous, à La Chaux-de-Fonds : cambriolages, véhicules suspects, démarchage douteux. Une information modérée avant publication, sans le bruit des groupes de quartier.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
     title: 'Agir - une patrouille à la demande',
-    description: "Un doute en rentrant chez vous, une absence prolongée, une alerte dans votre immeuble ? Déclenchez l'intervention d'une société de sécurité partenaire neuchâteloise en quelques secondes.",
+    description: "En cas de doute, commandez l'intervention d'une société de sécurité partenaire du canton : un agent se rend sur place et vous recevez un compte rendu.",
   },
   {
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
@@ -38,35 +38,50 @@ const solution = [
 
 const etapes = [
   { num: '1', title: "Téléchargez l'application", description: "Edgward est disponible sur l'App Store et Google Play. La création de votre compte prend deux minutes." },
-  { num: '2', title: 'Activez les alertes de votre quartier', description: "Renseignez votre adresse et suivez les signalements vérifiés de votre secteur. Cette partie est 100% gratuite." },
-  { num: '3', title: 'Déclenchez une intervention', description: "En cas de doute, commandez une patrouille depuis l'app et recevez un rapport une fois l'intervention réalisée." },
+  { num: '2', title: 'Activez les alertes à La Chaux-de-Fonds', description: "Renseignez votre adresse et suivez les signalements vérifiés autour de chez vous. Cette partie est 100% gratuite." },
+  { num: '3', title: 'Déclenchez une intervention', description: "Au moindre doute, déclenchez une intervention depuis l'application : un agent partenaire se rend sur place et vous recevez un compte rendu." },
+];
+
+const faq = [
+  {
+    "question": "Edgward est-il disponible à La Chaux-de-Fonds ?",
+    "answer": "Oui. Edgward couvre votre secteur (Centre / Place du Marché, Les Forges, Les Éplatures) grâce à ses sociétés de sécurité partenaires du canton, GPA et Sécurice. Vous recevez les alertes vérifiées près de chez vous et pouvez déclencher l'intervention d'une patrouille à la demande, sans abonnement de gardiennage."
+  },
+  {
+    "question": "La Chaux-de-Fonds est-elle sûre ?",
+    "answer": "La criminalité recule dans le canton en 2025, mais les atteintes au patrimoine restent majoritaires. Dans une métropole horlogère étendue, mêlant immeubles du centre, ateliers et zones industrielles désertes le soir, savoir vite ce qui se passe dans son quartier fait une vraie différence."
+  },
+  {
+    "question": "Combien coûte Edgward et comment l'activer à La Chaux-de-Fonds ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une. Il suffit de télécharger l'application, d'indiquer votre adresse à La Chaux-de-Fonds et d'activer les alertes."
+  }
 ];
 
 const temoignages = [
   {
     quote: "Le module d'alertes et informations est super utile.",
-    name: 'Caroline M.',
-    role: 'Utilisatrice en Suisse romande',
-    initials: 'CM',
+    name: "Caroline M.",
+    role: "Utilisatrice en Suisse romande",
+    initials: "CM",
     stars: 4,
   },
   {
     quote: "Intervention rapide et agent très sympa, merci !",
-    name: 'Emmanuelle F.',
-    role: 'Cliente en Suisse romande',
-    initials: 'EF',
+    name: "Emmanuelle F.",
+    role: "Cliente en Suisse romande",
+    initials: "EF",
   },
   {
     quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
-    name: 'Marc M.',
-    role: 'Client en Suisse romande',
-    initials: 'MM',
+    name: "Marc M.",
+    role: "Client en Suisse romande",
+    initials: "MM",
   },
 ];
 ---
 
 <Base
-  title="Sécurité à La Chaux-de-Fonds : alertes de quartier et intervention à la demande | Edgward"
+  title="Sécurité à La Chaux-de-Fonds : alertes et intervention à la demande | Edgward"
   description="À La Chaux-de-Fonds, suivez les alertes vérifiées de votre quartier et faites intervenir une patrouille à la demande. Sécurité sans engagement dès CHF 15.-/mois."
 >
   <!-- HERO -->
@@ -79,7 +94,7 @@ const temoignages = [
             La Chaux-de-Fonds · Canton de Neuchâtel
           </div>
           <h1>Votre sécurité à La Chaux-de-Fonds,<br><em>quartier par quartier</em></h1>
-          <p>Suivez ce qui se passe réellement près de chez vous <strong>et</strong> faites intervenir une patrouille à la demande, du centre aux Forges. Alertes géolocalisées vérifiées et gratuites, sans engagement.</p>
+          <p>Suivez ce qui se passe réellement près de chez vous <strong>et</strong> faites intervenir une patrouille à la demande. Alertes géolocalisées vérifiées et gratuites, sans engagement.</p>
           <div class="hero-ctas">
             <a href="#comment-ca-marche" class="btn-primary">
               Comment ça marche
@@ -153,9 +168,8 @@ const temoignages = [
         subtitle="La police neuchâteloise ne publie pas de statistiques par commune, mais le bilan cantonal 2025 donne le cadre."
       />
       <div class="figures-text">
-        <p><strong>Bonne nouvelle d'abord :</strong> en 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel, et les violences comme la cybercriminalité diminuent aussi.</p>
-        <p>Mais un chiffre remet les choses en perspective : <strong>les atteintes au patrimoine représentent 69% de la criminalité neuchâteloise</strong>, avec 8'584 infractions en 2025. Vols, cambriolages et dommages restent, de loin, ce qui touche le plus directement les habitants.</p>
-        <p>Dans une ville aussi étendue que La Chaux-de-Fonds, avec ses longues rues, ses immeubles et ses zones d'activités désertes le soir, l'enjeu n'est pas de céder à l'inquiétude : c'est de savoir vite ce qui se passe dans son secteur, et de pouvoir faire venir quelqu'un en cas de doute.</p>
+        <p>En 2025, les infractions au Code pénal reculent de 5% dans le canton de Neuchâtel. Mais les atteintes au patrimoine - vols, cambriolages, dommages - en représentent 69%, avec 8'584 cas : c'est ce qui touche le plus directement les habitants.</p>
+        <p>Dans une ville aussi étendue, aux longues rues et aux zones d'activités qui se vident le soir, l'enjeu n'est pas de céder à l'inquiétude : c'est de savoir vite ce qui se passe dans son secteur, et de pouvoir faire venir quelqu'un en cas de doute.</p>
       </div>
       <p class="source-note">
         Source : Bilan 2025 de la criminalité, Police neuchâteloise -
@@ -170,7 +184,7 @@ const temoignages = [
       <SectionHeader
         eyebrow="Notre solution"
         title="Savoir ce qui se passe à La Chaux-de-Fonds, <em>et pouvoir agir</em>"
-        subtitle="Deux fonctions au même endroit : l'information de sécurité fiable de votre quartier, et la possibilité de faire intervenir une patrouille quand vous en avez besoin."
+        subtitle="Deux fonctions au même endroit : l'information de sécurité fiable de votre secteur, et la possibilité de faire intervenir une patrouille quand vous en avez besoin."
       />
       <BenefitsGrid benefits={solution} cols={3} />
     </div>
@@ -182,7 +196,7 @@ const temoignages = [
       <SectionHeader
         eyebrow="L'application"
         title="Comment ça marche, <em>concrètement</em>"
-        subtitle="Trois étapes, depuis votre téléphone. Les alertes de votre quartier sont gratuites ; vous ne payez que si vous déclenchez une intervention."
+        subtitle="Tout se passe depuis l'application, en trois étapes. Les alertes sont offertes ; seule l'intervention est facturée, à l'usage."
       />
       <Steps steps={etapes} />
       <div class="how-ctas">
@@ -195,7 +209,7 @@ const temoignages = [
     </div>
   </section>
 
-  <!-- QUARTIERS -->
+  <!-- COUVERTURE -->
   <section class="section coverage-section" id="quartiers">
     <div class="container">
       <SectionHeader
@@ -203,7 +217,7 @@ const temoignages = [
         title="Présents dans <em>tous les quartiers de La Chaux-de-Fonds</em>"
         subtitle="Du centre aux Forges, en passant par les Éplatures et la Charrière, Edgward couvre votre secteur grâce à un réseau de sociétés de sécurité neuchâteloises."
       />
-      <ul class="communes" aria-label="Quartiers couverts à La Chaux-de-Fonds">
+      <ul class="communes" aria-label="Secteurs couverts à La Chaux-de-Fonds">
         {quartiers.map(q => <li>{q}</li>)}
         <li class="communes-more">…et tous les autres secteurs de la ville</li>
       </ul>
@@ -215,9 +229,22 @@ const temoignages = [
     <div class="container">
       <SectionHeader
         eyebrow="Ils nous font confiance"
-        title="Des Romands·es <em>déjà protégé·es</em>"
+        title="Des habitant·es de La Chaux-de-Fonds <em>déjà protégé·es</em>"
       />
       <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité à La Chaux-de-Fonds, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
     </div>
   </section>
 
@@ -229,7 +256,7 @@ const temoignages = [
   <!-- FINAL CTA -->
   <FinalCTA
     title="Reprenez le contrôle de <em>votre sécurité à La Chaux-de-Fonds</em>"
-    description="Téléchargez l'application, activez gratuitement les alertes de votre quartier, et gardez la possibilité de faire intervenir une patrouille en cas de besoin."
+    description="Téléchargez l'application, activez gratuitement les alertes de votre secteur, et gardez la possibilité de faire intervenir une patrouille en cas de besoin."
     appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
     playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
   />
@@ -251,7 +278,6 @@ const temoignages = [
   .hero-note a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
   .hero-note a:hover { color: white; }
 
-  /* NEWSFEED DEMO */
   .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
   .newsfeed-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 20px; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; }
   .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
@@ -274,7 +300,6 @@ const temoignages = [
   .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); }
   .intro-prose strong { color: var(--navy); }
 
-  /* CONTEXTE */
   .figures-section { background: white; }
   .figures-text { max-width: 760px; margin: 0 auto; }
   .figures-text p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
@@ -288,11 +313,13 @@ const temoignages = [
   .how-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
   .coverage-section { background: var(--soft); }
   .trust-section { background: white; }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
 
-  /* COVERAGE */
   .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
   .communes li { background: white; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }
   .communes-more { background: transparent !important; border: none !important; color: var(--text-muted) !important; font-weight: 400 !important; font-style: italic; }
+  .cover-prose { max-width: 680px; margin: 0 auto; text-align: center; font-size: 16px; line-height: 1.7; color: var(--text-muted); }
 
   @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
