@@ -5,6 +5,7 @@ import FinalCTA from '../components/FinalCTA.astro';
 import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import { partners } from '../data/partners';
 
 // Partenaires actifs sur le canton de Genève (sous-ensemble du réseau).
@@ -112,6 +113,22 @@ const communes = [
   { name: 'Le Grand-Saconnex' },
   { name: 'Bernex' },
 ];
+
+const faq = [
+  {
+    "question": "Edgward couvre-t-il tout le canton de Genève ?",
+    "answer": "Oui, l'ensemble du canton, en ville comme en périphérie, grâce à un réseau de sociétés de sécurité genevoises partenaires. Le délai moyen d'intervention d'une patrouille est de 10 à 15 minutes."
+  },
+  {
+    "question": "Quelles communes genevoises ont une page dédiée ?",
+    "answer": "Carouge, Lancy, Onex, Thônex, Chêne-Bougeries, Chêne-Bourg, Veyrier, Plan-les-Ouates, Cologny, Collonge-Bellerive, Vandœuvres, Pregny-Chambésy, Anières, Corsier et Hermance. Chacune détaille les chiffres officiels 2025 de la commune."
+  },
+  {
+    "question": "Combien coûte Edgward à Genève ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une."
+  }
+];
+
 ---
 
 <Base
@@ -263,6 +280,19 @@ const communes = [
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité à Genève, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
   <PartnersGrid
     title="Nos sociétés de sécurité partenaires à Genève"
     partners={partenairesGE}
@@ -343,4 +373,6 @@ const communes = [
     .hero { padding: 48px 0 40px; }
     .coverage-stats { grid-template-columns: 1fr; }
   }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
 </style>

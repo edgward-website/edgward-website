@@ -5,6 +5,7 @@ import FinalCTA from '../components/FinalCTA.astro';
 import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import { partners } from '../data/partners';
 
 // --- Données propres à la ville (à adapter pour chaque page locale) ---
@@ -57,6 +58,22 @@ const temoignages = [
     initials: 'AE',
   },
 ];
+
+const faq = [
+  {
+    "question": "Edgward est-il disponible à Vevey ?",
+    "answer": "Oui. Edgward couvre votre secteur grâce à ses sociétés de sécurité partenaires vaudoises. Vous recevez les alertes vérifiées près de chez vous et pouvez faire intervenir une patrouille à la demande, sans abonnement de gardiennage."
+  },
+  {
+    "question": "Vevey est-elle exposée ?",
+    "answer": "Perle de la Riviera, Vevey conjugue vieille ville animée, front de lac et sièges d'entreprises. Cette vitalité s'accompagne d'une exposition aux vols et cambriolages, qui progressent à l'échelle du canton de Vaud."
+  },
+  {
+    "question": "Combien coûte Edgward et comment l'activer à Vevey ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une. Il suffit de télécharger l'application, d'indiquer votre adresse à Vevey et d'activer les alertes."
+  }
+];
+
 ---
 
 <Base
@@ -177,6 +194,19 @@ const temoignages = [
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité à Vevey, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
   <PartnersGrid
     title="Nos sociétés de sécurité partenaires dans le canton de Vaud"
     partners={partenairesVD}
@@ -250,4 +280,6 @@ const temoignages = [
   @media (max-width: 768px) {
     .hero { padding: 48px 0 40px; }
   }
+  .faq-section { background: white; }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
 </style>

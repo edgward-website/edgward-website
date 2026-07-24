@@ -5,6 +5,7 @@ import FinalCTA from '../components/FinalCTA.astro';
 import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import Steps from '../components/Steps.astro';
 import { partners } from '../data/partners';
 
@@ -71,6 +72,22 @@ const temoignages = [
     stars: 4,
   },
 ];
+
+const faq = [
+  {
+    "question": "Edgward est-il disponible à Cologny ?",
+    "answer": "Oui. Edgward couvre votre secteur grâce à ses sociétés de sécurité partenaires genevoises. Vous recevez les alertes vérifiées près de chez vous et pouvez faire intervenir une patrouille à la demande, avec un délai moyen de 10 à 15 minutes."
+  },
+  {
+    "question": "Cologny est-elle très ciblée ?",
+    "answer": "Sur 42 cambriolages par effraction en 2025, 15 sont des tentatives : plus d'un tiers échouent, signe d'un habitat déjà bien protégé. L'enjeu à Cologny est surtout de savoir ce qui se passe dans le voisinage et de réagir vite pendant les absences."
+  },
+  {
+    "question": "Combien coûte Edgward et comment l'activer à Cologny ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une. Il suffit de télécharger l'application, d'indiquer votre adresse à Cologny et d'activer les alertes."
+  }
+];
+
 ---
 
 <Base
@@ -237,6 +254,19 @@ const temoignages = [
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité à Cologny, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
   <PartnersGrid
     title="Nos sociétés de sécurité partenaires à Genève"
     partners={partenairesGE}
@@ -323,4 +353,6 @@ const temoignages = [
     .hero { padding: 48px 0 40px; }
     .figures { grid-template-columns: 1fr; }
   }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
 </style>

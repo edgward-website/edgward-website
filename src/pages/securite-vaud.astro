@@ -5,6 +5,7 @@ import FinalCTA from '../components/FinalCTA.astro';
 import BenefitsGrid from '../components/BenefitsGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import { partners } from '../data/partners';
 
 // Partenaires actifs sur le canton de Vaud (sous-ensemble du réseau).
@@ -107,6 +108,22 @@ const communes = [
   { name: 'La Tour-de-Peilz' },
   { name: 'Aigle' },
 ];
+
+const faq = [
+  {
+    "question": "Edgward couvre-t-il tout le canton de Vaud ?",
+    "answer": "Oui, du Léman au Chablais en passant par le Nord vaudois, grâce à un réseau de sociétés de sécurité vaudoises partenaires. L'intervention d'une patrouille se déclenche à la demande, sans abonnement de gardiennage."
+  },
+  {
+    "question": "Quelles villes vaudoises ont une page dédiée ?",
+    "answer": "Lausanne, Nyon, Yverdon-les-Bains, Vevey, Montreux, Gland, Rolle et Coppet. Vous y retrouvez les alertes de votre secteur et la possibilité de faire intervenir une patrouille."
+  },
+  {
+    "question": "Combien coûte Edgward dans le canton de Vaud ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et une intervention n'est facturée que si vous la commandez."
+  }
+];
+
 ---
 
 <Base
@@ -258,6 +275,19 @@ const communes = [
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité dans le canton de Vaud, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
   <PartnersGrid
     title="Nos sociétés de sécurité partenaires dans le canton de Vaud"
     partners={partenairesVD}
@@ -338,4 +368,6 @@ const communes = [
     .hero { padding: 48px 0 40px; }
     .coverage-stats { grid-template-columns: 1fr; }
   }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
 </style>
