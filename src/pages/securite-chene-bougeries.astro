@@ -83,7 +83,7 @@ const temoignages = [
       <div class="hero-grid">
         <div class="hero-content">
           <div class="hero-badge">
-            <svg class="canton-flag" width="26" height="18" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="2.5" fill="#f4c300"/><path d="M10 0 H17.5 A2.5 2.5 0 0 1 20 2.5 V11.5 A2.5 2.5 0 0 1 17.5 14 H10 Z" fill="#d8232a"/><g fill="#141414"><path d="M9.9 2.5 L7.1 3.1 C6.4 3.6 6.1 4.5 6.3 5.3 L5.5 5.5 L6.9 6.2 L5.3 7.1 L7.1 7.6 L6.1 9 L7.7 9.2 L7.9 11.9 L8.9 10.2 L9.9 11 Z"/><circle cx="6.4" cy="3.2" r="1.3"/><path d="M5.4 2.7 L3.3 3.5 L5.4 4.2 Z"/></g><g fill="#f4c300"><circle cx="15" cy="4.3" r="1.6"/><rect x="14.35" y="5.2" width="1.3" height="6" rx="0.5"/><rect x="15.5" y="8.4" width="1.8" height="1.1" rx="0.3"/><rect x="15.5" y="10.1" width="1.3" height="1.1" rx="0.3"/></g><circle cx="15" cy="4.3" r="0.6" fill="#d8232a"/></svg>
+            <img class="canton-flag" src="/assets/flag-geneve.png" width="22" height="22" alt="" aria-hidden="true">
             Chêne-Bougeries · Canton de Genève
           </div>
           <h1>Votre sécurité à Chêne-Bougeries,<br><em>de Conches à la Gradelle</em></h1>
@@ -257,7 +257,7 @@ const temoignages = [
   .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
-  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; }
+  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; object-fit: cover; }
   .hero h1 { font-size: clamp(30px, 3.9vw, 48px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
   .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
   .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
