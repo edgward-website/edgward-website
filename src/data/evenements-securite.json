@@ -1,78 +1,90 @@
 {
-  "genereLe": "2026-07-24T18:18:13.348Z",
+  "genereLe": "2026-07-25T10:21:50.210Z",
   "source": "collecte automatique",
   "evenements": [
     {
+      "titre": "Accident de circulation",
+      "resume": "Un accident de la circulation s'est produit sur une route de la région ; la gendarmerie est intervenue et recherche des témoins.",
+      "commune": "Goumois",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 6.98,
+      "lat": 47.25,
+      "heure": "hier 20:26",
+      "source": "Police cantonale JU",
+      "recent": true
+    },
+    {
       "titre": "Cyberattaque contre l'IFAGE",
-      "resume": "Des données d'élèves de l'institut de formation ont été publiées sur le darknet à la suite d'une cyberattaque. L'ampleur des données concernées s'est révélée plus importante que prévu.",
+      "resume": "Des données d'un institut de formation genevois ont été publiées en ligne à la suite d'une cyberattaque ; l'ampleur des données concernées s'est révélée plus importante que prévu.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "cyber",
-      "lon": 6.1432,
-      "lat": 46.2044,
-      "heure": "auj. 18:11",
+      "lon": 6.145,
+      "lat": 46.204,
+      "heure": "hier 16:15",
       "source": "Tribune de Genève",
-      "recent": true
+      "recent": false
     },
     {
-      "titre": "Cambriolage d'une station-service et fuite",
-      "resume": "Deux suspects ont été interpellés après un vol par effraction dans une station-service, au terme d'une course-poursuite qui s'est terminée par un accident avec une voiture volée.",
-      "commune": "Monthey",
-      "canton": "VS",
-      "categorie": "cambriolage",
-      "lon": 6.9481,
-      "lat": 46.2543,
-      "heure": "auj. 16:57",
-      "source": "Le Nouvelliste",
-      "recent": true
-    },
-    {
-      "titre": "Homme armé maîtrisé en pleine rue",
-      "resume": "Un individu porteur d'un couteau a été stoppé par un passant avant l'intervention de la police.",
+      "titre": "Homme armé d'un couteau maîtrisé",
+      "resume": "Un individu porteur d'un couteau a été maîtrisé par un passant en pleine rue, avant l'intervention de la police.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "agression",
-      "lon": 6.6323,
-      "lat": 46.5197,
-      "heure": "auj. 16:22",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "hier 14:22",
       "source": "24 Heures",
-      "recent": true
+      "recent": false
+    },
+    {
+      "titre": "Cambriolage d'une station-service",
+      "resume": "Deux suspects ont été interpellés après un vol par effraction dans une station-service, au terme d'une course-poursuite.",
+      "commune": "Monthey",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 6.954,
+      "lat": 46.254,
+      "heure": "hier 14:11",
+      "source": "Rhône FM",
+      "recent": false
     },
     {
       "titre": "Chute mortelle sur un chantier",
-      "resume": "Un ouvrier est décédé après une chute depuis un toit sur un chantier.",
+      "resume": "Un ouvrier est décédé après une chute sur un chantier ; une enquête a été ouverte.",
       "commune": "Ormont-Dessus",
       "canton": "VD",
       "categorie": "accident",
       "lon": 7.1667,
       "lat": 46.35,
-      "heure": "auj. 15:12",
+      "heure": "hier 15:12",
       "source": "24 Heures",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Incendie d'une menuiserie",
-      "resume": "Un incendie s'est déclaré dans une menuiserie. Les flammes ont pu être confinées par les pompiers.",
+      "resume": "Un incendie s'est déclaré dans une menuiserie ; les flammes ont pu être confinées par les pompiers.",
       "commune": "Sion",
       "canton": "VS",
       "categorie": "incendie",
       "lon": 7.359,
       "lat": 46.233,
-      "heure": "auj. 10:02",
+      "heure": "hier 10:02",
       "source": "Rhône FM",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Agression à l'arme blanche",
-      "resume": "Une jeune femme a été blessée à l'arme blanche dans une voiture en pleine rue.",
+      "resume": "Une personne a été blessée à l'arme blanche dans un véhicule ; intervention de la police et des secours.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "agression",
-      "lon": 6.6323,
-      "lat": 46.5197,
-      "heure": "auj. 09:13",
+      "lon": 6.628,
+      "lat": 46.521,
+      "heure": "hier 09:13",
       "source": "24 Heures",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Accident mortel avec un véhicule de chantier",
@@ -80,34 +92,10 @@
       "commune": "Troistorrents",
       "canton": "VS",
       "categorie": "accident",
-      "lon": 6.9167,
-      "lat": 46.25,
-      "heure": "auj. 07:13",
+      "lon": 6.913,
+      "lat": 46.234,
+      "heure": "hier 07:13",
       "source": "Le Nouvelliste",
-      "recent": false
-    },
-    {
-      "titre": "Attaque à l'explosif contre des bancomats",
-      "resume": "Deux distributeurs automatiques ont été visés par une attaque à l'explosif tôt le matin. Les auteurs ont pris la fuite avant l'arrivée de la police.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "cambriolage",
-      "lon": 6.6323,
-      "lat": 46.5197,
-      "heure": "hier 21:25",
-      "source": "Police cantonale VD",
-      "recent": false
-    },
-    {
-      "titre": "Sculptures vandalisées",
-      "resume": "Une quinzaine de sculptures ont été dégradées dans un lieu d'exposition en plein air.",
-      "commune": "Boécourt",
-      "canton": "JU",
-      "categorie": "ordre",
-      "lon": 7.29,
-      "lat": 47.32,
-      "heure": "hier 21:07",
-      "source": "RTS",
       "recent": false
     }
   ]
