@@ -202,7 +202,11 @@ async function ecrire(evenements) {
 try {
   const items = await collecter();
   const evenements = await trier(items);
-  await ecrire(evenements);
+  if (evenements.length === 0) {
+    console.log("Aucun événement retenu — carte laissée inchangée (aucune écriture).");
+  } else {
+    await ecrire(evenements);
+  }
   console.log("Terminé.");
 } catch (e) {
   console.error("ERREUR :", e.message);

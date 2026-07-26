@@ -8,14 +8,24 @@ on:
     - cron: "0 17 * * *"   # ~19h00 (CEST) / 18h00 (CET)
   workflow_dispatch:        # bouton « Run » manuel dans l'onglet Actions
 
-# Le robot n'a besoin que d'écrire une branche (pas de création de PR côté
-# Actions, interdite par l'organisation). C'est toi qui ouvres/fusionnes la PR.
+# Le robot met à jour la carte tout seul : il écrit sur main, puis construit
+# et déploie le site dans la foulée (un push par le jeton interne ne relance
+# pas le déploiement standard, d'où le build/deploy intégrés ici).
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   collecte:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -28,20 +38,28 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/carte-securite/collecte.mjs
 
-      - name: Résumé lisible (page du run)
-        if: always()
-        run: cat scripts/carte-securite/resume-pr.md >> "$GITHUB_STEP_SUMMARY" || true
-
-      - name: Déposer la proposition sur une branche
+      - name: Publier sur main (si changement)
+        id: publish
         run: |
           if git diff --quiet -- src/data/evenements-securite.json; then
-            echo "Aucun changement depuis la dernière publication — rien à proposer."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Aucun changement depuis la dernière mise à jour."
             exit 0
           fi
           git config user.name "Robot Carte Edgward"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -B maj-carte-securite
           git add src/data/evenements-securite.json
           git commit -m "Carte sécurité — mise à jour automatique"
-          git push --force origin maj-carte-securite
-          echo "Branche 'maj-carte-securite' prête. Ouvre la PR : https://github.com/edgward-website/edgward-website/compare/main...maj-carte-securite?expand=1"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Construire le site
+        if: steps.publish.outputs.changed == 'true'
+        uses: withastro/action@v3
+        with:
+          node-version: 22
+
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        if: steps.publish.outputs.changed == 'true'
+        uses: actions/deploy-pages@v4

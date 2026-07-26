@@ -23,6 +23,12 @@ const description = "Carte des principaux événements de sécurité (cambriolag
           {dateMaj && ` Dernière mise à jour : ${dateMaj}.`}
         </p>
       </div>
+
+      <div class="carte-lead">
+        <p>Retrouvez toutes les alertes et informations de sécurité, ainsi que les liens directs vers les articles, directement sur Edgward.</p>
+        <a href="/#telecharger" class="btn btn-primary">Télécharger maintenant</a>
+      </div>
+
       <CarteEvenements evenements={evenements} genereLe={data.genereLe} />
     </div>
   </section>
@@ -44,6 +50,33 @@ const description = "Carte des principaux événements de sécurité (cambriolag
 </Base>
 
 <style>
+  .carte-lead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: -28px auto 34px;
+    padding: 16px 22px;
+    background: var(--brand-soft);
+    border: 1px solid rgba(70, 120, 220, 0.22);
+    border-radius: 14px;
+  }
+  .carte-lead p {
+    margin: 0;
+    flex: 1 1 380px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--navy);
+  }
+  .carte-lead .btn { flex: none; white-space: nowrap; }
+  @media (max-width: 640px) {
+    .carte-lead { flex-direction: column; align-items: stretch; text-align: center; }
+    .carte-lead .btn { justify-content: center; }
+  }
+
   .carte-cta {
     background: var(--navy);
     color: #fff;
