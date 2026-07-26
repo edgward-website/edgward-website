@@ -1,7 +1,19 @@
 {
-  "genereLe": "2026-07-26T08:00:04.613Z",
+  "genereLe": "2026-07-26T19:01:34.298Z",
   "source": "collecte automatique",
   "evenements": [
+    {
+      "titre": "Incendie au centre-ville",
+      "resume": "Un incendie s'est déclaré au centre-ville ; d'importants moyens de pompiers ont été engagés.",
+      "commune": "Vevey",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.843,
+      "lat": 46.462,
+      "heure": "26 juil. 14:15",
+      "source": "20 minutes",
+      "recent": true
+    },
     {
       "titre": "Trouble à l'ordre public dans un train",
       "resume": "Des supporters ont brièvement perturbé la circulation d'un train régional ; les forces de l'ordre sont intervenues.",
@@ -27,18 +39,6 @@
       "recent": false
     },
     {
-      "titre": "Accident de circulation",
-      "resume": "Un accident de la circulation s'est produit sur une route de la région ; la gendarmerie recherche des témoins.",
-      "commune": "Goumois",
-      "canton": "JU",
-      "categorie": "accident",
-      "lon": 6.98,
-      "lat": 47.25,
-      "heure": "24 juil. 20:26",
-      "source": "Police cantonale JU",
-      "recent": false
-    },
-    {
       "titre": "Cyberattaque contre l'IFAGE",
       "resume": "Des données d'un institut de formation genevois ont été publiées en ligne à la suite d'une cyberattaque ; l'ampleur s'est révélée plus importante que prévu.",
       "commune": "Genève",
@@ -46,20 +46,8 @@
       "categorie": "cyber",
       "lon": 6.145,
       "lat": 46.204,
-      "heure": "24 juil. 16:15",
+      "heure": "24 juil. 08:18",
       "source": "Tribune de Genève",
-      "recent": false
-    },
-    {
-      "titre": "Chute mortelle sur un chantier",
-      "resume": "Un ouvrier est décédé après une chute sur un chantier ; une enquête a été ouverte.",
-      "commune": "Ormont-Dessus",
-      "canton": "VD",
-      "categorie": "accident",
-      "lon": 7.1667,
-      "lat": 46.35,
-      "heure": "24 juil. 15:12",
-      "source": "24 Heures",
       "recent": false
     },
     {
@@ -106,7 +94,7 @@
       "categorie": "agression",
       "lon": 6.628,
       "lat": 46.521,
-      "heure": "24 juil. 09:13",
+      "heure": "24 juil. 07:13",
       "source": "24 Heures",
       "recent": false
     },
@@ -118,20 +106,8 @@
       "categorie": "accident",
       "lon": 6.913,
       "lat": 46.234,
-      "heure": "24 juil. 07:13",
+      "heure": "24 juil. 05:48",
       "source": "Le Nouvelliste",
-      "recent": false
-    },
-    {
-      "titre": "Attaque à l'explosif contre des bancomats",
-      "resume": "Deux distributeurs automatiques ont été visés par une attaque à l'explosif tôt le matin ; les auteurs ont pris la fuite.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "cambriolage",
-      "lon": 6.655,
-      "lat": 46.532,
-      "heure": "23 juil. 21:25",
-      "source": "Police cantonale VD",
       "recent": false
     },
     {
@@ -142,7 +118,7 @@
       "categorie": "ordre",
       "lon": 7.29,
       "lat": 47.32,
-      "heure": "23 juil. 21:07",
+      "heure": "23 juil. 19:07",
       "source": "RTS",
       "recent": false
     }
