@@ -19,16 +19,16 @@ const SORTIE_RESUME = resolve(__dirname, "resume-pr.md");
 // Modèle Claude. claude-opus-4-8 = qualité max de tri.
 // Pour réduire le coût par run, remplacer par "claude-haiku-4-5".
 const MODELE = "claude-opus-4-8";
-const FENETRE_HEURES = 26; // marge autour des « 24 dernières heures »
+const FENETRE_HEURES = 72; // 3 derniers jours
 
 // Bbox Romandie (validation grossière du géocodage renvoyé par l'IA)
 const BBOX = { lonMin: 5.8, lonMax: 8.5, latMin: 45.8, latMax: 47.5 };
 
 // Flux Google News RSS (agrège médias romands + communiqués de police).
 const SOURCES = [
-  "https://news.google.com/rss/search?q=(cambriolage%20OR%20agression%20OR%20incendie%20OR%20accident%20OR%20interpellation%20OR%20disparition)%20(Gen%C3%A8ve%20OR%20Lausanne%20OR%20Vaud%20OR%20Valais%20OR%20Neuch%C3%A2tel%20OR%20Fribourg)%20when:1d&hl=fr&gl=CH&ceid=CH:fr",
-  "https://news.google.com/rss/search?q=(communiqu%C3%A9%20police%20OR%20gendarmerie%20OR%20police%20cantonale)%20(Vaud%20OR%20Gen%C3%A8ve%20OR%20Valais%20OR%20Neuch%C3%A2tel%20OR%20Fribourg%20OR%20Jura%20suisse)%20when:1d&hl=fr&gl=CH&ceid=CH:fr",
-  "https://news.google.com/rss/search?q=(cyberattaque%20OR%20fuite%20de%20donn%C3%A9es)%20(Suisse%20romande%20OR%20Gen%C3%A8ve%20OR%20Vaud%20OR%20Valais)%20when:1d&hl=fr&gl=CH&ceid=CH:fr",
+  "https://news.google.com/rss/search?q=(cambriolage%20OR%20agression%20OR%20incendie%20OR%20accident%20OR%20interpellation%20OR%20disparition)%20(Gen%C3%A8ve%20OR%20Lausanne%20OR%20Vaud%20OR%20Valais%20OR%20Neuch%C3%A2tel%20OR%20Fribourg)%20when:3d&hl=fr&gl=CH&ceid=CH:fr",
+  "https://news.google.com/rss/search?q=(communiqu%C3%A9%20police%20OR%20gendarmerie%20OR%20police%20cantonale)%20(Vaud%20OR%20Gen%C3%A8ve%20OR%20Valais%20OR%20Neuch%C3%A2tel%20OR%20Fribourg%20OR%20Jura%20suisse)%20when:3d&hl=fr&gl=CH&ceid=CH:fr",
+  "https://news.google.com/rss/search?q=(cyberattaque%20OR%20fuite%20de%20donn%C3%A9es)%20(Suisse%20romande%20OR%20Gen%C3%A8ve%20OR%20Vaud%20OR%20Valais)%20when:3d&hl=fr&gl=CH&ceid=CH:fr",
 ];
 
 const CATEGORIES = ["cambriolage", "agression", "incendie", "accident", "disparition", "ordre", "cyber"];
@@ -131,7 +131,7 @@ Règles STRICTES :
 - DÉDOUBLONNER (strict) : un même événement couvert par plusieurs médias = UN seul point. Choisis la source la plus fiable (police cantonale > média régional). Fusionne aussi deux entrées qui décrivent très probablement le MÊME fait (même type d'événement + récit similaire + dates proches), même si la commune ou l'heure indiquées diffèrent légèrement ; garde alors la localisation la plus précise. En cas de doute sérieux entre deux incidents quasi identiques le même jour, considère qu'il s'agit d'un seul événement.
 - Reformule un titre et un résumé NEUTRES, SOBRES et courts, SANS aucune donnée personnelle (pas de nom, pas d'adresse précise). Évite tout terme cru ou sensationnaliste : pour les faits violents, privilégie une formulation factuelle et retenue (ex. « Agression à l'arme blanche » plutôt que « Femme poignardée »), sans détails graphiques. N'utilise QUE des tirets courts (-), jamais de tiret long (— ou –).
 - Fournis la commune, le canton (code), la catégorie, et les coordonnées lon/lat de la commune (WGS84, degrés décimaux). En cas de doute sur les coordonnées, place le point au centre de la commune.
-- "heure" : reprends l'horodatage fourni sous forme courte (ex. "auj. 08:20", "hier 23:10").
+- La fenêtre couvre les 3 derniers jours. "heure" : indique la date courte + l'heure d'après l'horodatage fourni (ex. "24 juil. 08:20").
 - "recent" = true si l'événement date de moins de ~12h.
 Si aucun événement valable, renvoie une liste vide.`;
 
