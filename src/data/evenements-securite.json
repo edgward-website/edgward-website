@@ -1,39 +1,27 @@
 {
-  "genereLe": "2026-07-27T14:28:46.846Z",
+  "genereLe": "2026-07-27T18:24:33.329Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Explosion et incendie dans un commerce",
-      "resume": "Une explosion suivie d'un incendie dans une épicerie a fait quatre blessés, dont une personne grièvement atteinte. Une fuite de gaz lors de la manipulation d'une bonbonne serait à l'origine.",
+      "titre": "Explosion et incendie dans une épicerie-kebab",
+      "resume": "Une explosion suivie d'un incendie, liée à une fuite de gaz lors de la manipulation d'une bonbonne, a fait quatre blessés dans un commerce du centre-ville. Une personne grièvement touchée a été hospitalisée.",
       "commune": "Vevey",
       "canton": "VD",
       "categorie": "incendie",
-      "lon": 6.843,
-      "lat": 46.462,
-      "heure": "26 juil. 21:02",
+      "lon": 6.8419,
+      "lat": 46.4628,
+      "heure": "26 juil. 15:00",
       "source": "rts.ch",
       "recent": false
     },
     {
-      "titre": "Trouble à l'ordre dans un train",
-      "resume": "Des supporters ont provoqué des désordres à bord d'un train circulant en direction de Lausanne.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "ordre",
-      "lon": 6.633,
-      "lat": 46.519,
-      "heure": "25 juil. 17:54",
-      "source": "Blick",
-      "recent": false
-    },
-    {
       "titre": "Motocycliste grièvement blessé",
-      "resume": "Un jeune motard a été grièvement blessé après une collision. Un appel à témoins a été lancé.",
+      "resume": "Un jeune motard a été grièvement blessé lors d'une collision. La police lance un appel à témoins.",
       "commune": "Semsales",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 6.905,
-      "lat": 46.531,
+      "lon": 6.9333,
+      "lat": 46.5333,
       "heure": "25 juil. 10:45",
       "source": "FR.ch",
       "recent": false
@@ -51,27 +39,15 @@
       "recent": false
     },
     {
-      "titre": "Cyberattaque contre un centre de formation",
-      "resume": "Une cyberattaque a touché un institut de formation genevois, avec un nombre de données concernées plus important que prévu.",
-      "commune": "Genève",
-      "canton": "GE",
-      "categorie": "cyber",
-      "lon": 6.143,
-      "lat": 46.204,
-      "heure": "24 juil. 18:15",
-      "source": "Le Courrier",
-      "recent": false
-    },
-    {
-      "titre": "Vol dans une station-service",
-      "resume": "Deux suspects ont été interpellés après une course-poursuite à la suite d'un vol dans une station-service.",
-      "commune": "Monthey",
-      "canton": "VS",
-      "categorie": "cambriolage",
-      "lon": 6.947,
-      "lat": 46.254,
-      "heure": "24 juil. 16:57",
-      "source": "Le Nouvelliste",
+      "titre": "Accident de circulation",
+      "resume": "Un accident de la circulation s'est produit sur le territoire communal.",
+      "commune": "Goumois",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 6.99,
+      "lat": 47.26,
+      "heure": "24 juil. 22:26",
+      "source": "République et Canton du Jura",
       "recent": false
     }
   ]
