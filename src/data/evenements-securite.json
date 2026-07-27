@@ -1,10 +1,10 @@
 {
-  "genereLe": "2026-07-27T12:57:12.019Z",
+  "genereLe": "2026-07-27T14:28:46.846Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Explosion et incendie dans un restaurant",
-      "resume": "Une explosion suivie d'un incendie dans un restaurant du centre-ville a fait quatre blessés.",
+      "titre": "Explosion et incendie dans un commerce",
+      "resume": "Une explosion suivie d'un incendie dans une épicerie a fait quatre blessés, dont une personne grièvement atteinte. Une fuite de gaz lors de la manipulation d'une bonbonne serait à l'origine.",
       "commune": "Vevey",
       "canton": "VD",
       "categorie": "incendie",
@@ -15,8 +15,8 @@
       "recent": false
     },
     {
-      "titre": "Troubles dans un train",
-      "resume": "Des supporters ont provoqué des désordres à bord d'un train en direction de Lausanne.",
+      "titre": "Trouble à l'ordre dans un train",
+      "resume": "Des supporters ont provoqué des désordres à bord d'un train circulant en direction de Lausanne.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "ordre",
@@ -28,19 +28,19 @@
     },
     {
       "titre": "Motocycliste grièvement blessé",
-      "resume": "Un jeune motard a été grièvement blessé lors d'une collision. Un appel à témoins a été lancé.",
+      "resume": "Un jeune motard a été grièvement blessé après une collision. Un appel à témoins a été lancé.",
       "commune": "Semsales",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 6.928,
+      "lon": 6.905,
       "lat": 46.531,
       "heure": "25 juil. 10:45",
       "source": "FR.ch",
       "recent": false
     },
     {
-      "titre": "Incendie d'une menuiserie",
-      "resume": "Un incendie s'est déclaré dans une menuiserie. Les flammes ont pu être confinées.",
+      "titre": "Incendie dans une menuiserie",
+      "resume": "Un incendie s'est déclaré dans une menuiserie. Les flammes ont pu être confinées par les pompiers.",
       "commune": "Sion",
       "canton": "VS",
       "categorie": "incendie",
@@ -52,7 +52,7 @@
     },
     {
       "titre": "Cyberattaque contre un centre de formation",
-      "resume": "Des données d'élèves ont été publiées sur le darknet à la suite d'une cyberattaque. L'ampleur des données touchées s'est révélée plus importante.",
+      "resume": "Une cyberattaque a touché un institut de formation genevois, avec un nombre de données concernées plus important que prévu.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "cyber",
@@ -63,27 +63,15 @@
       "recent": false
     },
     {
-      "titre": "Vol par effraction et course-poursuite",
-      "resume": "Après un vol dans une station-service, deux suspects ont pris la fuite en voiture avant d'être interpellés à la suite d'un accident.",
+      "titre": "Vol dans une station-service",
+      "resume": "Deux suspects ont été interpellés après une course-poursuite à la suite d'un vol dans une station-service.",
       "commune": "Monthey",
       "canton": "VS",
       "categorie": "cambriolage",
-      "lon": 6.954,
+      "lon": 6.947,
       "lat": 46.254,
       "heure": "24 juil. 16:57",
       "source": "Le Nouvelliste",
-      "recent": false
-    },
-    {
-      "titre": "Homme armé d'un couteau maîtrisé",
-      "resume": "Un individu armé d'un couteau a été stoppé par un passant en pleine rue.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "agression",
-      "lon": 6.633,
-      "lat": 46.519,
-      "heure": "24 juil. 16:22",
-      "source": "24 Heures",
       "recent": false
     }
   ]
