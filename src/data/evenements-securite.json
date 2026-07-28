@@ -1,41 +1,41 @@
 {
-  "genereLe": "2026-07-28T09:46:53.408Z",
+  "genereLe": "2026-07-28T12:00:16.306Z",
   "source": "collecte automatique",
   "evenements": [
     {
       "titre": "Incendie dans la vieille ville de Sierre",
-      "resume": "Un incendie a détruit deux granges dans la vieille ville. Aucun blessé n'est à déplorer.",
+      "resume": "Un incendie a détruit deux granges dans la vieille ville durant la nuit. Des vitres ont éclaté et des voitures ont été touchées, sans faire de blessé.",
       "commune": "Sierre",
       "canton": "VS",
       "categorie": "incendie",
-      "lon": 7.5356,
+      "lon": 7.5326,
       "lat": 46.2919,
-      "heure": "27 juil. 23:41",
+      "heure": "28 juil. 00:30",
       "source": "rts.ch",
       "recent": true
     },
     {
-      "titre": "Explosion au centre de Vevey",
-      "resume": "Une explosion dans une épicerie du centre-ville a fait quatre blessés.",
+      "titre": "Explosion dans un commerce à Vevey",
+      "resume": "Une explosion s'est produite dans un centre commercial, faisant quatre blessés.",
       "commune": "Vevey",
       "canton": "VD",
       "categorie": "accident",
       "lon": 6.8419,
       "lat": 46.4628,
-      "heure": "26 juil. 16:15",
+      "heure": "27 juil. 06:02",
       "source": "Le Matin",
       "recent": false
     },
     {
-      "titre": "Collision impliquant un motard à Semsales",
-      "resume": "Un jeune motard a été grièvement blessé lors d'une collision.",
-      "commune": "Semsales",
-      "canton": "FR",
+      "titre": "Accident de moto dans le Jura",
+      "resume": "Une chute de moto sur la route entre deux localités a fait un blessé grave.",
+      "commune": "Soubey",
+      "canton": "JU",
       "categorie": "accident",
-      "lon": 6.925,
-      "lat": 46.535,
-      "heure": "25 juil. 12:43",
-      "source": "24 Heures",
+      "lon": 7.0503,
+      "lat": 47.3436,
+      "heure": "26 juil. 18:19",
+      "source": "République et Canton du Jura",
       "recent": false
     }
   ]
