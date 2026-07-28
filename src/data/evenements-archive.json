@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-28T17:16:17.976Z",
-  "total": 19,
+  "compileLe": "2026-07-28T18:14:37.519Z",
+  "total": 21,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -229,6 +229,30 @@
       "heure": "28 juil. 14:28",
       "source": "Police cantonale FR",
       "dateVue": "2026-07-28T15:21:34.762Z"
+    },
+    {
+      "titre": "Incendie de toiture",
+      "resume": "Un incendie de toiture s'est déclaré et a été rapidement maîtrisé. Aucun blessé n'est à déplorer.",
+      "commune": "Pully",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.6614,
+      "lat": 46.5089,
+      "heure": "28 juil. 17:59",
+      "source": "20 Minuten",
+      "dateVue": "2026-07-28T18:14:37.519Z"
+    },
+    {
+      "titre": "Excès de vitesse important",
+      "resume": "Un automobiliste a été flashé à 121 km/h, un dépassement de vitesse relevé dans le cadre du dispositif Via Sicura.",
+      "commune": "Bulle",
+      "canton": "FR",
+      "categorie": "ordre",
+      "lon": 7.0565,
+      "lat": 46.6193,
+      "heure": "27 juil. 11:54",
+      "source": "FR.ch",
+      "dateVue": "2026-07-28T18:14:37.519Z"
     }
   ]
 }
