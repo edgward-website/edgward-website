@@ -21,5 +21,12 @@ export default defineConfig({
     '/privacy-policy': '/confidentialite',
     '/app-agents/privacy-policy': '/confidentialite',
     '/app-client/privacy-policy': '/confidentialite',
+    // 2e lot : anciennes URL en 404 vues dans « Explorée, actuellement non indexée » (juillet 2026)
+    '/accueil': '/',
+    '/offres': '/particuliers',
+    '/offres/pack-boitier-boitier-app-edgward': '/particuliers',
+    '/terms-conditions': '/cgu',
+    '/choisir-sa-camera-de-surveillance': '/blog/comment-choisir-sa-camera-de-surveillance',
+    '/app-client/politique-de-confidentialite': '/confidentialite',
   },
 });
