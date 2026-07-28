@@ -1,0 +1,407 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+import Testimonials from '../components/Testimonials.astro';
+import PartnersGrid from '../components/PartnersGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import Steps from '../components/Steps.astro';
+import { partners } from '../data/partners';
+
+// --- Données propres à la page ---
+// Chiffres officiels 2025 - Statistique policière de la criminalité par commune, Corps de police GE (ge.ch).
+const villages = [
+  { name: 'Aire-la-Ville', effr: 4, introd: 1, patrim: 23 },
+  { name: 'Avully', effr: 3, introd: 1, patrim: 64 },
+  { name: 'Avusy', effr: 20, introd: 5, patrim: 82, peak: true },
+  { name: 'Cartigny', effr: 3, introd: 0, patrim: 21 },
+  { name: 'Céligny', effr: 2, introd: 0, patrim: 14 },
+  { name: 'Chancy', effr: 6, introd: 3, patrim: 56 },
+  { name: 'Choulex', effr: 9, introd: 5, patrim: 64 },
+  { name: 'Collex-Bossy', effr: 7, introd: 2, patrim: 47 },
+  { name: 'Dardagny', effr: 10, introd: 1, patrim: 74 },
+  { name: 'Gy', effr: 7, introd: 0, patrim: 42 },
+  { name: 'Jussy', effr: 14, introd: 5, patrim: 81 },
+  { name: 'Laconnex', effr: 6, introd: 1, patrim: 22 },
+  { name: 'Presinge', effr: 5, introd: 1, patrim: 41 },
+  { name: 'Russin', effr: 12, introd: 1, patrim: 37 },
+];
+const totalEffr = villages.reduce((a, v) => a + v.effr, 0);
+const totalIntrod = villages.reduce((a, v) => a + v.introd, 0);
+const totalPatrim = villages.reduce((a, v) => a + v.patrim, 0);
+
+const geneveNames = ['GPA SA', 'Python Sécurité SA', 'KRK Security', 'Global Sécurité (SPS)'];
+const partenairesGE = partners.filter(p => geneveNames.includes(p.name));
+
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+    title: 'Savoir - les alertes de votre secteur',
+    description: "Recevez les signalements vérifiés autour de chez vous : véhicules inconnus, démarchage douteux, rôdeurs. Une information modérée avant publication, sans le bruit des groupes de quartier.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'Agir - une patrouille à la demande',
+    description: "Un doute au retour, une alerte dans le village ? Déclenchez l'intervention d'une société de sécurité partenaire genevoise, sans dépendre uniquement des délais en zone rurale. Délai moyen : 10 à 15 minutes.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
+    title: 'Sans engagement',
+    description: "Pas d'abonnement de gardiennage ni de contrat de longue durée. Les alertes sont gratuites, et vous ne payez une intervention que si vous en déclenchez une.",
+  },
+];
+
+const etapes = [
+  { num: '1', title: "Téléchargez l'application", description: "Edgward est disponible sur l'App Store et Google Play. La création de votre compte prend deux minutes." },
+  { num: '2', title: 'Activez les alertes de votre village', description: "Renseignez votre adresse et suivez les signalements vérifiés de votre secteur. Cette partie est 100% gratuite." },
+  { num: '3', title: 'Déclenchez une intervention', description: "En cas de doute, commandez une patrouille depuis l'app et recevez un rapport une fois l'intervention réalisée." },
+];
+
+const temoignages = [
+  {
+    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
+    name: 'Marc M.',
+    role: 'Client à Genève',
+    initials: 'MM',
+  },
+  {
+    quote: "Intervention rapide et agent très sympa, merci !",
+    name: 'Emmanuelle F.',
+    role: 'Cliente à Genève',
+    initials: 'EF',
+  },
+  {
+    quote: "Le module d'alertes et informations est super utile.",
+    name: 'Caroline M.',
+    role: 'Utilisatrice à Genève',
+    initials: 'CM',
+    stars: 4,
+  },
+];
+
+const faq = [
+  {
+    "question": "Edgward fonctionne-t-il vraiment dans les petits villages genevois ?",
+    "answer": "Oui. La couverture ne dépend pas de la taille de la commune mais du réseau de sociétés de sécurité partenaires, présent sur tout le canton. Vous recevez les alertes vérifiées près de chez vous et pouvez faire intervenir une patrouille à la demande, avec un délai moyen de 10 à 15 minutes, y compris en zone rurale."
+  },
+  {
+    "question": "Mon village a très peu de cambriolages. Est-ce vraiment utile ?",
+    "answer": "C'est justement le profil des villages genevois : peu de faits, mais un vrai enjeu d'éloignement. Sur l'ensemble de ces communes, on compte 108 cambriolages par effraction en 2025, souvent quelques-uns par village. Edgward sert d'abord à être prévenu vite d'un fait inhabituel, et à pouvoir faire venir quelqu'un sans attendre pendant les absences."
+  },
+  {
+    "question": "Quels villages sont couverts, et où voir les chiffres ?",
+    "answer": "Toute la campagne genevoise est couverte : Aire-la-Ville, Avully, Avusy, Cartigny, Céligny, Chancy, Choulex, Collex-Bossy, Dardagny, Gy, Jussy, Laconnex, Presinge et Russin, entre autres. Le tableau de cette page reprend les chiffres officiels 2025 de la police cantonale, village par village."
+  },
+  {
+    "question": "Combien coûte Edgward et comment l'activer ?",
+    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une. Il suffit de télécharger l'application, d'indiquer votre adresse et d'activer les alertes."
+  }
+];
+---
+
+<Base
+  title="Sécurité dans les villages genevois : alertes et intervention | Edgward"
+  description="Les petites communes rurales et frontalières de Genève couvertes par Edgward. Chiffres officiels 2025 des 14 villages, alertes vérifiées et intervention en 10 à 15 min."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <img class="canton-flag" src="/assets/flag-geneve.png" width="22" height="22" alt="" aria-hidden="true">
+            Villages genevois · Canton de Genève
+          </div>
+          <h1>La sécurité dans<br><em>les villages genevois</em></h1>
+          <p>Les petites communes rurales et frontalières du canton, d'Avusy à Jussy, de Chancy à Céligny, <strong>couvertes comme les autres</strong>. Alertes géolocalisées vérifiées et gratuites, intervention en 10 à 15 minutes.</p>
+          <div class="hero-ctas">
+            <a href="#comment-ca-marche" class="btn-primary">
+              Comment ça marche
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="/securite-geneve" class="btn-secondary">
+              Voir tout le canton de Genève
+            </a>
+          </div>
+          <p class="hero-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Votre commune a des besoins spécifiques ? Découvrez le <a href="/communes">modèle pour les communes</a>.
+          </p>
+        </div>
+        <div class="hero-visual">
+          <div class="newsfeed-demo" aria-label="Exemple d'alertes dans les villages genevois">
+            <div class="demo-header">
+              <span class="demo-title">Alertes · Villages GE</span>
+              <span class="demo-radius">1 km</span>
+            </div>
+            <div class="demo-item demo-item--red">
+              <div class="demo-dot demo-dot--red"></div>
+              <div class="demo-content">
+                <strong>Véhicule inconnu vers la douane</strong>
+                <span>Chancy · il y a 40 min</span>
+              </div>
+              <a href="/alertes" class="demo-cta">Intervenir</a>
+            </div>
+            <div class="demo-item demo-item--orange">
+              <div class="demo-dot demo-dot--orange"></div>
+              <div class="demo-content">
+                <strong>Rôdeur signalé en soirée</strong>
+                <span>Jussy · il y a 2h</span>
+              </div>
+            </div>
+            <div class="demo-item demo-item--yellow">
+              <div class="demo-dot demo-dot--yellow"></div>
+              <div class="demo-content">
+                <strong>Démarchage à domicile suspect</strong>
+                <span>Dardagny · aujourd'hui</span>
+              </div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-dot demo-dot--blue"></div>
+              <div class="demo-content">
+                <strong>Alerte météo sur le canton</strong>
+                <span>Genève · il y a 1h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO LOCALE -->
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-prose">
+        <p><strong>Une quinzaine de communes genevoises comptent moins de deux mille habitants.</strong> Villages viticoles du Mandement, hameaux de la campagne, communes posées contre la frontière : ni police municipale, ni télésurveillance, souvent à l'écart des grands axes. Leur enjeu de sécurité n'est pas le volume, car les faits y sont rares, mais l'éloignement, quand une villa isolée peut rester longtemps sans que personne ne réagisse.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIFFRES / TABLEAU -->
+  <section class="section figures-section" id="chiffres">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Les chiffres 2025"
+        title="Chaque village, <em>ses statistiques</em>"
+        subtitle="La police cantonale publie chaque année le détail des infractions commune par commune. Voici le millésime 2025 pour les villages de la campagne genevoise."
+      />
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">{totalEffr}</span><span class="stat-label">cambriolages par effraction (cumulés)</span></div>
+        <div class="stat"><span class="stat-num">{totalIntrod}</span><span class="stat-label">introductions clandestines</span></div>
+        <div class="stat"><span class="stat-num">{villages.length}</span><span class="stat-label">villages couverts</span></div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="villages-table">
+          <thead>
+            <tr>
+              <th scope="col">Village</th>
+              <th scope="col">Effractions</th>
+              <th scope="col">Introductions</th>
+              <th scope="col" class="col-patrim">Patrimoine</th>
+            </tr>
+          </thead>
+          <tbody>
+            {villages.map(v => (
+              <tr>
+                <td>{v.name}</td>
+                <td>{v.peak ? <span class="peak">{v.effr}</span> : v.effr}</td>
+                <td>{v.introd}</td>
+                <td class="col-patrim">{v.patrim}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Ensemble des villages</td>
+              <td>{totalEffr}</td>
+              <td>{totalIntrod}</td>
+              <td class="col-patrim">{totalPatrim}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="figures-text">
+        <p>Pris un par un, ces chiffres sont bas : deux à vingt cambriolages par an selon la commune. <strong>Avusy fait exception avec 20 effractions</strong>, un pic pour un village de cette taille, tandis que Jussy (14) et Russin (12) suivent. Ailleurs, on reste souvent sous la dizaine.</p>
+        <p><strong>Mais le vrai enjeu d'un village n'est pas le nombre : c'est l'éloignement.</strong> Sans police municipale ni voisinage dense, un fait peut passer inaperçu longtemps, et les secours sont loin. C'est là qu'une alerte donnée à temps et une patrouille joignable rapidement changent tout.</p>
+        <p>À l'échelle du canton, la criminalité recule de 4% en 2025. Dans la campagne genevoise, Edgward répond à un besoin simple : savoir vite ce qui se passe au village, et pouvoir faire venir quelqu'un sans attendre.</p>
+      </div>
+      <p class="source-note">
+        Source : Statistique policière de la criminalité 2025 par commune, Corps de police du canton de Genève -
+        <a href="https://www.ge.ch/document/statistique-policiere-criminalite-2025-commune" target="_blank" rel="noopener">ge.ch</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre solution"
+        title="Savoir ce qui se passe au village, <em>et pouvoir agir</em>"
+        subtitle="Deux fonctions au même endroit : l'information de sécurité fiable de votre secteur, et la possibilité de faire intervenir une patrouille quand vous en avez besoin."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- COMMENT CA MARCHE -->
+  <section class="section how-section" id="comment-ca-marche">
+    <div class="container">
+      <SectionHeader
+        eyebrow="L'application"
+        title="Comment ça marche, <em>concrètement</em>"
+        subtitle="Trois étapes, depuis votre téléphone. Les alertes de votre secteur sont gratuites ; vous ne payez que si vous déclenchez une intervention."
+      />
+      <Steps steps={etapes} />
+      <div class="how-ctas">
+        <a href="/comment-ca-marche" class="btn-primary">
+          Voir le fonctionnement en détail
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="/activer-les-alertes" class="btn-secondary">Activer les alertes - 100% gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUVERTURE -->
+  <section class="section coverage-section" id="villages">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Couverture"
+        title="Présents dans <em>tous les villages</em>"
+        subtitle="Chaque commune de la campagne genevoise est couverte grâce à un réseau de sociétés de sécurité partenaires."
+      />
+      <ul class="communes" aria-label="Villages genevois couverts">
+        {villages.map(v => <li>{v.name}</li>)}
+        <li class="communes-more">…et l'ensemble des campagnes du canton</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONFIANCE -->
+  <section class="section trust-section" id="confiance">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Ils nous font confiance"
+        title="Des Genevois·es <em>déjà protégé·es</em>"
+      />
+      <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="La sécurité au village, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
+  <PartnersGrid
+    title="Nos sociétés de sécurité partenaires à Genève"
+    partners={partenairesGE}
+  />
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Reprenez le contrôle de <em>votre sécurité au village</em>"
+    description="Téléchargez l'application, activez gratuitement les alertes de votre secteur, et gardez la possibilité de faire intervenir une patrouille en 10 à 15 minutes."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; object-fit: cover; }
+  .hero h1 { font-size: clamp(32px, 4.1vw, 50px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-note { margin-top: 20px; font-size: 14px; line-height: 1.55; color: #cbd5e1; max-width: 480px; }
+  .hero-note svg { color: var(--brand-light); vertical-align: -2px; margin-right: 6px; }
+  .hero-note a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+  .hero-note a:hover { color: white; }
+
+  /* NEWSFEED DEMO */
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .newsfeed-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 20px; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; }
+  .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .demo-title { font-size: 13px; font-weight: 600; color: white; }
+  .demo-radius { font-size: 11px; color: var(--brand-light); background: var(--brand-soft); padding: 2px 8px; border-radius: 100px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .demo-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.06); }
+  .demo-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .demo-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.6); }
+  .demo-dot--orange { background: #f97316; box-shadow: 0 0 6px rgba(249,115,22,0.6); }
+  .demo-dot--yellow { background: #eab308; }
+  .demo-dot--blue { background: var(--brand-light); box-shadow: 0 0 6px rgba(70,120,220,0.6); }
+  .demo-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .demo-content strong { font-size: 12px; color: white; font-weight: 600; }
+  .demo-content span { font-size: 10px; color: #94a3b8; }
+  .demo-cta { background: var(--brand); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s ease; text-decoration: none; display: inline-block; }
+  .demo-cta:hover { background: var(--brand-dark); }
+
+  .intro-section { background: white; padding-bottom: 0; }
+  .intro-prose { max-width: 760px; margin: 0 auto; }
+  .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); }
+  .intro-prose strong { color: var(--navy); }
+
+  /* CHIFFRES */
+  .figures-section { background: white; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 760px; margin: 0 auto 40px; }
+  .stat { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px 20px; text-align: center; }
+  .stat-num { display: block; font-size: 34px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 6px; }
+  .stat-label { display: block; font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+  .tbl-wrap { max-width: 820px; margin: 0 auto; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow-x: auto; }
+  .villages-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .villages-table thead th { background: var(--navy); color: white; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; text-align: right; padding: 13px 18px; white-space: nowrap; }
+  .villages-table thead th:first-child { text-align: left; }
+  .villages-table tbody td { padding: 12px 18px; font-size: 15px; text-align: right; border-top: 1px solid var(--border); color: var(--text-muted); }
+  .villages-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--navy); }
+  .villages-table tbody tr:nth-child(even) { background: var(--soft); }
+  .villages-table .peak { color: var(--brand-dark); font-weight: 700; }
+  .villages-table tfoot td { padding: 14px 18px; font-size: 15px; font-weight: 800; text-align: right; color: var(--navy); border-top: 2px solid var(--navy); }
+  .villages-table tfoot td:first-child { text-align: left; }
+
+  .figures-text { max-width: 760px; margin: 36px auto 0; }
+  .figures-text p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
+  .figures-text p:last-child { margin-bottom: 0; }
+  .figures-text strong { color: var(--navy); }
+  .source-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 28px; }
+  .source-note a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+
+  .solution-section { background: var(--soft); }
+  .how-section { background: white; }
+  .how-ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+  .coverage-section { background: var(--soft); }
+  .trust-section { background: white; }
+
+  /* COVERAGE */
+  .communes { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .communes li { background: white; border: 1px solid var(--border); border-radius: 100px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .communes-more { background: transparent !important; border: none !important; color: var(--text-muted) !important; font-weight: 400 !important; font-style: italic; }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+    .stat-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 48px 0 40px; }
+    .villages-table .col-patrim { display: none; }
+  }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+</style>
