@@ -6,6 +6,7 @@ import FinalCTA from '../components/FinalCTA.astro';
 import TrustBar from '../components/TrustBar.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import EdSonar from '../components/EdSonar.astro';
+import LocalCoverage from '../components/LocalCoverage.astro';
 
 const benefits = [
   {
@@ -192,6 +193,9 @@ const testimonials = [
       <Testimonials items={testimonials} />
     </div>
   </section>
+
+  <!-- COUVERTURE LOCALE (maillage interne SEO) -->
+  <LocalCoverage background="white" />
 
   <!-- FINAL CTA -->
   <FinalCTA

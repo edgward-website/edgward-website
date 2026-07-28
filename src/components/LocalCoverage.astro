@@ -1,0 +1,94 @@
+---
+import { pagesCantons, villesPrincipales } from '../data/localPages';
+
+interface Props {
+  background?: 'white' | 'soft';
+}
+const { background = 'soft' } = Astro.props;
+---
+
+<section class={`local-coverage local-coverage--${background}`} aria-labelledby="local-coverage-title">
+  <div class="container">
+    <div class="lc-head">
+      <span class="lc-eyebrow">Près de chez vous</span>
+      <h2 id="local-coverage-title">La sécurité Edgward <em>dans votre région</em></h2>
+      <p class="lc-sub">Intervention à la demande et alertes géolocalisées, canton par canton et ville par ville.</p>
+    </div>
+
+    <div class="lc-cantons">
+      {pagesCantons.map(c => (
+        <a href={c.href} class="lc-canton">
+          <span class="lc-canton-name">{c.name}</span>
+          <span class="lc-canton-arrow" aria-hidden="true">→</span>
+        </a>
+      ))}
+    </div>
+
+    <ul class="lc-villes" aria-label="Villes et communes couvertes">
+      {villesPrincipales.map(v => <li><a href={v.href}>{v.name}</a></li>)}
+    </ul>
+
+    <div class="lc-more">
+      <a href="/edgward-en-suisse">Voir toute notre couverture →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .local-coverage { padding: 64px 0; }
+  .local-coverage--soft { background: var(--soft); }
+  .local-coverage--white { background: white; }
+
+  .lc-head { text-align: center; max-width: 620px; margin: 0 auto 36px; }
+  .lc-eyebrow {
+    display: inline-block; font-size: 11px; font-weight: 700; color: var(--brand);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;
+  }
+  .lc-head h2 {
+    font-size: clamp(24px, 2.5vw, 34px); font-weight: 800; color: var(--navy);
+    letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px;
+  }
+  .lc-head h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand); }
+  .lc-sub { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
+  /* Cantons — liens principaux */
+  .lc-cantons {
+    display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+    max-width: 760px; margin: 0 auto 24px;
+  }
+  .lc-canton {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--navy); color: white; text-decoration: none;
+    padding: 14px 24px; border-radius: 12px; font-size: 16px; font-weight: 700;
+    letter-spacing: -0.01em; transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(15,20,90,0.15);
+  }
+  .lc-canton:hover { background: var(--brand); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(70,120,220,0.25); }
+  .lc-canton-arrow { color: var(--brand-light); transition: transform 0.2s ease; }
+  .lc-canton:hover .lc-canton-arrow { color: white; transform: translateX(3px); }
+
+  /* Villes — chips */
+  .lc-villes {
+    list-style: none; padding: 0; margin: 0 auto 28px; max-width: 820px;
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+  }
+  .lc-villes a {
+    display: inline-block; background: white; border: 1px solid rgba(70,120,220,0.35);
+    border-radius: 100px; padding: 8px 18px; font-size: 14px; font-weight: 600;
+    color: var(--brand); text-decoration: none; transition: all 0.15s ease;
+  }
+  .local-coverage--white .lc-villes a { background: var(--soft); }
+  .lc-villes a:hover { background: var(--brand-soft); border-color: var(--brand); }
+
+  .lc-more { text-align: center; }
+  .lc-more a {
+    font-size: 15px; font-weight: 700; color: var(--navy); text-decoration: none;
+    border-bottom: 2px solid var(--brand); padding-bottom: 2px; transition: color 0.15s ease;
+  }
+  .lc-more a:hover { color: var(--brand); }
+
+  @media (max-width: 768px) {
+    .local-coverage { padding: 48px 0; }
+    .lc-canton { padding: 12px 20px; font-size: 15px; }
+  }
+</style>

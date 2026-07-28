@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import LocalCoverage from '../components/LocalCoverage.astro';
 import { partners } from '../data/partners';
 ---
 
@@ -244,6 +245,9 @@ import { partners } from '../data/partners';
       </div>
     </div>
   </section>
+
+  <!-- COUVERTURE LOCALE (maillage interne SEO) -->
+  <LocalCoverage background="soft" />
 
   <!-- FINAL CTA / DOWNLOAD -->
   <section class="final-cta" id="telecharger">

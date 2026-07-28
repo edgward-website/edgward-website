@@ -7,6 +7,7 @@ import ContactForm from '../components/ContactForm.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import PageHero from '../components/PageHero.astro';
 import { partners } from '../data/partners';
+import { pagesCantons, pagesCommunesGE, pagesVillesVD, pagesCommunesNE } from '../data/localPages';
 
 const deploymentCards = [
   {
@@ -24,58 +25,6 @@ const deploymentCards = [
     title: 'Croissance maîtrisée',
     description: 'L\'extension géographique suit la disponibilité de partenaires qualifiés et la demande locale. Fribourg et le Valais sont en cours de déploiement ; le Jura est la prochaine priorité.',
   },
-];
-
-// Pages locales dédiées (maillage interne SEO).
-const pagesCantons = [
-  { name: 'Genève', href: '/securite-geneve' },
-  { name: 'Vaud', href: '/securite-vaud' },
-  { name: 'Neuchâtel', href: '/securite-neuchatel' },
-];
-const pagesCommunesNE = [
-  { name: 'La Chaux-de-Fonds', href: '/securite-la-chaux-de-fonds' },
-  { name: 'Le Locle', href: '/securite-le-locle' },
-  { name: 'Val-de-Ruz', href: '/securite-val-de-ruz' },
-  { name: 'Laténa', href: '/securite-latena' },
-  { name: 'Val-de-Travers', href: '/securite-val-de-travers' },
-  { name: 'Milvignes', href: '/securite-milvignes' },
-  { name: 'La Grande Béroche', href: '/securite-la-grande-beroche' },
-  { name: 'Boudry', href: '/securite-boudry' },
-  { name: 'Cortaillod', href: '/securite-cortaillod' },
-  { name: 'Le Landeron', href: '/securite-le-landeron' },
-  { name: 'Cressier', href: '/securite-cressier' },
-  { name: 'Cornaux', href: '/securite-cornaux' },
-  { name: 'Rochefort', href: '/securite-rochefort' },
-  { name: 'Les Ponts-de-Martel', href: '/securite-les-ponts-de-martel' },
-  { name: 'La Sagne', href: '/securite-la-sagne' },
-  { name: 'Lignières', href: '/securite-lignieres' },
-];
-const pagesCommunesGE = [
-  { name: 'Carouge', href: '/securite-carouge' },
-  { name: 'Lancy', href: '/securite-lancy' },
-  { name: 'Onex', href: '/securite-onex' },
-  { name: 'Thônex', href: '/securite-thonex' },
-  { name: 'Chêne-Bougeries', href: '/securite-chene-bougeries' },
-  { name: 'Chêne-Bourg', href: '/securite-chene-bourg' },
-  { name: 'Veyrier', href: '/securite-veyrier' },
-  { name: 'Plan-les-Ouates', href: '/securite-plan-les-ouates' },
-  { name: 'Collonge-Bellerive', href: '/securite-collonge-bellerive' },
-  { name: 'Cologny', href: '/securite-cologny' },
-  { name: 'Vandœuvres', href: '/securite-vandoeuvres' },
-  { name: 'Pregny-Chambésy', href: '/securite-pregny-chambesy' },
-  { name: 'Anières', href: '/securite-anieres' },
-  { name: 'Corsier', href: '/securite-corsier' },
-  { name: 'Hermance', href: '/securite-hermance' },
-];
-const pagesVillesVD = [
-  { name: 'Lausanne', href: '/securite-lausanne' },
-  { name: 'Nyon', href: '/securite-nyon' },
-  { name: 'Coppet', href: '/securite-coppet' },
-  { name: 'Gland', href: '/securite-gland' },
-  { name: 'Rolle', href: '/securite-rolle' },
-  { name: 'Yverdon-les-Bains', href: '/securite-yverdon' },
-  { name: 'Vevey', href: '/securite-vevey' },
-  { name: 'Montreux', href: '/securite-montreux' },
 ];
 
 ---
