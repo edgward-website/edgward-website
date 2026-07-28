@@ -199,31 +199,39 @@ async function ecrire(evenements, genereLe) {
 
 // --- Archivage (historique cumulé pour la future carte de chaleur) -------
 
+// Dédoublonnage par PROXIMITÉ : même catégorie + < ~4 km + à quelques jours = même incident.
 const MOISNUM = { janv: 1, "févr": 2, fevr: 2, mars: 3, avr: 4, mai: 5, juin: 6, juil: 7, "août": 8, aout: 8, sept: 9, oct: 10, nov: 11, "déc": 12, dec: 12 };
-function jourDe(heure, dv) {
+const SEUIL_KM = 4, SEUIL_JOURS = 3;
+function jourNum(heure, dv) {
   const h = (heure || "").toLowerCase();
   const m = h.match(/(\d{1,2})\s*(janv|févr|fevr|mars|avr|mai|juin|juil|août|aout|sept|oct|nov|déc|dec)/);
-  if (m) return `${+m[1]}-${MOISNUM[m[2]] || m[2]}`;
-  if (dv && Number.isFinite(Date.parse(dv))) {
-    const d = new Date(dv);
-    if (h.includes("hier")) d.setDate(d.getDate() - 1);
-    return `${d.getDate()}-${d.getMonth() + 1}`;
-  }
-  return h;
+  const dd = dv && Number.isFinite(Date.parse(dv)) ? new Date(dv) : null;
+  let d;
+  if (m) d = new Date(dd ? dd.getFullYear() : 2026, (MOISNUM[m[2]] || 1) - 1, +m[1]);
+  else if (dd) { d = new Date(dd); if (h.includes("hier")) d.setDate(d.getDate() - 1); }
+  else return null;
+  return Math.floor(d.getTime() / 86400000);
 }
-const cleArchive = (e, dv) => `${(e.commune || "").toLowerCase().trim()}|${e.categorie}|${jourDe(e.heure, dv)}`;
+function estDoublon(e, dv, liste) {
+  const j = jourNum(e.heure, dv);
+  return liste.some((o) => {
+    if (o.categorie !== e.categorie) return false;
+    const dx = (o.lon - e.lon) * 76, dy = (o.lat - e.lat) * 111;
+    if (Math.hypot(dx, dy) > SEUIL_KM) return false;
+    const oj = jourNum(o.heure, o.dateVue);
+    if (j === null || oj === null) return true;
+    return Math.abs(oj - j) <= SEUIL_JOURS;
+  });
+}
 
-// Ajoute les nouveaux événements à l'archive cumulée (dédoublonnage au jour).
+// Ajoute les nouveaux événements à l'archive cumulée (dédoublonnage par proximité).
 async function archiver(evenements, genereLe) {
   let archive = { evenements: [] };
   try { archive = JSON.parse(await readFile(ARCHIVE, "utf8")); } catch {}
   if (!Array.isArray(archive.evenements)) archive.evenements = [];
-  const vus = new Set(archive.evenements.map((e) => cleArchive(e, e.dateVue)));
   let ajout = 0;
   for (const e of evenements) {
-    const k = cleArchive(e, genereLe);
-    if (vus.has(k)) continue;
-    vus.add(k);
+    if (estDoublon(e, genereLe, archive.evenements)) continue;
     archive.evenements.push({
       titre: e.titre, resume: e.resume, commune: e.commune, canton: e.canton,
       categorie: e.categorie, lon: e.lon, lat: e.lat, heure: e.heure, source: e.source, dateVue: genereLe,
