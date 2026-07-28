@@ -15,6 +15,20 @@ export const pagesCantons: LocalPage[] = [
 ];
 
 export const pagesCommunesGE: LocalPage[] = [
+  { name: 'Vernier', href: '/securite-vernier' },
+  { name: 'Meyrin', href: '/securite-meyrin' },
+  { name: 'Le Grand-Saconnex', href: '/securite-le-grand-saconnex' },
+  { name: 'Versoix', href: '/securite-versoix' },
+  { name: 'Bernex', href: '/securite-bernex' },
+  { name: 'Confignon', href: '/securite-confignon' },
+  { name: 'Satigny', href: '/securite-satigny' },
+  { name: 'Bellevue', href: '/securite-bellevue' },
+  { name: 'Perly-Certoux', href: '/securite-perly-certoux' },
+  { name: 'Troinex', href: '/securite-troinex' },
+  { name: 'Puplinge', href: '/securite-puplinge' },
+  { name: 'Genthod', href: '/securite-genthod' },
+  { name: 'Meinier', href: '/securite-meinier' },
+  { name: 'Bardonnex', href: '/securite-bardonnex' },
   { name: 'Carouge', href: '/securite-carouge' },
   { name: 'Lancy', href: '/securite-lancy' },
   { name: 'Onex', href: '/securite-onex' },
