@@ -7,7 +7,7 @@ category: "Communes"
 featured: true
 ---
 
-Soral, 280 habitants, canton de Genève. Cette commune rurale ne dispose ni d'une police municipale, ni d'un système de télésurveillance centralisé. Jusqu'à ce qu'elle devienne en 2024 la première commune genevoise à adopter Edgward pour ses habitants.
+Soral, 950 habitants, canton de Genève. Cette commune rurale ne dispose ni d'une police municipale, ni d'un système de télésurveillance centralisé. Jusqu'à ce qu'elle devienne en 2024 la première commune genevoise à adopter Edgward pour ses habitants.
 
 ## Le problème : une commune sans ressources sécuritaires propres
 

@@ -29,6 +29,7 @@ export const pagesCommunesGE: LocalPage[] = [
   { name: 'Genthod', href: '/securite-genthod' },
   { name: 'Meinier', href: '/securite-meinier' },
   { name: 'Bardonnex', href: '/securite-bardonnex' },
+  { name: 'Soral', href: '/securite-soral' },
   { name: 'Carouge', href: '/securite-carouge' },
   { name: 'Lancy', href: '/securite-lancy' },
   { name: 'Onex', href: '/securite-onex' },
