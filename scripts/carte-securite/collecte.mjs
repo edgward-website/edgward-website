@@ -7,13 +7,14 @@
 // demande de validation (Pull Request).
 // ---------------------------------------------------------------------------
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, readFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const RACINE = resolve(__dirname, "..", "..");
 const SORTIE_JSON = resolve(RACINE, "src", "data", "evenements-securite.json");
+const ARCHIVE = resolve(RACINE, "src", "data", "evenements-archive.json");
 const SORTIE_RESUME = resolve(__dirname, "resume-pr.md");
 
 // Modèle Claude. claude-opus-4-8 = qualité max de tri.
@@ -182,8 +183,7 @@ async function trier(items) {
 
 // --- Écriture ------------------------------------------------------------
 
-async function ecrire(evenements) {
-  const genereLe = new Date().toISOString();
+async function ecrire(evenements, genereLe) {
   const payload = { genereLe, source: "collecte automatique", evenements };
   await mkdir(dirname(SORTIE_JSON), { recursive: true });
   await writeFile(SORTIE_JSON, JSON.stringify(payload, null, 2) + "\n", "utf8");
@@ -197,6 +197,45 @@ async function ecrire(evenements) {
   console.log(`Écrit : ${SORTIE_JSON}`);
 }
 
+// --- Archivage (historique cumulé pour la future carte de chaleur) -------
+
+const MOISNUM = { janv: 1, "févr": 2, fevr: 2, mars: 3, avr: 4, mai: 5, juin: 6, juil: 7, "août": 8, aout: 8, sept: 9, oct: 10, nov: 11, "déc": 12, dec: 12 };
+function jourDe(heure, dv) {
+  const h = (heure || "").toLowerCase();
+  const m = h.match(/(\d{1,2})\s*(janv|févr|fevr|mars|avr|mai|juin|juil|août|aout|sept|oct|nov|déc|dec)/);
+  if (m) return `${+m[1]}-${MOISNUM[m[2]] || m[2]}`;
+  if (dv && Number.isFinite(Date.parse(dv))) {
+    const d = new Date(dv);
+    if (h.includes("hier")) d.setDate(d.getDate() - 1);
+    return `${d.getDate()}-${d.getMonth() + 1}`;
+  }
+  return h;
+}
+const cleArchive = (e, dv) => `${(e.commune || "").toLowerCase().trim()}|${e.categorie}|${jourDe(e.heure, dv)}`;
+
+// Ajoute les nouveaux événements à l'archive cumulée (dédoublonnage au jour).
+async function archiver(evenements, genereLe) {
+  let archive = { evenements: [] };
+  try { archive = JSON.parse(await readFile(ARCHIVE, "utf8")); } catch {}
+  if (!Array.isArray(archive.evenements)) archive.evenements = [];
+  const vus = new Set(archive.evenements.map((e) => cleArchive(e, e.dateVue)));
+  let ajout = 0;
+  for (const e of evenements) {
+    const k = cleArchive(e, genereLe);
+    if (vus.has(k)) continue;
+    vus.add(k);
+    archive.evenements.push({
+      titre: e.titre, resume: e.resume, commune: e.commune, canton: e.canton,
+      categorie: e.categorie, lon: e.lon, lat: e.lat, heure: e.heure, source: e.source, dateVue: genereLe,
+    });
+    ajout++;
+  }
+  archive.compileLe = genereLe;
+  archive.total = archive.evenements.length;
+  await writeFile(ARCHIVE, JSON.stringify(archive, null, 2) + "\n", "utf8");
+  console.log(`Archive : +${ajout} nouveau(x) (total ${archive.evenements.length}).`);
+}
+
 // --- Principal -----------------------------------------------------------
 
 try {
@@ -205,7 +244,9 @@ try {
   if (evenements.length === 0) {
     console.log("Aucun événement retenu — carte laissée inchangée (aucune écriture).");
   } else {
-    await ecrire(evenements);
+    const genereLe = new Date().toISOString();
+    await ecrire(evenements, genereLe);
+    await archiver(evenements, genereLe);
   }
   console.log("Terminé.");
 } catch (e) {
