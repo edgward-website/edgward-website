@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-28T15:56:28.802Z",
-  "total": 28,
+  "compileLe": "2026-07-28T17:16:17.976Z",
+  "total": 19,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -111,42 +111,6 @@
       "dateVue": "2026-07-24T13:47:00.000Z"
     },
     {
-      "titre": "Chute mortelle sur un chantier",
-      "resume": "Un ouvrier est décédé après une chute depuis un toit sur un chantier.",
-      "commune": "Ormont-Dessus",
-      "canton": "VD",
-      "categorie": "accident",
-      "lon": 7.1667,
-      "lat": 46.35,
-      "heure": "auj. 15:12",
-      "source": "24 Heures",
-      "dateVue": "2026-07-24T18:18:13.348Z"
-    },
-    {
-      "titre": "Attaque à l'explosif contre des bancomats",
-      "resume": "Deux distributeurs automatiques ont été visés par une attaque à l'explosif tôt le matin. Les auteurs ont pris la fuite avant l'arrivée de la police.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "cambriolage",
-      "lon": 6.6323,
-      "lat": 46.5197,
-      "heure": "hier 21:25",
-      "source": "Police cantonale VD",
-      "dateVue": "2026-07-24T18:18:13.348Z"
-    },
-    {
-      "titre": "Sculptures vandalisées",
-      "resume": "Une quinzaine de sculptures ont été dégradées dans un lieu d'exposition en plein air.",
-      "commune": "Boécourt",
-      "canton": "JU",
-      "categorie": "ordre",
-      "lon": 7.29,
-      "lat": 47.32,
-      "heure": "hier 21:07",
-      "source": "RTS",
-      "dateVue": "2026-07-24T18:18:13.348Z"
-    },
-    {
       "titre": "Accident de circulation",
       "resume": "Un accident de la circulation s'est produit sur une route de la région ; la gendarmerie est intervenue et recherche des témoins.",
       "commune": "Goumois",
@@ -183,30 +147,6 @@
       "dateVue": null
     },
     {
-      "titre": "Motocycliste grièvement blessé",
-      "resume": "Un motocycliste a été grièvement blessé dans une collision ; la police cantonale lance un appel à témoins.",
-      "commune": "Semsales",
-      "canton": "FR",
-      "categorie": "accident",
-      "lon": 6.925,
-      "lat": 46.525,
-      "heure": "hier 08:45",
-      "source": "Police cantonale FR",
-      "dateVue": "2026-07-26T07:51:20.891Z"
-    },
-    {
-      "titre": "Trouble à l'ordre public dans un train",
-      "resume": "Des supporters ont brièvement perturbé la circulation d'un train régional ; les forces de l'ordre sont intervenues.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "ordre",
-      "lon": 6.633,
-      "lat": 46.519,
-      "heure": "hier 15:54",
-      "source": "Blick",
-      "dateVue": "2026-07-26T07:51:20.891Z"
-    },
-    {
       "titre": "Incendie au centre-ville",
       "resume": "Un incendie s'est déclaré au centre-ville ; d'importants moyens de pompiers ont été engagés.",
       "commune": "Vevey",
@@ -217,30 +157,6 @@
       "heure": "26 juil. 14:15",
       "source": "20 minutes",
       "dateVue": "2026-07-26T19:01:34.298Z"
-    },
-    {
-      "titre": "Incendie dans une menuiserie",
-      "resume": "Les flammes qui ont touché une menuiserie ont pu être confinées.",
-      "commune": "Sion",
-      "canton": "VS",
-      "categorie": "incendie",
-      "lon": 7.3599,
-      "lat": 46.2311,
-      "heure": "25 juil. 10:09",
-      "source": "Rhône FM",
-      "dateVue": "2026-07-26T19:34:14.139Z"
-    },
-    {
-      "titre": "Cambrioleurs interpellés après une fuite",
-      "resume": "Deux cambrioleurs ont été interpellés après une fuite en voiture volée et un accident.",
-      "commune": "Massongex",
-      "canton": "VS",
-      "categorie": "cambriolage",
-      "lon": 6.9833,
-      "lat": 46.25,
-      "heure": "24 juil. 16:21",
-      "source": "bluewin.ch",
-      "dateVue": "2026-07-26T19:34:14.139Z"
     },
     {
       "titre": "Incendie dans la vieille ville de Sierre",
@@ -265,30 +181,6 @@
       "heure": "26 juil. 16:15",
       "source": "Le Matin",
       "dateVue": "2026-07-28T09:46:53.408Z"
-    },
-    {
-      "titre": "Incendie dans la vieille ville de Sierre",
-      "resume": "Un incendie a détruit deux granges dans la vieille ville durant la nuit. Des vitres ont éclaté et des voitures ont été touchées, sans faire de blessé.",
-      "commune": "Sierre",
-      "canton": "VS",
-      "categorie": "incendie",
-      "lon": 7.5326,
-      "lat": 46.2919,
-      "heure": "28 juil. 00:30",
-      "source": "rts.ch",
-      "dateVue": "2026-07-28T12:00:16.306Z"
-    },
-    {
-      "titre": "Explosion dans un commerce à Vevey",
-      "resume": "Une explosion s'est produite dans un centre commercial, faisant quatre blessés.",
-      "commune": "Vevey",
-      "canton": "VD",
-      "categorie": "accident",
-      "lon": 6.8419,
-      "lat": 46.4628,
-      "heure": "27 juil. 06:02",
-      "source": "Le Matin",
-      "dateVue": "2026-07-28T12:00:16.306Z"
     },
     {
       "titre": "Accident de moto dans le Jura",
