@@ -49,6 +49,12 @@ export const pagesCommunesGE: LocalPage[] = [
 ];
 
 export const pagesVillesVD: LocalPage[] = [
+  { name: "District d'Aigle", href: '/securite-district-aigle' },
+  { name: 'District de la Broye-Vully', href: '/securite-district-broye-vully' },
+  { name: 'District du Gros-de-Vaud', href: '/securite-district-gros-de-vaud' },
+  { name: 'District de Lavaux-Oron', href: '/securite-district-lavaux-oron' },
+  { name: 'District de Morges', href: '/securite-district-morges' },
+  { name: "District de l'Ouest lausannois", href: '/securite-district-ouest-lausannois' },
   { name: 'Lausanne', href: '/securite-lausanne' },
   { name: 'Nyon', href: '/securite-nyon' },
   { name: 'Coppet', href: '/securite-coppet' },
