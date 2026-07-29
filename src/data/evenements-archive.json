@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-29T12:04:23.782Z",
-  "total": 23,
+  "compileLe": "2026-07-29T18:07:49.739Z",
+  "total": 25,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -277,6 +277,30 @@
       "heure": "29 juil. 12:22",
       "source": "Rhône FM",
       "dateVue": "2026-07-29T12:04:23.782Z"
+    },
+    {
+      "titre": "Incendie de champ et de forêt",
+      "resume": "Un feu de champ s'est propagé aux bois voisins, détruisant deux caravanes. Les pompiers sont intervenus pour circonscrire les flammes.",
+      "commune": "Bernex",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.075,
+      "lat": 46.148,
+      "heure": "29 juil. 17:05",
+      "source": "20 Minuten",
+      "dateVue": "2026-07-29T18:07:49.739Z"
+    },
+    {
+      "titre": "Accident mortel de parapente",
+      "resume": "Un parapentiste de 35 ans a perdu la vie dans un accident survenu sur le territoire communal.",
+      "commune": "Naters",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.99,
+      "lat": 46.32,
+      "heure": "29 juil. 15:23",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-07-29T18:07:49.739Z"
     }
   ]
 }
