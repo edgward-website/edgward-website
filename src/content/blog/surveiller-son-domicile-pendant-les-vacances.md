@@ -2,6 +2,7 @@
 title: "Surveiller son domicile à distance pendant les vacances"
 date: 2026-07-01
 description: "Partir loin sans couper le lien avec chez soi : alertes de proximité, suivi à distance et intervention en quelques secondes. Comment garder un œil sur votre domicile depuis n'importe où en Suisse romande."
+image: "/assets/blog/surveiller-domicile-cover.jpg"
 category: Sécurité
 author: Équipe Edgward
 featured: false
