@@ -127,7 +127,7 @@ Quand vous faites appel à un service de sécurité, tout ce cadre travaille en 
 Chez Edgward, nos agents partenaires interviennent dans ce cadre : formés et autorisés selon les règles cantonales en vigueur. C'est ce qui fait la différence entre « quelqu'un qui vient » et un professionnel qui vient.
 
 <div style="margin:2.25rem 0 1.25rem;padding:1.25rem 1.5rem;background:#f1f5f9;border-radius:12px;">
-  <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">📎 <strong>Pour aller plus loin.</strong> Un second article, plus détaillé, arrive bientôt : conditions d'accréditation, contenu précis de la formation et différences canton par canton. On mettra le lien ici dès sa publication.</p>
+  <p style="margin:0;color:#475569;line-height:1.6;font-size:.95rem;">📎 <strong>Pour aller plus loin.</strong> Deux dossiers détaillés : <a href="/blog/devenir-agent-de-securite-suisse-conditions-formation">devenir agent de sécurité (conditions, formation, carrière)</a> et <a href="/blog/choisir-entreprise-de-securite-suisse">bien choisir son entreprise de sécurité</a>.</p>
 </div>
 
 <div style="margin:2.75rem 0 1rem;padding:1.75rem;background:#0a1929;border-radius:16px;display:flex;flex-wrap:wrap;align-items:center;gap:1.75rem;">
