@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-29T09:08:31.092Z",
-  "total": 21,
+  "compileLe": "2026-07-29T12:04:23.782Z",
+  "total": 23,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -253,6 +253,30 @@
       "heure": "27 juil. 11:54",
       "source": "FR.ch",
       "dateVue": "2026-07-28T18:14:37.519Z"
+    },
+    {
+      "titre": "Incendie causé par un feu en plein air illégal",
+      "resume": "Un feu en plein air non autorisé a provoqué un incendie. Des sacs de ciment ont pris feu, sans faire de blessé.",
+      "commune": "Remaufens",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 6.907,
+      "lat": 46.535,
+      "heure": "29 juil. 12:26",
+      "source": "FR.ch",
+      "dateVue": "2026-07-29T12:04:23.782Z"
+    },
+    {
+      "titre": "Vol par effraction à Crans-Montana",
+      "resume": "Une boutique a été prise pour cible à l'aide d'un véhicule utilisé comme bélier. Les auteurs présumés ont été interpellés.",
+      "commune": "Crans-Montana",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 7.481,
+      "lat": 46.312,
+      "heure": "29 juil. 12:22",
+      "source": "Rhône FM",
+      "dateVue": "2026-07-29T12:04:23.782Z"
     }
   ]
 }
