@@ -2,6 +2,7 @@
 title: "Comment choisir sa caméra de surveillance : le guide simple"
 date: 2026-07-01
 description: "Résolution, vision nocturne, intérieur ou extérieur, filaire ou sur batterie : les quatre critères qui comptent vraiment pour bien choisir sa caméra, sans se ruiner ni se tromper."
+image: "/assets/blog/choisir-camera-cover.jpg"
 author: "Équipe Edgward"
 category: "Conseils"
 featured: false
