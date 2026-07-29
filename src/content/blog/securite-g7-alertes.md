@@ -2,6 +2,7 @@
 title: "G7 à Évian : ce qui change autour du Léman"
 date: 2026-06-06
 description: "Sommet du G7 à Évian (15 - 17 juin 2026) : impacts concrets pour le bassin lémanique et comment le module Alertes & Informations d'Edgward vous aide à rester informé."
+image: "/assets/blog/g7-cover.jpg"
 author: "Équipe Edgward"
 category: "Sécurité"
 featured: false
