@@ -53,7 +53,7 @@ Certaines voies sont plus exigeantes : la protection de personnes, par exemple, 
 
 L'accréditation est cantonale, mais elle repose sur un cadre commun aux six cantons romands (Genève, Vaud, Valais, Fribourg, Neuchâtel et le Jura) : le concordat. Une fois autorisé dans un canton concordataire, un agent peut, dans ce cadre reconnu, intervenir dans les autres.
 
-À Genève et dans le canton de Vaud, les deux plus gros marchés romands, la demande d'agents formés est constante. C'est souvent par là que commencent les carrières. Le détail des exigences et des démarches figure sur les sites des autorités cantonales, par exemple pour [Genève](https://www.ge.ch/document/entreprises-securite-privee) et pour le canton de [Vaud](https://www.vd.ch/securite/police/entreprises-de-securite). En Suisse alémanique, le système est différent (pas de concordat romand), ce qui vaut la peine de se renseigner canton par canton si l'on vise cette région.
+À Genève et dans le canton de Vaud, les deux plus gros marchés romands, la demande d'agents formés est constante. C'est souvent par là que commencent les carrières. Le détail des exigences et des démarches figure sur les sites des autorités cantonales, par exemple pour [Genève](https://www.ge.ch/entreprises-securite-privees) et pour le canton de [Vaud](https://www.vd.ch/securite/police/entreprises-de-securite). En Suisse alémanique, le système est différent (pas de concordat romand), ce qui vaut la peine de se renseigner canton par canton si l'on vise cette région.
 
 ## Et le port d'armes ?
 
