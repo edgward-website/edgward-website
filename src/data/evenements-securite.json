@@ -1,46 +1,46 @@
 {
-  "genereLe": "2026-07-30T11:54:33.326Z",
+  "genereLe": "2026-07-30T18:16:02.574Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Feu de champ menaçant la forêt",
-      "resume": "Un feu parti d'un champ a gagné les bois voisins et détruit deux caravanes. La forêt a été menacée avant l'intervention des pompiers.",
-      "commune": "Bernex",
+      "titre": "Incendie de toiture en centre-ville",
+      "resume": "Le toit d'un immeuble du centre-ville a pris feu près du pont de la Machine. Les pompiers sont intervenus pour maîtriser le sinistre.",
+      "commune": "Genève",
       "canton": "GE",
       "categorie": "incendie",
-      "lon": 6.077,
-      "lat": 46.174,
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "30 juil. 14:26",
+      "source": "Tribune de Genève",
+      "recent": true
+    },
+    {
+      "titre": "Feu de champ menaçant la forêt",
+      "resume": "Un feu parti d'un champ a gagné les bois voisins et détruit deux caravanes. La forêt a été menacée.",
+      "commune": "Soral",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.048,
+      "lat": 46.147,
       "heure": "29 juil. 17:05",
       "source": "Tribune de Genève",
       "recent": false
     },
     {
       "titre": "Accident mortel de parapente",
-      "resume": "Un parapentiste d'une trentaine d'années a perdu la vie dans un accident survenu sur le territoire communal.",
+      "resume": "Un parapentiste a perdu la vie dans un accident survenu sur le territoire de Naters.",
       "commune": "Naters",
       "canton": "VS",
       "categorie": "accident",
       "lon": 7.99,
       "lat": 46.32,
       "heure": "29 juil. 15:13",
-      "source": "Le Nouvelliste",
-      "recent": false
-    },
-    {
-      "titre": "Vol par effraction à la voiture-bélier",
-      "resume": "Une boutique a été prise pour cible par des auteurs utilisant une voiture-bélier. Des suspects ont été interpellés.",
-      "commune": "Crans-Montana",
-      "canton": "VS",
-      "categorie": "cambriolage",
-      "lon": 7.48,
-      "lat": 46.31,
-      "heure": "29 juil. 12:22",
       "source": "Rhône FM",
       "recent": false
     },
     {
-      "titre": "Incendie provoqué par un feu illégal",
-      "resume": "Un feu en plein air non autorisé est à l'origine d'un incendie. Un responsable présumé a été dénoncé.",
+      "titre": "Incendie déclenché par un feu illégal",
+      "resume": "Un feu en plein air illégal est à l'origine d'un incendie dans la nature. Un responsable a été dénoncé.",
       "commune": "Remaufens",
       "canton": "FR",
       "categorie": "incendie",
@@ -51,8 +51,20 @@
       "recent": false
     },
     {
-      "titre": "Incendie de toiture",
-      "resume": "Un incendie de toiture a été rapidement maîtrisé par les pompiers. Aucun blessé n'est à déplorer.",
+      "titre": "Vol par effraction à la voiture-bélier",
+      "resume": "Une boutique a été attaquée à l'aide d'une voiture-bélier. Les auteurs présumés ont été interpellés.",
+      "commune": "Crans-Montana",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 7.48,
+      "lat": 46.31,
+      "heure": "29 juil. 12:22",
+      "source": "Rhône FM",
+      "recent": false
+    },
+    {
+      "titre": "Incendie de toiture maîtrisé",
+      "resume": "Un feu s'est déclaré sur une toiture et a été rapidement maîtrisé. Aucun blessé n'est à déplorer.",
       "commune": "Pully",
       "canton": "VD",
       "categorie": "incendie",
@@ -64,7 +76,7 @@
     },
     {
       "titre": "Incendie nocturne",
-      "resume": "Un incendie s'est déclaré durant la nuit, mobilisant les services d'intervention.",
+      "resume": "Un incendie s'est déclaré durant la nuit dans la commune.",
       "commune": "Renens",
       "canton": "VD",
       "categorie": "incendie",
@@ -76,7 +88,7 @@
     },
     {
       "titre": "Deux agressions à l'arme blanche",
-      "resume": "La police cantonale a interpellé deux auteurs présumés à la suite de deux agressions à l'arme blanche.",
+      "resume": "La police cantonale a interpellé les auteurs présumés de deux agressions à l'arme blanche.",
       "commune": "Fribourg",
       "canton": "FR",
       "categorie": "agression",
@@ -87,14 +99,14 @@
       "recent": false
     },
     {
-      "titre": "Incendie détruisant deux granges en vieille ville",
-      "resume": "Un incendie a détruit deux granges en plein coeur de la vieille ville. Des vitres ont éclaté et des voitures ont été touchées, sans blessé.",
+      "titre": "Incendie détruit deux granges",
+      "resume": "Un incendie dans la vieille ville a détruit deux granges. Des vitres ont éclaté et des voitures ont été touchées, sans blessé.",
       "commune": "Sierre",
       "canton": "VS",
       "categorie": "incendie",
       "lon": 7.53,
       "lat": 46.29,
-      "heure": "28 juil. 10:23",
+      "heure": "27 juil. 23:41",
       "source": "rts.ch",
       "recent": false
     }

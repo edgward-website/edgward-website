@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-30T11:54:33.326Z",
-  "total": 25,
+  "compileLe": "2026-07-30T18:16:02.574Z",
+  "total": 26,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -301,6 +301,18 @@
       "heure": "29 juil. 15:23",
       "source": "Le Nouvelliste",
       "dateVue": "2026-07-29T18:07:49.739Z"
+    },
+    {
+      "titre": "Incendie de toiture en centre-ville",
+      "resume": "Le toit d'un immeuble du centre-ville a pris feu près du pont de la Machine. Les pompiers sont intervenus pour maîtriser le sinistre.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "30 juil. 14:26",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-07-30T18:16:02.574Z"
     }
   ]
 }
