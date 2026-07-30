@@ -1,0 +1,222 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+// --- LE PROBLÈME : une alarme seule ne fait que du bruit ---
+const problems = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>',
+    title: 'La sirène sonne, mais personne ne se déplace',
+    description: "Une alarme prévient - elle n'intervient pas. Si vous êtes au travail, en voyage ou endormi, le bruit résonne dans le vide et le cambrioleur, lui, sait qu'il a le temps.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8a3 3 0 0 1-3 3H6l-3 2.5V5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3z"/><path d="M16 9h2a2 2 0 0 1 2 2v8l-3-2h-4a2 2 0 0 1-2-2v-1"/></svg>',
+    title: 'Fausses alertes à répétition',
+    description: "Un animal, une fenêtre mal fermée, un courant d'air : la plupart des déclenchements sont de fausses alertes. Sans quelqu'un pour aller vérifier sur place, impossible de savoir si c'est grave.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v6m0 6v6M4.2 4.2l4.3 4.3m7 7 4.3 4.3M1 12h6m6 0h6M4.2 19.8l4.3-4.3m7-7 4.3-4.3"/></svg>',
+    title: 'Un abonnement lourd et engageant',
+    description: "Les solutions classiques imposent souvent une installation matérielle et un contrat de longue durée. Vous payez tous les mois, que l'incident survienne ou non.",
+  },
+];
+
+// --- LA SOLUTION : le maillon qui manque, l'intervention ---
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
+    title: 'Une levée de doute par un professionnel',
+    description: "Alarme déclenchée, bruit suspect, doute en rentrant chez vous ? Un agent de sécurité partenaire se rend sur place pour identifier la cause et sécuriser les lieux. Vous savez enfin ce qui se passe réellement.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'À la demande, en quelques secondes',
+    description: "Vous déclenchez l'intervention depuis l'application, quand vous en avez besoin, où que vous soyez. Pas de central à appeler, pas d'attente : une patrouille proche est mobilisée.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+    title: 'Sans installation, sans engagement',
+    description: "Aucun matériel à poser, aucun contrat de longue durée. Les alertes de votre quartier sont gratuites ; l'abonnement complet est à CHF 15.-/mois et vous ne payez une intervention que si vous en commandez une.",
+  },
+];
+
+// --- DEUX CAS : que vous ayez déjà une alarme, ou pas ---
+const cases = [
+  {
+    eyebrow: 'Vous avez déjà une alarme',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>',
+    title: 'Edgward complète votre système',
+    description: "Gardez votre alarme et vos caméras : Edgward ajoute le maillon qui manque, l'intervention humaine sur place. Quand la sirène retentit ou qu'un doute apparaît, faites lever le doute par un agent, sans changer d'installation.",
+  },
+  {
+    eyebrow: "Vous n'avez pas d'alarme",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: 'Une alternative souple',
+    description: "Pas envie d'un chantier d'installation ni d'un engagement de plusieurs années ? Recevez les alertes vérifiées de votre quartier et commandez une patrouille uniquement lorsque vous en avez besoin. La sécurité, à la demande.",
+  },
+];
+
+// --- FAQ : rassurer l'internaute ET Google (intentions claires) ---
+const faq = [
+  {
+    question: "Edgward remplace-t-il une alarme ?",
+    answer: "Edgward n'est pas un système d'alarme et ne le remplace pas au sens matériel : c'est un service d'intervention et d'information. Il apporte ce qu'une alarme seule ne fait pas - envoyer un agent sur place pour lever le doute - et fonctionne aussi bien en complément de votre alarme existante qu'en solution autonome.",
+  },
+  {
+    question: "Que se passe-t-il quand mon alarme se déclenche ?",
+    answer: "Depuis l'application, vous déclenchez une intervention en quelques secondes. Une société de sécurité partenaire proche de chez vous se rend sur place pour identifier l'origine de l'alerte et sécuriser les lieux, puis vous informe de la situation. Vous n'êtes plus seul face au doute, même à distance.",
+  },
+  {
+    question: "Faut-il installer du matériel ?",
+    answer: "Non. Edgward ne nécessite aucune installation ni aucun capteur. L'application suffit : vous indiquez votre adresse, activez les alertes de votre quartier et pouvez commander une intervention quand vous le souhaitez.",
+  },
+  {
+    question: "Combien ça coûte ?",
+    answer: "Les informations de sécurité en direct et par notification push dans votre région sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, sans engagement de longue durée, et vous ne payez une intervention que si vous en commandez une.",
+  },
+  {
+    question: "Est-ce disponible dans ma commune ?",
+    answer: "Edgward couvre de nombreuses communes de Genève, Vaud et Neuchâtel grâce à son réseau de sociétés de sécurité partenaires. Vérifiez la couverture près de chez vous sur <a href=\"/edgward-en-suisse\" style=\"color: var(--brand); font-weight: 600;\">Notre couverture</a>.",
+  },
+];
+---
+
+<Base
+  title="Intervention sur alarme : levée de doute à la demande | Edgward"
+  description="Votre alarme se déclenche ? Edgward envoie un agent lever le doute sur place, à la demande, sans installation ni engagement. En complément de votre alarme ou comme alternative souple, dès CHF 15.-/mois."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badges">
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              Levée de doute à la demande
+            </div>
+            <div class="hero-badge hero-badge--free">✓ Sans installation</div>
+          </div>
+          <h1>Votre alarme sonne.<br><em>Et après ?</em></h1>
+          <p>Une alarme prévient, mais elle n'intervient pas. Edgward envoie un <strong>agent de sécurité sur place</strong> pour lever le doute - à la demande, sans matériel à installer et sans engagement. En complément de votre alarme, ou à la place.</p>
+          <div class="hero-ctas">
+            <a href="#telecharger" class="btn-primary">
+              Découvrir dans l'app
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#solution" class="btn-secondary">
+              Comment ça marche
+            </a>
+            <a href="/particuliers" class="btn-secondary">
+              Pour les particuliers
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img
+            class="app-mockup"
+            src="/assets/edgward-partenaires.png"
+            alt="Application Edgward : sélection des informations à transmettre à l'agent, dont l'accès au lieu et l'alarme, et recherche d'une société de sécurité partenaire intervenant sur place en quelques minutes."
+            width="866"
+            height="967"
+            loading="eager"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section problem-section" id="probleme">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Le problème"
+        title="Une alarme seule, <em>c'est du bruit</em>"
+        subtitle="Le rôle d'une alarme s'arrête à l'instant où elle sonne. Ce qui protège vraiment, c'est ce qui se passe juste après : quelqu'un qui se déplace pour vérifier."
+      />
+      <BenefitsGrid benefits={problems} cols={3} />
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre solution"
+        title="Le maillon qui manque : <em>l'intervention</em>"
+        subtitle="Edgward relie l'alerte à une action concrète. Un agent de sécurité partenaire se déplace pour lever le doute, quand vous le décidez."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- DEUX CAS -->
+  <section class="section cases-section" id="cas">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Pour qui"
+        title="Que vous ayez déjà une alarme, <em>ou pas</em>"
+        subtitle="Edgward s'adapte à votre situation : en renfort de votre système actuel, ou comme solution souple si vous n'en avez pas."
+      />
+      <BenefitsGrid benefits={cases} cols={2} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="Alarme et intervention, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Ne restez plus seul <em>quand l'alarme sonne</em>"
+    description="Téléchargez Edgward et gardez la possibilité de faire intervenir un agent sur place, à la demande. Sans installation, sans engagement."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 22px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .hero-badge--free { background: rgba(74,222,128,0.12); color: #4ade80; border-color: rgba(74,222,128,0.4); font-weight: 700; }
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+  .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* APP MOCKUP */
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .app-mockup { width: 100%; max-width: 440px; height: auto; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45)); }
+
+  .problem-section { background: white; padding-bottom: 40px; }
+  .solution-section { background: var(--soft); padding-top: 48px; }
+  .cases-section { background: white; }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+  }
+</style>
