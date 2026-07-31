@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-31T09:16:08.344Z",
-  "total": 28,
+  "compileLe": "2026-07-31T12:04:08.724Z",
+  "total": 30,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -337,6 +337,30 @@
       "heure": "30 juil. 16:47",
       "source": "rts.ch",
       "dateVue": "2026-07-31T09:16:08.344Z"
+    },
+    {
+      "titre": "Incendie d'un entrepôt",
+      "resume": "Un important incendie a ravagé un entrepôt dans la zone industrielle, mobilisant une cinquantaine de pompiers et perturbant le trafic ferroviaire entre Lausanne et Yverdon. Le feu a été maîtrisé.",
+      "commune": "Vufflens-la-Ville",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.556,
+      "lat": 46.578,
+      "heure": "30 juil. 22:00",
+      "source": "24 Heures",
+      "dateVue": "2026-07-31T12:04:08.724Z"
+    },
+    {
+      "titre": "Délit de fuite d'un conducteur ivre",
+      "resume": "Un conducteur en état d'ébriété a tenté de faire porter la responsabilité d'un délit de fuite à un proche.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "31 juil. 06:14",
+      "source": "Le Matin",
+      "dateVue": "2026-07-31T12:04:08.724Z"
     }
   ]
 }
