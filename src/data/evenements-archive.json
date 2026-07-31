@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-31T12:04:08.724Z",
-  "total": 30,
+  "compileLe": "2026-07-31T18:21:48.131Z",
+  "total": 34,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -361,6 +361,54 @@
       "heure": "31 juil. 06:14",
       "source": "Le Matin",
       "dateVue": "2026-07-31T12:04:08.724Z"
+    },
+    {
+      "titre": "Chute mortelle en parapente",
+      "resume": "Un parapentiste a perdu la vie dans une chute dans le vallon de Valsorey, dans le Bas-Valais.",
+      "commune": "Bourg-Saint-Pierre",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.19,
+      "lat": 45.94,
+      "heure": "31 juil. 16:41",
+      "source": "24 Heures",
+      "dateVue": "2026-07-31T18:21:48.131Z"
+    },
+    {
+      "titre": "Appel à témoins après un incendie",
+      "resume": "La police recherche deux témoins à la suite d'un incendie survenu dans le secteur du Simplon.",
+      "commune": "Sierre",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.535,
+      "lat": 46.291,
+      "heure": "31 juil. 18:20",
+      "source": "Rhône FM",
+      "dateVue": "2026-07-31T18:21:48.131Z"
+    },
+    {
+      "titre": "Motocycliste blessée dans un accident",
+      "resume": "Une motocycliste a été blessée lors d'un accident dont les circonstances restent à déterminer.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "31 juil. 16:00",
+      "source": "20 Minuten",
+      "dateVue": "2026-07-31T18:21:48.131Z"
+    },
+    {
+      "titre": "Départ de feu en forêt",
+      "resume": "Un départ de feu s'est déclaré en forêt sur la commune de Cheyres.",
+      "commune": "Cheyres",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 6.775,
+      "lat": 46.845,
+      "heure": "31 juil. 12:23",
+      "source": "FR.ch",
+      "dateVue": "2026-07-31T18:21:48.131Z"
     }
   ]
 }
