@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-30T18:16:02.574Z",
-  "total": 26,
+  "compileLe": "2026-07-31T09:16:08.344Z",
+  "total": 28,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -313,6 +313,30 @@
       "heure": "30 juil. 14:26",
       "source": "Tribune de Genève",
       "dateVue": "2026-07-30T18:16:02.574Z"
+    },
+    {
+      "titre": "Incendie d'un entrepôt",
+      "resume": "Un entrepôt de la zone industrielle a été la proie des flammes, mobilisant une cinquantaine de pompiers. Le trafic ferroviaire a été interrompu.",
+      "commune": "Vufflens-la-Ville",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.478,
+      "lat": 46.588,
+      "heure": "30 juil. 21:59",
+      "source": "24 Heures",
+      "dateVue": "2026-07-31T09:16:08.344Z"
+    },
+    {
+      "titre": "Incendie d'une entreprise",
+      "resume": "Un violent incendie a détruit une entreprise et les locaux de la voirie.",
+      "commune": "Courroux",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.38,
+      "lat": 47.362,
+      "heure": "30 juil. 16:47",
+      "source": "rts.ch",
+      "dateVue": "2026-07-31T09:16:08.344Z"
     }
   ]
 }
