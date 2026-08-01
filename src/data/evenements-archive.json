@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-07-31T18:21:48.131Z",
-  "total": 34,
+  "compileLe": "2026-08-01T11:20:34.898Z",
+  "total": 36,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -409,6 +409,30 @@
       "heure": "31 juil. 12:23",
       "source": "FR.ch",
       "dateVue": "2026-07-31T18:21:48.131Z"
+    },
+    {
+      "titre": "Accident d'avion à l'atterrissage",
+      "resume": "Un avion privé s'est retourné à l'atterrissage. Une personne a été blessée.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.931,
+      "lat": 46.993,
+      "heure": "1 août 12:04",
+      "source": "20 Minuten",
+      "dateVue": "2026-08-01T11:20:34.898Z"
+    },
+    {
+      "titre": "Accident mortel de parapente",
+      "resume": "Un parapentiste a perdu la vie lors d'une chute dans le vallon de Valsorey.",
+      "commune": "Bourg-St-Pierre",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.199,
+      "lat": 46.028,
+      "heure": "31 juil. 16:04",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-01T11:20:34.898Z"
     }
   ]
 }
