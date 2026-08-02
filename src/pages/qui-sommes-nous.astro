@@ -2,6 +2,17 @@
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import FinalCTA from '../components/FinalCTA.astro';
+import PartnersGrid from '../components/PartnersGrid.astro';
+import InvestorForm from '../components/InvestorForm.astro';
+import { partners } from '../data/partners';
+
+// Ecosysteme : partenaires qui construisent Edgward (logo si disponible, sinon nom).
+const builders = [
+  { name: 'Atipik', logo: '/assets/partners/atipik.svg', role: 'Développement produit', desc: "Studio suisse qui conçoit et développe l'application et la plateforme Edgward." },
+  { name: 'MediaOne', logo: '/assets/partners/mediaone.svg', role: 'Diffusion média', desc: "Partenaire média par lequel Edgward diffuse ses campagnes publicitaires." },
+  { name: 'FONGIT', logo: null, role: 'Soutien & incubation', desc: "La Fondation genevoise pour l'innovation technologique accompagne la croissance d'Edgward." },
+  { name: 'Innosuisse', logo: null, role: 'Innovation', desc: "L'agence suisse pour l'encouragement de l'innovation soutient le développement d'Edgward." },
+];
 ---
 
 <Base
@@ -67,6 +78,52 @@ import FinalCTA from '../components/FinalCTA.astro';
             <p>«&nbsp;Pendant des années, j'ai protégé des institutions, des événements et des personnalités. Avec Edgward, je veux mettre ce savoir-faire au service de tout le monde.&nbsp;»</p>
             <cite>- Daniel Barouch, fondateur d'Edgward</cite>
           </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEME -->
+  <section class="section eco-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Un réseau, pas un projet solo"
+        title="Ils bâtissent Edgward <em>avec nous</em>"
+        subtitle="Edgward n'est pas une aventure isolée : un produit construit avec des partenaires industriels, soutenu par des institutions suisses de référence, et opéré par un réseau de sociétés de sécurité établies."
+      />
+      <div class="eco-grid">
+        {builders.map(b => (
+          <div class="eco-card fade-in">
+            <div class="eco-brand">
+              {b.logo
+                ? <img src={b.logo} alt={b.name} class="eco-logo" loading="lazy">
+                : <span class="eco-wordmark">{b.name}</span>}
+            </div>
+            <span class="eco-role">{b.role}</span>
+            <p class="eco-desc">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PartnersGrid
+    title="Et un réseau de 9 sociétés de sécurité partenaires en Suisse romande"
+    partners={partners}
+  />
+
+  <!-- INVESTISSEURS & PARTENAIRES -->
+  <section class="section invest-section">
+    <div class="container">
+      <div class="invest-grid">
+        <div class="invest-copy fade-in">
+          <span class="invest-eyebrow">Investisseurs &amp; partenaires</span>
+          <h2>Bâtir la référence suisse de la <em>sécurité à la demande</em></h2>
+          <p>La sécurité privée est un secteur essentiel, resté largement analogique. Edgward le fait basculer dans l'ère de l'instantané : une plateforme unique qui relie particuliers, entreprises et communes à un réseau de sociétés de sécurité, en quelques secondes.</p>
+          <p>Notre ambition est claire - devenir la porte d'entrée de la sécurité privée en Suisse romande, puis au-delà. Soutenus par la FONGIT et Innosuisse, nous nous entourons aujourd'hui des investisseurs et partenaires stratégiques prêts à construire cette catégorie avec nous.</p>
+        </div>
+        <div class="invest-form-card fade-in">
+          <InvestorForm />
         </div>
       </div>
     </div>
@@ -202,5 +259,32 @@ import FinalCTA from '../components/FinalCTA.astro';
   @media (max-width: 860px) {
     .founder-grid { grid-template-columns: 1fr; gap: 28px; max-width: 680px; }
     .founder-card { position: static; }
+  }
+
+  /* ECOSYSTEME */
+  .eco-section { background: white; }
+  .eco-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1040px; margin: 0 auto; }
+  .eco-card { background: var(--navy); border-radius: var(--radius-lg); padding: 24px 22px; display: flex; flex-direction: column; }
+  .eco-brand { height: 30px; display: flex; align-items: center; margin-bottom: 16px; }
+  .eco-logo { max-height: 26px; max-width: 140px; width: auto; height: auto; object-fit: contain; }
+  .eco-wordmark { font-size: 19px; font-weight: 800; color: white; letter-spacing: -0.01em; }
+  .eco-role { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-light); font-weight: 700; margin-bottom: 8px; }
+  .eco-desc { font-size: 13.5px; color: #cbd5e1; line-height: 1.6; margin: 0; }
+
+  /* INVESTISSEURS */
+  .invest-section { background: var(--soft); }
+  .invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; max-width: 1040px; margin: 0 auto; }
+  .invest-eyebrow { display: inline-block; font-size: 12px; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .invest-copy h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 16px; }
+  .invest-copy h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand); }
+  .invest-copy p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 14px; }
+  .invest-form-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: 0 8px 30px rgba(10,25,41,0.06); }
+
+  @media (max-width: 900px) {
+    .eco-grid { grid-template-columns: repeat(2, 1fr); }
+    .invest-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+  @media (max-width: 520px) {
+    .eco-grid { grid-template-columns: 1fr; }
   }
 </style>
