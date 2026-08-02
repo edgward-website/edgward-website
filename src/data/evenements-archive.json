@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-02T11:19:34.368Z",
-  "total": 38,
+  "compileLe": "2026-08-02T18:01:10.132Z",
+  "total": 39,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -457,6 +457,18 @@
       "heure": "1 août 12:04",
       "source": "arcinfo.ch",
       "dateVue": "2026-08-02T11:19:34.368Z"
+    },
+    {
+      "titre": "Enfant percuté par la caravane du Tour de France",
+      "resume": "Un enfant de 7 ans a été percuté par un véhicule de la caravane du Tour de France Femmes. Il a été blessé.",
+      "commune": "Vevey",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.843,
+      "lat": 46.462,
+      "heure": "02 août 15:28",
+      "source": "24 Heures",
+      "dateVue": "2026-08-02T18:01:10.132Z"
     }
   ]
 }
