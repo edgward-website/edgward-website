@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-01T18:00:39.646Z",
-  "total": 36,
+  "compileLe": "2026-08-02T11:19:34.368Z",
+  "total": 38,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -433,6 +433,30 @@
       "heure": "31 juil. 16:04",
       "source": "Police cantonale valaisanne",
       "dateVue": "2026-08-01T11:20:34.898Z"
+    },
+    {
+      "titre": "Incendie durant le feu d'artifice",
+      "resume": "Le feu d'artifice du 1er Août a été interrompu après un départ de feu.",
+      "commune": "St-Prex",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.458,
+      "lat": 46.482,
+      "heure": "2 août 03:47",
+      "source": "rts.ch",
+      "dateVue": "2026-08-02T11:19:34.368Z"
+    },
+    {
+      "titre": "Accident d'avion à l'aérodrome",
+      "resume": "Un appareil privé s'est retourné à l'atterrissage, faisant un blessé.",
+      "commune": "Colombier",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.866,
+      "lat": 46.994,
+      "heure": "1 août 12:04",
+      "source": "arcinfo.ch",
+      "dateVue": "2026-08-02T11:19:34.368Z"
     }
   ]
 }
