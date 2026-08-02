@@ -1,0 +1,115 @@
+---
+// Bloc reutilisable "Que faire de cette information ?" pour les pages locales.
+// Se place juste apres le bloc de chiffres communaux.
+// Deux vitesses cote a cote : Savoir (gratuit, cantonal) et Agir (abonnement, adresse exacte).
+// Regle : le mot "canton" n'apparait que sur la promesse gratuite ; le marketing localise ailleurs.
+interface Props {
+  commune: string;
+  alertsUrl?: string;
+  subscribeHref?: string;
+}
+
+const {
+  commune,
+  alertsUrl = '/activer-les-alertes',
+  subscribeHref = '#telecharger',
+} = Astro.props;
+---
+
+<section class="local-next" id="que-faire" aria-labelledby="que-faire-title">
+  <div class="container">
+    <div class="ln-head">
+      <span class="ln-eyebrow">Et concrètement, pour vous ?</span>
+      <h2 id="que-faire-title" class="ln-title">À {commune}, que faire de <em>cette information</em> ?</h2>
+      <p class="ln-lead">Derrière ces chiffres, il n'y a pas des statistiques. Il y a des adresses, des halls d'immeuble, des caves forcées un soir de semaine. À {commune}, la question n'est pas de savoir <em>si</em> ça arrive près de chez vous, mais <em>quand</em> vous en entendrez parler - et par qui.</p>
+      <p class="ln-control">Vous ne pourrez jamais empêcher un cambriolage à vous seul. Mais vous pouvez être <strong>le premier informé</strong> de ce qui bouge dans le canton, et faire arriver un agent devant chez vous <strong>en 10 à 15 minutes</strong>. C'est toute la différence entre subir la nouvelle le lendemain et reprendre la main le soir même.</p>
+    </div>
+
+    <div class="ln-speeds">
+      <div class="ln-card ln-card--free">
+        <span class="ln-badge ln-badge--free">Gratuit</span>
+        <h3>Savoir</h3>
+        <p>Les alertes et informations de sécurité <strong>de votre canton</strong>, tirées des <strong>sources officielles</strong> (police, autorités, médias). Vous voyez venir, sans le bruit des groupes de quartier.</p>
+        <a class="ln-cta ln-cta--free" href={alertsUrl}>
+          Activer les alertes gratuites
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="ln-card ln-card--paid">
+        <span class="ln-badge ln-badge--paid">Abonnement · CHF 15.-/mois</span>
+        <h3>Agir</h3>
+        <p>Un doute, une absence, une alerte ? Un agent partenaire intervient <strong>à votre adresse exacte</strong> à {commune}, en 10 à 15 min. Sans engagement : vous ne payez que si vous déclenchez.</p>
+        <a class="ln-cta ln-cta--paid" href={subscribeHref}>
+          S'abonner
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .local-next { background: var(--soft); padding: 72px 0; }
+
+  .ln-head { max-width: 760px; margin: 0 auto 32px; text-align: center; }
+  .ln-eyebrow {
+    display: inline-block; font-size: 12px; color: var(--brand);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;
+  }
+  .ln-title {
+    font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.02em; color: var(--navy); margin-bottom: 22px;
+  }
+  .ln-title em {
+    font-family: 'Instrument Serif', Georgia, serif; font-style: italic;
+    font-weight: 400; color: var(--brand);
+  }
+  .ln-lead { font-size: 17px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
+  .ln-lead em { font-style: italic; color: var(--navy); font-weight: 600; }
+  .ln-control { font-size: 17px; line-height: 1.7; color: var(--text); }
+  .ln-control strong { color: var(--navy); font-weight: 700; }
+
+  .ln-speeds {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    max-width: 920px; margin: 0 auto; align-items: stretch;
+  }
+  .ln-card { border-radius: var(--radius-lg); padding: 32px 28px; display: flex; flex-direction: column; }
+  .ln-badge {
+    display: inline-block; align-self: flex-start; font-size: 11px; font-weight: 800;
+    letter-spacing: 0.06em; padding: 4px 11px; border-radius: 100px; margin-bottom: 16px; text-transform: uppercase;
+  }
+  .ln-card h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 12px; }
+  .ln-card p { font-size: 14.5px; line-height: 1.65; flex: 1; margin-bottom: 24px; }
+
+  .ln-card--free { background: #fff; border: 1px solid var(--border); }
+  .ln-card--free h3 { color: var(--navy); }
+  .ln-card--free p { color: var(--text-muted); }
+  .ln-card--free p strong { color: var(--navy); font-weight: 700; }
+  .ln-badge--free { background: var(--brand-soft); color: var(--brand); }
+
+  .ln-card--paid { background: var(--navy); border: 1px solid var(--navy); position: relative; overflow: hidden; }
+  .ln-card--paid::before {
+    content: ''; position: absolute; top: -140px; right: -120px; width: 360px; height: 360px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none;
+  }
+  .ln-card--paid h3 { color: #fff; position: relative; }
+  .ln-card--paid p { color: #cbd5e1; position: relative; }
+  .ln-card--paid p strong { color: #fff; font-weight: 700; }
+  .ln-badge--paid { background: var(--brand-soft); color: var(--brand-light); position: relative; }
+
+  .ln-cta {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+    font-weight: 600; font-size: 15px; text-decoration: none; padding: 13px 22px;
+    border-radius: 10px; transition: all 0.2s ease; position: relative;
+  }
+  .ln-cta--free { background: var(--brand); color: #fff; box-shadow: 0 1px 3px rgba(70,120,220,0.3); }
+  .ln-cta--free:hover { background: var(--brand-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(70,120,220,0.4); }
+  .ln-cta--paid { background: #fff; color: var(--navy); }
+  .ln-cta--paid:hover { background: #eef3fc; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  @media (max-width: 768px) {
+    .local-next { padding: 48px 0; }
+    .ln-speeds { grid-template-columns: 1fr; }
+  }
+</style>
