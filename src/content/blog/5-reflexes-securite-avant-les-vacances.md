@@ -32,11 +32,11 @@ Avant de partir, faites un tour complet de votre domicile :
 - Ne laissez pas d'échelles, d'escabeaux ou d'outils de jardinage accessibles à l'extérieur.
 - Si votre installation est ancienne, renseignez-vous sur les serrures anti-crochetage et anti-perçage : un changement de cylindre coûte peu et peut faire toute la différence.
 
-## 4. Configurer une vérification périodique avec Edgward
+## 4. Gardez la possibilité de faire intervenir un agent, même à distance
 
-Via l'application Edgward, vous pouvez planifier des rondes de surveillance à votre domicile pendant votre absence. Vous choisissez la fréquence et les créneaux horaires, et un agent partenaire certifié passe vérifier que tout est en ordre - façade, accès, abords immédiats.
+Via l'application Edgward, vous pouvez déclencher l'intervention d'un agent partenaire à votre domicile depuis n'importe où, dès qu'un doute survient pendant votre absence : une alerte de sécurité, un voisin qui signale quelque chose, une livraison restée trop longtemps devant la porte. L'agent se rend sur place, vérifie que tout est en ordre - façade, accès, abords immédiats - et vous transmet un rapport.
 
-À chaque passage, vous recevez un rapport avec les observations de l'agent. Si quelque chose est anormal, vous êtes alerté immédiatement et pouvez décider de la suite. Cette fonctionnalité est particulièrement appréciée pour les maisons individuelles et les résidences secondaires.
+Pas besoin d'être présent ni de déranger un proche : vous gardez la main sur votre sécurité, où que vous soyez. C'est particulièrement utile pour les maisons individuelles et les résidences secondaires. Bientôt, vous pourrez même programmer des passages réguliers pendant les longues absences.
 
 ## 5. Activez les alertes autour de chez vous
 
