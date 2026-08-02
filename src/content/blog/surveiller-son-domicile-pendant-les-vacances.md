@@ -7,6 +7,7 @@ category: Sécurité
 author: Équipe Edgward
 featured: false
 ctaB2C: true
+ctaDuo: true
 ---
 
 Une fois la porte fermée et les valises dans le coffre, la plupart des conseils de sécurité s'arrêtent là. Pourtant, c'est précisément pendant les semaines d'absence que le risque est le plus élevé. En Suisse romande, l'été concentre une part importante des cambriolages de l'année : les logements restent vides longtemps, les quartiers se vident, et un domicile sans surveillance devient une cible facile.
@@ -42,11 +43,11 @@ Pas besoin d'être présent, pas besoin de déranger un voisin ni de raccourcir 
   <figcaption>Suivez l'intervention en direct depuis votre téléphone, où que vous soyez.</figcaption>
 </figure>
 
-## Planifier des passages réguliers pendant l'absence
+## Bientôt : planifier des passages réguliers
 
-Pour les longues absences, les maisons individuelles et les résidences secondaires, vous pouvez aller plus loin et **planifier des rondes de surveillance**. Vous choisissez la fréquence et les créneaux, et un agent passe vérifier que tout est en ordre à intervalles réguliers.
+Pour aller plus loin lors des longues absences - maisons individuelles, résidences secondaires - nous préparons une nouvelle fonctionnalité : la possibilité de **planifier des rondes de surveillance**. Vous choisiriez la fréquence et les créneaux, et un agent passerait vérifier que tout est en ordre à intervalles réguliers, avec un rapport à chaque passage.
 
-À chaque passage, vous recevez un rapport. Cette présence visible et régulière joue aussi un rôle dissuasif : un domicile qui reçoit des visites de contrôle n'a pas le profil de la cible facile que recherchent les cambrioleurs.
+Cette présence visible et régulière ajoute un vrai rôle dissuasif : un domicile qui reçoit des visites de contrôle n'a pas le profil de la cible facile que recherchent les cambrioleurs. Cette option arrive prochainement dans l'application - en attendant, l'intervention à la demande couvre déjà l'essentiel de vos besoins pendant vos vacances.
 
 ## Une application à vos côtés, pas seulement un abonnement
 
@@ -59,6 +60,3 @@ Avant de partir cet été, prenez deux minutes pour configurer votre adresse dan
   <figcaption>Enregistrez votre domicile dans l'application en quelques minutes.</figcaption>
 </figure>
 
----
-
-*Vous voulez garder un œil sur votre domicile pendant vos vacances ? [Découvrez la sécurité à la demande avec Edgward →](/particuliers)*

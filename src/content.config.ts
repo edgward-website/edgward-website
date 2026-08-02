@@ -13,6 +13,7 @@ const blog = defineCollection({
     featured: z.boolean().default(false),
     contact: z.boolean().default(false),
     ctaB2C: z.boolean().default(false),
+    ctaDuo: z.boolean().default(false),
   }),
 });
 

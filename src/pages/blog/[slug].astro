@@ -6,6 +6,7 @@ import { site } from '../../data/site';
 import ContactForm from '../../components/ContactForm.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import BlogCTAHot from '../../components/BlogCTAHot.astro';
+import BlogCTADuo from '../../components/BlogCTADuo.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -106,8 +107,8 @@ const blogPostingSchema = {
     </section>
   )}
 
-  <!-- CTA B2C CHAUD (parcours B) -->
-  {post.data.ctaB2C && <BlogCTAHot />}
+  <!-- CTA B2C CHAUD (parcours B) — duo côte à côte si `ctaDuo`, sinon bloc simple -->
+  {post.data.ctaDuo ? <BlogCTADuo /> : post.data.ctaB2C && <BlogCTAHot />}
 
   <!-- RELATED POSTS -->
   {relatedPosts.length > 0 && (
