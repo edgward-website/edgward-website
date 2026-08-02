@@ -6,6 +6,7 @@ author: Équipe Edgward
 category: Conseils
 image: /assets/blog/cambrioleur-face-a-face.png
 featured: false
+ctaB2C: true
 ---
 
 Se retrouver face à un cambrioleur, c'est la situation que personne n'imagine jamais vivre - jusqu'au moment où elle arrive. Un bruit anormal en pleine nuit, une porte forcée en rentrant du travail, une silhouette dans le jardin : la panique peut pousser à faire exactement ce qu'il ne faut pas. Bonne nouvelle : quelques réflexes clairs, décidés à froid, permettent de garder le contrôle et de limiter les risques. L'essentiel tient en une phrase : votre sécurité passe avant vos biens.

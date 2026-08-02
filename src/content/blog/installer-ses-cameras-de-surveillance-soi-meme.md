@@ -6,6 +6,7 @@ author: "Équipe Edgward"
 category: "Conseils"
 image: "/assets/blog/installation-cameras-diy-kit.jpg"
 featured: false
+ctaB2C: true
 ---
 
 Installer ses caméras de surveillance soi-même n'a jamais été aussi accessible. Les kits vendus en grande surface ou en ligne se posent en une après-midi, sans électricien ni abonnement obligatoire. Bien fait, un montage protège efficacement un logement ou un commerce pour quelques centaines de francs. Mais quelques erreurs de débutant peuvent rendre l'ensemble inutile le jour où vous en aurez besoin. Voici comment vous y prendre, étape par étape, en Suisse romande.

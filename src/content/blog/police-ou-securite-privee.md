@@ -6,6 +6,7 @@ image: "/assets/blog/police-ou-edgward.jpg"
 category: Sécurité
 author: Équipe Edgward
 featured: true
+ctaB2C: true
 ---
 
 C'est la phrase qu'on entend le plus souvent quand on parle de sécurité : « Moi, si j'ai un problème, j'appelle la police. » Et c'est un excellent réflexe. Face à un danger réel, immédiat, la police reste la première réponse, et rien ne la remplace. Le problème, c'est que la majorité des situations qui nous inquiètent au quotidien ne sont pas des urgences vitales. Et pour celles-là, appeler le 117 n'est pas toujours la solution la plus adaptée.

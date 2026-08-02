@@ -5,6 +5,7 @@ import { readingTime } from '../../utils/reading-time';
 import { site } from '../../data/site';
 import ContactForm from '../../components/ContactForm.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import BlogCTAHot from '../../components/BlogCTAHot.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -104,6 +105,9 @@ const blogPostingSchema = {
       </div>
     </section>
   )}
+
+  <!-- CTA B2C CHAUD (parcours B) -->
+  {post.data.ctaB2C && <BlogCTAHot />}
 
   <!-- RELATED POSTS -->
   {relatedPosts.length > 0 && (

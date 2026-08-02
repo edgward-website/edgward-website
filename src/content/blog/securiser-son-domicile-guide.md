@@ -5,6 +5,7 @@ description: "Pas besoin d'un système d'alarme à 5 000 CHF pour dissuader les 
 author: "Équipe Edgward"
 category: "Conseils"
 featured: true
+ctaB2C: true
 ---
 
 Chaque année, plusieurs milliers de cambriolages sont signalés en Suisse romande. La bonne nouvelle : la majorité des cambrioleurs cherchent des cibles faciles. Quelques mesures simples suffisent souvent à les décourager.

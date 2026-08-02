@@ -6,6 +6,7 @@ image: "/assets/blog/choisir-camera-cover.jpg"
 author: "Équipe Edgward"
 category: "Conseils"
 featured: false
+ctaB2C: true
 ---
 
 Une caméra de surveillance, c'est souvent le premier réflexe quand on veut sécuriser son logement ou son commerce. Le problème : entre les modèles à 30 francs et ceux à plusieurs centaines, les promesses marketing et les caractéristiques techniques, difficile de savoir ce qui compte réellement. La bonne nouvelle, c'est que quatre critères suffisent pour faire un choix éclairé.

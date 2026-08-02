@@ -7,6 +7,7 @@ author: "Équipe Edgward"
 category: "Sécurité"
 featured: true
 contact: true
+ctaB2C: true
 ---
 
 Les beaux jours reviennent, et avec eux les logements qui restent vides plus longtemps. Volets fermés, boîte aux lettres qui déborde, voiture absente de l'allée : autant de signaux qu'un cambrioleur d'occasion sait lire. La bonne nouvelle, c'est que la dissuasion fonctionne, et qu'elle n'a plus besoin d'être compliquée ni hors de prix.

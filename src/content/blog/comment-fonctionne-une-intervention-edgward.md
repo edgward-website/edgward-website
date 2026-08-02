@@ -5,6 +5,7 @@ description: "Vous vous demandez concrètement ce qui se passe quand vous comman
 category: Conseils
 author: Équipe Edgward
 featured: true
+ctaB2C: true
 ---
 
 Beaucoup de personnes se posent la même question avant d'utiliser Edgward pour la première fois : que se passe-t-il concrètement quand on appuie sur le bouton ? Qui vient ? Dans quel délai ? Est-ce que je serai tenu informé ? Voici le déroulé complet d'une intervention, de la demande initiale jusqu'au rapport final.

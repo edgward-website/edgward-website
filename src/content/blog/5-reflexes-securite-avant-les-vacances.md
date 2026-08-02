@@ -5,6 +5,7 @@ description: "Cambriolages, colis volés, alarmes intempestives - partez l'espri
 category: Conseils
 author: Équipe Edgward
 featured: false
+ctaB2C: true
 ---
 
 En Suisse, les statistiques sont claires : les cambriolages augmentent significativement durant les périodes de vacances estivales. Les logements vides sont des cibles de choix, et les signaux d'absence - volets fermés en pleine journée, boîte aux lettres qui déborde, aucun mouvement depuis des jours - ne trompent pas un cambrioleur expérimenté. Bonne nouvelle : quelques réflexes simples, mis en place en moins d'une heure, suffisent à réduire considérablement le risque.

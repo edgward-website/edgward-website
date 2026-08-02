@@ -1,0 +1,66 @@
+---
+// Bloc de conversion B2C "chaud" (parcours B) en fin d'article de blog.
+// Active par le frontmatter `ctaB2C: true`. Reassurance courte + objection villa + macro (telecharger/essai).
+import { site } from '../data/site';
+---
+
+<section class="blog-cta-hot">
+  <div class="container">
+    <div class="bch-inner">
+      <h2>Un doute, une absence, une alerte ?<br><em>Passez à l'action.</em></h2>
+      <p class="bch-lead">Avec Edgward, un agent partenaire intervient à votre adresse quand vous en avez besoin. Sans installation, sans engagement, jusqu'à <strong>5x moins cher</strong> qu'une télésurveillance classique. <strong>Le premier mois est offert.</strong></p>
+
+      <div class="bch-stores">
+        <a href={site.apps.appStore} class="store-btn" target="_blank" rel="noopener noreferrer" aria-label="Télécharger sur l'App Store">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span class="store-txt"><span class="store-sub">Télécharger sur</span><span class="store-main">App Store</span></span>
+        </a>
+        <a href={site.apps.playStore} class="store-btn" target="_blank" rel="noopener noreferrer" aria-label="Disponible sur Google Play">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.19l2.807 1.626a1 1 0 010 1.73l-2.808 1.626-2.496-2.491 2.497-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.634z"/></svg>
+          <span class="store-txt"><span class="store-sub">Disponible sur</span><span class="store-main">Google Play</span></span>
+        </a>
+      </div>
+
+      <p class="bch-objection">
+        Vous avez déjà une alarme ? Edgward s'occupe de la <strong>levée de doute</strong>, sans faire doublon.
+        <a href="/intervention-alarme">Voir l'intervention sur alarme →</a>
+      </p>
+
+      <p class="bch-multi">Résidence principale, secondaire, domicile d'un proche : gérez plusieurs adresses depuis un seul compte.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-cta-hot { background: var(--navy); color: white; padding: 64px 0; position: relative; overflow: hidden; }
+  .blog-cta-hot::before {
+    content: ''; position: absolute; top: -160px; right: -120px; width: 480px; height: 480px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none;
+  }
+  .bch-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+  .bch-inner h2 {
+    font-size: clamp(24px, 3vw, 32px); font-weight: 800; line-height: 1.15;
+    letter-spacing: -0.02em; color: white; margin-bottom: 16px;
+  }
+  .bch-inner h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .bch-lead { font-size: 16px; line-height: 1.65; color: #cbd5e1; margin-bottom: 24px; }
+  .bch-lead strong { color: white; font-weight: 700; }
+
+  .bch-stores { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .store-btn { background: #000; border: 1px solid rgba(255,255,255,0.15); color: white; padding: 10px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.2s ease; }
+  .store-btn:hover { background: #1a1a1a; border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+  .store-txt { display: flex; flex-direction: column; line-height: 1.15; }
+  .store-sub { font-size: 10px; color: #94a3b8; }
+  .store-main { font-size: 14px; font-weight: 600; }
+
+  .bch-objection {
+    font-size: 14px; line-height: 1.6; color: #cbd5e1;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius); padding: 14px 18px; margin-bottom: 16px;
+  }
+  .bch-objection strong { color: white; font-weight: 700; }
+  .bch-objection a { color: var(--brand-light); text-decoration: none; font-weight: 600; white-space: nowrap; }
+  .bch-objection a:hover { color: white; text-decoration: underline; }
+
+  .bch-multi { font-size: 13px; color: #94a3b8; margin: 0; font-style: italic; }
+</style>

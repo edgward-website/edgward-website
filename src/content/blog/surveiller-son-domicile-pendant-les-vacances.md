@@ -6,6 +6,7 @@ image: "/assets/blog/surveiller-domicile-cover.jpg"
 category: Sécurité
 author: Équipe Edgward
 featured: false
+ctaB2C: true
 ---
 
 Une fois la porte fermée et les valises dans le coffre, la plupart des conseils de sécurité s'arrêtent là. Pourtant, c'est précisément pendant les semaines d'absence que le risque est le plus élevé. En Suisse romande, l'été concentre une part importante des cambriolages de l'année : les logements restent vides longtemps, les quartiers se vident, et un domicile sans surveillance devient une cible facile.
