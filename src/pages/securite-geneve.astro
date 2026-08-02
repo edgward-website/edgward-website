@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import BenefitsGrid from '../components/BenefitsGrid.astro';
+import LocalNextStep from '../components/LocalNextStep.astro';
 import Testimonials from '../components/Testimonials.astro';
 import PartnersGrid from '../components/PartnersGrid.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
@@ -28,24 +29,6 @@ const contexte = [
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18M6 10V6a2 2 0 012-2h8a2 2 0 012 2v4M5 10v10h14V10"/><path d="M10 15h4"/></svg>',
     title: 'Les caves, première cible',
     description: "Les cambriolages de caves d'immeubles bondissent de 65% (668 cas), et les home-jackings sont aussi en hausse. Les habitations restent exposées.",
-  },
-];
-
-const solution = [
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-    title: 'Savoir - alertes géolocalisées',
-    description: "Suivez ce qui se passe réellement dans votre quartier genevois : signalements vérifiés, modérés, rattachés à votre localité. L'essentiel, sans le bruit des groupes WhatsApp.",
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
-    title: 'Agir - intervention à la demande',
-    description: "Une situation vous préoccupe ? Commandez une patrouille d'un de nos partenaires genevois en quelques secondes. Délai moyen d'intervention : 10 à 15 minutes.",
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>',
-    title: 'Sans engagement',
-    description: "Pas d'abonnement de longue durée ni de contrat contraignant. Vous activez Edgward quand vous en avez besoin, sur tout le canton de Genève.",
   },
 ];
 
@@ -135,7 +118,7 @@ const faq = [
   },
   {
     "question": "Combien coûte Edgward à Genève ?",
-    "answer": "Les alertes de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une."
+    "answer": "Les alertes et informations de sécurité sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, et vous ne payez une intervention que si vous en commandez une."
   }
 ];
 
@@ -161,7 +144,7 @@ const faq = [
               Découvrir dans l'app
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#solution" class="btn-secondary">
+            <a href="#que-faire" class="btn-secondary">
               Comment ça marche
             </a>
           </div>
@@ -227,17 +210,8 @@ const faq = [
     </div>
   </section>
 
-  <!-- SOLUTION -->
-  <section class="section solution-section" id="solution">
-    <div class="container">
-      <SectionHeader
-        eyebrow="Notre solution"
-        title="Savoir ce qui se passe, <em>et pouvoir agir</em>"
-        subtitle="Edgward réunit deux choses au même endroit : l'information de sécurité fiable de votre quartier, et la possibilité de déclencher une intervention quand vous en avez besoin."
-      />
-      <BenefitsGrid benefits={solution} cols={3} />
-    </div>
-  </section>
+  <!-- QUE FAIRE DE CETTE INFORMATION ? (double CTA deux vitesses) -->
+  <LocalNextStep commune="Genève" titleLead="À Genève" addressPlace="" showDelay={true} />
 
   <!-- COUVERTURE -->
   <section class="section coverage-section" id="couverture">
