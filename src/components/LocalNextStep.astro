@@ -7,6 +7,7 @@ interface Props {
   commune: string;
   titleLead?: string;     // amorce du titre, defaut "À {commune}" (ex. "Dans votre village")
   addressPlace?: string;  // lieu apres "à votre adresse exacte", defaut {commune} ; vide = on l'omet
+  showDelay?: boolean;    // affiche "en 10 à 15 min" (GE) ; false pour VD/NE (delai non chiffre)
   alertsUrl?: string;
   subscribeHref?: string;
 }
@@ -15,6 +16,7 @@ const {
   commune,
   titleLead = `À ${commune}`,
   addressPlace = commune,
+  showDelay = true,
   alertsUrl = '/activer-les-alertes',
   subscribeHref = '#telecharger',
 } = Astro.props;
@@ -26,7 +28,7 @@ const {
       <span class="ln-eyebrow">Et concrètement, pour vous ?</span>
       <h2 id="que-faire-title" class="ln-title">{titleLead}, que faire de <em>cette information</em> ?</h2>
       <p class="ln-lead">Derrière ces chiffres, il n'y a pas des statistiques. Il y a des adresses, des halls d'immeuble, des caves forcées un soir de semaine. À {commune}, la question n'est pas de savoir <em>si</em> ça arrive près de chez vous, mais <em>quand</em> vous en entendrez parler - et par qui.</p>
-      <p class="ln-control">Vous ne pourrez jamais empêcher un cambriolage à vous seul. Mais vous pouvez être <strong>le premier informé</strong> de ce qui bouge dans le canton, et faire arriver un agent devant chez vous <strong>en 10 à 15 minutes</strong>. C'est toute la différence entre subir la nouvelle le lendemain et reprendre la main le soir même.</p>
+      <p class="ln-control">Vous ne pourrez jamais empêcher un cambriolage à vous seul. Mais vous pouvez être <strong>le premier informé</strong> de ce qui bouge dans le canton, et faire arriver un agent devant chez vous{showDelay && ' '}{showDelay && <strong>en 10 à 15 minutes</strong>}. C'est toute la différence entre subir la nouvelle le lendemain et reprendre la main le soir même.</p>
     </div>
 
     <div class="ln-speeds">
@@ -43,7 +45,7 @@ const {
       <div class="ln-card ln-card--paid">
         <span class="ln-badge ln-badge--paid">Abonnement · CHF 15.-/mois</span>
         <h3>Agir</h3>
-        <p>Un doute, une absence, une alerte ? Un agent partenaire intervient <strong>à votre adresse exacte</strong>{addressPlace && ` à ${addressPlace}`}, en 10 à 15 min. Sans engagement : vous ne payez que si vous déclenchez.</p>
+        <p>Un doute, une absence, une alerte ? Un agent partenaire intervient <strong>à votre adresse exacte</strong>{addressPlace && ` à ${addressPlace}`}{showDelay ? ', en 10 à 15 min' : ''}. Sans engagement : vous ne payez que si vous déclenchez.</p>
         <a class="ln-cta ln-cta--paid" href={subscribeHref}>
           S'abonner
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
