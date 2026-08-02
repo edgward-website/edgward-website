@@ -8,9 +8,9 @@ import { partners } from '../data/partners';
 // Ecosysteme : partenaires qui construisent Edgward (logo si disponible, sinon nom).
 const builders = [
   { name: 'Atipik', logo: '/assets/partners/atipik.svg', role: 'Développement produit', desc: "Studio suisse qui conçoit et développe l'application et la plateforme Edgward." },
-  { name: 'MediaOne', logo: '/assets/partners/mediaone.svg', role: 'Diffusion média', desc: "Partenaire média par lequel Edgward diffuse ses campagnes publicitaires." },
+  { name: 'MediaOne', logo: '/assets/partners/mediaone.svg', invert: true, role: 'Diffusion média', desc: "Partenaire média par lequel Edgward diffuse ses campagnes publicitaires." },
   { name: 'FONGIT', logo: '/assets/partners/fongit.png', role: 'Soutien & incubation', desc: "La Fondation genevoise pour l'innovation technologique accompagne la croissance d'Edgward." },
-  { name: 'Innosuisse', logo: null, role: 'Innovation', desc: "L'agence suisse pour l'encouragement de l'innovation soutient le développement d'Edgward." },
+  { name: 'Innosuisse', logo: '/assets/partners/innosuisse.png', role: 'Innovation', desc: "L'agence suisse pour l'encouragement de l'innovation soutient le développement d'Edgward." },
 ];
 ---
 
@@ -63,7 +63,7 @@ const builders = [
           <div class="eco-card fade-in">
             <div class="eco-brand">
               {b.logo
-                ? <img src={b.logo} alt={b.name} class="eco-logo" loading="lazy">
+                ? <img src={b.logo} alt={b.name} class:list={['eco-logo', { 'eco-logo--invert': b.invert }]} loading="lazy">
                 : <span class="eco-wordmark">{b.name}</span>}
             </div>
             <span class="eco-role">{b.role}</span>
@@ -271,12 +271,14 @@ const builders = [
   /* ECOSYSTEME */
   .eco-section { background: white; }
   .eco-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1040px; margin: 0 auto; }
-  .eco-card { background: var(--navy); border-radius: var(--radius-lg); padding: 24px 22px; display: flex; flex-direction: column; }
+  .eco-card { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 22px; display: flex; flex-direction: column; transition: all 0.2s ease; }
+  .eco-card:hover { background: white; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
   .eco-brand { height: 44px; display: flex; align-items: center; margin-bottom: 14px; }
   .eco-logo { max-height: 40px; max-width: 150px; width: auto; height: auto; object-fit: contain; }
-  .eco-wordmark { font-size: 19px; font-weight: 800; color: white; letter-spacing: -0.01em; }
-  .eco-role { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-light); font-weight: 700; margin-bottom: 8px; }
-  .eco-desc { font-size: 13.5px; color: #cbd5e1; line-height: 1.6; margin: 0; }
+  .eco-logo--invert { filter: brightness(0); }
+  .eco-wordmark { font-size: 19px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  .eco-role { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); font-weight: 700; margin-bottom: 8px; }
+  .eco-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin: 0; }
 
   .eco-sublabel { text-align: center; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin: 40px 0 20px; }
   .eco-partners { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
