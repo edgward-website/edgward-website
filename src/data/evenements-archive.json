@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-03T12:57:05.220Z",
-  "total": 41,
+  "compileLe": "2026-08-03T18:51:18.724Z",
+  "total": 44,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -493,6 +493,42 @@
       "heure": "02 août 20:16",
       "source": "20 Minuten",
       "dateVue": "2026-08-03T12:57:05.220Z"
+    },
+    {
+      "titre": "Sortie de route avec trois blessés",
+      "resume": "Une sortie de route a fait trois blessés.",
+      "commune": "Attalens",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 6.8556,
+      "lat": 46.5142,
+      "heure": "03 août 14:51",
+      "source": "24 Heures",
+      "dateVue": "2026-08-03T18:51:18.724Z"
+    },
+    {
+      "titre": "Cyberattaque contre un centre de formation",
+      "resume": "Une cyberattaque a visé un centre de formation genevois; des données d'apprenants ont été dérobées.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "cyber",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "03 août 11:30",
+      "source": "ICTjournal",
+      "dateVue": "2026-08-03T18:51:18.724Z"
+    },
+    {
+      "titre": "Agression en pleine rue déjouée",
+      "resume": "Une personne âgée attaquée dans la rue a été secourue grâce à l'intervention d'un passant.",
+      "commune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "categorie": "agression",
+      "lon": 6.8281,
+      "lat": 47.0997,
+      "heure": "01 août 16:31",
+      "source": "24 Heures",
+      "dateVue": "2026-08-03T18:51:18.724Z"
     }
   ]
 }
