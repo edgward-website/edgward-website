@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-02T18:01:10.132Z",
-  "total": 39,
+  "compileLe": "2026-08-03T12:57:05.220Z",
+  "total": 41,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -469,6 +469,30 @@
       "heure": "02 août 15:28",
       "source": "24 Heures",
       "dateVue": "2026-08-02T18:01:10.132Z"
+    },
+    {
+      "titre": "Incendie de toiture au centre-ville",
+      "resume": "Un important incendie de toiture a touché plusieurs immeubles au centre-ville et perturbé la circulation. Le feu a été maîtrisé.",
+      "commune": "Aigle",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.9689,
+      "lat": 46.3167,
+      "heure": "03 août 06:20",
+      "source": "rts.ch",
+      "dateVue": "2026-08-03T12:57:05.220Z"
+    },
+    {
+      "titre": "Rave illégale sur un alpage",
+      "resume": "La police a négocié la fin d'une fête clandestine réunissant environ 800 participants.",
+      "commune": "Ballaigues",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.3667,
+      "lat": 46.7333,
+      "heure": "02 août 20:16",
+      "source": "20 Minuten",
+      "dateVue": "2026-08-03T12:57:05.220Z"
     }
   ]
 }
