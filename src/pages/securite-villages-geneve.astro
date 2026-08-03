@@ -152,6 +152,23 @@ const faq = [
     </div>
   </section>
 
+  <!-- BANDEAU COMMUNE PARTENAIRE : CHANCY -->
+  <section class="partner-banner-section">
+    <div class="container">
+      <a href="/chancy" class="partner-banner">
+        <img class="partner-banner-flag" src="/assets/flag-geneve.png" width="26" height="26" alt="" aria-hidden="true">
+        <span class="partner-banner-text">
+          <strong>Vous habitez Chancy ?</strong>
+          Vous bénéficiez d'un rabais sur votre abonnement, négocié par votre commune.
+        </span>
+        <span class="partner-banner-cta">
+          Voir l'offre habitants
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
   <!-- INTRO LOCALE -->
   <section class="section intro-section">
     <div class="container">
@@ -329,6 +346,20 @@ const faq = [
   .intro-prose { max-width: 760px; margin: 0 auto; }
   .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); }
   .intro-prose strong { color: var(--navy); }
+
+  /* BANDEAU COMMUNE PARTENAIRE */
+  .partner-banner-section { background: white; padding: 32px 0 0; }
+  .partner-banner { display: flex; align-items: center; gap: 18px; background: var(--brand-soft); border: 1px solid rgba(70,120,220,0.3); border-radius: var(--radius-lg); padding: 20px 26px; text-decoration: none; transition: all 0.2s ease; }
+  .partner-banner:hover { border-color: var(--brand); box-shadow: 0 8px 24px rgba(70,120,220,0.12); transform: translateY(-2px); }
+  .partner-banner-flag { border-radius: 4px; box-shadow: 0 0 0 1px rgba(70,120,220,0.3); flex-shrink: 0; display: block; object-fit: cover; }
+  .partner-banner-text { flex: 1; font-size: 15px; line-height: 1.45; color: var(--text); }
+  .partner-banner-text strong { display: block; color: var(--navy); font-size: 17px; font-weight: 800; margin-bottom: 2px; }
+  .partner-banner-cta { display: inline-flex; align-items: center; gap: 7px; background: var(--brand); color: white; padding: 11px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; white-space: nowrap; flex-shrink: 0; box-shadow: 0 1px 3px rgba(70,120,220,0.3); }
+  .partner-banner:hover .partner-banner-cta { background: var(--brand-dark); }
+  @media (max-width: 700px) {
+    .partner-banner { flex-direction: column; text-align: center; gap: 14px; padding: 22px 20px; }
+    .partner-banner-cta { width: 100%; justify-content: center; }
+  }
 
   /* CHIFFRES */
   .figures-section { background: white; }
