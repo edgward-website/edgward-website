@@ -1,0 +1,397 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Steps from '../components/Steps.astro';
+import Testimonials from '../components/Testimonials.astro';
+import PartnersGrid from '../components/PartnersGrid.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import ChancyRequestForm from '../components/ChancyRequestForm.astro';
+import { partners } from '../data/partners';
+
+// --- Données propres à la commune ---
+const commune = 'Chancy';
+
+const geneveNames = ['GPA SA', 'Python Sécurité SA', 'KRK Security', 'Global Sécurité (SPS)'];
+const partenairesGE = partners.filter(p => geneveNames.includes(p.name));
+
+// Parcours "modèle Soral" : demande -> validation avec la commune -> activation.
+const etapes = [
+  { num: '1', title: 'Vous faites votre demande', description: "Remplissez le formulaire ci-dessous en quelques secondes. C'est sans engagement et réservé aux habitants de Chancy." },
+  { num: '2', title: 'Nous validons avec la commune', description: "Edgward vérifie votre éligibilité au tarif habitants avec la commune de Chancy, puis vous recontacte." },
+  { num: '3', title: 'Vous activez votre abonnement', description: "Vous téléchargez l'application, activez les alertes de votre secteur et bénéficiez du tarif préférentiel." },
+];
+
+const temoignages = [
+  {
+    quote: "Habitante seule, j'avais besoin d'une solution simple et rassurante. Fonctionnel et avantageux niveau prix.",
+    name: 'Sonia F.',
+    role: 'Cliente à Soral',
+    initials: 'SF',
+  },
+  {
+    quote: "Je n'étais pas sûr de qui traînait dans mon jardin, les agents ont été bien réactifs, top.",
+    name: 'Marc M.',
+    role: 'Client à Genève',
+    initials: 'MM',
+  },
+  {
+    quote: "Intervention rapide et agent très sympa, merci !",
+    name: 'Emmanuelle F.',
+    role: 'Cliente à Genève',
+    initials: 'EF',
+  },
+  {
+    quote: "Le module d'alertes et informations est super utile.",
+    name: 'Caroline M.',
+    role: 'Utilisatrice à Genève',
+    initials: 'CM',
+    stars: 4,
+  },
+];
+
+const faq = [
+  {
+    "question": "Qui peut bénéficier du tarif préférentiel ?",
+    "answer": "Le tarif préférentiel est réservé aux habitants de la commune de Chancy, dans le cadre du partenariat noué avec Edgward. Après votre demande, nous validons votre éligibilité avec la commune avant d'activer votre abonnement."
+  },
+  {
+    "question": "Combien vais-je payer mon abonnement annuel ?",
+    "answer": "Grâce au partenariat avec la commune, l'abonnement pour la première année ne vous coûtera que CHF 97.50, soit à peine plus de CHF 8.- par mois. Les alertes et informations de sécurité restent gratuites, et vous ne payez une intervention que si vous en commandez une."
+  },
+  {
+    "question": "Est-ce que je m'engage en envoyant le formulaire ?",
+    "answer": "Non. Le formulaire est une simple demande d'information, sans engagement. Il nous permet de vous recontacter, de confirmer les conditions réservées aux habitants et de répondre à vos questions avant toute activation."
+  },
+  {
+    "question": "Comment fonctionne Edgward, concrètement ?",
+    "answer": "Les alertes et informations de sécurité de votre région sont 100% gratuites : vous voyez ce qui se passe autour de chez vous. Avec l'abonnement, vous pouvez en plus faire intervenir une patrouille de sécurité à la demande, depuis votre téléphone, avec un délai moyen de 10 à 15 minutes à Genève. Vous ne payez une intervention que si vous en commandez une."
+  },
+  {
+    "question": "Pourquoi un partenariat avec la commune de Chancy ?",
+    "answer": "Village frontalier de l'ouest genevois, Chancy renforce cet automne son dispositif de sécurité. Le partenariat avec Edgward, application mobile genevoise, permet aux habitants de commander des patrouilles à la demande et de bénéficier d'un tarif avantageux, sans infrastructure à installer ni charge pour la commune."
+  }
+];
+---
+
+<Base
+  title="Sécurité à Chancy : accès habitants au tarif préférentiel Edgward | Edgward"
+  description="La commune de Chancy s'associe à Edgward. Les habitants bénéficient d'un tarif préférentiel sur l'abonnement de patrouilles de sécurité à la demande. Faites votre demande en ligne."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <img class="canton-flag" src="/assets/flag-geneve.png" width="22" height="22" alt="" aria-hidden="true">
+            Chancy · Canton de Genève
+          </div>
+          <h1>Votre sécurité à Chancy,<br><em>au tarif réservé aux habitants</em></h1>
+          <p>La commune de Chancy s'associe à <strong>Edgward</strong>, l'application genevoise qui permet de commander une patrouille de sécurité à la demande. Les habitants bénéficient d'un <strong>tarif préférentiel</strong> et de patrouilles désormais présentes à proximité du village.</p>
+          <div class="hero-ctas">
+            <a href="#demande" class="btn-primary">
+              Demander mon accès habitant
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#comment-ca-marche" class="btn-secondary">Comment ça marche</a>
+          </div>
+          <p class="hero-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Alertes de sécurité gratuites · intervention à la demande · sans engagement
+          </p>
+        </div>
+        <div class="hero-visual">
+          <img
+            class="app-mockup"
+            src="/assets/edgward-partenaires.png"
+            alt="Application Edgward : sélection des informations à transmettre à l'agent et recherche d'une société de sécurité partenaire intervenant sur place en quelques minutes."
+            width="866"
+            height="967"
+            loading="eager"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO LOCALE -->
+  <section class="section intro-section">
+    <div class="container">
+      <div class="intro-prose">
+        <p><strong>Tout le monde a le droit de bénéficier d'une sécurité à un prix abordable.</strong> En ces temps où les incidents de sécurité tendent à augmenter, il est bon de pouvoir compter sur un partenaire fiable. Grâce à Edgward, votre application mobile de sécurité, vous avez toujours sur vous la possibilité de commander une patrouille de sécurité. Et pour les habitants de Chancy, c'est <strong>encore plus avantageux.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALLOUT PARTENARIAT -->
+  <section class="section partner-section">
+    <div class="container">
+      <div class="partner-card fade-in">
+        <img src="/assets/ed-pose.png" alt="" class="partner-ed" width="90" height="90" aria-hidden="true" loading="lazy">
+        <div class="partner-text">
+          <span class="partner-badge">★ Partenariat · Commune de Chancy</span>
+          <h4>Un tarif réservé aux habitants de Chancy</h4>
+          <p>Dans le cadre de son partenariat avec Edgward, la commune de Chancy fait bénéficier ses habitants d'un tarif préférentiel sur l'abonnement. Vous pouvez ainsi vous rassurer facilement et faire appel à une patrouille, désormais présente à proximité.</p>
+        </div>
+        <a href="#demande" class="partner-cta">Faire ma demande →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERTES & INFORMATIONS -->
+  <section class="alerts-section">
+    <div class="container">
+      <div class="alerts-grid">
+        <div class="alerts-text">
+          <span class="alerts-eyebrow">Toujours dans votre poche</span>
+          <h2>Informé en permanence,<br><em>protégé à la demande</em></h2>
+          <p>Avec Edgward, vous suivez en temps réel les <strong>alertes et informations de sécurité</strong> vérifiées du canton de Genève : cambriolages, rôdeurs, démarchage suspect, événements près de chez vous. Vous savez ce qui se passe, sans avoir à chercher.</p>
+          <ul class="alerts-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Alertes et informations gratuites</strong> - restez informé de la sécurité à Genève, sans abonnement.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Une patrouille à la demande</strong> - un doute ? Commandez une intervention en quelques secondes, délai moyen 10 à 15 min.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span><strong>Rien à installer</strong> - juste votre téléphone. Vous ne payez une intervention que si vous en commandez une.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="alerts-visual">
+          <div class="newsfeed-demo" aria-label="Exemple d'alertes et informations de sécurité à Genève">
+            <div class="demo-header">
+              <span class="demo-title">Alertes · Genève</span>
+              <span class="demo-radius">Canton</span>
+            </div>
+            <div class="demo-item demo-item--red">
+              <div class="demo-dot demo-dot--red"></div>
+              <div class="demo-content">
+                <strong>Série de cambriolages signalée</strong>
+                <span>Secteur Bernex-Confignon · il y a 2h</span>
+              </div>
+              <a href="#demande" class="demo-cta">Intervenir</a>
+            </div>
+            <div class="demo-item demo-item--orange">
+              <div class="demo-dot demo-dot--orange"></div>
+              <div class="demo-content">
+                <strong>Véhicule suspect en maraude</strong>
+                <span>Avusy · hier soir</span>
+              </div>
+            </div>
+            <div class="demo-item demo-item--yellow">
+              <div class="demo-dot demo-dot--yellow"></div>
+              <div class="demo-content">
+                <strong>Démarchage à domicile suspect</strong>
+                <span>Soral · aujourd'hui</span>
+              </div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-dot demo-dot--blue"></div>
+              <div class="demo-content">
+                <strong>Fermeture de route après un accident</strong>
+                <span>Route de Chancy · il y a 40 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMENT CA MARCHE -->
+  <section class="section how-section" id="comment-ca-marche">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Comment en bénéficier"
+        title="Trois étapes, <em>et vous êtes couvert</em>"
+        subtitle="Le tarif habitants passe par une demande rapide en ligne. Nous la validons avec la commune, puis vous activez votre abonnement."
+      />
+      <Steps steps={etapes} />
+      <p class="how-guide">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Besoin d'un coup de main pour démarrer ? <a href="/assets/mini-guide-edgward-chancy.pdf" target="_blank" rel="noopener">Téléchargez le mini-guide (PDF)</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FORMULAIRE DE DEMANDE -->
+  <section class="section form-section" id="demande-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Réservé aux habitants de Chancy"
+        title="Demandez votre accès au <em>tarif habitants</em>"
+        subtitle="Sans engagement. Nous vérifions votre éligibilité avec la commune, puis nous vous recontactons pour activer votre abonnement."
+      />
+      <ChancyRequestForm />
+    </div>
+  </section>
+
+  <!-- CONFIANCE -->
+  <section class="section trust-section" id="confiance">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Ils nous font confiance"
+        title="Des Genevois·es <em>déjà protégé·es</em>"
+      />
+      <Testimonials items={temoignages} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="Le tarif habitants de Chancy, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
+  <PartnersGrid
+    title="Nos sociétés de sécurité partenaires à Genève"
+    partners={partenairesGE}
+  />
+
+  <!-- RAPPEL CTA -->
+  <section class="section recall-section">
+    <div class="container">
+      <div class="recall-card">
+        <h2>Prêt·e à renforcer votre sécurité à Chancy&nbsp;?</h2>
+        <p>Faites votre demande d'accès au tarif habitants - c'est rapide et sans engagement.</p>
+        <a href="#demande" class="btn-light">
+          Demander mon accès habitant
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .canton-flag { border-radius: 3px; box-shadow: 0 0 0 1px rgba(255,255,255,0.3); flex-shrink: 0; display: block; object-fit: cover; }
+  .hero h1 { font-size: clamp(32px, 4.1vw, 50px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-note { margin-top: 20px; font-size: 14px; line-height: 1.55; color: #cbd5e1; max-width: 480px; }
+  .hero-note svg { color: var(--brand-light); vertical-align: -2px; margin-right: 6px; }
+
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .app-mockup { width: 100%; max-width: 380px; height: auto; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45)); }
+
+  /* NEWSFEED DEMO */
+  .newsfeed-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 20px; width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 10px; }
+  .demo-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .demo-title { font-size: 13px; font-weight: 600; color: white; }
+  .demo-radius { font-size: 11px; color: var(--brand-light); background: var(--brand-soft); padding: 2px 8px; border-radius: 100px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .demo-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.06); }
+  .demo-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .demo-dot--red { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.6); }
+  .demo-dot--orange { background: #f97316; box-shadow: 0 0 6px rgba(249,115,22,0.6); }
+  .demo-dot--yellow { background: #eab308; }
+  .demo-dot--blue { background: var(--brand-light); box-shadow: 0 0 6px rgba(70,120,220,0.6); }
+  .demo-content { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .demo-content strong { font-size: 12px; color: white; font-weight: 600; }
+  .demo-content span { font-size: 10px; color: #94a3b8; }
+  .demo-cta { background: var(--brand); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; padding: 4px 10px; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s ease; text-decoration: none; display: inline-block; }
+  .demo-cta:hover { background: var(--brand-dark); }
+
+  .intro-section { background: white; padding-bottom: 0; }
+  .intro-prose { max-width: 760px; margin: 0 auto; }
+  .intro-prose p { font-size: 17px; line-height: 1.7; color: var(--text); }
+  .intro-prose strong { color: var(--navy); }
+
+  /* CALLOUT PARTENARIAT */
+  .partner-section { background: white; padding-top: 40px; padding-bottom: 40px; }
+  .partner-card {
+    background: var(--navy); color: white; border-radius: var(--radius-lg); padding: 28px 36px;
+    display: flex; align-items: center; gap: 24px; position: relative; overflow: hidden;
+  }
+  .partner-card::before {
+    content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none;
+  }
+  .partner-ed { width: 90px; flex-shrink: 0; position: relative; z-index: 1; }
+  .partner-badge {
+    background: var(--brand); color: white; padding: 4px 11px; border-radius: 100px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    display: inline-block; margin-bottom: 8px;
+  }
+  .partner-text { flex: 1; position: relative; z-index: 1; }
+  .partner-text h4 { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.015em; }
+  .partner-text p { font-size: 14px; color: #cbd5e1; line-height: 1.5; }
+  .partner-cta {
+    background: transparent; color: white; border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none;
+    white-space: nowrap; transition: all 0.2s ease; flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .partner-cta:hover { background: white; color: var(--navy); }
+
+  /* ALERTES & INFORMATIONS */
+  .alerts-section { background: var(--navy); color: white; padding: 72px 0; overflow: hidden; position: relative; }
+  .alerts-section::before { content: ''; position: absolute; bottom: -300px; left: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .alerts-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
+  .alerts-eyebrow { display: inline-block; color: var(--brand-light); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+  .alerts-text h2 { font-size: clamp(26px, 3.2vw, 38px); font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 18px; color: white; }
+  .alerts-text h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .alerts-text > p { font-size: 16px; line-height: 1.65; color: #cbd5e1; margin-bottom: 24px; max-width: 520px; }
+  .alerts-text > p strong { color: white; }
+  .alerts-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .alerts-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; line-height: 1.5; color: #cbd5e1; }
+  .alerts-list svg { color: var(--brand-light); flex-shrink: 0; margin-top: 2px; }
+  .alerts-list strong { color: white; font-weight: 700; }
+  .alerts-visual { display: flex; justify-content: center; }
+
+  .how-section { background: var(--soft); }
+  .how-guide { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 32px; font-size: 14px; color: var(--text-muted); }
+  .how-guide svg { color: var(--brand); flex-shrink: 0; }
+  .how-guide a { color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .how-guide a:hover { color: var(--brand-dark); }
+  .form-section { background: white; }
+  .trust-section { background: var(--soft); }
+  .faq-section { background: white; }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+
+  /* RAPPEL CTA */
+  .recall-section { background: white; }
+  .recall-card {
+    background: var(--navy); color: white; border-radius: var(--radius-lg);
+    padding: 48px 40px; text-align: center; position: relative; overflow: hidden;
+  }
+  .recall-card::before {
+    content: ''; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 500px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none;
+  }
+  .recall-card h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; margin-bottom: 12px; position: relative; z-index: 1; letter-spacing: -0.02em; }
+  .recall-card p { font-size: 16px; color: #cbd5e1; margin-bottom: 26px; position: relative; z-index: 1; }
+  .btn-light {
+    background: white; color: var(--navy); padding: 14px 26px; border-radius: 10px;
+    font-size: 15px; font-weight: 600; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 8px; transition: all 0.2s ease; position: relative; z-index: 1;
+  }
+  .btn-light:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+    .alerts-grid { grid-template-columns: 1fr; gap: 36px; }
+    .alerts-visual { order: -1; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+    .partner-card { flex-direction: column; text-align: center; padding: 28px 24px; }
+    .partner-ed { width: 72px; }
+  }
+</style>

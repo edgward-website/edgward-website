@@ -1,0 +1,155 @@
+---
+// Formulaire de demande d'abonnement reserve aux habitants de Chancy (modele Soral).
+// La demande arrive dans la boite Brevo habituelle (meme endpoint que le contact) avec
+// le sujet "Commune" (3) et un prefixe identifiable. Edgward valide ensuite l'eligibilite
+// avec la commune avant activation du tarif preferentiel.
+---
+
+<div class="crf-wrap" id="demande">
+  <form class="crf-form" novalidate id="chancy-form">
+    <div class="crf-row">
+      <div class="crf-group">
+        <label for="crf-nom">Nom et prénom</label>
+        <input type="text" id="crf-nom" name="nom" placeholder="Jean Dupont" autocomplete="name" required>
+      </div>
+      <div class="crf-group">
+        <label for="crf-email">Email</label>
+        <input type="email" id="crf-email" name="email" placeholder="jean@example.ch" autocomplete="email" required>
+      </div>
+    </div>
+    <div class="crf-row">
+      <div class="crf-group">
+        <label for="crf-telephone">Téléphone</label>
+        <input type="tel" id="crf-telephone" name="telephone" placeholder="+41 79 123 45 67" autocomplete="tel" inputmode="tel" required>
+      </div>
+      <div class="crf-group">
+        <label for="crf-adresse">Votre adresse à Chancy</label>
+        <input type="text" id="crf-adresse" name="adresse" placeholder="Rue et numéro, 1284 Chancy" autocomplete="street-address" required>
+      </div>
+    </div>
+    <div class="crf-group">
+      <label for="crf-message">Message <span class="crf-opt">(optionnel)</span></label>
+      <textarea id="crf-message" name="message" rows="3" placeholder="Une question, une précision sur votre besoin..."></textarea>
+    </div>
+    <label class="crf-check">
+      <input type="checkbox" id="crf-interet" name="interet">
+      <span><strong>Oui, je souhaite être conseillé·e pour renforcer la sécurité de mon domicile.</strong> Un membre de l'équipe me recontacte pour un point personnalisé, gratuit et sans engagement.</span>
+    </label>
+    <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="crf-hp">
+    <button type="submit" class="crf-submit">
+      Envoyer ma demande
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+    <p class="crf-privacy">Demande sans engagement. En l'envoyant, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>. Edgward valide votre éligibilité avec la commune avant toute activation.</p>
+  </form>
+  <div class="crf-success" id="chancy-success" hidden>
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
+    <h3>Demande reçue&nbsp;!</h3>
+    <p>Merci. Nous vérifions votre éligibilité au tarif habitants de Chancy avec la commune, puis nous vous recontactons pour activer votre abonnement.</p>
+    <a href="/assets/mini-guide-edgward-chancy.pdf" class="crf-guide" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+      En attendant, téléchargez le mini-guide (PDF)
+    </a>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('chancy-form') as HTMLFormElement | null;
+  const successBox = document.getElementById('chancy-success');
+  const BREVO_CONTACT_ACTION = 'https://87714af1.sibforms.com/serve/MUIFACeUMEzMccQ08jYHlzrdNpWoRrnKzHQmfX53dXh3078PAXXC3bDI0rzN0FcL7yQIGvijOqpaNaHdOjgoOWJ0h_xT7KN4dQy7e-dZ-47FALbyi6DffXwBux4VqYLN-Z7VKjeO_D3znDM-oK3wufPUoBSGyWitQx2h1rhHU_u3hjMH8qe9N4GbLlzOUn60ndvujAgptth1dR8i';
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const honeypot = (form.elements.namedItem('email_address_check') as HTMLInputElement)?.value;
+    if (honeypot) return;
+    const data = new FormData(form);
+    const nom = String(data.get('nom') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const telephone = String(data.get('telephone') || '').trim();
+    const adresse = String(data.get('adresse') || '').trim();
+    const message = String(data.get('message') || '').trim();
+    const interet = (form.elements.namedItem('interet') as HTMLInputElement)?.checked;
+    if (!form.checkValidity() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      form.reportValidity();
+      return;
+    }
+    const btn = form.querySelector('.crf-submit') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Envoi…';
+    let composed = '[Demande abonnement Chancy]';
+    if (adresse) composed += ' Adresse : ' + adresse + '.';
+    if (telephone) composed += ' Tél : ' + telephone + '.';
+    composed += interet ? ' Souhaite être recontacté·e (sécurité domicile).' : '';
+    if (message) composed += ' Message : ' + message;
+    composed = composed.slice(0, 255);
+    const params = new URLSearchParams();
+    params.append('NOM', nom);
+    params.append('EMAIL', email);
+    params.append('SUJET', '3');
+    params.append('MESSAGE', composed);
+    params.append('email_address_check', '');
+    params.append('locale', 'en');
+    fetch(BREVO_CONTACT_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params,
+      keepalive: true,
+    }).catch(() => {});
+    if (successBox) {
+      form.hidden = true;
+      successBox.hidden = false;
+      successBox.setAttribute('tabindex', '-1');
+      (successBox as HTMLElement).focus();
+      (successBox as HTMLElement).scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  });
+</script>
+
+<style>
+  .crf-wrap { width: 100%; max-width: 640px; margin: 0 auto; }
+  .crf-form { display: flex; flex-direction: column; gap: 16px; }
+  .crf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .crf-group { display: flex; flex-direction: column; gap: 6px; }
+  .crf-form label { font-size: 13px; font-weight: 600; color: var(--navy); }
+  .crf-opt { font-weight: 400; color: var(--text-muted); }
+  .crf-form input:not([type=checkbox]), .crf-form textarea {
+    border: 1px solid var(--border); border-radius: var(--radius); padding: 11px 13px;
+    font-size: 14px; font-family: inherit; color: var(--text); background: white; outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .crf-form input:focus, .crf-form textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  .crf-form textarea { resize: vertical; min-height: 84px; }
+  .crf-check { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; transition: border-color 0.2s ease; }
+  .crf-check:hover { border-color: var(--brand); }
+  .crf-check input { margin-top: 2px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--brand); }
+  .crf-check span { font-size: 14px; font-weight: 400; color: var(--text-muted); line-height: 1.5; }
+  .crf-check span strong { color: var(--navy); font-weight: 700; }
+  .crf-submit {
+    background: var(--brand); color: white; padding: 14px 24px; border-radius: 10px;
+    font-size: 15px; font-weight: 600; border: none; cursor: pointer; font-family: inherit;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(70,120,220,0.3); align-self: flex-start;
+  }
+  .crf-submit:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .crf-submit:disabled { opacity: 0.7; cursor: default; transform: none; }
+  .crf-privacy { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+  .crf-privacy a { color: var(--brand); text-decoration: none; }
+  .crf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .crf-form[hidden] { display: none; }
+  .crf-success {
+    text-align: center; padding: 44px 28px; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); background: var(--soft); outline: none;
+  }
+  .crf-success[hidden] { display: none; }
+  .crf-success svg { color: var(--brand); margin-bottom: 12px; }
+  .crf-success h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .crf-success p { font-size: 14px; color: var(--text-muted); line-height: 1.6; max-width: 420px; margin: 0 auto; }
+  .crf-guide { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 11px 18px; background: white; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--brand); text-decoration: none; transition: all 0.2s ease; }
+  .crf-guide:hover { border-color: var(--brand); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(70,120,220,0.12); }
+  .crf-guide svg { flex-shrink: 0; }
+
+  @media (max-width: 600px) {
+    .crf-row { grid-template-columns: 1fr; }
+    .crf-submit { width: 100%; }
+  }
+</style>
