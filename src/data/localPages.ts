@@ -30,6 +30,7 @@ export const pagesCommunesGE: LocalPage[] = [
   { name: 'Meinier', href: '/securite-meinier' },
   { name: 'Bardonnex', href: '/securite-bardonnex' },
   { name: 'Soral', href: '/securite-soral' },
+  { name: 'Chancy', href: '/securite-chancy' },
   { name: 'Villages genevois', href: '/securite-villages-geneve' },
   { name: 'Carouge', href: '/securite-carouge' },
   { name: 'Lancy', href: '/securite-lancy' },
