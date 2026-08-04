@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-04T12:04:17.108Z",
-  "total": 48,
+  "compileLe": "2026-08-04T18:27:51.138Z",
+  "total": 50,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -577,6 +577,30 @@
       "heure": "04 août 00:08",
       "source": "ArcInfo",
       "dateVue": "2026-08-04T12:04:17.108Z"
+    },
+    {
+      "titre": "Quatre blessés dans une perte de maîtrise",
+      "resume": "Un conducteur a perdu la maîtrise de son véhicule, blessant quatre personnes.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "04 août 12:22",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-04T18:27:51.138Z"
+    },
+    {
+      "titre": "Incendie, voisins évacués",
+      "resume": "Un incendie s'est déclaré dans un bâtiment, entraînant l'évacuation de voisins.",
+      "commune": "Colombier",
+      "canton": "NE",
+      "categorie": "incendie",
+      "lon": 6.767,
+      "lat": 46.998,
+      "heure": "04 août 00:08",
+      "source": "ArcInfo",
+      "dateVue": "2026-08-04T18:27:51.138Z"
     }
   ]
 }
