@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-04T18:27:51.138Z",
-  "total": 50,
+  "compileLe": "2026-08-05T12:02:43.877Z",
+  "total": 57,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -601,6 +601,90 @@
       "heure": "04 août 00:08",
       "source": "ArcInfo",
       "dateVue": "2026-08-04T18:27:51.138Z"
+    },
+    {
+      "titre": "Incendie d'un chalet sur le Salève",
+      "resume": "Un chalet a été détruit par les flammes sur les pentes du Salève, un incendie visible depuis Genève.",
+      "commune": "Le Salève",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.1667,
+      "lat": 46.15,
+      "heure": "05 août 00:16",
+      "source": "rts.ch",
+      "dateVue": "2026-08-05T12:02:43.877Z"
+    },
+    {
+      "titre": "Voiture suspendue au-dessus du vide sur un pont",
+      "resume": "Un véhicule a terminé sa course suspendu au-dessus du vide sur le pont de Morlon, dans la région de Broc.",
+      "commune": "Morlon",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.1167,
+      "lat": 46.6333,
+      "heure": "05 août 11:09",
+      "source": "FR.ch",
+      "dateVue": "2026-08-05T12:02:43.877Z"
+    },
+    {
+      "titre": "Jeune disparu retrouvé dans le canton de Vaud",
+      "resume": "Un jeune homme allemand disparu depuis trois semaines a été retrouvé dans le canton de Vaud.",
+      "commune": "Vaud",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.5,
+      "lat": 46.55,
+      "heure": "05 août 10:57",
+      "source": "24 Heures",
+      "dateVue": "2026-08-05T12:02:43.877Z"
+    },
+    {
+      "titre": "Agression par un groupe de jeunes",
+      "resume": "Un homme a été grièvement blessé après avoir été frappé par des jeunes à Sainte-Croix, son pronostic vital est engagé.",
+      "commune": "Sainte-Croix",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.5,
+      "lat": 46.8217,
+      "heure": "05 août 09:54",
+      "source": "Blick",
+      "dateVue": "2026-08-05T12:02:43.877Z"
+    },
+    {
+      "titre": "Motocycliste grièvement blessée",
+      "resume": "Une motocycliste a été héliportée avec un pronostic vital engagé après un accident à Collonge-Bellerive.",
+      "commune": "Collonge-Bellerive",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.2167,
+      "lat": 46.25,
+      "heure": "05 août 06:27",
+      "source": "La Télé",
+      "dateVue": "2026-08-05T12:02:43.877Z"
+    },
+    {
+      "titre": "Chute mortelle d'un randonneur",
+      "resume": "Un randonneur a fait une chute mortelle dans la région du Bettmerhorn, dans le Haut-Valais.",
+      "commune": "Bettmeralp",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 8.0667,
+      "lat": 46.4,
+      "heure": "04 août 17:24",
+      "source": "Rhône FM",
+      "dateVue": "2026-08-05T12:02:43.877Z"
+    },
+    {
+      "titre": "Camion coincé sous un pont ferroviaire",
+      "resume": "Un camion trop haut s'est coincé sous un pont ferroviaire près de l'aéroport de Genève.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.1083,
+      "lat": 46.2333,
+      "heure": "04 août 18:33",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-05T12:02:43.877Z"
     }
   ]
 }
