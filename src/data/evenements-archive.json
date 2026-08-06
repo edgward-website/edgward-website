@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-06T12:20:25.301Z",
-  "total": 61,
+  "compileLe": "2026-08-06T19:12:13.329Z",
+  "total": 65,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -733,6 +733,54 @@
       "heure": "05 août 20:26",
       "source": "24 Heures",
       "dateVue": "2026-08-06T12:06:14.611Z"
+    },
+    {
+      "titre": "Accident mortel de chantier",
+      "resume": "Un ouvrier a perdu la vie dans un accident sur un chantier à Crans-Montana.",
+      "commune": "Crans-Montana",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.4806,
+      "lat": 46.3086,
+      "heure": "6 août 17:36",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-06T19:12:13.329Z"
+    },
+    {
+      "titre": "Appel à témoins après un accident",
+      "resume": "La police lance un appel à témoins après un accident de la circulation à Oberwald.",
+      "commune": "Oberwald",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 8.353,
+      "lat": 46.535,
+      "heure": "6 août 15:43",
+      "source": "Rhône FM",
+      "dateVue": "2026-08-06T19:12:13.329Z"
+    },
+    {
+      "titre": "Cambriolage: quatre interpellations",
+      "resume": "Quatre personnes ont été arrêtées après un cambriolage dans un magasin à Nyon.",
+      "commune": "Nyon",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.239,
+      "lat": 46.383,
+      "heure": "6 août 15:12",
+      "source": "Blick",
+      "dateVue": "2026-08-06T19:12:13.329Z"
+    },
+    {
+      "titre": "Collision routière: blessée grave",
+      "resume": "Une collision sur la route d'Hermance a fait une blessée grave.",
+      "commune": "Hermance",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.243,
+      "lat": 46.303,
+      "heure": "6 août 12:36",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-06T19:12:13.329Z"
     }
   ]
 }
