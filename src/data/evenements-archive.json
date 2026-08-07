@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-06T19:12:13.329Z",
-  "total": 65,
+  "compileLe": "2026-08-07T13:30:29.684Z",
+  "total": 68,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -781,6 +781,42 @@
       "heure": "6 août 12:36",
       "source": "Tribune de Genève",
       "dateVue": "2026-08-06T19:12:13.329Z"
+    },
+    {
+      "titre": "Incendie dans un immeuble",
+      "resume": "Intervention des pompiers dans un immeuble du quartier de Saint-Jean.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.13,
+      "lat": 46.21,
+      "heure": "6 août 21:53",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-07T13:30:29.684Z"
+    },
+    {
+      "titre": "Incendie dans un immeuble",
+      "resume": "Un incendie s'est déclaré dans un immeuble à Sion, nécessitant l'intervention des secours.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "6 août 19:35",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-07T13:30:29.684Z"
+    },
+    {
+      "titre": "Accident mortel de la route",
+      "resume": "Un homme de 68 ans a perdu la vie dans un accident de la circulation à Arbaz.",
+      "commune": "Arbaz",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.31,
+      "lat": 46.28,
+      "heure": "4 août 16:01",
+      "source": "bluewin.ch",
+      "dateVue": "2026-08-07T13:30:29.684Z"
     }
   ]
 }
