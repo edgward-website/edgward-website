@@ -16,14 +16,14 @@ const builders = [
 
 <Base
   title="Qui sommes-nous - La conviction derrière Edgward"
-  description="Derrière Edgward, il y a des gens et une conviction simple : rendre la sécurité accessible à tous, en quelques secondes, depuis un smartphone."
+  description="Derrière Edgward : des professionnels de la sécurité, un réseau de sociétés partenaires et le soutien de la FONGIT et d'Innosuisse. Notre mission : rendre la sécurité privée accessible à tous."
 >
   <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-inner">
         <span class="hero-eyebrow">Qui sommes-nous</span>
-        <h1>Derrière Edgward, <em>une conviction simple</em></h1>
+        <h1>Derrière Edgward, <em>des professionnels et une conviction</em></h1>
         <p>La sécurité ne devrait pas être un privilège. Nous la rendons accessible à tous, en quelques secondes, depuis votre smartphone.</p>
       </div>
     </div>
@@ -34,7 +34,7 @@ const builders = [
     <div class="container">
       <SectionHeader
         eyebrow="Notre raison d'être"
-        title="Tout, depuis un smartphone. <em>Sauf la sécurité.</em>"
+        title="Rendre la sécurité privée <em>accessible à tous</em>"
       />
       <div class="prose fade-in">
         <p>Aujourd'hui, on commande un taxi, un repas ou presque n'importe quel produit en quelques secondes depuis son téléphone. Pourtant, accéder à la sécurité restait compliqué : il fallait souscrire un abonnement coûteux auprès d'un prestataire, puis dépendre de la disponibilité de ses patrouilles.</p>
@@ -50,29 +50,14 @@ const builders = [
     </div>
   </section>
 
-  <!-- ECOSYSTEME -->
-  <section class="section eco-section">
+  <!-- RESEAU DE SECURITE (opere par des pros) -->
+  <section class="section network-section">
     <div class="container">
       <SectionHeader
         eyebrow="Un réseau solide"
-        title="Ils bâtissent Edgward <em>avec nous</em>"
-        subtitle="Edgward n'est pas une aventure isolée : un produit construit avec des partenaires industriels, soutenu par des institutions suisses de référence, et opéré par un réseau de sociétés de sécurité établies."
+        title="Un service opéré par des <em>sociétés de sécurité établies</em>"
+        subtitle="Edgward n'est pas une aventure isolée : le service est assuré par un réseau de sociétés de sécurité reconnues, actives sur le terrain partout en Suisse romande."
       />
-      <div class="eco-grid">
-        {builders.map(b => (
-          <a class="eco-card fade-in" href={b.url} target="_blank" rel="noopener noreferrer" aria-label={`${b.name} - site web (nouvel onglet)`}>
-            <div class="eco-brand">
-              {b.logo
-                ? <img src={b.logo} alt={b.name} class:list={['eco-logo', { 'eco-logo--invert': b.invert }]} loading="lazy">
-                : <span class="eco-wordmark">{b.name}</span>}
-            </div>
-            <span class="eco-role">{b.role}</span>
-            <p class="eco-desc">{b.desc}</p>
-            <span class="eco-visit">Voir le site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
-          </a>
-        ))}
-      </div>
-      <p class="eco-sublabel">Et un réseau de sociétés de sécurité partenaires en Suisse romande</p>
       <div class="eco-partners" aria-label="Sociétés de sécurité partenaires">
         {partners.map(p => (
           <a href="/partenaires" class="eco-partner" aria-label={p.name}>
@@ -113,6 +98,31 @@ const builders = [
             <cite>- Daniel Barouch, fondateur d'Edgward</cite>
           </blockquote>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOUTIENS / ECOSYSTEME -->
+  <section class="section eco-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Nos soutiens"
+        title="Un écosystème qui <em>nous appuie</em>"
+        subtitle="Autour de l'équipe, des partenaires industriels et des institutions suisses de référence accompagnent le développement d'Edgward."
+      />
+      <div class="eco-grid">
+        {builders.map(b => (
+          <a class="eco-card fade-in" href={b.url} target="_blank" rel="noopener noreferrer" aria-label={`${b.name} - site web (nouvel onglet)`}>
+            <div class="eco-brand">
+              {b.logo
+                ? <img src={b.logo} alt={b.name} class:list={['eco-logo', { 'eco-logo--invert': b.invert }]} loading="lazy">
+                : <span class="eco-wordmark">{b.name}</span>}
+            </div>
+            <span class="eco-role">{b.role}</span>
+            <p class="eco-desc">{b.desc}</p>
+            <span class="eco-visit">Voir le site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -269,7 +279,8 @@ const builders = [
   /* Espacement resserre sur cette page (scope Astro) */
   .section { padding: 54px 0; }
 
-  /* ECOSYSTEME */
+  /* RESEAU + ECOSYSTEME */
+  .network-section { background: var(--soft); }
   .eco-section { background: white; }
   .eco-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1040px; margin: 0 auto; }
   .eco-card { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 22px; display: flex; flex-direction: column; transition: all 0.2s ease; text-decoration: none; color: inherit; }
