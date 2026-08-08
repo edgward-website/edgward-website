@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-08T10:38:27.800Z",
-  "total": 73,
+  "compileLe": "2026-08-08T17:30:51.958Z",
+  "total": 75,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -877,6 +877,30 @@
       "heure": "5 août 16:34",
       "source": "La Télé",
       "dateVue": "2026-08-08T10:38:27.800Z"
+    },
+    {
+      "titre": "Incendie perturbant le trafic ferroviaire",
+      "resume": "Un incendie a perturbé le trafic CFF sur la ligne entre Lausanne et St-Maurice.",
+      "commune": "St-Maurice",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.004,
+      "lat": 46.217,
+      "heure": "08 août 18:59",
+      "source": "Watson",
+      "dateVue": "2026-08-08T17:30:51.958Z"
+    },
+    {
+      "titre": "Braquage d'une banque",
+      "resume": "Un individu armé a braqué un établissement bancaire avant de prendre la fuite. Un appel à témoins a été lancé.",
+      "commune": "Farvagny",
+      "canton": "FR",
+      "categorie": "agression",
+      "lon": 7.083,
+      "lat": 46.717,
+      "heure": "07 août 16:13",
+      "source": "FR.ch",
+      "dateVue": "2026-08-08T17:30:51.958Z"
     }
   ]
 }
