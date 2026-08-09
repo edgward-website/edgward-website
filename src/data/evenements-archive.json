@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-09T14:14:33.561Z",
-  "total": 78,
+  "compileLe": "2026-08-09T17:32:13.580Z",
+  "total": 81,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -937,6 +937,42 @@
       "heure": "7 août 16:13",
       "source": "Police cantonale FR",
       "dateVue": "2026-08-09T14:14:33.561Z"
+    },
+    {
+      "titre": "Cambriolage dans un musée d'horlogerie",
+      "resume": "Quatre individus ont dérobé des objets dans un musée d'horlogerie avant de prendre la fuite. Une enquête est en cours.",
+      "commune": "Le Locle",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.7497,
+      "lat": 47.0561,
+      "heure": "09 aoû. 16:45",
+      "source": "arcinfo.ch",
+      "dateVue": "2026-08-09T17:32:13.580Z"
+    },
+    {
+      "titre": "Appel à témoins après un accident",
+      "resume": "La police lance un appel à témoins à la suite d'un accident de la circulation impliquant plusieurs deux-roues.",
+      "commune": "Vernier",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.1073,
+      "lat": 46.2064,
+      "heure": "07 aoû. 17:31",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-09T17:32:13.580Z"
+    },
+    {
+      "titre": "Brigandage à main armée dans une banque",
+      "resume": "Un homme armé et déguisé s'est emparé de plusieurs milliers de francs dans une banque avant de prendre la fuite. Un appel à témoins a été lancé.",
+      "commune": "Farvagny",
+      "canton": "FR",
+      "categorie": "agression",
+      "lon": 7.1073,
+      "lat": 46.7553,
+      "heure": "07 aoû. 16:13",
+      "source": "FR.ch",
+      "dateVue": "2026-08-09T17:32:13.580Z"
     }
   ]
 }
