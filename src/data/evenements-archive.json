@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-08T17:30:51.958Z",
-  "total": 75,
+  "compileLe": "2026-08-09T14:14:33.561Z",
+  "total": 78,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -901,6 +901,42 @@
       "heure": "07 août 16:13",
       "source": "FR.ch",
       "dateVue": "2026-08-08T17:30:51.958Z"
+    },
+    {
+      "titre": "Accident sur un chantier",
+      "resume": "Un homme a été blessé après avoir chuté dans un talus avec son engin de chantier.",
+      "commune": "Belfaux",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.093,
+      "lat": 46.815,
+      "heure": "8 août 20:55",
+      "source": "FR.ch",
+      "dateVue": "2026-08-09T14:14:33.561Z"
+    },
+    {
+      "titre": "Incendie dans un immeuble",
+      "resume": "Un incendie a ravagé un bâtiment, laissant des familles sans logement.",
+      "commune": "Aigle",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.968,
+      "lat": 46.317,
+      "heure": "7 août 10:37",
+      "source": "24 Heures",
+      "dateVue": "2026-08-09T14:14:33.561Z"
+    },
+    {
+      "titre": "Braquage d'une banque",
+      "resume": "Un individu armé et déguisé s'est emparé d'une somme d'argent avant de prendre la fuite. Un appel à témoins a été lancé.",
+      "commune": "Farvagny",
+      "canton": "FR",
+      "categorie": "agression",
+      "lon": 7.033,
+      "lat": 46.685,
+      "heure": "7 août 16:13",
+      "source": "Police cantonale FR",
+      "dateVue": "2026-08-09T14:14:33.561Z"
     }
   ]
 }
