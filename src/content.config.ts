@@ -12,6 +12,7 @@ const blog = defineCollection({
     category: z.enum(['Sécurité', 'Conseils', 'Entreprises', 'Communes', 'Actualités']).default('Actualités'),
     featured: z.boolean().default(false),
     contact: z.boolean().default(false),
+    contactSubject: z.string().optional(),
     ctaB2C: z.boolean().default(false),
   }),
 });

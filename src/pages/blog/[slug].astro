@@ -101,7 +101,7 @@ const blogPostingSchema = {
           title="Parlons de votre <em>sécurité</em>"
           subtitle="Une question ou un projet de sécurité ? Écrivez-nous, notre équipe vous répond rapidement."
         />
-        <ContactForm defaultSubject="Particulier" submitLabel="Être recontacté" />
+        <ContactForm defaultSubject={post.data.contactSubject ?? "Particulier"} submitLabel="Être recontacté" />
       </div>
     </section>
   )}
