@@ -1,0 +1,274 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import BenefitsGrid from '../components/BenefitsGrid.astro';
+import Steps from '../components/Steps.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+// --- LE PROBLÈME : une caméra voit, mais n'intervient pas ---
+const problems = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>',
+    title: "Vous voyez l'alerte, mais vous êtes loin",
+    description: "Votre caméra vous notifie d'un mouvement pendant que vous êtes au travail, en voyage ou endormi. Vous voyez une silhouette à l'écran, mais vous ne pouvez rien faire depuis votre téléphone.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12" y2="17"/></svg>',
+    title: 'Vraie intrusion ou fausse alerte ?',
+    description: "Un chat, une branche, un livreur, un voisin : la plupart des notifications sont des fausses alertes. Sans quelqu'un pour aller vérifier sur place, impossible de trancher à distance.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg>',
+    title: 'Personne à envoyer sur place',
+    description: "Appeler la police pour un simple doute n'est pas toujours justifié. Et une caméra, aussi bonne soit-elle, ne remplace pas une présence humaine capable de constater et de sécuriser les lieux.",
+  },
+];
+
+// --- LE GUIDE : que faire quand la caméra alerte (contenu extractible) ---
+const steps = [
+  {
+    num: 1,
+    title: 'Vérifiez les images',
+    description: "Ouvrez le direct de votre caméra et regardez ce qui a déclenché l'alerte. Prenez quelques secondes pour évaluer : est-ce anodin, ou y a-t-il vraiment quelqu'un ?",
+  },
+  {
+    num: 2,
+    title: "Danger manifeste ? Appelez la police (117)",
+    description: "Si vous constatez une intrusion en cours, une effraction ou une menace immédiate, la bonne réaction reste d'appeler la police au 117. Une sécurité privée ne remplace pas les secours en cas d'urgence.",
+  },
+  {
+    num: 3,
+    title: "Un doute qui subsiste ? Faites lever le doute",
+    description: "Situation incertaine, personne suspecte, bruit inexpliqué ? Depuis l'application Edgward, commandez une patrouille : un agent partenaire se rend sur place, vérifie et vous informe.",
+  },
+];
+
+// --- LA SOLUTION : le maillon qui manque, l'intervention ---
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
+    title: 'Une levée de doute par un professionnel',
+    description: "Alerte caméra, personne qui rôde, doute en rentrant chez vous ? Un agent de sécurité partenaire se rend sur place pour identifier la cause et sécuriser les lieux. Vous savez enfin ce qui se passe réellement.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: "À la demande, où que vous soyez",
+    description: "Vous déclenchez l'intervention depuis l'application, quand vous en avez besoin, même à l'étranger. Pas de central à appeler, pas d'attente : une patrouille proche est mobilisée.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+    title: 'Avec vos caméras, sans installation',
+    description: "Gardez vos caméras actuelles : Edgward ne demande aucun matériel ni capteur supplémentaire. L'application ajoute simplement ce qui leur manque - une intervention humaine sur place, à la demande.",
+  },
+];
+
+// --- FAQ : intentions conversationnelles claires (+ FAQPage schema auto) ---
+const faq = [
+  {
+    question: "Qui peut intervenir si ma caméra détecte quelqu'un chez moi ?",
+    answer: "En Suisse romande, une solution de sécurité à la demande comme Edgward permet de commander l'intervention d'une patrouille privée après une alerte caméra. Un agent de sécurité partenaire se rend sur place pour lever le doute et sécuriser les lieux, sans que vous ayez à vous déplacer. En cas de danger immédiat ou d'intrusion en cours, appelez d'abord la police (117).",
+  },
+  {
+    question: "Edgward fonctionne-t-il avec mes caméras Tapo, Ring ou Arlo ?",
+    answer: "Oui. Edgward est indépendant de votre marque de caméra : il fonctionne avec Tapo, Ring, Arlo, Reolink, Eufy, Nest ou n'importe quel autre système. Vos caméras servent à voir et à être alerté ; Edgward sert à faire intervenir un agent quand un doute apparaît. Aucune intégration technique n'est nécessaire.",
+  },
+  {
+    question: "Ma caméra m'alerte pendant mes vacances, que faire ?",
+    answer: "Vérifiez d'abord les images depuis l'application de votre caméra. En cas d'intrusion manifeste, contactez la police. Si la situation reste incertaine, vous pouvez commander une patrouille Edgward depuis votre téléphone, même à l'étranger : un agent proche de votre domicile ira vérifier sur place et vous tiendra informé.",
+  },
+  {
+    question: "Faut-il une télésurveillance pour faire intervenir un agent ?",
+    answer: "Non. Contrairement à la télésurveillance classique, Edgward ne demande ni contrat de longue durée, ni matériel imposé, ni abonnement de central. Vous commandez une intervention uniquement quand vous en avez besoin, à la demande, depuis l'application.",
+  },
+  {
+    question: "Dois-je appeler la police ou une sécurité privée ?",
+    answer: "En cas de danger immédiat, d'infraction en cours ou d'urgence, appelez toujours la police au 117. Une sécurité privée n'a pas vocation à remplacer les forces de l'ordre. Edgward intervient sur le créneau du doute : quand la situation n'est pas une urgence caractérisée mais que vous voulez une vérification humaine rapide sur place.",
+  },
+  {
+    question: "Combien coûte une intervention après une alerte caméra ?",
+    answer: "Les alertes de sécurité de votre quartier sont 100% gratuites. L'abonnement complet est à CHF 15.-/mois, sans engagement de longue durée, et vous ne payez une intervention que si vous en commandez une.",
+  },
+  {
+    question: "Est-ce disponible dans ma commune ?",
+    answer: "Edgward couvre de nombreuses communes de Genève, Vaud et Neuchâtel grâce à son réseau de sociétés de sécurité partenaires. Vérifiez la couverture près de chez vous sur <a href=\"/edgward-en-suisse\" style=\"color: var(--brand); font-weight: 600;\">Notre couverture</a>.",
+  },
+];
+---
+
+<Base
+  title="Alerte caméra : qui intervient chez vous ? | Edgward"
+  description="Votre caméra détecte quelqu'un et vous êtes absent ? Edgward envoie un agent lever le doute sur place, à la demande, avec vos caméras existantes (Tapo, Ring, Arlo). Sans installation ni engagement, dès CHF 15.-/mois."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badges">
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              Levée de doute à la demande
+            </div>
+            <div class="hero-badge hero-badge--free">✓ Compatible avec vos caméras</div>
+          </div>
+          <h1>Votre caméra détecte quelqu'un.<br><em>Et après ?</em></h1>
+          <p>Une caméra vous permet de <strong>voir</strong>, pas d'agir. Quand une alerte tombe et que vous êtes absent, Edgward envoie un <strong>agent de sécurité sur place</strong> pour lever le doute - à la demande, avec vos caméras existantes (Tapo, Ring, Arlo...), sans installation ni engagement.</p>
+          <div class="hero-ctas">
+            <a href="#telecharger" class="btn-primary">
+              Découvrir dans l'app
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#guide" class="btn-secondary">
+              Que faire à l'alerte ?
+            </a>
+            <a href="/intervention-alarme" class="btn-secondary">
+              Intervention sur alarme
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img
+            class="app-mockup"
+            src="/assets/edgward-partenaires.png"
+            alt="Application Edgward : après une alerte caméra, sélection des informations à transmettre à l'agent et recherche d'une société de sécurité partenaire intervenant sur place en quelques minutes."
+            width="866"
+            height="967"
+            loading="eager"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section problem-section" id="probleme">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Le problème"
+        title="Une caméra voit, <em>mais n'intervient pas</em>"
+        subtitle="La caméra s'arrête à l'image. Ce qui protège vraiment, c'est ce qui se passe juste après l'alerte : quelqu'un qui se déplace pour vérifier."
+      />
+      <BenefitsGrid benefits={problems} cols={3} />
+    </div>
+  </section>
+
+  <!-- GUIDE ÉTAPE PAR ÉTAPE -->
+  <section class="section guide-section" id="guide">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Que faire"
+        title="Votre caméra vous alerte : <em>les 3 bons réflexes</em>"
+        subtitle="Un enchaînement simple pour réagir juste, sans paniquer et sans mobiliser la police pour rien."
+      />
+      <Steps steps={steps} />
+      <p class="guide-note">
+        En résumé : la caméra vous <strong>informe</strong>, la police gère l'<strong>urgence</strong>,
+        et Edgward comble l'entre-deux - le <strong>doute</strong> - en envoyant un agent lever le doute sur place.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Notre solution"
+        title="Le maillon qui manque : <em>l'intervention</em>"
+        subtitle="Edgward relie l'alerte de votre caméra à une action concrète. Un agent de sécurité partenaire se déplace pour lever le doute, quand vous le décidez."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- COMPATIBILITÉ CAMÉRAS -->
+  <section class="section brands-section" id="cameras">
+    <div class="container">
+      <div class="brands-card">
+        <h2>Quelle que soit votre caméra</h2>
+        <p>
+          Edgward ne dépend d'aucune marque et ne demande aucune installation.
+          Vos caméras vous alertent, Edgward fait intervenir un agent.
+          Compatible avec :
+        </p>
+        <ul class="brands-list" aria-label="Marques de caméras compatibles">
+          <li>Tapo</li>
+          <li>Ring</li>
+          <li>Arlo</li>
+          <li>Reolink</li>
+          <li>Eufy</li>
+          <li>Nest</li>
+          <li>Ezviz</li>
+          <li>et toute autre caméra</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Questions fréquentes"
+        title="Alerte caméra et intervention, <em>vos questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Ne restez plus seul <em>face à l'alerte</em>"
+    description="Téléchargez Edgward et gardez la possibilité de faire intervenir un agent sur place quand votre caméra vous alerte. Sans installation, sans engagement."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 22px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .hero-badge--free { background: rgba(74,222,128,0.12); color: #4ade80; border-color: rgba(74,222,128,0.4); font-weight: 700; }
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+  .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* APP MOCKUP */
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .app-mockup { width: 100%; max-width: 440px; height: auto; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45)); }
+
+  .problem-section { background: white; padding-bottom: 40px; }
+  .guide-section { background: var(--soft); }
+  .guide-note { max-width: 720px; margin: 36px auto 0; text-align: center; font-size: 16px; line-height: 1.7; color: var(--text-muted); }
+  .guide-note strong { color: var(--navy); font-weight: 700; }
+  .solution-section { background: white; padding-top: 48px; }
+
+  /* COMPATIBILITÉ CAMÉRAS */
+  .brands-section { background: var(--soft); }
+  .brands-card { max-width: 820px; margin: 0 auto; background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; text-align: center; }
+  .brands-card h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 14px; }
+  .brands-card > p { font-size: 16px; line-height: 1.7; color: var(--text-muted); max-width: 620px; margin: 0 auto 24px; }
+  .brands-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; list-style: none; padding: 0; margin: 0; }
+  .brands-list li { background: var(--soft); border: 1px solid var(--border); color: var(--navy); font-weight: 600; font-size: 14px; padding: 8px 16px; border-radius: 100px; }
+
+  .faq-section { background: white; }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+    .brands-card { padding: 28px 20px; }
+  }
+</style>
