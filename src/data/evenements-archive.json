@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-11T10:53:42.031Z",
-  "total": 84,
+  "compileLe": "2026-08-11T17:57:24.952Z",
+  "total": 85,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1009,6 +1009,18 @@
       "heure": "8 août 14:56",
       "source": "La Liberté",
       "dateVue": "2026-08-10T11:12:45.475Z"
+    },
+    {
+      "titre": "Avis de disparition",
+      "resume": "Les autorités lancent un appel à témoins pour retrouver une jeune femme disparue.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "11 août 13:34",
+      "source": "24heures.ch",
+      "dateVue": "2026-08-11T17:57:24.952Z"
     }
   ]
 }
