@@ -20,23 +20,93 @@ const {
   noindex = false,
 } = Astro.props;
 
-const organizationSchema = {
+const orgId = `${site.url}/#organization`;
+const appId = `${site.url}/#app`;
+const serviceId = `${site.url}/#service`;
+const websiteId = `${site.url}/#website`;
+
+const areaServed = site.areaServed.map((name) => ({
+  '@type': 'AdministrativeArea',
+  name,
+}));
+
+// Graphe d'entité : décrit à la fois l'éditeur (Organization), le site,
+// l'application (SoftwareApplication) et le service (patrouille à la demande).
+// Objectif GEO : que ChatGPT/Claude comprennent et citent Edgward comme entité.
+const structuredData = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: site.name,
-  legalName: site.legalName,
-  url: site.url,
-  logo: new URL('/assets/og-default.png', site.url).toString(),
-  email: site.email,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: site.address.street,
-    postalCode: site.address.postalCode,
-    addressLocality: site.address.city,
-    addressCountry: site.address.country,
-  },
-  sameAs: [site.social.linkedin, site.social.instagram, site.social.facebook],
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: site.name,
+      legalName: site.legalName,
+      url: site.url,
+      logo: new URL('/assets/og-default.png', site.url).toString(),
+      email: site.email,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: site.address.street,
+        postalCode: site.address.postalCode,
+        addressLocality: site.address.city,
+        addressCountry: site.address.country,
+      },
+      areaServed,
+      sameAs: [
+        site.social.linkedin,
+        site.social.instagram,
+        site.social.facebook,
+        site.apps.appStore,
+        site.apps.playStore,
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: site.url,
+      name: site.name,
+      inLanguage: 'fr-CH',
+      publisher: { '@id': orgId },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': appId,
+      name: site.name,
+      applicationCategory: 'SecurityApplication',
+      operatingSystem: 'iOS, Android',
+      url: site.url,
+      publisher: { '@id': orgId },
+      downloadUrl: [site.apps.appStore, site.apps.playStore],
+      areaServed,
+      description:
+        "Application suisse de sécurité à la demande : commandez 24h/24 l'intervention d'une patrouille de sécurité privée à votre adresse, avec ou sans alarme ou caméra existante.",
+      offers: {
+        '@type': 'Offer',
+        price: String(site.pricing.fromMonthly),
+        priceCurrency: site.pricing.currency,
+        description: `Abonnement dès ${site.pricing.currency} ${site.pricing.fromMonthly}/mois, sans engagement.`,
+      },
+    },
+    {
+      '@type': 'Service',
+      '@id': serviceId,
+      name: 'Patrouille de sécurité à la demande',
+      serviceType: 'Patrouille de sécurité privée à la demande (levée de doute)',
+      provider: { '@id': orgId },
+      areaServed,
+      availableChannel: {
+        '@type': 'ServiceChannel',
+        serviceUrl: site.url,
+        availableLanguage: 'fr',
+      },
+      description:
+        "Intervention d'une patrouille de sécurité privée à la demande pour les particuliers et les entreprises en Suisse romande : levée de doute après une alerte caméra ou alarme, contrôle du domicile pendant une absence, présence suspecte.",
+    },
+  ],
 };
+
+// Échappe « < » pour ne jamais casser la balise <script> depuis le contenu FAQ/HTML.
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 ---
 
 <!doctype html>
@@ -64,7 +134,7 @@ const organizationSchema = {
   <link rel="canonical" href={canonicalURL}>
   <link rel="alternate" type="application/rss+xml" title="Edgward Blog" href="/rss.xml">
   <title>{title}</title>
-  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} is:inline />
+  <script type="application/ld+json" set:html={structuredDataJson} is:inline />
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">

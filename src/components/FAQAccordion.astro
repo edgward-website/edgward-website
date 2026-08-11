@@ -10,7 +10,27 @@ interface Props {
 }
 
 const { items, category } = Astro.props;
+
+// Données structurées FAQPage (extraites par Google + moteurs IA / GEO).
+// Aucune page n'instancie ce composant plus d'une fois → un seul FAQPage par page.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+// Échappe « < » : les réponses peuvent contenir du HTML, ne pas casser la balise <script>.
+const faqSchemaJson = JSON.stringify(faqSchema).replace(/</g, '\\u003c');
 ---
+
+<script type="application/ld+json" set:html={faqSchemaJson} is:inline />
+
 
 <div class="faq-group">
   {category && <h3 class="faq-category">{category}</h3>}

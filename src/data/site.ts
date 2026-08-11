@@ -19,4 +19,11 @@ export const site = {
     appStore: 'https://apps.apple.com/ch/app/edgward/id6503622410',
     playStore: 'https://play.google.com/store/apps/details?id=ch.edgward.app.clients',
   },
+  // Source unique du prix d'entrée affiché (aligné sur la home « dès CHF 15/mois »).
+  pricing: {
+    fromMonthly: 15,
+    currency: 'CHF',
+  },
+  // Cantons couverts (utilisé pour areaServed dans les données structurées).
+  areaServed: ['Genève', 'Vaud', 'Neuchâtel'],
 } as const;
