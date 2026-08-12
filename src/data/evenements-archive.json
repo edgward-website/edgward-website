@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-11T17:57:24.952Z",
-  "total": 85,
+  "compileLe": "2026-08-12T11:03:01.135Z",
+  "total": 88,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1021,6 +1021,42 @@
       "heure": "11 août 13:34",
       "source": "24heures.ch",
       "dateVue": "2026-08-11T17:57:24.952Z"
+    },
+    {
+      "titre": "Accident ferroviaire à Vevey",
+      "resume": "Un accident sur la ligne Lausanne-Brig a perturbé le trafic ferroviaire avant une reprise progressive.",
+      "commune": "Vevey",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.843,
+      "lat": 46.462,
+      "heure": "12 août 08:06",
+      "source": "rts.ch",
+      "dateVue": "2026-08-12T11:03:01.135Z"
+    },
+    {
+      "titre": "Câble CFF arraché par un camion",
+      "resume": "Un camion a arraché un câble ferroviaire, perturbant le trafic entre Payerne et Palézieux.",
+      "commune": "Payerne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.938,
+      "lat": 46.822,
+      "heure": "11 août 12:25",
+      "source": "24heures.ch",
+      "dateVue": "2026-08-12T11:03:01.135Z"
+    },
+    {
+      "titre": "Incendie d'un immeuble à Aigle",
+      "resume": "Un incendie a fait plusieurs dizaines de sinistrés qui peinent à se reloger.",
+      "commune": "Aigle",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.968,
+      "lat": 46.318,
+      "heure": "11 août 07:20",
+      "source": "rts.ch",
+      "dateVue": "2026-08-12T11:03:01.135Z"
     }
   ]
 }
