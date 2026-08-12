@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-12T11:03:01.135Z",
-  "total": 88,
+  "compileLe": "2026-08-12T17:57:25.758Z",
+  "total": 93,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1057,6 +1057,66 @@
       "heure": "11 août 07:20",
       "source": "rts.ch",
       "dateVue": "2026-08-12T11:03:01.135Z"
+    },
+    {
+      "titre": "Accident avec blessé - appel à témoins",
+      "resume": "La police recherche des témoins après un accident ayant fait un blessé.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.931,
+      "lat": 46.992,
+      "heure": "12 août 18:23",
+      "source": "ne.ch",
+      "dateVue": "2026-08-12T17:57:25.758Z"
+    },
+    {
+      "titre": "Incendie dans un appartement",
+      "resume": "Un incendie a détruit un appartement au quartier Sous-gare. Aucun blessé n'est à déplorer.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.629,
+      "lat": 46.514,
+      "heure": "12 août 12:25",
+      "source": "Police cantonale vaudoise / 24 Heures",
+      "dateVue": "2026-08-12T17:57:25.758Z"
+    },
+    {
+      "titre": "Incendie d'un appartement",
+      "resume": "Un appartement a été détruit par les flammes à l'avenue Henri-Golay.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.126,
+      "lat": 46.209,
+      "heure": "12 août 13:03",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-12T17:57:25.758Z"
+    },
+    {
+      "titre": "Disparition inquiétante",
+      "resume": "Appel à témoins pour retrouver un homme fragile psychologiquement, disparu depuis plusieurs jours.",
+      "commune": "Écublens",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.563,
+      "lat": 46.528,
+      "heure": "12 août 14:14",
+      "source": "Etat de Vaud",
+      "dateVue": "2026-08-12T17:57:25.758Z"
+    },
+    {
+      "titre": "Cabanon de jardin en feu",
+      "resume": "Un cabanon de jardin a pris feu; l'incendie a été rapidement maîtrisé.",
+      "commune": "Marly",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.163,
+      "lat": 46.782,
+      "heure": "12 août 11:09",
+      "source": "La Liberté",
+      "dateVue": "2026-08-12T17:57:25.758Z"
     }
   ]
 }
