@@ -212,15 +212,23 @@ function jourNum(heure, dv) {
   else return null;
   return Math.floor(d.getTime() / 86400000);
 }
+const STOP = new Set(["dans","une","des","les","aux","sur","par","avec","pour","plus","deux","sans","leur","son","ses","entre","apres","suite","dune","dun","est","ont","qui","que"]);
+function norm(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+function communeNorm(c) { return norm(c).split(/[—–-]/)[0].trim(); }
+function motsTitre(t) { return norm(t).replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter((w) => w.length >= 4 && !STOP.has(w)); }
+function titreSimilaire(a, b) { const A = new Set(motsTitre(a)); return motsTitre(b).some((w) => A.has(w)); }
 function estDoublon(e, dv, liste) {
   const j = jourNum(e.heure, dv);
   return liste.some((o) => {
-    if (o.categorie !== e.categorie) return false;
-    const dx = (o.lon - e.lon) * 76, dy = (o.lat - e.lat) * 111;
-    if (Math.hypot(dx, dy) > SEUIL_KM) return false;
     const oj = jourNum(o.heure, o.dateVue);
-    if (j === null || oj === null) return true;
-    return Math.abs(oj - j) <= SEUIL_JOURS;
+    const memeJour = (j === null || oj === null) ? true : Math.abs(oj - j) <= SEUIL_JOURS;
+    if (!memeJour) return false;
+    if (communeNorm(o.commune) === communeNorm(e.commune) && (o.categorie === e.categorie || titreSimilaire(o.titre, e.titre))) return true;
+    if (o.categorie === e.categorie) {
+      const dx = (o.lon - e.lon) * 76, dy = (o.lat - e.lat) * 111;
+      if (Math.hypot(dx, dy) <= SEUIL_KM) return true;
+    }
+    return false;
   });
 }
 

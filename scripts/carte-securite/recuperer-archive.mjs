@@ -18,12 +18,14 @@ function git(cmd) {
   return execSync(`git ${cmd}`, { cwd: RACINE, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
 }
 
-// Dédoublonnage par PROXIMITÉ : deux événements de même catégorie, à moins de
-// ~4 km et à quelques jours d'intervalle, sont considérés comme un seul incident.
-// Absorbe les variantes de nom de commune et les re-publications à dates variables.
+// Dédoublonnage : deux entrées = même incident si, à quelques jours près, elles
+// sont dans la même commune (ou à < ~4 km) ET se ressemblent (même catégorie OU
+// mots de titre communs). Absorbe : variantes de nom de lieu, re-classements de
+// catégorie du même fait, coordonnées instables, labels de date variables.
 const MOISNUM = { janv: 1, "févr": 2, fevr: 2, mars: 3, avr: 4, mai: 5, juin: 6, juil: 7, "août": 8, aout: 8, sept: 9, oct: 10, nov: 11, "déc": 12, dec: 12 };
 const SEUIL_KM = 4;
 const SEUIL_JOURS = 3;
+const STOP = new Set(["dans","une","des","les","aux","sur","par","avec","pour","plus","deux","sans","leur","son","ses","entre","apres","suite","dune","dun","est","ont","qui","que"]);
 function jourNum(heure, dv) {
   const h = (heure || "").toLowerCase();
   const m = h.match(/(\d{1,2})\s*(janv|févr|fevr|mars|avr|mai|juin|juil|août|aout|sept|oct|nov|déc|dec)/);
@@ -34,15 +36,22 @@ function jourNum(heure, dv) {
   else return null;
   return Math.floor(d.getTime() / 86400000);
 }
+function norm(s) { return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+function communeNorm(c) { return norm(c).split(/[—–-]/)[0].trim(); }
+function motsTitre(t) { return norm(t).replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter((w) => w.length >= 4 && !STOP.has(w)); }
+function titreSimilaire(a, b) { const A = new Set(motsTitre(a)); return motsTitre(b).some((w) => A.has(w)); }
 function estDoublon(e, dv, liste) {
   const j = jourNum(e.heure, dv);
   return liste.some((o) => {
-    if (o.categorie !== e.categorie) return false;
-    const dx = (o.lon - e.lon) * 76, dy = (o.lat - e.lat) * 111;
-    if (Math.hypot(dx, dy) > SEUIL_KM) return false;
     const oj = jourNum(o.heure, o.dateVue);
-    if (j === null || oj === null) return true;
-    return Math.abs(oj - j) <= SEUIL_JOURS;
+    const memeJour = (j === null || oj === null) ? true : Math.abs(oj - j) <= SEUIL_JOURS;
+    if (!memeJour) return false;
+    if (communeNorm(o.commune) === communeNorm(e.commune) && (o.categorie === e.categorie || titreSimilaire(o.titre, e.titre))) return true;
+    if (o.categorie === e.categorie) {
+      const dx = (o.lon - e.lon) * 76, dy = (o.lat - e.lat) * 111;
+      if (Math.hypot(dx, dy) <= SEUIL_KM) return true;
+    }
+    return false;
   });
 }
 

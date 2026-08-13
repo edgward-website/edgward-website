@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-12T17:57:25.758Z",
-  "total": 93,
+  "compileLe": "2026-08-13T09:51:05.201Z",
+  "total": 88,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -171,16 +171,16 @@
       "dateVue": "2026-07-28T09:46:53.408Z"
     },
     {
-      "titre": "Explosion au centre de Vevey",
-      "resume": "Une explosion dans une épicerie du centre-ville a fait quatre blessés.",
+      "titre": "Explosion dans un commerce à Vevey",
+      "resume": "Une explosion s'est produite dans un centre commercial, faisant quatre blessés.",
       "commune": "Vevey",
       "canton": "VD",
       "categorie": "accident",
       "lon": 6.8419,
       "lat": 46.4628,
-      "heure": "26 juil. 16:15",
+      "heure": "27 juil. 06:02",
       "source": "Le Matin",
-      "dateVue": "2026-07-28T09:46:53.408Z"
+      "dateVue": "2026-07-28T12:00:16.306Z"
     },
     {
       "titre": "Accident de moto dans le Jura",
@@ -339,18 +339,6 @@
       "dateVue": "2026-07-31T09:16:08.344Z"
     },
     {
-      "titre": "Incendie d'un entrepôt",
-      "resume": "Un important incendie a ravagé un entrepôt dans la zone industrielle, mobilisant une cinquantaine de pompiers et perturbant le trafic ferroviaire entre Lausanne et Yverdon. Le feu a été maîtrisé.",
-      "commune": "Vufflens-la-Ville",
-      "canton": "VD",
-      "categorie": "incendie",
-      "lon": 6.556,
-      "lat": 46.578,
-      "heure": "30 juil. 22:00",
-      "source": "24 Heures",
-      "dateVue": "2026-07-31T12:04:08.724Z"
-    },
-    {
       "titre": "Délit de fuite d'un conducteur ivre",
       "resume": "Un conducteur en état d'ébriété a tenté de faire porter la responsabilité d'un délit de fuite à un proche.",
       "commune": "Sion",
@@ -420,18 +408,6 @@
       "lat": 46.993,
       "heure": "1 août 12:04",
       "source": "20 Minuten",
-      "dateVue": "2026-08-01T11:20:34.898Z"
-    },
-    {
-      "titre": "Accident mortel de parapente",
-      "resume": "Un parapentiste a perdu la vie lors d'une chute dans le vallon de Valsorey.",
-      "commune": "Bourg-St-Pierre",
-      "canton": "VS",
-      "categorie": "accident",
-      "lon": 7.199,
-      "lat": 46.028,
-      "heure": "31 juil. 16:04",
-      "source": "Police cantonale valaisanne",
       "dateVue": "2026-08-01T11:20:34.898Z"
     },
     {
@@ -591,18 +567,6 @@
       "dateVue": "2026-08-04T18:27:51.138Z"
     },
     {
-      "titre": "Incendie, voisins évacués",
-      "resume": "Un incendie s'est déclaré dans un bâtiment, entraînant l'évacuation de voisins.",
-      "commune": "Colombier",
-      "canton": "NE",
-      "categorie": "incendie",
-      "lon": 6.767,
-      "lat": 46.998,
-      "heure": "04 août 00:08",
-      "source": "ArcInfo",
-      "dateVue": "2026-08-04T18:27:51.138Z"
-    },
-    {
       "titre": "Incendie d'un chalet sur le Salève",
       "resume": "Un chalet a été détruit par les flammes sur les pentes du Salève, un incendie visible depuis Genève.",
       "commune": "Le Salève",
@@ -672,18 +636,6 @@
       "lat": 46.4,
       "heure": "04 août 17:24",
       "source": "Rhône FM",
-      "dateVue": "2026-08-05T12:02:43.877Z"
-    },
-    {
-      "titre": "Camion coincé sous un pont ferroviaire",
-      "resume": "Un camion trop haut s'est coincé sous un pont ferroviaire près de l'aéroport de Genève.",
-      "commune": "Genève",
-      "canton": "GE",
-      "categorie": "accident",
-      "lon": 6.1083,
-      "lat": 46.2333,
-      "heure": "04 août 18:33",
-      "source": "Tribune de Genève",
       "dateVue": "2026-08-05T12:02:43.877Z"
     },
     {
@@ -783,6 +735,18 @@
       "dateVue": "2026-08-06T19:12:13.329Z"
     },
     {
+      "titre": "Camion coincé sous un pont",
+      "resume": "Un camion trop haut s'est coincé sous un pont ferroviaire près de l'aéroport de Genève.",
+      "commune": "Meyrin",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.109,
+      "lat": 46.233,
+      "heure": "4 août 18:33",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-06T19:12:13.329Z"
+    },
+    {
       "titre": "Incendie dans un immeuble",
       "resume": "Intervention des pompiers dans un immeuble du quartier de Saint-Jean.",
       "commune": "Genève",
@@ -807,18 +771,6 @@
       "dateVue": "2026-08-07T13:30:29.684Z"
     },
     {
-      "titre": "Accident mortel de la route",
-      "resume": "Un homme de 68 ans a perdu la vie dans un accident de la circulation à Arbaz.",
-      "commune": "Arbaz",
-      "canton": "VS",
-      "categorie": "accident",
-      "lon": 7.31,
-      "lat": 46.28,
-      "heure": "4 août 16:01",
-      "source": "bluewin.ch",
-      "dateVue": "2026-08-07T13:30:29.684Z"
-    },
-    {
       "titre": "Brigandage à main armée dans une banque",
       "resume": "Un individu armé s'est emparé d'une somme d'argent avant de prendre la fuite. Un appel à témoins a été lancé.",
       "commune": "Farvagny",
@@ -829,18 +781,6 @@
       "heure": "7 août 15:37",
       "source": "FR.ch",
       "dateVue": "2026-08-07T17:50:16.849Z"
-    },
-    {
-      "titre": "Braquage d'une banque",
-      "resume": "Un individu armé a dérobé de l'argent dans une banque avant de prendre la fuite. Un appel à témoins a été lancé.",
-      "commune": "Farvagny",
-      "canton": "FR",
-      "categorie": "agression",
-      "lon": 7.02,
-      "lat": 46.65,
-      "heure": "7 août 16:13",
-      "source": "FR.ch",
-      "dateVue": "2026-08-08T10:38:27.800Z"
     },
     {
       "titre": "Incendie lors de célébrations de supporters",
@@ -891,18 +831,6 @@
       "dateVue": "2026-08-08T17:30:51.958Z"
     },
     {
-      "titre": "Braquage d'une banque",
-      "resume": "Un individu armé a braqué un établissement bancaire avant de prendre la fuite. Un appel à témoins a été lancé.",
-      "commune": "Farvagny",
-      "canton": "FR",
-      "categorie": "agression",
-      "lon": 7.083,
-      "lat": 46.717,
-      "heure": "07 août 16:13",
-      "source": "FR.ch",
-      "dateVue": "2026-08-08T17:30:51.958Z"
-    },
-    {
       "titre": "Accident sur un chantier",
       "resume": "Un homme a été blessé après avoir chuté dans un talus avec son engin de chantier.",
       "commune": "Belfaux",
@@ -924,18 +852,6 @@
       "lat": 46.317,
       "heure": "7 août 10:37",
       "source": "24 Heures",
-      "dateVue": "2026-08-09T14:14:33.561Z"
-    },
-    {
-      "titre": "Braquage d'une banque",
-      "resume": "Un individu armé et déguisé s'est emparé d'une somme d'argent avant de prendre la fuite. Un appel à témoins a été lancé.",
-      "commune": "Farvagny",
-      "canton": "FR",
-      "categorie": "agression",
-      "lon": 7.033,
-      "lat": 46.685,
-      "heure": "7 août 16:13",
-      "source": "Police cantonale FR",
       "dateVue": "2026-08-09T14:14:33.561Z"
     },
     {
@@ -963,15 +879,39 @@
       "dateVue": "2026-08-09T17:32:13.580Z"
     },
     {
-      "titre": "Brigandage à main armée dans une banque",
-      "resume": "Un homme armé et déguisé s'est emparé de plusieurs milliers de francs dans une banque avant de prendre la fuite. Un appel à témoins a été lancé.",
-      "commune": "Farvagny",
-      "canton": "FR",
-      "categorie": "agression",
-      "lon": 7.1073,
-      "lat": 46.7553,
-      "heure": "07 aoû. 16:13",
-      "source": "FR.ch",
+      "titre": "Cambriolage suivi d'interpellations",
+      "resume": "Quatre jeunes ont été arrêtés après un cambriolage.",
+      "commune": "Nyon",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.2389,
+      "lat": 46.3833,
+      "heure": "07 aoû. 11:25",
+      "source": "Radio LFM",
+      "dateVue": "2026-08-09T17:32:13.580Z"
+    },
+    {
+      "titre": "Débordements après un match de football",
+      "resume": "Des célébrations de supporters ont dégénéré, provoquant un incendie et des troubles.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "ordre",
+      "lon": 6.9312,
+      "lat": 46.9924,
+      "heure": "07 aoû. 10:50",
+      "source": "24 Heures",
+      "dateVue": "2026-08-09T17:32:13.580Z"
+    },
+    {
+      "titre": "Incendie dans un immeuble",
+      "resume": "Un incendie s'est déclaré dans un immeuble d'habitation.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.3591,
+      "lat": 46.2311,
+      "heure": "06 aoû. 19:35",
+      "source": "Le Nouvelliste",
       "dateVue": "2026-08-09T17:32:13.580Z"
     },
     {
