@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-13T09:51:05.201Z",
-  "total": 88,
+  "compileLe": "2026-08-13T11:03:21.160Z",
+  "total": 89,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1057,6 +1057,18 @@
       "heure": "12 août 11:09",
       "source": "La Liberté",
       "dateVue": "2026-08-12T17:57:25.758Z"
+    },
+    {
+      "titre": "Accident mortel avec un véhicule agricole",
+      "resume": "Un enfant de 9 ans a perdu la vie dans un accident impliquant un véhicule agricole.",
+      "commune": "Liddes",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.187,
+      "lat": 45.994,
+      "heure": "13 août 12:15",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-13T11:03:21.160Z"
     }
   ]
 }
