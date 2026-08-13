@@ -1,0 +1,240 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import BenefitsGrid from '../../components/BenefitsGrid.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import { localize } from '../../i18n/routes';
+const L = (p) => localize(p, 'en');
+
+// --- THE PROBLEM: an alarm on its own only makes noise ---
+const problems = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>',
+    title: 'The siren sounds, but no one turns up',
+    description: "An alarm warns you - it does not intervene. If you are at work, travelling or asleep, the noise echoes into the void and the burglar knows there is time to spare.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8a3 3 0 0 1-3 3H6l-3 2.5V5a2 2 0 0 1 2-2h5a3 3 0 0 1 3 3z"/><path d="M16 9h2a2 2 0 0 1 2 2v8l-3-2h-4a2 2 0 0 1-2-2v-1"/></svg>',
+    title: 'Repeated false alarms',
+    description: "A pet, a window left ajar, a draught: most triggers are false alarms. Without someone to check on site, there is no way of knowing whether it is serious.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v6m0 6v6M4.2 4.2l4.3 4.3m7 7 4.3 4.3M1 12h6m6 0h6M4.2 19.8l4.3-4.3m7-7 4.3-4.3"/></svg>',
+    title: 'A cumbersome, binding subscription',
+    description: "Conventional solutions often require hardware installation and a long-term contract. You pay every month, whether or not anything happens.",
+  },
+];
+
+// --- THE SOLUTION: the missing link, the intervention ---
+const solution = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
+    title: 'Alarm verification by a professional',
+    description: "Alarm triggered, a suspicious noise, a doubt as you come home? A partner security agent goes to the site to identify the cause and secure the premises. At last you know what is really going on.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9l4.5 11 1.7-4.8 4.8-1.7z"/><path d="M7.5 2.7 8.2 5M5 7.5 2.7 6.8M13.3 4.7 11.6 6.4M6.4 11.6 4.7 13.3"/></svg>',
+    title: 'On demand, in seconds',
+    description: "You trigger the intervention from the app, whenever you need it, wherever you are. No alarm receiving centre to call, no waiting: a nearby patrol is dispatched.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+    title: 'No installation, no commitment',
+    description: "No hardware to fit, no long-term contract. Alerts for your neighbourhood are free; the full subscription is CHF 15.-/month and you only pay for an intervention if you request one.",
+  },
+];
+
+// --- TWO CASES: whether you already have an alarm, or not ---
+const cases = [
+  {
+    eyebrow: 'You already have an alarm',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg>',
+    title: 'Edgward completes your system',
+    description: "Keep your alarm and your cameras: Edgward adds the missing link, human intervention on site. When the siren sounds or a doubt arises, have an agent carry out the alarm verification, without changing your set-up.",
+  },
+  {
+    eyebrow: "You don't have an alarm",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    title: 'A flexible alternative',
+    description: "No appetite for an installation project or a multi-year commitment? Receive verified alerts for your neighbourhood and book a patrol only when you need one. Security, on demand.",
+  },
+];
+
+// --- FAQ: reassure the reader AND Google (clear intents) ---
+const faq = [
+  {
+    question: "Does Edgward replace an alarm?",
+    answer: "Edgward is not an alarm system and does not replace one in the physical sense: it is an intervention and information service. It provides what an alarm alone cannot - sending an agent to the site to carry out the alarm verification - and works just as well alongside your existing alarm as it does on its own.",
+  },
+  {
+    question: "What happens when my alarm goes off?",
+    answer: "From the app, you trigger an intervention in seconds. A partner security firm near you goes to the site to identify the source of the alert and secure the premises, then keeps you informed. You no longer face the doubt alone, even from a distance.",
+  },
+  {
+    question: "What is the difference between Edgward and conventional remote monitoring?",
+    answer: "Conventional remote monitoring relies on a remote alarm receiving centre that monitors your alarms 24/7, with mandatory hardware and a long-term contract you pay for every month, whether or not anything happens. Edgward is an on-demand intervention: no hardware, no commitment, and you only pay for a patrol when you request one. The two can complement each other.",
+  },
+  {
+    question: "What happens if my alarm goes off for nothing?",
+    answer: "This is the most common case, and it is precisely where alarm verification proves its worth. Rather than going over there yourself or calling the police for a false alarm, an agent goes to the site, identifies the cause (a pet, a window left ajar, a draught) and confirms that all is in order. You get your answer without any bother.",
+  },
+  {
+    question: "Does Edgward alert the police for me?",
+    answer: "No, that is for you to do, but the app makes it easier: you can reach the police (117), the ambulance service (144) or the fire brigade (118) directly from Edgward. In the event of immediate danger, that should always come first. Edgward deals with doubt, the emergency services deal with emergencies.",
+  },
+  {
+    question: "Is an intervention possible at night and around the clock?",
+    answer: "Yes. You can book an intervention at any time from the app, including at night, at weekends and on public holidays, subject to the availability of partner security firms in your area.",
+  },
+  {
+    question: "Do I need to install any equipment?",
+    answer: "No. Edgward requires no installation and no sensors. The app is all you need: you enter your address, turn on alerts for your neighbourhood and can book an intervention whenever you wish.",
+  },
+  {
+    question: "How much does it cost?",
+    answer: "Live security information and push notifications for your region are 100% free. The full subscription is CHF 15.-/month, with no long-term commitment, and you only pay for an intervention if you request one.",
+  },
+  {
+    question: "Is it available in my municipality?",
+    answer: `Edgward covers many municipalities in Geneva, Vaud and Neuchâtel through its network of partner security firms. Check coverage near you on <a href="${L('/edgward-en-suisse')}" style="color: var(--brand); font-weight: 600;">Our coverage</a>.`,
+  },
+];
+---
+
+<Base
+  title="Alarm response: on-demand alarm verification | Edgward"
+  description="Your alarm goes off? Edgward sends an agent to verify it on site, on demand, with no installation and no commitment. Alongside your existing alarm or as a flexible alternative, from CHF 15.-/month."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badges">
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              On-demand alarm verification
+            </div>
+            <div class="hero-badge hero-badge--free">✓ No installation</div>
+          </div>
+          <h1>Your alarm sounds.<br><em>What next?</em></h1>
+          <p>An alarm warns you, but it does not intervene. Edgward sends a <strong>security agent to the site</strong> to carry out the alarm verification - on demand, with no hardware to install and no commitment. Alongside your alarm, or in its place.</p>
+          <div class="hero-ctas">
+            <a href="#download" class="btn-primary">
+              See it in the app
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#solution" class="btn-secondary">
+              How it works
+            </a>
+            <a href={L('/intervention-apres-alerte-camera')} class="btn-secondary">
+              Camera alert
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img
+            class="app-mockup"
+            src="/assets/edgward-partenaires.png"
+            alt="The Edgward app: selecting the information to pass on to the agent, including site access and the alarm, and searching for a partner security firm arriving on site within minutes."
+            width="866"
+            height="967"
+            loading="eager"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section problem-section" id="probleme">
+    <div class="container">
+      <SectionHeader
+        eyebrow="The problem"
+        title="An alarm on its own <em>is just noise</em>"
+        subtitle="An alarm's job ends the moment it sounds. What truly protects you is what happens just afterwards: someone turning up to check."
+      />
+      <BenefitsGrid benefits={problems} cols={3} />
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution-section" id="solution">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Our solution"
+        title="The missing link: <em>the intervention</em>"
+        subtitle="Edgward links the alert to a concrete action. A partner security agent turns up to carry out the alarm verification, whenever you decide."
+      />
+      <BenefitsGrid benefits={solution} cols={3} />
+    </div>
+  </section>
+
+  <!-- DEUX CAS -->
+  <section class="section cases-section" id="cas">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Who it's for"
+        title="Whether you already have an alarm, <em>or not</em>"
+        subtitle="Edgward adapts to your situation: reinforcing your current system, or as a flexible solution if you don't have one."
+      />
+      <BenefitsGrid benefits={cases} cols={2} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Frequently asked questions"
+        title="Alarm and intervention, <em>your questions</em>"
+      />
+      <div class="faq-wrap">
+        <FAQAccordion items={faq} />
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Never face it alone <em>when the alarm sounds</em>"
+    description="Download Edgward and keep the option of sending an agent to the site, on demand. No installation, no commitment."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 22px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); }
+  .hero-badge--free { background: rgba(74,222,128,0.12); color: #4ade80; border-color: rgba(74,222,128,0.4); font-weight: 700; }
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+  .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-content > p strong { color: white; font-weight: 700; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* APP MOCKUP */
+  .hero-visual { display: flex; align-items: center; justify-content: center; min-height: 380px; }
+  .app-mockup { width: 100%; max-width: 440px; height: auto; display: block; filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45)); }
+
+  .problem-section { background: white; padding-bottom: 40px; }
+  .solution-section { background: var(--soft); padding-top: 48px; }
+  .cases-section { background: white; }
+  .faq-section { background: var(--soft); }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { order: -1; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+  }
+</style>

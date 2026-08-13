@@ -1,0 +1,518 @@
+---
+import Base from '../../layouts/Base.astro';
+import { partners } from '../../data/partners';
+import { site } from '../../data/site';
+import { localize } from '../../i18n/routes';
+
+const L = (p: string) => localize(p, 'en');
+---
+
+<Base
+  title="On-demand security patrol in Geneva and French-speaking Switzerland | Edgward"
+  description="Book an on-demand security patrol in Geneva and French-speaking Switzerland in one tap. No commitment, no installation. From CHF 15/month."
+>
+
+  <!-- HERO -->
+  <section class="hero" id="individuals">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Available across French-speaking Switzerland
+          </div>
+          <h1>A security<br>patrol at your<br>door <em>in one tap</em>.</h1>
+          <p>Unsure, worried, or facing an emergency? Book an agent near you in one tap. No commitment, no installation.</p>
+          <div class="hero-ctas">
+            <a href={site.apps.appStore} class="store-btn" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span class="store-txt"><span class="store-sub">Download on the</span><span class="store-main">App Store</span></span>
+            </a>
+            <a href={site.apps.playStore} class="store-btn" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.19l2.807 1.626a1 1 0 010 1.73l-2.808 1.626-2.496-2.491 2.497-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.634z"/></svg>
+              <span class="store-txt"><span class="store-sub">Get it on</span><span class="store-main">Google Play</span></span>
+            </a>
+          </div>
+          <a href={L('/comment-ca-marche')} class="hero-demo">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Watch the demo (60s)
+          </a>
+          <p class="hero-reassurance">1-month free trial · Cancel any time · From CHF 15/month</p>
+          <div class="hero-audiences" aria-label="Type of customer">
+            <a href={L('/particuliers')} class="audience-card active">
+              <div class="audience-title">Individuals</div>
+              <div class="audience-desc">Your home, your loved ones, 24/7</div>
+            </a>
+            <a href={L('/entreprises')} class="audience-card">
+              <div class="audience-title">Businesses</div>
+              <div class="audience-desc">Premises, sites, shops</div>
+            </a>
+            <a href={L('/communes')} class="audience-card">
+              <div class="audience-title">Municipalities</div>
+              <div class="audience-desc">Explore what's possible</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="ed-container">
+            <div class="ed-halo"></div>
+            <div class="ed-rings">
+              <div class="ed-ring"></div>
+              <div class="ed-ring"></div>
+              <div class="ed-ring"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEFINITION -->
+  <section aria-label="What is Edgward" style="background: #fff; padding: 44px 0;">
+    <div class="container">
+      <p style="max-width: 860px; margin: 0 auto; text-align: center; font-size: 19px; line-height: 1.75; color: var(--navy);">
+        <strong>Edgward</strong> is a Swiss on-demand security app that lets individuals and businesses book a private security patrol to their home or premises around the clock, with or without an existing alarm or camera system. Edgward is published by DBA Solutions Sàrl and covers the cantons of Geneva, Vaud and Neuchâtel.
+      </p>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust" aria-label="Press and reviews">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-label">As seen in</div>
+        <div class="trust-logos">
+          <a href={L('/medias')}>RTS</a>
+          <a href={L('/medias')}>Léman Bleu</a>
+          <a href={L('/medias')}>Tribune de Genève</a>
+          <a href={L('/medias')}>24heures</a>
+        </div>
+        <div class="trust-rating"><span class="star" aria-hidden="true">★</span> 4.8/5 · 240+ users</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">How it works</span>
+        <h2>On-demand security<br>in <em>3 steps</em></h2>
+        <p class="section-subtitle">No hardware to install. No long-term commitment.</p>
+      </div>
+      <div class="steps">
+        <div class="step fade-in">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Subscribe</h3>
+          <p>From CHF 15/month. Get access to the platform and our network of partner firms.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Set up your locations</h3>
+          <p>Address, instructions, key box. Your data stays on your phone and is only shared at the moment of an intervention.</p>
+        </div>
+        <div class="step fade-in">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Book in one tap</h3>
+          <p>Choose a patrol by firm, price or response time. Follow the intervention in real time and receive a detailed report at the end.</p>
+        </div>
+      </div>
+      <div class="steps-cta fade-in">
+        <a href={L('/comment-ca-marche')} class="btn-ghost">More on how it works →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING PREVIEW -->
+  <section class="section pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">A concrete example</span>
+        <h2>What does it <em>really</em> cost?</h2>
+        <p class="section-subtitle">A fixed subscription + only the interventions you request. Zero hidden fees.</p>
+      </div>
+      <div class="pricing-card fade-in">
+        <div class="pricing-text">
+          <h3>5× cheaper than a traditional remote-monitoring contract</h3>
+          <p>With Edgward, there is no CHF 2,000-6,000 installation and no multi-year commitment. You pay the platform subscription + only the interventions you actually trigger, that's it.</p>
+        </div>
+        <div class="price-table" aria-label="Indicative pricing">
+          <div class="price-row"><span class="label">Subscription (annual basis)</span><span class="value">CHF 12.50/month</span></div>
+          <div class="price-row"><span class="label">Intervention (average price)</span><span class="value">~CHF 105 - CHF 170</span></div>
+          <div class="price-highlight"><span>Free trial</span><span>1 month</span></div>
+        </div>
+        <p class="pricing-reassurance">No hidden fees · No commitment · Your security one tap away</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SORAL + PARTNERS -->
+  <section class="section" id="partners">
+    <div class="container">
+      <div class="soral fade-in">
+        <img src="/assets/ed-pose.png" alt="" class="soral-ed" width="90" height="90" aria-hidden="true" loading="lazy">
+        <div class="soral-text">
+          <span class="soral-badge">★ First partner municipality</span>
+          <h4>Soral subsidises Edgward for its residents</h4>
+          <p>A model any Geneva municipality can replicate. Part of the subscription is covered by the municipality. Local security with no operational burden.</p>
+        </div>
+        <a href={L('/communes')} class="soral-cta">Discover the municipal model →</a>
+      </div>
+      <p class="partners-title">A selection of partner security firms</p>
+      <div class="partners-grid fade-in" aria-label="Security partners">
+        {partners.map(p => (
+          <a href={L('/partenaires')} class="partner" aria-label={p.name}>
+            {p.logo
+              ? <img src={p.logo} alt={p.name} class="partner-logo" loading="lazy" width="120" height="56">
+              : <span class="partner-name">{p.name}</span>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Testimonials</span>
+        <h2>They <em>trust</em> Edgward</h2>
+      </div>
+      <div class="testimonials">
+        <article class="testimonial fade-in">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>"Very fast response, and the agent called me once he arrived on site to reassure me. The professionalism of a real security firm, the simplicity of an app."</blockquote>
+          <footer class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">HT</div>
+            <div>
+              <div class="testimonial-name">Hélène T.</div>
+              <div class="testimonial-role">Cologny GE</div>
+            </div>
+          </footer>
+        </article>
+        <article class="testimonial fade-in">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>"I was afraid something had happened to my dog, so I requested an intervention. More fright than harm, in the end - the agent was quick and reassuring."</blockquote>
+          <footer class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">SC</div>
+            <div>
+              <div class="testimonial-name">Sandy C.</div>
+              <div class="testimonial-role">Carouge GE</div>
+            </div>
+          </footer>
+        </article>
+        <article class="testimonial fade-in">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>"Strangers in our garage in Belmont. The agent turned up with a colleague. Better value than a conventional alarm connection."</blockquote>
+          <footer class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">MK</div>
+            <div>
+              <div class="testimonial-name">Mike K.</div>
+              <div class="testimonial-role">Belmont VD</div>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B CARDS -->
+  <section class="section" id="professionals">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Are you a professional?</span>
+        <h2>Three ways to <em>work with Edgward</em></h2>
+      </div>
+      <div class="b2b-grid">
+        <div class="b2b-card fade-in">
+          <span class="b2b-eyebrow">Businesses</span>
+          <h3>Protect premises, sites and shops</h3>
+          <p>For SMEs and large organisations that want a flexible alternative to conventional remote monitoring.</p>
+          <ul class="b2b-features">
+            <li>No installation</li>
+            <li>On-demand intervention</li>
+            <li>Transparent billing</li>
+          </ul>
+          <a href={L('/entreprises')} class="btn-dark">Learn more</a>
+        </div>
+        <div class="b2b-card featured fade-in">
+          <span class="b2b-eyebrow">Municipalities</span>
+          <h3>Local security for your residents</h3>
+          <p>The model that won Soral over: subsidise the subscription for your residents, with no operational burden at all.</p>
+          <ul class="b2b-features">
+            <li>Flexible subsidy amount</li>
+            <li>Zero operational management</li>
+            <li>Simple budget control</li>
+          </ul>
+          <a href={L('/communes')} class="btn-primary">The municipal model</a>
+        </div>
+        <div class="b2b-card fade-in">
+          <span class="b2b-eyebrow">Alarm receiving centres</span>
+          <h3>Delegate your alarm verifications</h3>
+          <p>A centre processes the alarm and dispatches the nearest patrol among the firms available.</p>
+          <ul class="b2b-features">
+            <li>Simple integration</li>
+            <li>Set the maximum intervention amount</li>
+            <li>Automatic report</li>
+          </ul>
+          <a href={`${L('/entreprises')}#centrales`} class="btn-dark">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA / DOWNLOAD -->
+  <section class="final-cta" id="download">
+    <div class="container">
+      <div class="final-grid">
+        <img src="/assets/ed-pouce.png" alt="" class="final-ed" width="180" height="180" aria-hidden="true" loading="lazy">
+        <div class="final-left">
+          <h2>Ready to entrust your security<br>to <em>Ed and his team</em>?</h2>
+          <p>Download the app and try it free for 1 month. Cancel any time, at no cost.</p>
+          <div class="stores">
+            <a href="https://apps.apple.com/ch/app/edgward/id6503622410" class="store-btn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <div>
+                <span class="store-sub">Download on the</span>
+                <span class="store-main">App Store</span>
+              </div>
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=ch.edgward.app.clients" class="store-btn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.19l2.807 1.626a1 1 0 010 1.73l-2.808 1.626-2.496-2.491 2.497-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.634z"/></svg>
+              <div>
+                <span class="store-sub">Get it on</span>
+                <span class="store-main">Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="email-card">
+          <div class="email-default" id="email-capture-default">
+            <h4>Not ready yet?</h4>
+            <p>Get our home-security tips and Edgward updates by email.</p>
+            <form class="email-form" id="email-capture" novalidate>
+              <input type="email" name="EMAIL" placeholder="you@email.ch" aria-label="Your email address" autocomplete="email" required>
+              <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="email-hp">
+              <button type="submit">Subscribe</button>
+            </form>
+            <p class="email-privacy">By subscribing, you agree to our <a href="/confidentialite">privacy policy</a>.</p>
+          </div>
+          <div class="email-success" id="email-capture-success" hidden>
+            <h4>Thank you!</h4>
+            <p>You're subscribed. We'll be in touch with useful security tips.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  const form = document.getElementById('email-capture') as HTMLFormElement | null;
+  const defaultBox = document.getElementById('email-capture-default');
+  const successBox = document.getElementById('email-capture-success');
+  const BREVO_ACTION = 'https://87714af1.sibforms.com/serve/MUIFAMrrWdxPBYrsJbVl3DEx2xLkeG0iVWB5XkCoCcZ22ARhk_U-AcqM-P-P1NLYOuD2EH-OCwsPhS2Wwh-tKXHv36Va4XMMimuN2LOwPbVFNIP6mpmrNr1rga5vuBAxweX_kAFYUbz6_lpfaMZREUftQYz6VOiO2LSXfcpcjqLFyrGdOBWBAfnvmeBotpNVxMQDfQSnDaVHxwYB';
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const honeypot = (form.elements.namedItem('email_address_check') as HTMLInputElement)?.value;
+    if (honeypot) return;
+    const input = form.querySelector('input[type="email"]') as HTMLInputElement;
+    const email = input.value.trim();
+    if (!input.validity.valid || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      input.focus();
+      input.reportValidity();
+      return;
+    }
+    const btn = form.querySelector('button') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    const params = new URLSearchParams();
+    params.append('EMAIL', email);
+    params.append('email_address_check', '');
+    params.append('locale', 'en');
+    fetch(BREVO_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params,
+      keepalive: true,
+    }).catch(() => {});
+    if (defaultBox) defaultBox.hidden = true;
+    if (successBox) {
+      successBox.hidden = false;
+      (successBox as HTMLElement).setAttribute('tabindex', '-1');
+      (successBox as HTMLElement).focus();
+    }
+  });
+</script>
+
+<style>
+  /* HERO */
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -200px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(70,120,220,0.1) 0%, transparent 70%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
+  .hero h1 { font-size: clamp(38px, 5vw, 58px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); letter-spacing: -0.01em; }
+  .hero p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-ctas { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  .store-btn { background: #000; border: 1px solid rgba(255,255,255,0.15); color: white; padding: 10px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.2s ease; }
+  .store-btn:hover { background: #1a1a1a; border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+  .store-txt { display: flex; flex-direction: column; line-height: 1.15; }
+  .store-sub { font-size: 10px; color: #94a3b8; }
+  .store-main { font-size: 14px; font-weight: 600; }
+  .hero-demo { display: inline-flex; align-items: center; gap: 7px; color: var(--brand-light); text-decoration: none; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
+  .hero-demo:hover { color: white; }
+  .hero-reassurance { font-size: 13px; color: #94a3b8; margin-bottom: 32px; }
+  .hero-audiences { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .audience-card { padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s ease; background: none; text-align: left; font-family: inherit; color: inherit; text-decoration: none; }
+  .audience-card:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+  .audience-card.active { background: var(--brand-soft); border-color: rgba(70,120,220,0.5); }
+  .audience-card.active .audience-title { color: var(--brand-light); }
+  .audience-title { font-size: 13px; font-weight: 600; color: white; margin-bottom: 3px; }
+  .audience-desc { font-size: 11px; color: #94a3b8; line-height: 1.4; }
+
+  /* HERO VISUAL */
+  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 440px; }
+  .ed-container { position: relative; width: 100%; max-width: 360px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
+  .ed-halo { position: absolute; top: 50%; left: 50%; width: 120%; height: 120%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--brand-glow) 0%, transparent 55%); pointer-events: none; }
+  .ed-rings { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 100%; aspect-ratio: 1; pointer-events: none; }
+  .ed-ring { position: absolute; top: 50%; left: 50%; border: 1.5px solid rgba(107,147,232,0.3); border-radius: 50%; transform: translate(-50%,-50%); animation: ring-pulse 3s ease-out infinite; }
+  .ed-ring:nth-child(1) { width: 60%; height: 60%; animation-delay: 0s; }
+  .ed-ring:nth-child(2) { width: 80%; height: 80%; animation-delay: 1s; }
+  .ed-ring:nth-child(3) { width: 100%; height: 100%; animation-delay: 2s; }
+
+  /* TRUST */
+  .trust { background: var(--soft); border-bottom: 1px solid var(--border); padding: 18px 0; }
+  .trust-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .trust-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .trust-logos { display: flex; gap: 32px; font-size: 15px; font-weight: 700; color: var(--text-light); letter-spacing: -0.02em; align-items: center; }
+  .trust-logos a { transition: color 0.2s ease; text-decoration: none; color: inherit; }
+  .trust-logos a:hover { color: var(--text); }
+  .trust-rating { font-size: 13px; color: var(--navy); font-weight: 600; }
+  .star { color: var(--brand); }
+
+  /* STEPS */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; position: relative; }
+  .steps::before { content: ''; position: absolute; top: 32px; left: 12%; right: 12%; height: 1px; background: linear-gradient(to right, transparent 0%, var(--border) 20%, var(--border) 80%, transparent 100%); z-index: 0; }
+  .step { background: white; padding: 8px; position: relative; z-index: 1; }
+  .step-num { width: 64px; height: 64px; background: var(--navy); color: var(--brand-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 400; margin: 0 auto 24px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; border: 3px solid white; box-shadow: 0 0 0 1px var(--border); }
+  .step h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; text-align: center; letter-spacing: -0.01em; }
+  .step p { font-size: 15px; color: var(--text-muted); line-height: 1.6; text-align: center; }
+  .steps-cta { text-align: center; margin-top: 40px; }
+
+  /* PRICING */
+  .pricing-section { background: var(--soft); }
+  .pricing-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; max-width: 980px; margin: 0 auto; }
+  .pricing-text h3 { font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.02em; line-height: 1.2; }
+  .pricing-text p { font-size: 15px; color: var(--text-muted); margin-bottom: 0; line-height: 1.6; }
+  .price-table { display: flex; flex-direction: column; gap: 0; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .price-row .label { font-size: 14px; color: var(--text-muted); }
+  .price-row .value { font-size: 16px; font-weight: 700; color: var(--navy); letter-spacing: -0.01em; }
+  .price-highlight { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: var(--brand-soft, rgba(70,120,220,0.08)); border-radius: 8px; margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--brand); }
+  .pricing-reassurance { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 24px; grid-column: 1 / -1; }
+
+  /* SORAL */
+  .soral { background: var(--navy); color: white; border-radius: var(--radius-lg); padding: 28px 36px; display: flex; align-items: center; gap: 24px; margin-bottom: 64px; position: relative; overflow: hidden; }
+  .soral::before { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .soral-ed { width: 90px; flex-shrink: 0; position: relative; z-index: 1; }
+  .soral-badge { background: var(--brand); color: white; padding: 4px 11px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: inline-block; margin-bottom: 8px; }
+  .soral-text { flex: 1; position: relative; z-index: 1; }
+  .soral-text h4 { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.015em; }
+  .soral-text p { font-size: 14px; color: #cbd5e1; line-height: 1.5; }
+  .soral-cta { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.3); padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: all 0.2s ease; flex-shrink: 0; position: relative; z-index: 1; }
+  .soral-cta:hover { background: white; color: var(--navy); }
+
+  /* PARTNERS */
+  .partners-title { text-align: center; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 24px; }
+  .partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+  .partner { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 16px; min-height: 84px; text-align: center; font-size: 13px; color: var(--text-muted); font-weight: 600; letter-spacing: -0.01em; transition: all 0.2s ease; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+  .partner:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .partner-logo { max-width: 100%; max-height: 44px; width: auto; height: auto; object-fit: contain; }
+  .partner-name { color: var(--text-muted); }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--soft); }
+  .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testimonial { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; transition: all 0.2s ease; }
+  .testimonial:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .testimonial-stars { color: var(--brand); font-size: 15px; letter-spacing: 2px; margin-bottom: 16px; }
+  .testimonial blockquote { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.45; color: var(--navy); margin-bottom: 22px; font-weight: 400; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--border); }
+  .testimonial-avatar { width: 40px; height: 40px; background: var(--navy); color: var(--brand-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .testimonial-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .testimonial-role { font-size: 12px; color: var(--text-muted); }
+
+  /* B2B */
+  .b2b-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .b2b-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 28px; display: flex; flex-direction: column; transition: all 0.2s ease; position: relative; }
+  .b2b-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .b2b-card.featured { border: 2px solid var(--brand); }
+  .b2b-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: -11px; left: 28px; background: var(--brand); color: white; padding: 4px 12px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; }
+  .b2b-eyebrow { font-size: 11px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 10px; }
+  .b2b-card h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.2; letter-spacing: -0.015em; }
+  .b2b-card p { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin-bottom: 24px; flex: 1; }
+  .b2b-features { list-style: none; margin-bottom: 24px; }
+  .b2b-features li { font-size: 13px; color: var(--text); padding: 6px 0 6px 22px; position: relative; }
+  .b2b-features li::before { content: ''; position: absolute; left: 0; top: 12px; width: 12px; height: 6px; border-left: 2px solid var(--brand); border-bottom: 2px solid var(--brand); transform: rotate(-45deg); }
+  .b2b-card .btn-primary, .b2b-card .btn-dark { width: 100%; justify-content: center; }
+
+  /* FINAL CTA */
+  .final-cta { background: var(--navy); color: white; padding: 88px 0; position: relative; overflow: hidden; }
+  .final-cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 900px; height: 900px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 55%); pointer-events: none; }
+  .final-grid { display: grid; grid-template-columns: auto 1fr 1.05fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+  .final-ed { width: 180px; filter: drop-shadow(0 12px 40px rgba(70,120,220,0.4)); }
+  .final-left h2 { font-size: clamp(28px, 3.2vw, 38px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: white; margin-bottom: 14px; }
+  .final-left h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .final-left p { font-size: 15px; color: #cbd5e1; margin-bottom: 24px; line-height: 1.6; }
+  .stores { display: flex; gap: 10px; flex-wrap: wrap; }
+  .store-btn { background: #000; border: 1px solid rgba(255,255,255,0.15); color: white; padding: 10px 18px; border-radius: 10px; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; }
+  .store-btn:hover { background: #1a1a1a; border-color: rgba(255,255,255,0.3); }
+  .store-btn .store-sub { font-size: 10px; color: #94a3b8; display: block; line-height: 1.2; }
+  .store-btn .store-main { font-size: 13px; font-weight: 600; display: block; line-height: 1.2; }
+  .email-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 24px; }
+  .email-card h4 { font-size: 16px; font-weight: 700; color: white; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .email-card p:not(.email-privacy) { font-size: 12px; color: #cbd5e1; margin-bottom: 14px; line-height: 1.5; }
+  .email-form { display: flex; gap: 8px; margin-bottom: 10px; }
+  .email-form input { flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 10px 12px; border-radius: 8px; font-size: 13px; font-family: inherit; outline: none; transition: border-color 0.2s ease; min-width: 0; }
+  .email-form input::placeholder { color: #94a3b8; }
+  .email-form input:focus { border-color: var(--brand); }
+  .email-form button { background: var(--brand); color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; white-space: nowrap; transition: all 0.2s ease; }
+  .email-form button:hover { background: var(--brand-dark); }
+  .email-form button:disabled { opacity: 0.7; cursor: default; }
+  .email-privacy { font-size: 11px; color: #64748b; }
+  .email-privacy a { color: #94a3b8; }
+  .email-privacy a:hover { color: white; }
+  .email-default[hidden], .email-success[hidden] { display: none; }
+  .email-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  @media (max-width: 1024px) {
+    .hero-grid, .pricing-card { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { min-height: 320px; order: -1; }
+    .final-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .final-ed { margin: 0 auto; width: 140px; }
+    .stores { justify-content: center; }
+    .b2b-grid, .testimonials, .steps { grid-template-columns: 1fr; }
+    .steps::before { display: none; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 24px 0 36px; }
+    .hero h1 { font-size: clamp(32px, 9vw, 42px); margin-bottom: 10px; }
+    .hero p { margin-bottom: 14px; }
+    .partners-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-audiences { grid-template-columns: 1fr; }
+    .soral { flex-direction: column; text-align: center; padding: 28px 24px; }
+    .soral-ed { width: 72px; }
+    .pricing-card { padding: 32px 24px; }
+    .trust-inner { flex-direction: column; gap: 12px; text-align: center; }
+    .trust-logos { flex-wrap: wrap; justify-content: center; gap: 20px; }
+  }
+  @media (max-width: 480px) {
+    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

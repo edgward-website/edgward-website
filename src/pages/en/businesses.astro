@@ -1,0 +1,218 @@
+---
+import Base from '../../layouts/Base.astro';
+import BenefitsGrid from '../../components/BenefitsGrid.astro';
+import PricingCard from '../../components/PricingCard.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import EdSonar from '../../components/EdSonar.astro';
+import { localize } from '../../i18n/routes';
+
+const L = (p: string) => localize(p, 'en');
+
+const useCases = [
+  {
+    eyebrow: 'Retail',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>',
+    title: 'Late closing, parcel delivered - agent needed',
+    description: "Handle unexpected situations with no fixed cost: night-time check, alarm verification, reassuring presence.",
+  },
+  {
+    eyebrow: 'Construction site',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 18h19"/><path d="M4 18v-1.5a8 8 0 0116 0V18"/><path d="M10 8.2V4.5a1 1 0 011-1h2a1 1 0 011 1v3.7"/><path d="M14 4.7a6.5 6.5 0 014 5.3M10 4.7a6.5 6.5 0 00-4 5.3"/></svg>',
+    title: 'Night-time surveillance without a permanent guard',
+    description: "Materials and equipment protected at night. Rapid intervention in the event of intrusion, with no fixed monthly cost.",
+  },
+  {
+    eyebrow: 'Office / SME',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+    title: 'Flexible security for your premises',
+    description: "Periodic patrols, post-alarm verification, secured reception at events. You choose, you activate.",
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Strangers in our garage in Belmont. Two agents responded. Better value than a conventional alarm connection.",
+    name: 'Mike K.',
+    role: 'Belmont VD - Garage manager',
+    initials: 'MK',
+    stars: 5,
+  },
+];
+
+const priceRows = [
+  { label: 'Subscription (annual basis)', value: 'CHF 12.50/month' },
+  { label: 'Intervention (average price per intervention)', value: '~CHF 105 - 170' },
+];
+---
+
+<Base
+  title="Businesses - On-demand professional security | Edgward"
+  description="Protect premises, construction sites and shops with Edgward. Multi-site, consolidated billing, intervention reporting. A flexible alternative to conventional remote monitoring."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Businesses & Alarm receiving centres</span>
+          <h1>Shops, premises and construction sites<br>protected <em>on demand</em></h1>
+          <p>Stop the fixed costs of remote monitoring. With Edgward, you activate security when you need it, on the sites that require it.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">
+              Request a quote
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href={L('/comment-ca-marche')} class="btn-secondary">Learn more</a>
+          </div>
+          <p class="hero-reassurance">No installation · No long-term commitment · From CHF 15/month per site</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <EdSonar />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section" id="usages">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Use cases"
+        title="Three situations where Edgward <em>makes the difference </em>"
+        subtitle="Shop, construction site, office - a single solution for all your security needs."
+      />
+      <BenefitsGrid benefits={useCases} cols={3} />
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing-section" id="tarifs">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Pricing"
+        title="A <em>reasonable</em> investment"
+        subtitle="Subscription per site + only the interventions you actually trigger. No surprises."
+      />
+      <PricingCard
+        headline="Pricing on request, based on volume"
+        description="No CHF 2,000-6,000 installation as with conventional remote monitoring. No long-term commitment. You pay the platform subscription + the interventions you trigger."
+        ctaLabel="Request a quote"
+        ctaHref="#contact"
+        priceRows={priceRows}
+        highlight={{ label: 'Saving vs. remote monitoring', value: 'CHF 2,000-6,000' }}
+      />
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Testimonials"
+        title="What our <em>professional clients</em> say"
+      />
+      <Testimonials items={testimonials} />
+    </div>
+  </section>
+
+{/*
+<!-- ALARM RECEIVING CENTRES -->
+  <section class="section centrales-section" id="centrales">
+    <div class="container">
+      <div class="centrale-block fade-in">
+        <div class="centrale-content">
+          <span class="eyebrow">Alarm receiving centres</span>
+          <h2>Delegate your alarm verifications <em>in a single email</em></h2>
+          <p>Integration via structured email: dispatch an Edgward agent from your existing platform, with no software surcharge or bespoke development.</p>
+          <ul class="centrale-features">
+            <li>Integration with no additional development</li>
+            <li>Full coverage of French-speaking Switzerland</li>
+            <li>Billing per intervention</li>
+            <li>Automatic intervention report</li>
+          </ul>
+          <a href="#contact" class="btn-primary">
+            Discover the integration
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="centrale-visual">
+          <div class="email-demo">
+            <div class="email-demo-header">
+              <div class="email-demo-dot"></div>
+              <div class="email-demo-dot"></div>
+              <div class="email-demo-dot"></div>
+            </div>
+            <div class="email-demo-body">
+              <div class="email-line"><strong>From:</strong> centrale@securite.ch</div>
+              <div class="email-line"><strong>To:</strong> dispatch@edgward.ch</div>
+              <div class="email-line email-subject"><strong>Subject:</strong> ALARM VERIFICATION - Alarm Zone A</div>
+              <div class="email-content">
+                <div class="email-badge">Dispatched ✓</div>
+                <p>Agent assigned · ETA 12 min</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+*/}
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Contact"
+        title="Our team usually replies <em>within 24h</em>"
+        subtitle="Our team replies within 24h with a tailored offer."
+      />
+      <ContactForm defaultSubject="Business" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-eyebrow { display: inline-block; font-size: 12px; color: var(--brand-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; opacity: 0.8; }
+  .hero h1 { font-size: clamp(36px, 4.5vw, 54px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-ctas { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  .hero-reassurance { font-size: 13px; color: #94a3b8; }
+  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 400px; }
+  .benefits-section { background: var(--soft); }
+  .pricing-section { background: var(--soft); }
+  .testimonials-section { background: white; }
+  .centrales-section { background: var(--navy); }
+  .centrale-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; color: white; }
+  .eyebrow { display: inline-block; font-size: 12px; color: var(--brand-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .centrale-content h2 { font-size: clamp(26px, 3vw, 36px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; color: white; }
+  .centrale-content h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .centrale-content p { font-size: 15px; color: #cbd5e1; line-height: 1.6; margin-bottom: 20px; }
+  .centrale-features { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
+  .centrale-features li { font-size: 14px; color: #cbd5e1; padding-left: 22px; position: relative; }
+  .centrale-features li::before { content: ''; position: absolute; left: 0; top: 6px; width: 12px; height: 6px; border-left: 2px solid var(--brand-light); border-bottom: 2px solid var(--brand-light); transform: rotate(-45deg); }
+  .email-demo { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 24px; }
+  .email-demo-header { display: flex; gap: 6px; margin-bottom: 16px; }
+  .email-demo-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+  .email-demo-body { display: flex; flex-direction: column; gap: 8px; }
+  .email-line { font-size: 12px; color: #94a3b8; font-family: monospace; }
+  .email-line strong { color: #cbd5e1; }
+  .email-subject { color: white; }
+  .email-content { margin-top: 12px; padding: 12px; background: rgba(70,120,220,0.15); border-radius: 8px; border: 1px solid rgba(70,120,220,0.3); }
+  .email-badge { display: inline-block; background: var(--brand); color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-bottom: 6px; }
+  .email-content p { font-size: 12px; color: #94a3b8; margin: 0; }
+  .contact-section { background: white; }
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { min-height: 340px; order: -1; }
+    .centrale-block { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+  }
+</style>

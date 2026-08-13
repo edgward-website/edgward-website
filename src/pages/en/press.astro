@@ -1,0 +1,126 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import MediaCard from '../../components/MediaCard.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+
+const articles = [
+  {
+    mediaName: 'RTS',
+    date: 'July 2024',
+    excerpt: "A Geneva-based app offers security on demand, bringing a security agent to the scene within minutes via a mobile app.",
+    url: 'https://www.rts.ch/info/suisse/2024/article/une-app-pour-un-service-de-securite-sur-demande-l-innovation-d-une-societe-genevoise-28584537.html',
+    type: 'article',
+  },
+  {
+    mediaName: 'Léman Bleu',
+    date: 'July 2024',
+    excerpt: "A Geneva-based platform aims to reshape private security by connecting individuals and businesses directly with licensed security firms.",
+    url: 'https://www.lemanbleu.ch/fr/Actualites/Geneve/Une-plateforme-genevoise-veut-revolutionner-la-securite-privee.html',
+    type: 'video',
+  },
+  {
+    mediaName: 'Tribune de Genève',
+    date: 'January 2025',
+    excerpt: "The municipality of Soral has signed a partnership with Edgward, a private security-on-demand app. A first in Switzerland for a municipality.",
+    url: 'https://www.tdg.ch/geneve-soral-collabore-avec-une-societe-de-securite-privee-806996337368',
+    type: 'article',
+  },
+  {
+    mediaName: 'Radio Lac',
+    date: 'February 2025',
+    excerpt: "What if the future of private security lay in security on demand? Edgward offers an innovative alternative to conventional remote-monitoring systems.",
+    url: 'https://www.radiolac.ch/publireportage/et-si-le-futur-passait-par-la-securite-a-la-demande/',
+    type: 'radio',
+  },
+];
+---
+
+<Base
+  title="Press room - Edgward in the media"
+  description="All of Edgward's appearances in the press. Tribune de Genève, RTS, 24heures, Léman Bleu and more."
+>
+  <PageHero
+    eyebrow="Press room"
+    title="Edgward in <em>the media</em>"
+    subtitle="Our appearances in the press and the stories that feature Edgward."
+    maxWidth="560px"
+  />
+
+  <!-- MEDIA CARDS -->
+  <section class="section media-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Press coverage"
+        title="They talk about <em>us</em>"
+      />
+      <div class="media-grid">
+        {articles.map(article => (
+          <MediaCard
+            mediaName={article.mediaName}
+            date={article.date}
+            excerpt={article.excerpt}
+            url={article.url}
+            type={article.type as 'article' | 'radio' | 'video'}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS CONTACT -->
+  <section class="section press-contact-section">
+    <div class="container">
+      <div class="press-block fade-in">
+        <h3>Press contact</h3>
+        <p>For any interview request, visuals or additional information</p>
+        <a href="mailto:info@edgward.ch" class="press-email">info@edgward.ch</a>
+        <p class="press-kit-note">Media kit available on request (logos, photos, founder biographies).</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .media-section { background: white; }
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* PRESS CONTACT */
+  .press-contact-section { background: var(--soft); }
+  .press-block {
+    max-width: 600px; margin: 0 auto;
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 36px;
+    text-align: center;
+  }
+  .press-block h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .press-block > p { font-size: 15px; color: var(--text-muted); margin-bottom: 16px; }
+  .press-email {
+    display: inline-block;
+    font-size: 18px; font-weight: 700;
+    color: var(--brand); text-decoration: none;
+    margin-bottom: 28px;
+    transition: color 0.15s ease;
+  }
+  .press-email:hover { color: var(--brand-dark); }
+  .press-kit-note { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+  .press-assets { text-align: center; }
+  .assets-label { display: block; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 12px; }
+  .assets-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .tag {
+    background: var(--soft); border: 1px solid var(--border);
+    border-radius: 100px; padding: 6px 14px;
+    font-size: 12px; color: var(--text-muted); font-weight: 500;
+  }
+
+  @media (max-width: 1024px) {
+    .media-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .media-grid { grid-template-columns: 1fr; }
+  }
+</style>

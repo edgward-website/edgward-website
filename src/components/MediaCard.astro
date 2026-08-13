@@ -1,4 +1,6 @@
 ---
+import { getLangFromUrl } from '../i18n/ui';
+
 interface Props {
   mediaName: string;
   date: string;
@@ -10,11 +12,12 @@ interface Props {
 
 const { mediaName, date, excerpt, url, logo, type = 'article' } = Astro.props;
 
-const cta = {
-  article: 'Lire l\'article',
-  radio: 'Écouter le podcast',
-  video: 'Voir l\'émission',
-}[type];
+const lang = getLangFromUrl(Astro.url);
+const ctaLabels = {
+  fr: { article: "Lire l'article", radio: 'Écouter le podcast', video: "Voir l'émission" },
+  en: { article: 'Read the article', radio: 'Listen to the podcast', video: 'Watch the segment' },
+};
+const cta = ctaLabels[lang][type];
 ---
 
 <article class="media-card">

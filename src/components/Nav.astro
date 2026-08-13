@@ -1,21 +1,20 @@
 ---
-const currentPath = Astro.url.pathname;
+import { getLangFromUrl, ui } from '../i18n/ui';
+import { localize, getSwitchTarget } from '../i18n/routes';
 
-const links = [
-  { href: '/particuliers', label: 'Particuliers' },
-  { href: '/entreprises', label: 'Entreprises' },
-  { href: '/communes', label: 'Communes' },
-  { href: '/alertes', label: 'Alertes' },
-  { href: '/edgward-en-suisse', label: 'Notre couverture' },
-  { href: '/qui-sommes-nous', label: 'Qui sommes-nous' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/blog', label: 'Blog' },
-];
+const currentPath = Astro.url.pathname;
+const lang = getLangFromUrl(Astro.url);
+const t = ui[lang];
+
+const links = t.nav.links.map((l) => ({ href: localize(l.href, lang), label: l.label }));
+const homeHref = lang === 'en' ? '/en' : '/';
+const ctaHref = t.nav.ctaHref;
+const switchTarget = getSwitchTarget(currentPath, lang === 'fr' ? 'en' : 'fr');
 ---
 
 <nav class="nav" id="nav" aria-label="Navigation principale">
   <div class="nav-inner">
-    <a href="/" class="logo">
+    <a href={homeHref} class="logo">
       <img src="/assets/sigle.png" alt="" width="36" height="36">
       <img class="logo-wordmark" src="/assets/wordmark-edgward.png" alt="Edgward" height="19">
     </a>
@@ -31,17 +30,28 @@ const links = [
           </a>
         </li>
       ))}
+      <li class="nav-lang-mobile">
+        <a href={switchTarget} class="lang-switch" hreflang={lang === 'fr' ? 'en' : 'fr'} aria-label={t.nav.switchAria}>{t.nav.switchTo}</a>
+      </li>
       <li class="nav-links-cta">
-        <a href="/#telecharger" class="mobile-cta">Télécharger l'app</a>
+        <a href={ctaHref} class="mobile-cta">{t.nav.cta}</a>
       </li>
     </ul>
 
-    <a href="/#telecharger" class="nav-cta">Télécharger l'app</a>
+    <div class="nav-right">
+      <a href={switchTarget} class="lang-switch nav-lang-desktop" hreflang={lang === 'fr' ? 'en' : 'fr'} aria-label={t.nav.switchAria}>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        {t.nav.switchTo}
+      </a>
+      <a href={ctaHref} class="nav-cta">{t.nav.cta}</a>
+    </div>
 
     <button
       class="burger"
       id="burger"
-      aria-label="Ouvrir le menu"
+      aria-label={t.nav.openMenu}
+      data-open-label={t.nav.openMenu}
+      data-close-label={t.nav.closeMenu}
       aria-expanded="false"
       aria-controls="nav-links"
     >
@@ -56,10 +66,13 @@ const links = [
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('nav-links');
 
+  const openLabel = burger?.getAttribute('data-open-label') || 'Open menu';
+  const closeLabel = burger?.getAttribute('data-close-label') || 'Close menu';
+
   burger?.addEventListener('click', () => {
     const isOpen = burger.getAttribute('aria-expanded') === 'true';
     burger.setAttribute('aria-expanded', String(!isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+    burger.setAttribute('aria-label', isOpen ? openLabel : closeLabel);
     navLinks?.classList.toggle('open');
   });
 
@@ -67,7 +80,7 @@ const links = [
   document.addEventListener('click', (e) => {
     if (!burger?.contains(e.target as Node) && !navLinks?.contains(e.target as Node)) {
       burger?.setAttribute('aria-expanded', 'false');
-      burger?.setAttribute('aria-label', 'Ouvrir le menu');
+      burger?.setAttribute('aria-label', openLabel);
       navLinks?.classList.remove('open');
     }
   });
@@ -123,6 +136,22 @@ const links = [
   .nav-links a:hover,
   .nav-links a.active { color: var(--brand); }
 
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color 0.15s ease;
+  }
+  .lang-switch:hover { color: var(--brand); }
+  .lang-switch svg { opacity: 0.7; }
+
   .nav-cta {
     background: var(--brand);
     color: white;
@@ -135,6 +164,8 @@ const links = [
     box-shadow: 0 1px 2px rgba(70,120,220,0.2);
   }
   .nav-cta:hover { background: var(--brand-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(70,120,220,0.3); }
+
+  .nav-lang-mobile { display: none; }
 
   .burger {
     display: none;
@@ -158,8 +189,15 @@ const links = [
   .nav-links-cta { display: none; }
 
   @media (max-width: 768px) {
-    .nav-cta { display: none; }
+    .nav-right { display: none; }
     .burger { display: block; }
+    .nav-lang-mobile { display: list-item; }
+    .nav-lang-mobile .lang-switch {
+      display: block;
+      padding: 12px 0;
+      font-size: 16px;
+      border-bottom: 1px solid var(--border);
+    }
 
     .nav-links {
       display: none;

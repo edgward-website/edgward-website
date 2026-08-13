@@ -1,0 +1,257 @@
+---
+import Base from '../../layouts/Base.astro';
+import BenefitsGrid from '../../components/BenefitsGrid.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import EdSonar from '../../components/EdSonar.astro';
+import { localize } from '../../i18n/routes';
+
+const L = (p: string) => localize(p, 'en');
+
+const benefits = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>',
+    title: 'No hardware to install',
+    description: "No wiring, no equipment to buy or maintain. The app is your only tool.",
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
+    title: 'Network of certified agents',
+    description: 'Licensed firms, selected for their responsiveness and professionalism.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16l-2.5-1.6L14 21l-2-1.6L10 21l-2.5-1.6z"/><path d="M9 13l2 2 4-4"/></svg>',
+    title: '100% transparent pricing',
+    description: 'CHF 15/month subscription. Interventions billed on demand only.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+    title: 'No commitment',
+    description: 'Cancel any time. No contract locked in over time, no cancellation fees.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+    title: '24/7 coverage',
+    description: 'Partner agents respond at any hour, weekends and public holidays included.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
+    title: 'Report after every intervention',
+    description: 'You receive a detailed account of each intervention directly in the app.',
+  },
+];
+
+const services = [
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+    title: 'Security patrol',
+    description: 'An agent comes to check your home, second home or premises at a time of your choosing.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+    title: 'Home check',
+    description: 'Away and something worries you? An agent goes on site to check and report back to you.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>',
+    title: 'Alarm verification',
+    description: 'Alarm triggered, a suspicious noise? An agent responds to identify the cause and secure the premises.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
+    title: 'Reassuring presence',
+    description: 'For an evening, a weekend, or any time you want a reassuring presence nearby.',
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Very fast response, and the agent called me once he arrived on site to reassure me. The professionalism of a real security firm, the simplicity of an app.",
+    name: 'Hélène T.',
+    role: 'Cologny GE',
+    initials: 'HT',
+    stars: 5,
+  },
+  {
+    quote: "I was afraid something had happened to my dog, so I requested an intervention. More fright than harm, in the end - the agent was quick and reassuring.",
+    name: 'Sandy C.',
+    role: 'Carouge GE',
+    initials: 'SC',
+    stars: 5,
+  },
+];
+---
+
+<Base
+  title="Individuals - On-demand home security | Edgward"
+  description="Protect your home and your loved ones with Edgward. A certified security agent at your door in under 20 minutes, 24/7. From CHF 15/month, no commitment."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Available across French-speaking Switzerland
+          </div>
+          <h1>Your home, your loved ones,<br>protected <em>24/7</em></h1>
+          <p>Not sure? Something worrying you? Request a professional security agent in seconds. No installation, no commitment.</p>
+          <div class="hero-ctas">
+            <a href="#download" class="btn-primary">
+              Download the app
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href={L('/comment-ca-marche')} class="btn-secondary">
+              How it works
+            </a>
+          </div>
+          <p class="hero-reassurance">1-month free trial · Cancel any time · From CHF 15/month</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <EdSonar />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <TrustBar />
+
+  <!-- BENEFITS -->
+  <section class="section" id="avantages">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Why Edgward"
+        title="Security that adapts to <em>your life</em>"
+        subtitle="No installation. No commitment. Just a network of professional agents available 24/7 on demand."
+      />
+      <BenefitsGrid benefits={benefits} cols={3} />
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Our services"
+        title="What you can <em>book</em>"
+      />
+      <BenefitsGrid benefits={services} cols={2} />
+    </div>
+  </section>
+
+  <!-- ALERT TOOL CTA -->
+  <section class="section alert-section" id="newsfeed">
+    <div class="container">
+      <div class="alert-block fade-in">
+        <div class="alert-content">
+          <span class="alert-eyebrow">New</span>
+          <h2>The alert feed for <em>your neighbourhood</em></h2>
+          <p>Stay informed about incidents reported near you with Edgward alerts. A watch on security events to help you anticipate risks.</p>
+          <a href={L('/alertes')} class="btn-primary">
+            Discover the alerts
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="alert-visual" aria-hidden="true">
+          <div class="alert-mockup">
+            <div class="alert-item">
+              <div class="alert-dot alert-dot--orange"></div>
+              <div class="alert-text">
+                <strong>Burglary reported</strong>
+                <span>Chemin des Acacias · 2h ago</span>
+              </div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-dot alert-dot--red"></div>
+              <div class="alert-text">
+                <strong>Suspicious vehicle</strong>
+                <span>Route de Chêne · 4h ago</span>
+              </div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-dot alert-dot--yellow"></div>
+              <div class="alert-text">
+                <strong>Attempted break-in</strong>
+                <span>Rue du Rhône · 6h ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Testimonials"
+        title="They <em>trust</em> Edgward"
+      />
+      <Testimonials items={testimonials} />
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <FinalCTA
+    title="Protect your home <em>today</em>"
+    description="Download Edgward and get a one-month free trial. Cancel any time."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  /* HERO */
+  .hero { background: var(--navy); color: white; padding: 72px 0 56px; overflow: hidden; position: relative; }
+  .hero::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-soft); color: var(--brand-light); padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; border: 1px solid rgba(70,120,220,0.3); margin-bottom: 22px; }
+  .hero-badge-dot { width: 7px; height: 7px; background: var(--brand-light); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.2); } }
+  .hero h1 { font-size: clamp(38px, 5vw, 58px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 20px; color: white; }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero-content > p { font-size: 17px; line-height: 1.6; color: #cbd5e1; margin-bottom: 30px; max-width: 520px; }
+  .hero-ctas { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  .hero-reassurance { font-size: 13px; color: #94a3b8; }
+  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 440px; }
+
+  /* SERVICES */
+  .services-section { background: var(--soft); }
+
+  /* ALERT SECTION */
+  .alert-section { background: white; }
+  .alert-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; background: var(--navy); border-radius: var(--radius-lg); padding: 48px; position: relative; overflow: hidden; }
+  .alert-block::before { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%); pointer-events: none; }
+  .alert-content { position: relative; z-index: 1; color: white; }
+  .alert-eyebrow { display: inline-block; font-size: 11px; color: var(--brand-light); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; background: var(--brand-soft); padding: 4px 10px; border-radius: 100px; border: 1px solid rgba(70,120,220,0.3); }
+  .alert-content h2 { font-size: clamp(24px, 2.5vw, 34px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 14px; color: white; }
+  .alert-content h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .alert-content p { font-size: 15px; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px; }
+  .alert-visual { position: relative; z-index: 1; }
+  .alert-mockup { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .alert-item { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 12px; }
+  .alert-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .alert-dot--red { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.5); }
+  .alert-dot--orange { background: #f97316; box-shadow: 0 0 8px rgba(249,115,22,0.5); }
+  .alert-dot--yellow { background: #eab308; box-shadow: 0 0 8px rgba(234,179,8,0.5); }
+  .alert-text { display: flex; flex-direction: column; gap: 2px; }
+  .alert-text strong { font-size: 13px; color: white; font-weight: 600; }
+  .alert-text span { font-size: 11px; color: #94a3b8; }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--soft); }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { min-height: 360px; order: -1; }
+    .alert-block { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero { padding: 48px 0 40px; }
+  }
+</style>

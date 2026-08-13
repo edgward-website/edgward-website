@@ -1,69 +1,72 @@
 ---
-import Base from '../layouts/Base.astro';
-import PartnerDetailCard from '../components/PartnerDetailCard.astro';
-import SectionHeader from '../components/SectionHeader.astro';
+import Base from '../../layouts/Base.astro';
+import PartnerDetailCard from '../../components/PartnerDetailCard.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { localize } from '../../i18n/routes';
+
+const L = (p: string) => localize(p, 'en');
 
 const partners = [
   {
     name: 'SPS - Global Sécurité',
-    zone: 'Arc lémanique',
-    description: "Acteur reconnu de la sécurité humaine, Global Sécurité propose surveillance, contrôles d'accès et interventions rapides sur l'Arc lémanique. Disponible 24h/24.",
+    zone: 'Lake Geneva region',
+    description: "A recognised name in manned security, Global Sécurité offers surveillance, access control and rapid intervention across the Lake Geneva region. Available 24/7.",
     siteUrl: 'https://global-securite.ch/',
     logo: '/assets/partners/global-securite.png',
   },
   {
     name: 'GPA SA',
-    zone: 'Suisse romande',
-    description: "Acteur incontournable de la sécurité en Suisse romande. Intervient 24h/24, spécialisé dans la surveillance mobile et l'intervention rapide sur l'ensemble du territoire romand.",
+    zone: 'French-speaking Switzerland',
+    description: "A leading security firm in French-speaking Switzerland. Operating 24/7, it specialises in mobile patrols and rapid intervention across the whole region.",
     siteUrl: 'https://www.gpa.ch/',
     logo: '/assets/partners/gpa.png',
   },
   {
     name: 'Python Sécurité SA',
-    zone: 'Genève (20+ ans d\'expérience)',
-    description: "Plus de 20 ans d'expertise à Genève. Python Sécurité offre des solutions sur mesure : surveillance de sites, intervention mobile et gestion des accès pour particuliers et entreprises.",
+    zone: 'Geneva (20+ years\' experience)',
+    description: "More than 20 years of expertise in Geneva. Python Sécurité provides tailored solutions: site surveillance, mobile intervention and access management for individuals and businesses.",
     siteUrl: 'https://python-securite.ch/',
     logo: '/assets/partners/python.png',
   },
   {
     name: 'Sécurice',
     zone: 'Neuchâtel',
-    description: "Spécialiste de la sécurité dans le canton de Neuchâtel. Sécurice assure rondes de surveillance, intervention 24/7 et protection des biens pour les particuliers et les entreprises.",
+    description: "A security specialist in the canton of Neuchâtel. Sécurice provides patrol rounds, 24/7 intervention and property protection for individuals and businesses.",
     siteUrl: 'https://www.securice.ch/',
     logo: '/assets/partners/securice.png',
   },
   {
     name: 'Juggers',
     zone: 'Vaud',
-    description: "Entreprise de sécurité active sur Genève et Vaud. Juggers intervient rapidement pour des missions de surveillance, gardiennage et sécurité événementielle.",
+    description: "A security firm active in Geneva and Vaud. Juggers responds quickly for surveillance, guarding and event security assignments.",
     siteUrl: 'https://www.juggers.ch/',
     logo: '/assets/partners/juggers.png',
   },
   {
     name: 'Alpshawk',
     zone: 'Valais',
-    description: "Basée dans le canton du Valais, Alpshawk assure des prestations de sécurité sur mesure : rondes, interventions et surveillance pour particuliers et professionnels.",
+    description: "Based in the canton of Valais, Alpshawk provides tailored security services: patrol rounds, intervention and surveillance for individuals and professionals.",
     siteUrl: 'https://www.alpshawk.ch/',
     logo: '/assets/partners/alpshawk.png',
   },
   {
     name: 'Wolfguard',
     zone: 'Vaud',
-    description: "Spécialiste de la sécurité dans le canton de Vaud, Wolfguard propose gardiennage, rondes de surveillance et interventions rapides pour la protection des biens et des personnes.",
+    description: "A security specialist in the canton of Vaud, Wolfguard offers guarding, patrol rounds and rapid intervention to protect property and people.",
     siteUrl: 'https://www.wolfguard.ch/',
     logo: '/assets/partners/wolfguard.png',
   },
   {
     name: 'Roc Sécurité',
     zone: 'Valais',
-    description: "Entreprise valaisanne de sécurité privée. Roc Sécurité offre des services de surveillance, d'intervention et de protection adaptés aux besoins du canton.",
+    description: "A Valais-based private security firm. Roc Sécurité offers surveillance, intervention and protection services suited to the canton's needs.",
     siteUrl: 'https://www.rocsecurite.ch/',
     logo: '/assets/partners/roc-securite.png',
   },
   {
     name: 'KRK Security',
-    zone: 'Genève',
-    description: "Active à Genève, KRK Security assure gardiennage, patrouilles et interventions pour sécuriser commerces, entreprises et particuliers.",
+    zone: 'Geneva',
+    description: "Active in Geneva, KRK Security provides guarding, patrols and intervention to secure shops, businesses and individuals.",
     siteUrl: 'https://krksecurity.ch/',
     logo: '/assets/partners/krk.png',
   },
@@ -71,16 +74,16 @@ const partners = [
 ---
 
 <Base
-  title="Partenaires sécurité - Réseau Edgward en Suisse romande"
-  description="Découvrez les 9 entreprises de sécurité partenaires d'Edgward en Suisse romande. Agréées, certifiées, disponibles 24h/24 sur Genève, Vaud et Valais."
+  title="Security partners - Edgward network in French-speaking Switzerland"
+  description="Discover Edgward's 9 partner security firms in French-speaking Switzerland. Licensed, accredited and available 24/7 across Geneva, Vaud and Valais."
 >
   <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-inner">
-        <span class="hero-eyebrow">Réseau partenaires</span>
-        <h1>Des entreprises de sécurité <em>à votre service</em></h1>
-        <p>Edgward s'appuie sur un réseau sélectionné d'entreprises de sécurité agréées en Suisse romande. Toutes sont soumises aux mêmes exigences de qualité et de réactivité.</p>
+        <span class="hero-eyebrow">Partner network</span>
+        <h1>Security firms <em>at your service</em></h1>
+        <p>Edgward relies on a selected network of licensed security firms across French-speaking Switzerland. All are held to the same standards of quality and responsiveness.</p>
       </div>
     </div>
   </section>
@@ -89,9 +92,9 @@ const partners = [
   <section class="section partners-section">
     <div class="container">
       <SectionHeader
-        eyebrow="Nos partenaires"
-        title="Des entreprises <em>sélectionnées et certifiées</em>"
-        subtitle="Chaque partenaire Edgward est audité sur ses qualifications, ses temps de réponse et la satisfaction de ses clients."
+        eyebrow="Our partners"
+        title="Firms that are <em>selected and accredited</em>"
+        subtitle="Every Edgward partner is audited on its qualifications, its response times and its customer satisfaction."
       />
       <div class="partners-grid">
         {partners.map(p => (
@@ -111,59 +114,59 @@ const partners = [
   <section class="section criteria-section">
     <div class="container">
       <SectionHeader
-        eyebrow="Critères de sélection"
-        title="Comment nous sélectionnons <em>nos partenaires</em>"
+        eyebrow="Selection criteria"
+        title="How we select <em>our partners</em>"
       />
       <div class="criteria-grid">
         <div class="criterion fade-in">
           <div class="criterion-num">01</div>
-          <h3>Agrément cantonal</h3>
-          <p>Toutes les entreprises partenaires sont agréées par les autorités cantonales compétentes et respectent la réglementation sur les agents de sécurité privés.</p>
+          <h3>Cantonal licence</h3>
+          <p>All partner firms are licensed by the relevant cantonal authorities and comply with the regulations governing private security agents.</p>
         </div>
         <div class="criterion fade-in">
           <div class="criterion-num">02</div>
-          <h3>Temps de réponse</h3>
-          <p>Chaque partenaire est évalué sur sa capacité à répondre aux demandes en moins de 20 minutes en zone urbaine. Les temps réels sont affichés dans l'application.</p>
+          <h3>Response time</h3>
+          <p>Each partner is assessed on its ability to respond to requests in under 20 minutes in urban areas. Actual times are shown in the app.</p>
         </div>
         <div class="criterion fade-in">
           <div class="criterion-num">03</div>
-          <h3>Satisfaction clients</h3>
-          <p>Chaque intervention est notée par l'utilisateur. Un score insuffisant entraîne un audit et peut conduire à la suspension du partenaire.</p>
+          <h3>Customer satisfaction</h3>
+          <p>Every intervention is rated by the user. An insufficient score triggers an audit and may lead to the partner's suspension.</p>
         </div>
         <div class="criterion fade-in">
           <div class="criterion-num">04</div>
-          <h3>Formation continue</h3>
-          <p>Les agents doivent justifier d'une formation à jour, incluant les premiers secours, la gestion de conflits et les procédures Edgward.</p>
+          <h3>Ongoing training</h3>
+          <p>Agents must show evidence of up-to-date training, including first aid, conflict management and Edgward procedures.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA DEVENIR PARTENAIRE -->
+  <!-- CTA BECOME A PARTNER -->
   <section class="section become-section">
     <div class="container">
       <div class="become-block fade-in">
         <div class="become-content">
-          <span class="become-eyebrow">Vous êtes une entreprise de sécurité ?</span>
-          <h2>Rejoignez le réseau <em>Edgward</em></h2>
-          <p>Accédez à de nouvelles sources de missions qualifiées sans investissement commercial. Notre plateforme vous connecte directement avec des clients vérifiés.</p>
-          <a href="/entreprises-securite" class="btn-primary">
-            Devenir partenaire
+          <span class="become-eyebrow">Are you a security firm?</span>
+          <h2>Join the <em>Edgward</em> network</h2>
+          <p>Access new sources of qualified assignments with no commercial outlay. Our platform connects you directly with verified clients.</p>
+          <a href={L('/entreprises-securite')} class="btn-primary">
+            Become a partner
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
         <div class="become-stats">
           <div class="become-stat">
             <strong>9+</strong>
-            <span>partenaires actifs</span>
+            <span>active partners</span>
           </div>
           <div class="become-stat">
             <strong>240+</strong>
-            <span>clients Edgward</span>
+            <span>Edgward clients</span>
           </div>
           <div class="become-stat">
             <strong>&lt;20 min</strong>
-            <span>temps moyen</span>
+            <span>average time</span>
           </div>
         </div>
       </div>

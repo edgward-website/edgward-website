@@ -1,0 +1,182 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import ContactForm from '../../components/ContactForm.astro';
+
+const faqCategories = [
+  {
+    category: 'Individuals',
+    items: [
+      {
+        question: 'How much does Edgward cost?',
+        answer: 'The platform subscription is CHF 15/month (or CHF 150/year). It gives you access to our network of partner security firms. Interventions are billed separately: roughly CHF 105 to 170 per intervention (price set by our partners).',
+      },
+      {
+        question: 'Which areas are covered?',
+        answer: 'Edgward is currently fully available in the cantons of Geneva, Vaud and Neuchâtel. The cantons of Fribourg and Valais are partially covered.',
+      },
+      {
+        question: 'Do I need to install any equipment or an alarm system?',
+        answer: 'No. Edgward works entirely through the mobile app. No physical installation, no wiring, no equipment to buy. The app is free to download on the App Store and Google Play.',
+      },
+      {
+        question: 'What happens in a life-threatening emergency - should I call the police or Edgward?',
+        answer: 'In a life-threatening emergency (an assault in progress, a fire, a medical emergency), always call 117 (police), 118 (fire) or 144 (ambulance) first. Edgward complements the emergency services, it does not replace them. Edgward agents handle situations that do not require the emergency services.',
+      },
+      {
+        question: 'Can I cancel at any time?',
+        answer: 'Yes. The monthly subscription can be cancelled at any time, with no fee and no notice period. The annual subscription can be cancelled at its renewal date. No minimum term, no cancellation fee.',
+      },
+    ],
+  },
+  {
+    category: 'Businesses',
+    items: [
+      {
+        question: 'Is there preferential pricing for large volumes?',
+        answer: 'Yes. Businesses with several sites or a high volume of interventions benefit from tailored terms. Get in touch via the business form to receive a quote suited to your organisation.',
+      },
+      {
+        question: 'Can several sites be managed under a single account?',
+        answer: 'Yes. The business platform lets you manage several addresses under one account (currently up to 2 sites).',
+      },
+      {
+        question: 'How is billing handled for a business?',
+        answer: 'The invoice for each intervention is available directly in your app. Your invoices can be found in your account area and exported as PDF.',
+      },
+      {
+        question: 'Is there reporting on interventions?',
+        answer: 'Yes. Every intervention automatically generates a time-stamped report with the agent number, the arrival and departure times, and their observations. These reports are available in your account area and can be exported as PDF.',
+      },
+    ],
+  },
+  {
+    category: 'Municipalities',
+    items: [
+      {
+        question: 'How does a municipal partnership work?',
+        answer: 'The municipality signs an agreement with Edgward setting the subsidy per resident and the eligibility criteria. Residents sign up directly in the app - the municipality handles no intervention operations. A municipal dashboard provides monthly budget tracking.',
+      },
+      {
+        question: 'What is the cost for the municipality?',
+        answer: 'The standard model is generally a subsidy of CHF 50 per resident per year. Edgward only bills what is actually used. The municipality can commit to a maximum amount negotiated with our sales team.',
+      },
+      {
+        question: 'Does any equipment need to be installed in municipal buildings?',
+        answer: 'No. Edgward is a 100% software solution. No infrastructure to deploy, no equipment to buy or maintain. Setup takes just a few days.',
+      },
+      {
+        question: 'How do we communicate the service to residents?',
+        answer: 'Edgward provides a complete communication kit: a letter to residents, a town-hall poster, an FAQ and a web banner. Our team supports you at launch and stays available for questions.',
+      },
+    ],
+  },
+  {
+    category: 'Security & privacy',
+    items: [
+      {
+        question: 'Is my personal data shared?',
+        answer: 'Your data (address, access instructions) is only passed to the agent at the moment an intervention is triggered. It is never shared between agents, nor sold to third parties. Edgward complies with the GDPR and the Swiss Data Protection Act (FADP).',
+      },
+      {
+        question: 'How are the available patrols selected?',
+        answer: 'Edgward shows the patrols available within 60 minutes of the intervention address. All partners are licensed security firms with trained, insured staff. You see the partner name, their price and the estimated response time before confirming the intervention.',
+      },
+      {
+        question: 'What training do the agents have?',
+        answer: 'Every agent operating through Edgward is employed by a security firm licensed by the cantonal authorities. They hold the legally required certifications (federal diploma or CFC security-agent qualification depending on the canton). Edgward verifies these certifications when onboarding each partner.',
+      },
+      {
+        question: 'What happens to my key-box code or my access instructions?',
+        answer: 'This sensitive information is encrypted in the app and only passed to the agent at the moment you trigger an intervention. After the intervention it stays in your encrypted profile. You can edit or delete it at any time.',
+      },
+      {
+        question: 'Is Edgward a security company?',
+        answer: 'No. Edgward is a platform connecting individuals and businesses with licensed private security firms. Edgward does not provide security services itself - it selects, contracts and coordinates certified professional partners.',
+      },
+    ],
+  },
+  {
+    category: 'Pricing',
+    items: [
+      {
+        question: 'What is the minimum subscription?',
+        answer: 'The base subscription is CHF 15/month (no commitment) or CHF 150/year. It gives access to the platform and the partner network. The first month is free as a trial.',
+      },
+      {
+        question: 'Are there any hidden fees?',
+        answer: 'No. The subscription covers access to the platform. You are told the exact price of each intervention before confirming it. There is no sign-up fee, no cancellation fee and no set-up fee.',
+      },
+      {
+        question: 'How are intervention prices calculated?',
+        answer: 'Our partners freely set their intervention price based on your municipality, the date and the time. Time slots likely to see high demand may carry higher pricing.',
+      },
+      {
+        question: 'What does the free trial include?',
+        answer: 'The first month of subscription is free. Promo codes can also sometimes grant a period of access to Edgward at no charge. Any intervention requested during the trial is still chargeable, at the pricing shown when you place the order.',
+      },
+    ],
+  },
+];
+---
+
+<Base
+  title="FAQ - Frequently asked questions | Edgward"
+  description="Answers to the most common questions about Edgward: how it works, pricing, security, municipalities and businesses."
+>
+  <PageHero
+    title="Frequently asked <em>questions</em>"
+    subtitle="Everything you need to know about Edgward - how it works, pricing, security and more."
+    maxWidth="560px"
+  />
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <div class="faq-wrap">
+        {faqCategories.map(cat => (
+          <FAQAccordion items={cat.items} category={cat.category} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT FOUND + CONTACT FORM -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="not-found-block fade-in">
+        <div class="not-found-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 9h8M8 13h5"/></svg>
+        </div>
+        <div>
+          <h3>Didn't find your answer?</h3>
+          <p>Our team replies within 24 working hours.</p>
+        </div>
+      </div>
+      <ContactForm />
+    </div>
+  </section>
+</Base>
+
+<style>
+
+  .faq-section { background: white; }
+  .faq-wrap { max-width: 720px; margin: 0 auto; }
+
+  .contact-section { background: var(--soft); }
+  .not-found-block {
+    display: flex; align-items: center; gap: 20px;
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px 28px;
+    max-width: 640px; margin: 0 auto 40px;
+  }
+  .not-found-icon {
+    width: 52px; height: 52px;
+    background: var(--brand-soft); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--brand); flex-shrink: 0;
+  }
+  .not-found-block h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .not-found-block p { font-size: 14px; color: var(--text-muted); }
+</style>

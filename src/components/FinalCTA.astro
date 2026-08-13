@@ -1,4 +1,7 @@
 ---
+import { getLangFromUrl, ui } from '../i18n/ui';
+import { localize } from '../i18n/routes';
+
 interface Props {
   title: string;
   description: string;
@@ -14,9 +17,14 @@ const {
   playStoreUrl = 'https://play.google.com/store/apps/details?id=ch.edgward.app.clients',
   image = '/assets/ed-pouce.png',
 } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const fc = ui[lang].finalCta;
+const anchorId = lang === 'en' ? 'download' : 'telecharger';
+const privacyHref = localize('/confidentialite', lang);
 ---
 
-<section class="final-cta" id="telecharger">
+<section class="final-cta" id={anchorId}>
   <div class="container">
     <div class="final-grid">
       <img src={image} alt="" class="final-ed" width="180" height="180" aria-hidden="true" loading="lazy">
@@ -27,14 +35,14 @@ const {
           <a href={appStoreUrl} class="store-btn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             <div>
-              <span class="store-sub">Télécharger sur</span>
+              <span class="store-sub">{fc.storeSub1}</span>
               <span class="store-main">App Store</span>
             </div>
           </a>
           <a href={playStoreUrl} class="store-btn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.19l2.807 1.626a1 1 0 010 1.73l-2.808 1.626-2.496-2.491 2.497-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.634z"/></svg>
             <div>
-              <span class="store-sub">Disponible sur</span>
+              <span class="store-sub">{fc.storeSub2}</span>
               <span class="store-main">Google Play</span>
             </div>
           </a>
@@ -42,22 +50,24 @@ const {
       </div>
       <div class="email-card">
         <div class="email-default" id="final-email-default">
-          <h4>Pas encore prêt ?</h4>
-          <p>Téléchargez gratuitement notre guide « Sécuriser son domicile ».</p>
-          <form class="email-form" id="final-email-form" novalidate>
-            <input type="email" name="EMAIL" placeholder="votre@email.ch" aria-label="Votre adresse email" autocomplete="email" required>
+          <h4>{fc.emailTitle}</h4>
+          <p>{fc.emailBody}</p>
+          <form class="email-form" id="final-email-form" novalidate data-sending={fc.sending}>
+            <input type="email" name="EMAIL" placeholder={fc.emailPlaceholder} aria-label={fc.emailAria} autocomplete="email" required>
             <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="email-hp">
-            <button type="submit">Recevoir</button>
+            <button type="submit">{fc.emailButton}</button>
           </form>
-          <p class="email-privacy">En vous inscrivant, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+          <p class="email-privacy">{fc.privacyBefore}<a href={privacyHref}>{fc.privacyLink}</a>{fc.privacyAfter}</p>
         </div>
         <div class="email-success" id="final-email-success" hidden>
-          <h4>Merci&nbsp;!</h4>
-          <p>Votre guide « Sécuriser son domicile » est prêt à télécharger.</p>
-          <a href="/assets/guide-securiser-son-domicile.pdf" download class="email-download">
-            Télécharger le guide
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
-          </a>
+          <h4>{fc.successTitle}</h4>
+          <p>{fc.successBody}</p>
+          {fc.guide && (
+            <a href="/assets/guide-securiser-son-domicile.pdf" download class="email-download">
+              {fc.downloadLabel}
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+            </a>
+          )}
         </div>
       </div>
     </div>
@@ -82,7 +92,7 @@ const {
     }
     const btn = form.querySelector('button') as HTMLButtonElement;
     btn.disabled = true;
-    btn.textContent = 'Envoi…';
+    btn.textContent = form.getAttribute('data-sending') || 'Envoi…';
     const params = new URLSearchParams();
     params.append('EMAIL', email);
     params.append('email_address_check', '');

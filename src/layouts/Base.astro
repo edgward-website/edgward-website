@@ -2,6 +2,8 @@
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
+import { getLangFromUrl, ui } from '../i18n/ui';
+import { getAlternates } from '../i18n/routes';
 import '../styles/global.css';
 
 interface Props {
@@ -19,6 +21,15 @@ const {
   canonicalURL = Astro.url.href,
   noindex = false,
 } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = ui[lang];
+
+// hreflang : n'emet des alternates que si la page existe dans les deux langues.
+const alt = getAlternates(Astro.url.pathname);
+const hasAlternates = Boolean(alt.fr && alt.en);
+const frURL = alt.fr ? new URL(alt.fr, site.url).toString() : null;
+const enURL = alt.en ? new URL(alt.en, site.url).toString() : null;
 
 const orgId = `${site.url}/#organization`;
 const appId = `${site.url}/#app`;
@@ -65,7 +76,7 @@ const structuredData = {
       '@id': websiteId,
       url: site.url,
       name: site.name,
-      inLanguage: 'fr-CH',
+      inLanguage: lang === 'en' ? 'en' : 'fr-CH',
       publisher: { '@id': orgId },
     },
     {
@@ -110,7 +121,7 @@ const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={t.htmlLang}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,7 +134,8 @@ const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c
   <meta property="og:type" content="website">
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:image" content={new URL(ogImage, Astro.site).toString()}>
-  <meta property="og:locale" content="fr_CH">
+  <meta property="og:locale" content={t.ogLocale}>
+  {hasAlternates && <meta property="og:locale:alternate" content={lang === 'en' ? 'fr_CH' : 'en_GB'} />}
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -132,6 +144,9 @@ const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c
   <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()}>
 
   <link rel="canonical" href={canonicalURL}>
+  {hasAlternates && frURL && <link rel="alternate" hreflang="fr" href={frURL} />}
+  {hasAlternates && enURL && <link rel="alternate" hreflang="en" href={enURL} />}
+  {hasAlternates && frURL && <link rel="alternate" hreflang="x-default" href={frURL} />}
   <link rel="alternate" type="application/rss+xml" title="Edgward Blog" href="/rss.xml">
   <title>{title}</title>
   <script type="application/ld+json" set:html={structuredDataJson} is:inline />
@@ -156,7 +171,7 @@ const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c
   </script>
 </head>
 <body>
-  <a href="#main" class="skip-link">Aller au contenu</a>
+  <a href="#main" class="skip-link">{t.skipLink}</a>
   <Nav />
   <main id="main">
     <slot />

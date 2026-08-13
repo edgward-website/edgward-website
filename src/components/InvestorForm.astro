@@ -2,49 +2,55 @@
 // Formulaire sur-mesure investisseurs / partenaires (parcours F).
 // Reutilise l'endpoint Brevo du contact classique : le profil et l'organisation sont composes
 // dans le message et le sujet est "Autre" (5). Pas de reconfiguration Brevo necessaire.
-const profils = ['Investisseur', 'Partenaire stratégique', 'Société de sécurité', 'Autre'];
+import { getLangFromUrl, ui } from '../i18n/ui';
+import { localize } from '../i18n/routes';
+
+const lang = getLangFromUrl(Astro.url);
+const iv = ui[lang].investor;
+const profils = iv.profiles;
+const privacyHref = localize('/confidentialite', lang);
 ---
 
 <div class="inv-form-wrap">
-  <form class="inv-form" novalidate id="investor-form">
+  <form class="inv-form" novalidate id="investor-form" data-sending={iv.sending}>
     <div class="inv-row">
       <div class="inv-group">
-        <label for="if-nom">Nom complet</label>
-        <input type="text" id="if-nom" name="nom" placeholder="Jean Dupont" autocomplete="name" required>
+        <label for="if-nom">{iv.name}</label>
+        <input type="text" id="if-nom" name="nom" placeholder={iv.namePlaceholder} autocomplete="name" required>
       </div>
       <div class="inv-group">
-        <label for="if-email">Email</label>
+        <label for="if-email">{iv.email}</label>
         <input type="email" id="if-email" name="email" placeholder="jean@example.ch" autocomplete="email" required>
       </div>
     </div>
     <div class="inv-row">
       <div class="inv-group">
-        <label for="if-org">Organisation <span class="inv-opt">(optionnel)</span></label>
-        <input type="text" id="if-org" name="organisation" placeholder="Société, fonds, institution" autocomplete="organization">
+        <label for="if-org">{iv.org} <span class="inv-opt">{iv.optional}</span></label>
+        <input type="text" id="if-org" name="organisation" placeholder={iv.orgPlaceholder} autocomplete="organization">
       </div>
       <div class="inv-group">
-        <label for="if-profil">Vous êtes</label>
+        <label for="if-profil">{iv.profile}</label>
         <select id="if-profil" name="profil" required>
-          <option value="" disabled selected>Choisissez votre profil</option>
+          <option value="" disabled selected>{iv.profilePlaceholder}</option>
           {profils.map(p => <option value={p}>{p}</option>)}
         </select>
       </div>
     </div>
     <div class="inv-group">
-      <label for="if-message">Message <span class="inv-opt">(optionnel)</span></label>
-      <textarea id="if-message" name="message" rows="4" placeholder="Votre intérêt, votre horizon, votre proposition..."></textarea>
+      <label for="if-message">{iv.message} <span class="inv-opt">{iv.optional}</span></label>
+      <textarea id="if-message" name="message" rows="4" placeholder={iv.messagePlaceholder}></textarea>
     </div>
     <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="inv-hp">
     <button type="submit" class="inv-submit">
-      Échanger avec le fondateur
+      {iv.submit}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
-    <p class="inv-privacy">En envoyant ce message, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+    <p class="inv-privacy">{iv.privacyBefore}<a href={privacyHref}>{iv.privacyLink}</a>{iv.privacyAfter}</p>
   </form>
   <div class="inv-success" id="investor-success" hidden>
     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
-    <h3>Message envoyé&nbsp;!</h3>
-    <p>Merci pour votre intérêt. Daniel vous répondra personnellement dans les meilleurs délais.</p>
+    <h3>{iv.successTitle}</h3>
+    <p>{iv.successBody}</p>
   </div>
 </div>
 
@@ -68,7 +74,7 @@ const profils = ['Investisseur', 'Partenaire stratégique', 'Société de sécur
     }
     const btn = form.querySelector('.inv-submit') as HTMLButtonElement;
     btn.disabled = true;
-    btn.textContent = 'Envoi…';
+    btn.textContent = form.getAttribute('data-sending') || 'Envoi…';
     let composed = '[Investisseurs/Partenaires] Profil : ' + (profil || 'non precise');
     if (organisation) composed += ' - Organisation : ' + organisation;
     if (message) composed += ' - ' + message;

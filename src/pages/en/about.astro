@@ -1,0 +1,325 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import FinalCTA from '../../components/FinalCTA.astro';
+import InvestorForm from '../../components/InvestorForm.astro';
+import { partners } from '../../data/partners';
+import { localize } from '../../i18n/routes';
+
+const L = (p: string) => localize(p, 'en');
+
+// Ecosystem: partners who build Edgward (logo if available, otherwise name).
+const builders = [
+  { name: 'Atipik', logo: '/assets/partners/atipik.svg', url: 'https://www.atipik.ch/fr', role: 'Product development', desc: "Swiss studio that designs and develops the Edgward app and platform." },
+  { name: 'MediaOne', logo: '/assets/partners/mediaone.svg', invert: true, url: 'https://www.mediaone.ch/fr', role: 'Media distribution', desc: "Media partner through which Edgward runs its advertising campaigns." },
+  { name: 'FONGIT', logo: '/assets/partners/fongit.png', url: 'https://www.fongit.ch/fr', role: 'Support & incubation', desc: "The Geneva Foundation for Technological Innovation supports Edgward's growth." },
+  { name: 'Innosuisse', logo: '/assets/partners/innosuisse.png', url: 'https://www.innosuisse.admin.ch/fr', role: 'Innovation', desc: "The Swiss Innovation Agency supports the development of Edgward." },
+];
+---
+
+<Base
+  title="About us - The conviction behind Edgward"
+  description="Behind Edgward: security professionals, a network of partner firms and the backing of FONGIT and Innosuisse. Our mission: to make private security accessible to everyone."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">About us</span>
+        <h1>Behind Edgward, <em>professionals and a conviction</em></h1>
+        <p>Security should not be a privilege. We make it accessible to everyone, in a few seconds, from your smartphone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI EDGWARD -->
+  <section class="section why-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Our purpose"
+        title="Making private security <em>accessible to everyone</em>"
+      />
+      <div class="prose fade-in">
+        <p style="font-size: 19px; color: var(--navy); font-weight: 500; line-height: 1.7; margin-bottom: 28px;"><strong>Edgward</strong> is a Swiss on-demand security app that lets individuals and businesses book a private security patrol to their home or premises around the clock, with or without an existing alarm or camera system. Edgward is published by DBA Solutions Sàrl and covers the cantons of Geneva, Vaud and Neuchâtel.</p>
+
+        <p>Today, you can order a taxi, a meal or almost any product in a few seconds from your phone. Yet getting access to security remained complicated: you had to take out a costly subscription with a provider, then depend on the availability of its patrols.</p>
+
+        <h3>We think differently.</h3>
+        <p>Our mission is simple: to make security accessible to everyone. Edgward relies on security firms that are established but also modern, the ones that, like us, are convinced that the future of security lies in this accessibility. That is the idea Edgward was born from: letting anyone book a security patrol, simply, whenever they see fit.</p>
+
+        <p>People often say: "if there's a problem, I'll call the police". But the police are an institutional service, which responds according to its own priorities. That is precisely why private security firms exist, and Edgward finally puts them within reach.</p>
+
+        <h3>Your security, your way.</h3>
+        <p>With Edgward, you put together your own setup, à la carte. With your alarm system, with an installation you set up yourself, or with no equipment at all: it's your call. To reassure yourself and your loved ones (an elderly parent, a child living alone), or to keep an eye on what matters: a second home, business premises, a garage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEAU DE SECURITE (opere par des pros) -->
+  <section class="section network-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="A solid network"
+        title="A service operated by <em>established security firms</em>"
+        subtitle="Edgward is not a lone venture: the service is delivered by a network of recognised security firms, active on the ground across French-speaking Switzerland."
+      />
+      <div class="eco-partners" aria-label="Partner security firms">
+        {partners.map(p => (
+          <a href={L('/partenaires')} class="eco-partner" aria-label={p.name}>
+            {p.logo
+              ? <img src={p.logo} alt={p.name} class="eco-partner-logo" loading="lazy" width="120" height="56">
+              : <span>{p.name}</span>}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FONDATEUR -->
+  <section class="section founder-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="The founder"
+        title="Daniel Barouch, <em>a seasoned professional</em>"
+      />
+      <div class="founder-grid">
+        <aside class="founder-card fade-in">
+          <img class="founder-photo" src="/assets/daniel-barouch.jpg" alt="Daniel Barouch, founder of Edgward" width="400" height="500" loading="lazy">
+          <p class="founder-name">Daniel Barouch</p>
+          <p class="founder-role">Founder of Edgward</p>
+          <ul class="founder-chips" role="list">
+            <li><span aria-hidden="true">✦</span> 20+ years in security and safety</li>
+            <li><span aria-hidden="true">✦</span> CPP certified (ASIS International)</li>
+            <li><span aria-hidden="true">✦</span> Master's in management</li>
+          </ul>
+        </aside>
+        <div class="founder-bio fade-in">
+          <p>Behind Edgward is someone who knows security from the inside. Daniel Barouch has spent nearly twenty years in security and safety, from the field to management.</p>
+          <p>Over the course of his career, he has led operational departments comprising several hundred staff and overseen security for sensitive assignments: international organisations, diplomatic events, visits by heads of state and government. He also founded and ran his own security firm, responsible for more than 200 events across French-speaking Switzerland.</p>
+          <p>He holds the Certified Protection Professional (CPP) certification, the highest international qualification in security management, and also has a Master's in management and training in crisis communication. He has likewise been active for more than twenty years within the Swiss Army, in various roles.</p>
+          <p>It is this dual experience, of the field and of management, that convinced him of one thing: quality security should not be reserved for large organisations. With Edgward, he wants to make it accessible to everyone.</p>
+          <blockquote class="founder-quote">
+            <p>"For years, I protected institutions, events and public figures. With Edgward, I want to put that expertise at everyone's service."</p>
+            <cite>- Daniel Barouch, founder of Edgward</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOUTIENS / ECOSYSTEME -->
+  <section class="section eco-section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Our backers"
+        title="An ecosystem that <em>supports us</em>"
+        subtitle="Around the team, industry partners and leading Swiss institutions support the development of Edgward."
+      />
+      <div class="eco-grid">
+        {builders.map(b => (
+          <a class="eco-card fade-in" href={b.url} target="_blank" rel="noopener noreferrer" aria-label={`${b.name} - website (new tab)`}>
+            <div class="eco-brand">
+              {b.logo
+                ? <img src={b.logo} alt={b.name} class:list={['eco-logo', { 'eco-logo--invert': b.invert }]} loading="lazy">
+                : <span class="eco-wordmark">{b.name}</span>}
+            </div>
+            <span class="eco-role">{b.role}</span>
+            <p class="eco-desc">{b.desc}</p>
+            <span class="eco-visit">Visit site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTISSEURS & PARTENAIRES -->
+  <section class="section invest-section">
+    <div class="container">
+      <div class="invest-grid">
+        <div class="invest-copy fade-in">
+          <span class="invest-eyebrow">Investors &amp; partners</span>
+          <h2>Building the Swiss reference in <em>on-demand security</em></h2>
+          <p>Private security is an essential sector that has remained largely analogue. Edgward is moving it into the age of the instant: a single platform that connects individuals, businesses and municipalities to a network of security firms, in a few seconds.</p>
+          <p>Our ambition is clear - to become the gateway to private security in French-speaking Switzerland, and then beyond. Backed by FONGIT and Innosuisse, we are now surrounding ourselves with the investors and strategic partners ready to build this category with us.</p>
+        </div>
+        <div class="invest-form-card fade-in">
+          <InvestorForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <FinalCTA
+    title="Ready to try <em>Edgward</em>?"
+    description="Download the app and book a security patrol in a few seconds, wherever you are in French-speaking Switzerland."
+  />
+</Base>
+
+<style>
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 80px 0 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--brand-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px; color: var(--brand-light);
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 4.5vw, 52px);
+    font-weight: 800; line-height: 1.1;
+    letter-spacing: -0.025em; margin-bottom: 20px; color: white;
+  }
+  .hero h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .hero p { font-size: 17px; color: #cbd5e1; line-height: 1.6; max-width: 540px; margin: 0 auto; }
+
+  .why-section { background: white; }
+  .prose {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .prose p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 22px;
+  }
+  .prose h3 {
+    font-size: clamp(20px, 2.4vw, 24px);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    margin: 36px 0 14px;
+  }
+  .prose h3:first-child { margin-top: 0; }
+
+  /* FONDATEUR */
+  .founder-section { background: var(--soft); }
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 44px;
+    align-items: start;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .founder-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    text-align: center;
+    position: sticky;
+    top: 100px;
+  }
+  .founder-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    background: var(--navy);
+  }
+  .founder-name { font-size: 20px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  .founder-role { font-size: 14px; color: var(--text-muted); margin-bottom: 22px; }
+  .founder-chips { list-style: none; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+  .founder-chips li {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-dark);
+    background: var(--brand-soft);
+    padding: 9px 13px;
+    border-radius: 8px;
+    line-height: 1.4;
+  }
+  .founder-chips li span { color: var(--brand); margin-right: 6px; }
+
+  .founder-bio p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+  .founder-quote {
+    margin-top: 28px;
+    border-left: 3px solid var(--brand);
+    padding-left: 22px;
+  }
+  .founder-quote p {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .founder-quote cite {
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 860px) {
+    .founder-grid { grid-template-columns: 1fr; gap: 28px; max-width: 680px; }
+    .founder-card { position: static; }
+  }
+
+  /* Espacement resserre sur cette page (scope Astro) */
+  .section { padding: 54px 0; }
+
+  /* RESEAU + ECOSYSTEME */
+  .network-section { background: var(--soft); }
+  .eco-section { background: white; }
+  .eco-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1040px; margin: 0 auto; }
+  .eco-card { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 22px; display: flex; flex-direction: column; transition: all 0.2s ease; text-decoration: none; color: inherit; }
+  .eco-card:hover { background: white; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .eco-brand { height: 44px; display: flex; align-items: center; margin-bottom: 14px; }
+  .eco-logo { max-height: 40px; max-width: 150px; width: auto; height: auto; object-fit: contain; }
+  .eco-logo--invert { filter: brightness(0); }
+  .eco-wordmark { font-size: 19px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  .eco-role { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); font-weight: 700; margin-bottom: 8px; }
+  .eco-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin: 0; flex: 1; }
+  .eco-visit { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; font-size: 12px; font-weight: 700; color: var(--brand); opacity: 0.8; transition: opacity 0.2s ease; }
+  .eco-card:hover .eco-visit { opacity: 1; }
+
+  .eco-sublabel { text-align: center; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin: 40px 0 20px; }
+  .eco-partners { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+  .eco-partner { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 14px; min-height: 76px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.2s ease; }
+  .eco-partner:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .eco-partner-logo { max-width: 100%; max-height: 40px; width: auto; height: auto; object-fit: contain; }
+  .eco-partner span { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+  /* INVESTISSEURS */
+  .invest-section { background: var(--soft); }
+  .invest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; max-width: 1040px; margin: 0 auto; }
+  .invest-eyebrow { display: inline-block; font-size: 12px; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .invest-copy h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 16px; }
+  .invest-copy h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand); }
+  .invest-copy p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 14px; }
+  .invest-form-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: 0 8px 30px rgba(10,25,41,0.06); }
+
+  @media (max-width: 900px) {
+    .eco-grid { grid-template-columns: repeat(2, 1fr); }
+    .invest-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+  @media (max-width: 520px) {
+    .eco-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,4 +1,6 @@
 ---
+import { getLangFromUrl, ui } from '../i18n/ui';
+
 interface Props {
   action?: string;
   defaultSubject?: string;
@@ -8,54 +10,60 @@ interface Props {
 const {
   action = 'mailto:info@edgward.ch',
   defaultSubject,
-  submitLabel = 'Envoyer le message',
+  submitLabel,
 } = Astro.props;
 
-const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 'Autre'];
+const lang = getLangFromUrl(Astro.url);
+const c = ui[lang].contact;
+// Code Brevo (1-5) associe a chaque sujet dans l'ordre, identique FR/EN.
+const subjects = c.subjects.map((label, i) => ({ label, code: String(i + 1) }));
+const submitText = submitLabel ?? c.submit;
+// N'ajoute au message que les contextes specifiques a une page (pas les sujets standard).
+const extraContext = defaultSubject && !c.subjects.includes(defaultSubject) ? defaultSubject : '';
 ---
 
 <div class="contact-form-wrap">
-  <form class="contact-form" novalidate id="contact-form" data-context={defaultSubject ?? ''}>
+  <form class="contact-form" novalidate id="contact-form" data-context={extraContext} data-sending={c.sending}>
     <div class="form-row">
       <div class="form-group">
-        <label for="cf-nom">Nom complet</label>
-        <input type="text" id="cf-nom" name="nom" placeholder="Jean Dupont" autocomplete="name" required>
+        <label for="cf-nom">{c.name}</label>
+        <input type="text" id="cf-nom" name="nom" placeholder={c.namePlaceholder} autocomplete="name" required>
       </div>
       <div class="form-group">
-        <label for="cf-email">Email</label>
+        <label for="cf-email">{c.email}</label>
         <input type="email" id="cf-email" name="email" placeholder="jean@example.ch" autocomplete="email" required>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label for="cf-telephone">Téléphone</label>
+        <label for="cf-telephone">{c.phone}</label>
         <input type="tel" id="cf-telephone" name="telephone" placeholder="+41 79 123 45 67" autocomplete="tel" inputmode="tel" required>
       </div>
       <div class="form-group">
-        <label for="cf-sujet">Sujet</label>
+        <label for="cf-sujet">{c.subject}</label>
         <select id="cf-sujet" name="sujet" required>
-          <option value="" disabled selected={!defaultSubject}>Choisissez un sujet</option>
+          <option value="" disabled selected={!defaultSubject}>{c.subjectPlaceholder}</option>
           {subjects.map(s => (
-            <option value={s} selected={defaultSubject === s}>{s}</option>
+            <option value={s.code} selected={defaultSubject === s.label}>{s.label}</option>
           ))}
         </select>
       </div>
     </div>
     <div class="form-group">
-      <label for="cf-message">Message</label>
-      <textarea id="cf-message" name="message" rows="5" placeholder="Décrivez votre besoin..." required></textarea>
+      <label for="cf-message">{c.message}</label>
+      <textarea id="cf-message" name="message" rows="5" placeholder={c.messagePlaceholder} required></textarea>
     </div>
     <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="cf-hp">
     <button type="submit" class="btn-submit">
-      {submitLabel}
+      {submitText}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
-    <p class="form-privacy">En envoyant ce message, vous acceptez notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+    <p class="form-privacy">{c.privacyBefore}<a href="/confidentialite">{c.privacyLink}</a>{c.privacyAfter}</p>
   </form>
   <div class="contact-success" id="contact-success" hidden>
     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>
-    <h3>Message envoyé&nbsp;!</h3>
-    <p>Merci, votre demande a bien été transmise. Notre équipe vous répond dans les meilleurs délais.</p>
+    <h3>{c.successTitle}</h3>
+    <p>{c.successBody}</p>
   </div>
 </div>
 
@@ -63,13 +71,6 @@ const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const successBox = document.getElementById('contact-success');
   const BREVO_CONTACT_ACTION = 'https://87714af1.sibforms.com/serve/MUIFACeUMEzMccQ08jYHlzrdNpWoRrnKzHQmfX53dXh3078PAXXC3bDI0rzN0FcL7yQIGvijOqpaNaHdOjgoOWJ0h_xT7KN4dQy7e-dZ-47FALbyi6DffXwBux4VqYLN-Z7VKjeO_D3znDM-oK3wufPUoBSGyWitQx2h1rhHU_u3hjMH8qe9N4GbLlzOUn60ndvujAgptth1dR8i';
-  const SUBJECT_MAP: Record<string, string> = {
-    'Particulier': '1',
-    'Entreprise': '2',
-    'Commune': '3',
-    "Centrale d'alarme": '4',
-    'Autre': '5',
-  };
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const honeypot = (form.elements.namedItem('email_address_check') as HTMLInputElement)?.value;
@@ -86,16 +87,16 @@ const subjects = ['Particulier', 'Entreprise', 'Commune', 'Centrale d\'alarme', 
     }
     const btn = form.querySelector('.btn-submit') as HTMLButtonElement;
     btn.disabled = true;
-    btn.textContent = 'Envoi…';
+    btn.textContent = form.getAttribute('data-sending') || 'Envoi…';
     const ctx = (form.getAttribute('data-context') || '').trim();
     let composed = message;
     if (telephone) composed = 'Tél : ' + telephone + ' - ' + composed;
-    if (ctx && !SUBJECT_MAP[ctx]) composed = composed + ' [Contexte : ' + ctx + ']';
+    if (ctx) composed = composed + ' [Contexte : ' + ctx + ']';
     composed = composed.slice(0, 255);
     const params = new URLSearchParams();
     params.append('NOM', nom);
     params.append('EMAIL', email);
-    params.append('SUJET', SUBJECT_MAP[sujet] || '5');
+    params.append('SUJET', /^[1-5]$/.test(sujet) ? sujet : '5');
     params.append('MESSAGE', composed);
     params.append('email_address_check', '');
     params.append('locale', 'en');
