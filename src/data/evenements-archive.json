@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-13T11:03:21.160Z",
-  "total": 89,
+  "compileLe": "2026-08-13T17:56:52.286Z",
+  "total": 90,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1069,6 +1069,18 @@
       "heure": "13 août 12:15",
       "source": "Police cantonale valaisanne",
       "dateVue": "2026-08-13T11:03:21.160Z"
+    },
+    {
+      "titre": "Crash d'un avion léger près d'Yverdon",
+      "resume": "Le pilote septuagénaire d'un avion léger a perdu la vie dans le crash de son appareil dans la région d'Yverdon.",
+      "commune": "Yverdon-les-Bains",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.641,
+      "lat": 46.778,
+      "heure": "13 août 16:54",
+      "source": "24 Heures",
+      "dateVue": "2026-08-13T17:56:52.286Z"
     }
   ]
 }
