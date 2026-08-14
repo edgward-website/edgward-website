@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-14T11:00:42.317Z",
-  "total": 91,
+  "compileLe": "2026-08-14T17:53:30.155Z",
+  "total": 93,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1093,6 +1093,30 @@
       "heure": "13 août 15:41",
       "source": "Léman Bleu",
       "dateVue": "2026-08-14T11:00:42.317Z"
+    },
+    {
+      "titre": "Chute mortelle de deux alpinistes au Schalihorn",
+      "resume": "Deux alpinistes ont été retrouvés sans vie après une chute au Schalihorn, sur le territoire de Randa. Une enquête a été ouverte.",
+      "commune": "Randa",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.783,
+      "lat": 46.099,
+      "heure": "14 août 14:43",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-14T17:53:30.155Z"
+    },
+    {
+      "titre": "Chute de parapentistes au décollage",
+      "resume": "Un père et ses deux filles ont chuté lors du décollage en parapente à Sonchaux.",
+      "commune": "Veytaux",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.925,
+      "lat": 46.42,
+      "heure": "13 août 16:58",
+      "source": "24 Heures",
+      "dateVue": "2026-08-14T17:53:30.155Z"
     }
   ]
 }
