@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-15T10:27:22.669Z",
-  "total": 93,
+  "compileLe": "2026-08-15T17:20:11.647Z",
+  "total": 94,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1117,6 +1117,18 @@
       "heure": "13 août 16:58",
       "source": "24 Heures",
       "dateVue": "2026-08-14T17:53:30.155Z"
+    },
+    {
+      "titre": "Agression et vol contre un octogénaire",
+      "resume": "Un homme de 84 ans a été agressé et s'est fait dérober un bijou qu'il portait depuis des décennies.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "14 août 16:38",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-15T17:20:11.647Z"
     }
   ]
 }
