@@ -92,6 +92,9 @@ const { endpoint = '', secret = '' } = Astro.props;
     opacity: 0;
     transition: opacity .25s ease;
   }
+  /* Sans cette règle, `display:flex` écrase l'attribut [hidden] : l'overlay reste
+     en plein écran (invisible) et bloque tous les clics du site. */
+  .diag-overlay[hidden] { display: none; }
   .diag-overlay.open { opacity: 1; }
   .diag-backdrop {
     position: absolute;
