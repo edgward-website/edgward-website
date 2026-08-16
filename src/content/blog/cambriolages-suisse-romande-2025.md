@@ -1,7 +1,7 @@
 ---
-title: "Cambriolages en Suisse romande : ce que disent les chiffres 2025"
+title: "Cambriolages en Suisse romande : les chiffres 2025 (en hausse)"
 date: 2026-03-31
-description: "En 2025, la criminalité est restée globalement stable dans la plupart des cantons romands. Les cambriolages, eux, ont augmenté presque partout. Tour d'horizon canton par canton, chiffres officiels à l'appui."
+description: "En 2025, les cambriolages ont augmenté presque partout en Suisse romande, à contre-courant d'une criminalité générale restée stable. Le bilan chiffré, canton par canton, sources officielles à l'appui."
 image: /assets/blog/cambriolages-romandie-cover.jpg
 author: "Équipe Edgward"
 category: "Actualités"

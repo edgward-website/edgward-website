@@ -1,7 +1,7 @@
 ---
-title: "Installer ses caméras de surveillance soi-même : le guide DIY (et ses limites)"
+title: "Installer ses caméras de surveillance soi-même : le guide complet"
 date: 2026-07-19
-description: "Installer une caméra de surveillance soi-même, sans installateur ni abonnement obligatoire : emplacement, caméras solaires, enregistrement local, cadre légal suisse. Le guide DIY complet pour Genève, Vaud, Neuchâtel et le Valais - et pourquoi la caméra n'est que la moitié du dispositif."
+description: "Où placer ses caméras, caméras solaires, enregistrement local, cadre légal suisse : le guide pour installer sa vidéosurveillance soi-même, sans abonnement imposé - et connaître ses vraies limites."
 author: "Équipe Edgward"
 category: "Conseils"
 image: "/assets/blog/installation-cameras-diy-kit.jpg"

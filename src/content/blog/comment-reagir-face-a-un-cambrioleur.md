@@ -1,5 +1,5 @@
 ---
-title: "Comment réagir face à un cambrioleur : les bons réflexes"
+title: "Comment réagir face à un cambrioleur (et les erreurs à éviter)"
 date: 2026-07-20
 description: "Bruit suspect la nuit, intrus surpris chez vous, retour sur un logement fracturé : les gestes qui protègent d'abord votre sécurité, puis vos biens, et les erreurs à éviter."
 author: Équipe Edgward
