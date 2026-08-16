@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-15T17:20:11.647Z",
-  "total": 94,
+  "compileLe": "2026-08-16T10:27:41.751Z",
+  "total": 101,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1129,6 +1129,90 @@
       "heure": "14 août 16:38",
       "source": "Tribune de Genève",
       "dateVue": "2026-08-15T17:20:11.647Z"
+    },
+    {
+      "titre": "Collision mortelle entre une cycliste et un motard",
+      "resume": "Une cycliste a perdu la vie dans une collision avec une moto sur la route. Une enquête a été ouverte.",
+      "commune": "Troistorrents",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 6.912,
+      "lat": 46.234,
+      "heure": "16 août 09:26",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-16T10:27:41.751Z"
+    },
+    {
+      "titre": "Série d'incendies, trois mineurs interpellés",
+      "resume": "Après une série d'incendies, trois mineurs ont été interpellés. Une enquête est en cours.",
+      "commune": "Romont",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 6.9117,
+      "lat": 46.6957,
+      "heure": "16 août 10:58",
+      "source": "FR.ch",
+      "dateVue": "2026-08-16T10:27:41.751Z"
+    },
+    {
+      "titre": "Incendie maîtrisé",
+      "resume": "Un incendie a nécessité plusieurs interventions des pompiers et d'un hélicoptère avant d'être maîtrisé.",
+      "commune": "Ergisch",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.766,
+      "lat": 46.288,
+      "heure": "15 août 16:23",
+      "source": "Pomona",
+      "dateVue": "2026-08-16T10:27:41.751Z"
+    },
+    {
+      "titre": "Voiture sur le toit après avoir percuté un lampadaire",
+      "resume": "Un véhicule a fini sur le toit après avoir heurté un lampadaire.",
+      "commune": "Versoix",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.161,
+      "lat": 46.284,
+      "heure": "15 août 10:02",
+      "source": "20min.ch",
+      "dateVue": "2026-08-16T10:27:41.751Z"
+    },
+    {
+      "titre": "Deux alpinistes retrouvés morts",
+      "resume": "Deux alpinistes ont été retrouvés sans vie en montagne. Une enquête a été ouverte.",
+      "commune": "Anniviers",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.62,
+      "lat": 46.13,
+      "heure": "14 août 14:38",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-16T10:27:41.751Z"
+    },
+    {
+      "titre": "Restes humains découverts sur un glacier",
+      "resume": "Des restes humains découverts pourraient être liés à une disparition survenue en 1992.",
+      "commune": "Anniviers",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.65,
+      "lat": 46.22,
+      "heure": "13 août 15:25",
+      "source": "20min.ch",
+      "dateVue": "2026-08-16T10:27:41.751Z"
+    },
+    {
+      "titre": "Crash d'un avion, le pilote décède",
+      "resume": "Le pilote d'un avion léger a perdu la vie dans le crash de son appareil.",
+      "commune": "Suscévaz",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.598,
+      "lat": 46.755,
+      "heure": "13 août 16:54",
+      "source": "24 Heures",
+      "dateVue": "2026-08-16T10:27:41.751Z"
     }
   ]
 }
