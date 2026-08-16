@@ -1,0 +1,232 @@
+---
+/**
+ * Accès permanent au diagnostic sécurité, présent sur tout le site (posé dans Base.astro).
+ * - Pastille flottante (bas-droite) toujours visible, jamais de popup auto.
+ * - Overlay/modale réutilisable, ouvrable par n'importe quel élément portant `data-open-diagnostic`
+ *   (la pastille, mais aussi plus tard l'entrée menu ou un bloc contextuel).
+ * L'instance du diagnostic est `defer` : elle ne s'initialise (et ne compte dans GA4)
+ * qu'à la première ouverture.
+ */
+import DiagnosticSecurite from './DiagnosticSecurite.astro';
+
+interface Props {
+  /** URL /exec du webhook Apps Script (journal). Vide = journal désactivé. */
+  endpoint?: string;
+  secret?: string;
+}
+const { endpoint = '', secret = '' } = Astro.props;
+---
+
+<button class="diag-fab" data-open-diagnostic type="button" aria-haspopup="dialog" aria-controls="diagOverlay">
+  <span class="diag-fab-ic" aria-hidden="true">
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="2.2" opacity=".4"/>
+      <circle cx="16" cy="16" r="7.5" stroke="currentColor" stroke-width="2.2" opacity=".7"/>
+      <circle cx="16" cy="16" r="2.4" fill="currentColor"/>
+      <path d="M16 16 L26 9.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </span>
+  <span class="diag-fab-label">Quelle sécurité pour moi ?</span>
+</button>
+
+<div class="diag-overlay" id="diagOverlay" role="dialog" aria-modal="true" aria-labelledby="diagOverlayTitle" hidden>
+  <div class="diag-backdrop"></div>
+  <div class="diag-panel" role="document">
+    <div class="diag-panel-head">
+      <span class="diag-panel-title" id="diagOverlayTitle">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="2.4" opacity=".4"/>
+          <circle cx="16" cy="16" r="7.5" stroke="currentColor" stroke-width="2.4" opacity=".7"/>
+          <circle cx="16" cy="16" r="2.6" fill="currentColor"/>
+        </svg>
+        Diagnostic sécurité
+      </span>
+      <button class="diag-close" type="button" aria-label="Fermer le diagnostic">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="diag-panel-body">
+      <DiagnosticSecurite source="flottant" endpoint={endpoint} secret={secret} defer bare />
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Pastille flottante */
+  .diag-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 900;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 18px 12px 14px;
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 14.5px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    box-shadow: 0 6px 20px -4px rgba(70,120,220,.5), 0 2px 6px rgba(10,25,41,.15);
+    transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+    animation: diagFabIn .4s ease .6s both;
+  }
+  .diag-fab:hover { background: var(--brand-dark); transform: translateY(-2px); box-shadow: 0 10px 26px -4px rgba(70,120,220,.55); }
+  .diag-fab:active { transform: translateY(0); }
+  .diag-fab-ic { display: inline-grid; place-items: center; }
+  @keyframes diagFabIn { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: none; } }
+
+  /* Overlay / modale */
+  .diag-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .diag-overlay.open { opacity: 1; }
+  .diag-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,25,41,.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .diag-panel {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 60px -12px rgba(10,25,41,.5);
+    overflow: hidden;
+    transform: translateY(14px) scale(.985);
+    transition: transform .28s cubic-bezier(.22,1,.36,1);
+  }
+  .diag-overlay.open .diag-panel { transform: none; }
+  .diag-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 14px 20px;
+    border-bottom: 1px solid var(--border);
+    flex: none;
+  }
+  .diag-panel-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+  .diag-close {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--soft);
+    color: var(--text-muted);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+  }
+  .diag-close:hover { background: var(--border); color: var(--navy); }
+  .diag-panel-body {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (max-width: 480px) {
+    .diag-fab { right: 14px; bottom: 14px; padding: 12px 16px 12px 13px; font-size: 13.5px; }
+    .diag-fab-label { display: none; }
+    .diag-fab { padding: 13px; }
+    .diag-overlay { padding: 0; align-items: flex-end; }
+    .diag-panel { max-width: 100%; max-height: 94vh; border-radius: 18px 18px 0 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .diag-fab { animation: none; }
+    .diag-overlay, .diag-panel { transition: none; }
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById('diagOverlay') as HTMLElement | null;
+  if (overlay) {
+    const panel = overlay.querySelector('.diag-panel') as HTMLElement;
+    const closeBtn = overlay.querySelector('.diag-close') as HTMLElement;
+    const backdrop = overlay.querySelector('.diag-backdrop') as HTMLElement;
+    let lastFocus: HTMLElement | null = null;
+
+    const openDiag = (prefill?: Record<string, string> | null) => {
+      lastFocus = document.activeElement as HTMLElement;
+      overlay.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      const root = overlay.querySelector('.edg-diag') as HTMLElement | null;
+      if (root) {
+        document.dispatchEvent(new CustomEvent('edg-diag:mount', { detail: { root } }));
+        if (prefill && Object.keys(prefill).length) {
+          root.dispatchEvent(new CustomEvent('edg-diag:restart', { detail: { prefill } }));
+        }
+      }
+      requestAnimationFrame(() => { overlay.classList.add('open'); closeBtn?.focus(); });
+    };
+
+    const closeDiag = () => {
+      overlay.classList.remove('open');
+      document.documentElement.style.overflow = '';
+      const done = () => { overlay.hidden = true; overlay.removeEventListener('transitionend', done); };
+      overlay.addEventListener('transitionend', done);
+      window.setTimeout(() => { if (!overlay.classList.contains('open')) overlay.hidden = true; }, 320);
+      lastFocus?.focus();
+    };
+
+    document.querySelectorAll('[data-open-diagnostic]').forEach((b) =>
+      b.addEventListener('click', (e) => {
+        e.preventDefault();
+        const el = e.currentTarget as HTMLElement;
+        const prefill: Record<string, string> = {};
+        ['bien', 'canton'].forEach((k) => {
+          const v = el.getAttribute('data-prefill-' + k);
+          if (v) prefill[k] = v;
+        });
+        openDiag(prefill);
+      })
+    );
+    closeBtn?.addEventListener('click', closeDiag);
+    backdrop?.addEventListener('click', closeDiag);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.hidden) closeDiag(); });
+
+    // Piège de focus basique dans la modale
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusables = Array.from(
+        panel.querySelectorAll<HTMLElement>('button, a[href], input, [tabindex]:not([tabindex="-1"])')
+      ).filter((el) => el.offsetParent !== null);
+      if (!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+
+    // Pas de pastille sur la page dédiée (redondant)
+    if (location.pathname.replace(/\/$/, '') === '/diagnostic-securite') {
+      document.querySelectorAll<HTMLElement>('.diag-fab').forEach((el) => (el.style.display = 'none'));
+    }
+  }
+</script>

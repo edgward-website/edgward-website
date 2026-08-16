@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import DiagnosticSecurite from '../components/DiagnosticSecurite.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = 'Quelle sécurité choisir ? Diagnostic gratuit en 1 minute | Edgward';
+const description =
+  "Répondez à quelques questions et découvrez la solution de sécurité adaptée à votre situation : alertes gratuites, intervention à la demande, télésurveillance ou partenaire. Un conseil honnête, sans engagement.";
+---
+
+<Base title={title} description={description}>
+  <PageHero
+    eyebrow="Diagnostic gratuit"
+    title="Quelle sécurité est <em>vraiment</em> adaptée à votre situation ?"
+    subtitle="Quelques questions, moins d'une minute. On vous oriente vers ce qui vous correspond - même quand ce n'est pas Edgward."
+  />
+
+  <section class="section diag-section">
+    <div class="container">
+      <DiagnosticSecurite source="page" />
+      <p class="diag-reassure">
+        Aucune donnée personnelle demandée. Vos réponses servent uniquement à vous conseiller.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT (cible des CTA « être rappelé / conseillé / mis en relation » du diagnostic) -->
+  <section class="section diag-contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Parlons-en</span>
+        <h2>Envie d'un <em>conseil personnalisé</em> ?</h2>
+        <p class="section-subtitle">Laissez-nous vos coordonnées : on vous rappelle pour affiner la solution la plus adaptée à votre situation, sans engagement.</p>
+      </div>
+      <ContactForm defaultSubject="Particulier" submitLabel="Être recontacté" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .diag-section { padding-top: 48px; }
+  .diag-reassure {
+    max-width: 560px;
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+  .diag-contact { background: var(--soft); border-top: 1px solid var(--border); }
+</style>

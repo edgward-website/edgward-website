@@ -71,6 +71,16 @@ const extraContext = defaultSubject && !c.subjects.includes(defaultSubject) ? de
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const successBox = document.getElementById('contact-success');
   const BREVO_CONTACT_ACTION = 'https://87714af1.sibforms.com/serve/MUIFACeUMEzMccQ08jYHlzrdNpWoRrnKzHQmfX53dXh3078PAXXC3bDI0rzN0FcL7yQIGvijOqpaNaHdOjgoOWJ0h_xT7KN4dQy7e-dZ-47FALbyi6DffXwBux4VqYLN-Z7VKjeO_D3znDM-oK3wufPUoBSGyWitQx2h1rhHU_u3hjMH8qe9N4GbLlzOUn60ndvujAgptth1dR8i';
+
+  // Pré-remplissage depuis l'URL (venant du diagnostic sécurité) :
+  //   ?sujet=1-5 pré-sélectionne le sujet ; ?ctx=… est ajouté au message Brevo pour l'attribution.
+  const _usp = new URLSearchParams(location.search);
+  const urlSujet = (_usp.get('sujet') || '').trim();
+  const urlCtx = (_usp.get('ctx') || '').trim();
+  if (form && urlSujet && /^[1-5]$/.test(urlSujet)) {
+    const selEl = form.elements.namedItem('sujet') as HTMLSelectElement | null;
+    if (selEl) selEl.value = urlSujet;
+  }
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const honeypot = (form.elements.namedItem('email_address_check') as HTMLInputElement)?.value;
@@ -92,6 +102,7 @@ const extraContext = defaultSubject && !c.subjects.includes(defaultSubject) ? de
     let composed = message;
     if (telephone) composed = 'Tél : ' + telephone + ' - ' + composed;
     if (ctx) composed = composed + ' [Contexte : ' + ctx + ']';
+    if (urlCtx) composed = composed + ' [Diagnostic : ' + urlCtx + ']';
     composed = composed.slice(0, 255);
     const params = new URLSearchParams();
     params.append('NOM', nom);

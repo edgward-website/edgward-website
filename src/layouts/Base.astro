@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import DiagnosticOverlay from '../components/DiagnosticOverlay.astro';
 import { site } from '../data/site';
 import { getLangFromUrl, ui } from '../i18n/ui';
 import { getAlternates } from '../i18n/routes';
@@ -177,6 +178,7 @@ const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c
     <slot />
   </main>
   <Footer />
+  <DiagnosticOverlay />
 
   <script>
     const nav = document.getElementById('nav');

@@ -1,0 +1,101 @@
+---
+/**
+ * Amorce du diagnostic : affiche la 1re question ("Que protéger ?") en dur.
+ * Un clic ouvre l'overlay du diagnostic déjà pré-rempli sur ce choix (démarre alors à "où ?").
+ * S'appuie sur DiagnosticOverlay (posé dans Base.astro) via `data-open-diagnostic` + `data-prefill-bien`.
+ */
+const options = [
+  { v: 'logement', label: 'Mon logement', icon: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/>' },
+  { v: 'commerce', label: 'Mon commerce', icon: '<path d="M4 9 5 4h14l1 5"/><path d="M4 9v11h16V9"/><path d="M4 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0"/><path d="M9.5 20v-5h5v5"/>' },
+  { v: 'entreprise', label: 'Mon entreprise', icon: '<rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2"/>' },
+  { v: 'chantier', label: 'Un chantier', icon: '<path d="M5 21V5l14-1"/><path d="M5 8h14"/><path d="M9 8v3"/><path d="M4 21h6"/><path d="M18 4v6"/><path d="M18 10a1.5 1.5 0 0 0 0 3"/>' },
+  { v: 'evenement', label: 'Un événement', icon: '<path d="M12 3v3"/><path d="M5.5 8 12 5l6.5 3-6.5 3z"/><path d="M5 8v6a7 7 0 0 0 14 0V8"/>' },
+];
+---
+
+<section class="amorce" aria-labelledby="amorce-title">
+  <div class="container">
+    <div class="amorce-inner">
+      <span class="amorce-eyebrow">Diagnostic gratuit · 1 minute</span>
+      <h2 id="amorce-title">Quelle sécurité est <em>vraiment</em> faite pour vous ?</h2>
+      <p class="amorce-sub">Quelques questions, un conseil honnête - même quand la meilleure réponse n'est pas Edgward.</p>
+
+      <p class="amorce-q">Que souhaitez-vous protéger ?</p>
+      <div class="amorce-opts">
+        {options.map((o) => (
+          <button
+            class="amorce-opt"
+            type="button"
+            data-open-diagnostic
+            data-prefill-bien={o.v}
+            aria-label={`Diagnostic : ${o.label}`}
+          >
+            <span class="amorce-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={o.icon} />
+            </span>
+            <span class="amorce-opt-label">{o.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .amorce {
+    background:
+      radial-gradient(900px 400px at 50% -20%, rgba(70,120,220,.28), transparent 70%),
+      var(--navy);
+    padding: 56px 0;
+    color: #fff;
+  }
+  .amorce-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .amorce-eyebrow {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--brand-light); margin-bottom: 12px;
+  }
+  .amorce h2 {
+    font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; line-height: 1.15;
+    letter-spacing: -.02em; color: #fff; margin-bottom: 12px; text-wrap: balance;
+  }
+  .amorce h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .amorce-sub { font-size: 16px; color: #cbd5e1; line-height: 1.6; max-width: 540px; margin: 0 auto 28px; }
+  .amorce-q { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #94a3b8; margin-bottom: 14px; }
+
+  .amorce-opts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .amorce-opt {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    padding: 18px 12px; cursor: pointer;
+    background: rgba(255,255,255,.06);
+    border: 1.5px solid rgba(255,255,255,.14);
+    border-radius: var(--radius-lg);
+    color: #fff; font-family: inherit;
+    transition: background .16s ease, border-color .16s ease, transform .1s ease;
+  }
+  .amorce-opt:hover { background: rgba(70,120,220,.22); border-color: var(--brand-light); transform: translateY(-2px); }
+  .amorce-opt:active { transform: translateY(0); }
+  .amorce-ic {
+    display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(70,120,220,.2); color: var(--brand-light);
+  }
+  .amorce-ic svg { width: 23px; height: 23px; }
+  .amorce-opt-label { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+
+  @media (max-width: 720px) {
+    .amorce { padding: 44px 0; }
+    .amorce-opts { grid-template-columns: repeat(2, 1fr); }
+    .amorce-opt { flex-direction: row; justify-content: flex-start; gap: 12px; padding: 14px; }
+    .amorce-ic { width: 38px; height: 38px; }
+    .amorce-ic svg { width: 20px; height: 20px; }
+  }
+  @media (max-width: 380px) {
+    .amorce-opts { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .amorce-opt { transition: none; }
+  }
+</style>

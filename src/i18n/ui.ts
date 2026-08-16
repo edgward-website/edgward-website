@@ -123,6 +123,7 @@ export const ui: Record<Lang, Strings> = {
         { href: '/entreprises', label: 'Entreprises' },
         { href: '/communes', label: 'Communes' },
         { href: '/alertes', label: 'Alertes' },
+        { href: '/diagnostic-securite', label: 'Diagnostic' },
         { href: '/edgward-en-suisse', label: 'Notre couverture' },
         { href: '/qui-sommes-nous', label: 'Qui sommes-nous' },
         { href: '/faq', label: 'FAQ' },

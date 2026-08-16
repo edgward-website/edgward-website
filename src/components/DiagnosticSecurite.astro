@@ -1,0 +1,572 @@
+---
+/**
+ * Diagnostic sécurité — questionnaire adaptatif « conseiller honnête ».
+ * Rendu inline (page) ou dans un overlay. Chaque instance est initialisée
+ * par le script global via la racine `.edg-diag`.
+ *
+ * Props :
+ *  - source        : étiquette du point d'entrée (page / flottant / hero / page-nyon…), remontée à GA4 + journal
+ *  - prefillCanton : GE | VD | NE | romand | autre — saute la question canton
+ *  - endpoint      : URL /exec du webhook Apps Script (vide = journal désactivé)
+ *  - secret        : jeton partagé anti-spam envoyé au webhook
+ */
+interface Props {
+  source?: string;
+  prefillCanton?: string;
+  endpoint?: string;
+  secret?: string;
+  /** Ne s'initialise pas au chargement ; attend un event edg-diag:mount ciblé (overlay). */
+  defer?: boolean;
+  /** Retire le cadre du panneau (utile quand le composant vit déjà dans une modale). */
+  bare?: boolean;
+}
+const {
+  source = 'page',
+  prefillCanton = '',
+  endpoint = '',
+  secret = '',
+  defer = false,
+  bare = false,
+} = Astro.props;
+---
+
+<div
+  class:list={['edg-diag', bare && 'edg-diag--bare']}
+  data-source={source}
+  data-prefill-canton={prefillCanton}
+  data-endpoint={endpoint}
+  data-secret={secret}
+  data-defer={defer ? '1' : undefined}
+>
+  <div class="edg-diag-panel">
+    <div class="edg-diag-top">
+      <div class="edg-diag-steps" aria-hidden="true"></div>
+      <div class="edg-diag-head"></div>
+    </div>
+    <div class="edg-diag-body" aria-live="polite"></div>
+  </div>
+</div>
+
+<style is:global>
+  .edg-diag { --d-good:#0E9E6A; --d-good-tint:#E6F6EF; --d-warn:#C7841B; --d-warn-tint:#FBF1DE;
+    max-width: 560px; margin: 0 auto; }
+  .edg-diag-panel {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+    box-shadow: 0 1px 2px rgba(10,25,41,.04), 0 18px 40px -18px rgba(10,25,41,.18); overflow: hidden;
+  }
+  .edg-diag--bare { max-width: none; }
+  .edg-diag--bare .edg-diag-panel { border: none; box-shadow: none; border-radius: 0; }
+  .edg-diag-top { padding: 20px 24px 0; }
+  .edg-diag-steps { display: flex; gap: 5px; margin-bottom: 20px; }
+  .edg-diag-steps i { height: 4px; flex: 1; border-radius: 99px; background: var(--border); transition: background .35s ease; }
+  .edg-diag-steps i.done { background: var(--brand); }
+  .edg-diag-steps i.cur { background: var(--brand); opacity: .4; }
+
+  .edg-diag .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand); margin: 0 0 8px; }
+  .edg-diag h3.q { font-family:'Manrope',sans-serif; font-size: clamp(20px,4.6vw,24px); line-height: 1.2; letter-spacing: -.02em; margin: 0 0 6px; font-weight: 800; color: var(--navy); text-wrap: balance; }
+  .edg-diag .sub { margin: 0; color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+  .edg-diag-body { padding: 18px 24px 26px; }
+
+  .edg-diag .opts { display: grid; gap: 9px; }
+  .edg-diag .opt {
+    display: flex; align-items: center; gap: 13px; width: 100%; text-align: left; cursor: pointer;
+    background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 13px 14px;
+    font-family: inherit; color: var(--text); transition: border-color .15s, background .15s, transform .06s;
+  }
+  .edg-diag .opt:hover { border-color: var(--brand); background: var(--brand-soft); }
+  .edg-diag .opt:active { transform: scale(.99); }
+  .edg-diag .opt .ic { flex: none; width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center; background: var(--brand-soft); color: var(--brand); }
+  .edg-diag .opt .ic svg { width: 19px; height: 19px; }
+  .edg-diag .opt .tx { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .edg-diag .opt .tx b { font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
+  .edg-diag .opt .tx small { color: var(--text-light); font-size: 12.5px; line-height: 1.35; }
+  .edg-diag .opt .arw { margin-left: auto; color: var(--border); flex: none; }
+  .edg-diag .opt:hover .arw { color: var(--brand); }
+
+  .edg-diag .back { background: none; border: none; cursor: pointer; font-family: inherit; color: var(--text-light);
+    font-size: 13.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; padding: 6px 0; margin-bottom: 4px; }
+  .edg-diag .back:hover { color: var(--navy); }
+
+  .edg-diag .badge { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; padding: 6px 12px; border-radius: 99px; margin-bottom: 14px; }
+  .edg-diag .v-fit { background: var(--brand-soft); color: var(--brand-dark); }
+  .edg-diag .v-free { background: var(--d-good-tint); color: var(--d-good); }
+  .edg-diag .v-soon { background: var(--d-warn-tint); color: var(--d-warn); }
+  .edg-diag .v-part { background: var(--soft); color: var(--text-muted); }
+
+  .edg-diag h3.res { font-family:'Manrope',sans-serif; font-size: clamp(22px,5vw,27px); line-height: 1.18; letter-spacing: -.02em; margin: 0 0 12px; font-weight: 800; color: var(--navy); text-wrap: balance; }
+  .edg-diag .res-p { color: var(--text-muted); font-size: 14.5px; line-height: 1.6; margin: 0 0 14px; }
+  .edg-diag .res-p strong { color: var(--navy); font-weight: 700; }
+
+  .edg-diag .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 18px; }
+  .edg-diag .chip { font-size: 12px; font-weight: 600; color: var(--text-muted); background: var(--soft); border: 1px solid var(--border); padding: 5px 10px; border-radius: 8px; }
+
+  .edg-diag .note { display: flex; gap: 10px; align-items: flex-start; border-radius: var(--radius); padding: 12px 14px; margin: 0 0 18px; font-size: 13.5px; line-height: 1.5; color: var(--text); }
+  .edg-diag .note svg { flex: none; margin-top: 1px; }
+  .edg-diag .note.good { background: var(--d-good-tint); } .edg-diag .note.good svg { color: var(--d-good); } .edg-diag .note.good b { color: var(--d-good); }
+  .edg-diag .note.blue { background: var(--brand-soft); } .edg-diag .note.blue svg { color: var(--brand); } .edg-diag .note.blue b { color: var(--brand-dark); }
+  .edg-diag .note.warn { background: var(--d-warn-tint); } .edg-diag .note.warn svg { color: var(--d-warn); } .edg-diag .note.warn b { color: var(--d-warn); }
+
+  .edg-diag .partners { display: flex; flex-wrap: wrap; gap: 7px; margin: 2px 0 20px; }
+  .edg-diag .partners span { font-size: 13px; font-weight: 700; color: var(--navy); background: var(--soft); border: 1px solid var(--border); padding: 7px 12px; border-radius: 9px; }
+
+  .edg-diag .ctas { display: grid; gap: 10px; }
+  .edg-diag .cta { display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 700; letter-spacing: -.01em; padding: 14px 18px; border-radius: var(--radius); border: 1.5px solid transparent; transition: transform .06s, background .15s, box-shadow .2s; }
+  .edg-diag .cta:active { transform: scale(.99); }
+  .edg-diag .cta-primary { background: var(--brand); color: #fff; box-shadow: 0 1px 2px rgba(70,120,220,.25); }
+  .edg-diag .cta-primary:hover { background: var(--brand-dark); box-shadow: 0 6px 16px rgba(70,120,220,.3); }
+  .edg-diag .cta-ghost { background: #fff; color: var(--navy); border-color: var(--border); }
+  .edg-diag .cta-ghost:hover { border-color: var(--brand); color: var(--brand); }
+
+  .edg-diag .edg-wait { display: flex; gap: 8px; }
+  .edg-diag .edg-wait-input {
+    flex: 1 1 auto; min-width: 0; border: 1.5px solid var(--border); border-radius: var(--radius);
+    padding: 12px 14px; font-family: inherit; font-size: 15px; color: var(--text); background: #fff;
+  }
+  .edg-diag .edg-wait-input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
+  .edg-diag .edg-wait .cta { flex: none; white-space: nowrap; }
+  .edg-diag .edg-wait-ok { display: flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 600; color: var(--d-good); margin: 6px 2px 0; }
+  @media (max-width: 420px) { .edg-diag .edg-wait { flex-direction: column; } }
+
+  .edg-diag .restart { background: none; border: none; cursor: pointer; font-family: inherit; color: var(--text-light);
+    font-size: 13px; font-weight: 600; margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; }
+  .edg-diag .restart:hover { color: var(--navy); }
+
+  .edg-diag .fade { animation: edgDiagFade .32s ease; }
+  @keyframes edgDiagFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .edg-diag .fade { animation: none; } .edg-diag-steps i { transition: none; } }
+</style>
+
+<script>
+  type State = Record<string, string>;
+  interface Opt { v: string; icon: string; t: string; d?: string; }
+  interface Q { key: string; q: string; sub: string; when?: (s: State) => boolean; opts: Opt[]; }
+
+  const ic: Record<string, string> = {
+    home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>',
+    shop:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9 5 4h14l1 5"/><path d="M4 9v11h16V9"/><path d="M4 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0"/><path d="M9.5 20v-5h5v5"/></svg>',
+    building:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2"/></svg>',
+    crane:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5l14-1"/><path d="M5 8h14"/><path d="M9 8v3"/><path d="M4 21h6"/><path d="M18 4v6"/><path d="M18 10a1.5 1.5 0 0 0 0 3"/></svg>',
+    event:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3"/><path d="M5.5 8 12 5l6.5 3-6.5 3z"/><path d="M5 8v6a7 7 0 0 0 14 0V8"/></svg>',
+    pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    lock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>',
+    spray:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8h6v13H9z"/><path d="M9 8V5h4"/><path d="M17 5h.01M20 4h.01M18 8h.01M20 8h.01M19 11h.01"/></svg>',
+    eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>',
+    suitcase:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+    leaf:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-6 7-9 16-9 0 9-3 16-9 16Z"/><path d="M8 17c2-4 5-6 8-7"/></svg>',
+    empty:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>',
+    cam:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11v8H3z"/><path d="M14 11l7-3v8l-7-3"/></svg>',
+    tower:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v13"/><circle cx="12" cy="6" r="2"/><path d="M7 4a7 7 0 0 0 0 8M17 4a7 7 0 0 1 0 8"/><path d="M8 21h8"/></svg>',
+    wallet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="16.5" cy="14" r="1.2" fill="currentColor"/></svg>',
+    coin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.2A2.3 2.3 0 0 1 14 9.6M14.5 14.8A2.3 2.3 0 0 1 10 14.4"/></svg>',
+    coins:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v5c0 1.7 2.7 3 6 3s6-1.3 6-3V7"/><path d="M15 12c1.9.3 3 1.1 3 2 0 1.3-2.2 2.3-5 2.3"/><path d="M9 15v2c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>',
+    thumbup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v11H4V10z"/><path d="M7 10l4-7a2 2 0 0 1 2 2v4h5a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 16.8 21H7"/></svg>',
+    thumbdown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14V3h3v11z"/><path d="M17 14l-4 7a2 2 0 0 1-2-2v-4H6a2 2 0 0 1-2-2.3l1.2-6A2 2 0 0 1 7.2 3H17"/></svg>',
+    shieldcheck:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>',
+    bolt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 4 14h7l-1 7 9-11h-7z"/></svg>',
+    bell:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>',
+    think:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .8-1 1.7"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg>',
+    arw:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>',
+    chev:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg>',
+    check:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg>',
+    info:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>',
+    redo:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/></svg>',
+  };
+
+  const bank: Q[] = [
+    { key:'bien', q:'Que souhaitez-vous protéger ?', sub:'On adapte le conseil au type de lieu.',
+      opts:[
+        {v:'logement', icon:ic.home, t:'Mon logement', d:'Appartement, maison ou villa'},
+        {v:'commerce', icon:ic.shop, t:'Mon commerce', d:'Boutique, restaurant, cabinet'},
+        {v:'entreprise', icon:ic.building, t:'Mon entreprise', d:'Bureaux, locaux professionnels'},
+        {v:'chantier', icon:ic.crane, t:'Un chantier / site', d:'Surveillance temporaire'},
+        {v:'evenement', icon:ic.event, t:'Un événement', d:'Manifestation, soirée'},
+      ] },
+    { key:'canton', q:'Où se situe le lieu ?', sub:'Notre couverture varie selon la région.',
+      opts:[
+        {v:'GE', icon:ic.pin, t:'Canton de Genève'},
+        {v:'VD', icon:ic.pin, t:'Canton de Vaud'},
+        {v:'NE', icon:ic.pin, t:'Canton de Neuchâtel'},
+        {v:'romand', icon:ic.pin, t:'Valais ou Fribourg'},
+        {v:'autre', icon:ic.pin, t:'Ailleurs en Suisse'},
+      ] },
+    { key:'risque', q:'Quel risque vous préoccupe le plus ?', sub:'Pour cibler le bon type de protection.',
+      when:s => ['logement','commerce','entreprise'].includes(s.bien),
+      opts:[
+        {v:'effraction', icon:ic.lock, t:'Cambriolage, effraction'},
+        {v:'vandalisme', icon:ic.spray, t:'Vandalisme, dégradations'},
+        {v:'presence', icon:ic.eye, t:'Intrusion, rôdeurs'},
+        {v:'absence', icon:ic.suitcase, t:'Absences, périodes de fermeture'},
+        {v:'tranquillite', icon:ic.leaf, t:'Ma tranquillité au quotidien'},
+      ] },
+    { key:'dispositif', q:'Avez-vous déjà un dispositif ?', sub:'On complète ce que vous avez, sans le remplacer inutilement.',
+      when:s => ['logement','commerce','entreprise'].includes(s.bien),
+      opts:[
+        {v:'rien', icon:ic.empty, t:'Rien pour l’instant'},
+        {v:'autonome', icon:ic.cam, t:'Alarme et/ou caméras autonomes', d:'Non reliées à une centrale'},
+        {v:'centrale', icon:ic.tower, t:'Alarme et/ou caméras reliées à une centrale', d:'Télésurveillance active'},
+      ] },
+    { key:'prixActuel', q:'Combien payez-vous par mois ?', sub:'La télésurveillance est un poste qui pèse vite.',
+      when:s => s.dispositif === 'centrale',
+      opts:[
+        {v:'moins50', icon:ic.wallet, t:'Moins de 50.-/mois'},
+        {v:'50a100', icon:ic.wallet, t:'Entre 50.- et 100.-/mois'},
+        {v:'plus100', icon:ic.wallet, t:'Plus de 100.-/mois'},
+        {v:'inconnu', icon:ic.think, t:'Je ne sais pas exactement'},
+      ] },
+    { key:'satisfaction', q:'Cette solution vous convient-elle ?', sub:'Soyez franc, on adapte le conseil en conséquence.',
+      when:s => s.dispositif === 'centrale',
+      opts:[
+        {v:'satisfait', icon:ic.thumbup, t:'Oui, j’en suis satisfait'},
+        {v:'cher', icon:ic.coin, t:'Oui, mais je la trouve trop chère'},
+        {v:'insatisfait', icon:ic.thumbdown, t:'Non, pas vraiment'},
+      ] },
+    { key:'attente', q:'Qu’attendez-vous d’une solution ?', sub:'C’est ce qui distingue une télésurveillance d’un service à la demande.',
+      when:s => s.bien === 'logement' && !!s.dispositif && s.dispositif !== 'centrale',
+      opts:[
+        {v:'tranquille', icon:ic.shieldcheck, t:'Être rassuré en continu, sans rien gérer'},
+        {v:'reactif', icon:ic.bolt, t:'Garder la main, faire intervenir à ma demande'},
+        {v:'informe', icon:ic.bell, t:'Juste être informé des risques près de chez moi'},
+        {v:'sais_pas', icon:ic.think, t:'Je ne sais pas encore'},
+      ] },
+    { key:'budget', q:'Quel budget mensuel envisagez-vous ?', sub:'Pour vous proposer une formule réaliste.',
+      when:s => s.bien === 'logement' && !!s.dispositif && s.dispositif !== 'centrale' && !!s.attente && s.attente !== 'informe',
+      opts:[
+        {v:'gratuit', icon:ic.empty, t:'Le moins possible, idéalement gratuit'},
+        {v:'petit', icon:ic.coin, t:'Jusqu’à ~20.-/mois'},
+        {v:'moyen', icon:ic.coins, t:'20.- à 75.-/mois'},
+        {v:'libre', icon:ic.coins, t:'Peu importe si c’est efficace'},
+      ] },
+  ];
+
+  const labels: Record<string, string> = {
+    logement:'Logement', commerce:'Commerce', entreprise:'Entreprise', chantier:'Chantier', evenement:'Événement',
+    GE:'Genève', VD:'Vaud', NE:'Neuchâtel', romand:'Valais / Fribourg', autre:'Hors romandie',
+    effraction:'Cambriolage', vandalisme:'Vandalisme', presence:'Rôdeurs', absence:'Absences', tranquillite:'Tranquillité',
+    rien:'Aucun dispositif', autonome:'Alarme / caméras', centrale:'Télésurveillance',
+    moins50:'< 50.-/mois', '50a100':'50-100.-/mois', plus100:'> 100.-/mois', inconnu:'Prix inconnu',
+    satisfait:'Satisfait', cher:'Trop chère', insatisfait:'Insatisfait',
+    tranquille:'Sans rien gérer', reactif:'À la demande', informe:'Être informé', sais_pas:'À définir',
+    gratuit:'Budget mini', petit:'~20.-', moyen:'20-75.-', libre:'Budget libre',
+  };
+  const cantonName: Record<string, string> = { GE:'à Genève', VD:'dans le canton de Vaud', NE:'à Neuchâtel', romand:'dans votre canton' };
+  const riskPhrase: Record<string, string> = { effraction:'les cambriolages', vandalisme:'le vandalisme', presence:'les intrusions', absence:'vos absences', tranquillite:'votre tranquillité' };
+  const partners: Record<string, string[]> = { GE:['GPA SA','Python Sécurité','KRK Security','Global Sécurité'], VD:['Wolfguard','Global Sécurité','GPA SA','Roc Sécurité','Juggers'] };
+
+  // Endpoint Brevo (identique à ContactForm) pour la mini-capture email « liste d'attente ».
+  const BREVO_ENDPOINT = 'https://87714af1.sibforms.com/serve/MUIFACeUMEzMccQ08jYHlzrdNpWoRrnKzHQmfX53dXh3078PAXXC3bDI0rzN0FcL7yQIGvijOqpaNaHdOjgoOWJ0h_xT7KN4dQy7e-dZ-47FALbyi6DffXwBux4VqYLN-Z7VKjeO_D3znDM-oK3wufPUoBSGyWitQx2h1rhHU_u3hjMH8qe9N4GbLlzOUn60ndvujAgptth1dR8i';
+  const DEST = { app:'/#telecharger', alertes:'/activer-les-alertes', interv:'/intervention-alarme', entreprises:'/entreprises', diag:'/diagnostic-securite' };
+  // Codes sujet Brevo : 1 Particulier, 2 Entreprise, 5 Autre.
+  interface CtaCfg { kind: 'link' | 'form' | 'waitlist'; href?: string; sujet?: string; }
+  const ctaMap: Record<string, CtaCfg> = {
+    'Télécharger l’app': { kind: 'link', href: DEST.app },
+    'Activer les alertes gratuites': { kind: 'link', href: DEST.alertes },
+    'Recevoir les alertes gratuites': { kind: 'link', href: DEST.alertes },
+    'Recevoir les alertes gratuites du canton': { kind: 'link', href: DEST.alertes },
+    'Découvrir l’intervention à la demande': { kind: 'link', href: DEST.interv },
+    'Découvrir l’intervention': { kind: 'link', href: DEST.interv },
+    'Découvrir Edgward': { kind: 'link', href: DEST.interv },
+    'Comparer avec Edgward': { kind: 'form', href: DEST.diag, sujet: '1' },
+    'Être rappelé pour comparer': { kind: 'form', href: DEST.diag, sujet: '1' },
+    'Être conseillé': { kind: 'form', href: DEST.diag, sujet: '1' },
+    'Être mis en relation': { kind: 'form', href: DEST.diag, sujet: '2' },
+    'Être rappelé': { kind: 'form', href: DEST.entreprises, sujet: '2' },
+    'Demander un devis': { kind: 'form', href: DEST.entreprises, sujet: '2' },
+    'Me tenir informé': { kind: 'waitlist' },
+    'Être prévenu pour l’intervention': { kind: 'waitlist' },
+  };
+
+  interface Result { id: string; cls: string; badge: string; title: string; body: string; note?: { cls: string; ic: string; html: string }; partners?: string[] | null; ctas: { t: string; cls: string }[]; }
+
+  function track(name: string, params?: Record<string, unknown>) {
+    try { const g = (window as any).gtag; if (typeof g === 'function') g('event', name, params || {}); } catch { /* noop */ }
+  }
+
+  function initDiag(root: HTMLElement) {
+    if (root.dataset.edgReady === '1') return;
+    root.dataset.edgReady = '1';
+
+    const source = root.dataset.source || 'page';
+    const endpoint = root.dataset.endpoint || '';
+    const secret = root.dataset.secret || '';
+    const prefillCanton = root.dataset.prefillCanton || '';
+    const sessionId = 's_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+
+    const $steps = root.querySelector('.edg-diag-steps') as HTMLElement;
+    const $head = root.querySelector('.edg-diag-head') as HTMLElement;
+    const $body = root.querySelector('.edg-diag-body') as HTMLElement;
+
+    let state: State = {};
+    let answered: string[] = [];
+    let started = false;
+
+    const applicable = (q: Q) => q.when ? q.when(state) : true;
+    const nextQuestion = () => bank.find(q => !(q.key in state) && applicable(q)) || null;
+    const remainingCount = () => bank.filter(q => !(q.key in state) && applicable(q)).length;
+
+    function renderProgress(atResult: boolean) {
+      const total = atResult ? answered.length : answered.length + remainingCount();
+      const filled = answered.length;
+      $steps.innerHTML = '';
+      for (let i = 0; i < total; i++) {
+        const el = document.createElement('i');
+        if (i < filled) el.className = 'done';
+        else if (i === filled && !atResult) el.className = 'cur';
+        $steps.appendChild(el);
+      }
+    }
+
+    function logJournal(payload: Record<string, unknown>) {
+      if (!endpoint || !('sendBeacon' in navigator)) return;
+      try {
+        const body = JSON.stringify(Object.assign({ sessionId, secret }, payload));
+        navigator.sendBeacon(endpoint, new Blob([body], { type: 'text/plain' }));
+      } catch { /* noop */ }
+    }
+
+    function render() {
+      const q = nextQuestion();
+      if (!q) { renderResult(); return; }
+      if (!started) { started = true; track('diag_start', { source }); }
+      renderProgress(false);
+      $head.innerHTML =
+        (answered.length ? '<button class="back" data-back="1">' + ic.chev + ' Retour</button>' : '') +
+        '<p class="eyebrow">Question ' + (answered.length + 1) + '</p>' +
+        '<h3 class="q">' + q.q + '</h3>' +
+        '<p class="sub">' + q.sub + '</p>';
+      let html = '<div class="opts fade">';
+      q.opts.forEach(o => {
+        html += '<button class="opt" data-v="' + o.v + '"><span class="ic">' + o.icon + '</span>' +
+          '<span class="tx"><b>' + o.t + '</b>' + (o.d ? '<small>' + o.d + '</small>' : '') + '</span>' +
+          '<span class="arw">' + ic.arw + '</span></button>';
+      });
+      html += '</div>';
+      $body.innerHTML = html;
+      $body.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => answer(q.key, (b as HTMLElement).dataset.v as string)));
+      const back = $head.querySelector('[data-back]');
+      if (back) back.addEventListener('click', goBack);
+    }
+
+    function answer(key: string, v: string) {
+      if (!(key in state)) answered.push(key);
+      state[key] = v;
+      sanitize();
+      track('diag_step', { step_name: key, step_index: answered.length, source });
+      render();
+    }
+    function sanitize() {
+      answered = answered.filter(k => {
+        const q = bank.find(x => x.key === k);
+        if (q && q.when && !q.when(state)) { delete state[k]; return false; }
+        return true;
+      });
+    }
+    function goBack() { const k = answered.pop(); if (k) delete state[k]; render(); }
+
+    // Réinitialise et applique un pré-remplissage (statique prefillCanton + éventuel map dynamique
+    // passé à l'ouverture depuis l'amorce ou un bloc contextuel). Applique dans l'ordre de la banque
+    // pour que `answered` et le retour restent cohérents.
+    function applyPrefill(map: Record<string, string> | null) {
+      state = {}; answered = []; started = false;
+      const merged: Record<string, string> = Object.assign({}, map || {});
+      if (prefillCanton && !('canton' in merged) && ['GE','VD','NE','romand','autre'].includes(prefillCanton)) merged.canton = prefillCanton;
+      bank.forEach(q => {
+        const v = merged[q.key];
+        if (v && (!q.when || q.when(state))) { state[q.key] = v; answered.push(q.key); }
+      });
+    }
+
+    function decide(): Result {
+      const { bien, canton, risque, dispositif, prixActuel, satisfaction, attente, budget } = state;
+      const interv = ['GE','VD','NE'].includes(canton);
+      const where = cantonName[canton] || '';
+      const rk = riskPhrase[risque] || 'votre lieu';
+      const plist = partners[canton] || null;
+
+      if (bien === 'chantier' || bien === 'evenement') {
+        return { id:'partenaires', cls:'v-part', badge:'Nos partenaires sont plus adaptés',
+          title: bien === 'chantier' ? 'Un chantier demande une présence sur place' : 'Un événement demande une équipe dédiée',
+          body:'Edgward, c’est l’intervention mobile <strong>à la demande</strong> - pas le gardiennage permanent. Pour ' + (bien === 'chantier' ? 'un chantier' : 'un événement') + ', nos sociétés partenaires' + (plist ? ' ' + where : ' en Suisse romande') + ' sont taillées pour ça. On vous met en relation avec la bonne équipe.',
+          partners:plist, ctas:[{ t:'Être mis en relation', cls:'cta-primary' }] };
+      }
+      if (canton === 'autre') {
+        return { id:'hors-zone', cls:'v-soon', badge:'Pas encore chez vous',
+          title:'Edgward opère aujourd’hui en Suisse romande',
+          body:'On préfère être honnête : ni nos alertes ni notre intervention ne couvrent encore votre région, et on ne veut rien vous promettre qu’on ne peut assurer. Laissez-nous votre secteur, vous serez parmi les premiers prévenus.',
+          ctas:[{ t:'Me tenir informé', cls:'cta-primary' }] };
+      }
+      if (dispositif === 'centrale') {
+        const b2b = (bien === 'commerce' || bien === 'entreprise');
+        if (satisfaction === 'satisfait') {
+          if (prixActuel === 'plus100') {
+            return { id:'tele-cher', cls:'v-soon', badge:'Bien protégé, mais à quel prix ?',
+              title:'Vous êtes couvert - vous payez juste le prix fort',
+              body:'Vous êtes satisfait de votre surveillance contre ' + rk + ', et c’est l’essentiel. Sachez seulement qu’à <strong>plus de 100.-/mois</strong> vous êtes en haut du marché. Si un jour la facture pèse, l’intervention à la demande ' + (interv ? 'revient autour de <strong>15.-/mois</strong> (environ 5× moins)' : 'sera bientôt disponible chez vous') + ' - à condition d’accepter de la déclencher vous-même plutôt qu’une surveillance passive.',
+              note:{ cls:'blue', ic:ic.info, html:'Vous gardez la main : rien à changer aujourd’hui si votre tranquillité vaut ce prix.' },
+              ctas: interv ? [{ t:'Comparer avec Edgward', cls:'cta-primary' },{ t:'Recevoir les alertes gratuites', cls:'cta-ghost' }]
+                           : [{ t:'Recevoir les alertes gratuites du canton', cls:'cta-primary' }] };
+          }
+          return { id:'tele-garder', cls:'v-free', badge:'Votre solution est le bon choix',
+            title:'Gardez votre télésurveillance',
+            body:'Vous êtes satisfait et vous payez un tarif raisonnable : <strong>rien ne justifie d’en changer</strong>. Une alarme reliée à une centrale reste la meilleure réponse quand on veut être protégé en continu contre ' + rk + ' sans rien gérer soi-même. On ne va pas vous vendre le contraire.',
+            note:{ cls:'good', ic:ic.check, html:'<b>Bonus gratuit</b> - activez en plus les alertes de sécurité de votre canton, en complément et sans frais.' },
+            ctas:[{ t:'Recevoir les alertes gratuites', cls:'cta-primary' }] };
+        }
+        const compare = prixActuel === 'plus100' ? 'À plus de 100.-/mois, vous pourriez diviser la facture par 5 environ.'
+          : prixActuel === '50a100' ? 'Entre 50.- et 100.-/mois, une intervention à ~15.-/mois reste nettement moins chère.'
+          : prixActuel === 'moins50' ? 'Même sous 50.-/mois, ~15.-/mois allège la facture si le modèle à la demande vous convient.'
+          : 'Une intervention à la demande à ~15.-/mois change souvent la donne.';
+        if (b2b) {
+          return { id:'b2b-cher', cls:'v-fit', badge:'On peut alléger votre facture',
+            title:'Votre sécurité vous coûte trop cher',
+            body:'Vous n’êtes pas convaincu par votre contrat actuel' + (where ? ' ' + where : '') + '. ' + compare + ' Le mieux : un échange rapide pour comparer, sans vous engager.',
+            ctas:[{ t:'Être rappelé', cls:'cta-primary' },{ t:'Demander un devis', cls:'cta-ghost' }] };
+        }
+        if (!interv) {
+          return { id:'tele-save-soon', cls:'v-soon', badge:'Bientôt une alternative',
+            title:'Une alternative moins chère arrive chez vous',
+            body:'Vous trouvez votre télésurveillance trop coûteuse, et on comprend. L’intervention à la demande Edgward n’est <strong>pas encore active dans votre canton</strong> - en attendant, faites jouer la concurrence, et activez nos alertes gratuites. On vous prévient dès notre arrivée.',
+            note:{ cls:'good', ic:ic.check, html:'Les alertes de sécurité de votre canton sont déjà accessibles, gratuitement.' },
+            ctas:[{ t:'Recevoir les alertes gratuites', cls:'cta-primary' },{ t:'Être prévenu pour l’intervention', cls:'cta-ghost' }] };
+        }
+        return { id:'tele-save', cls:'v-fit', badge:'Vous pouvez payer beaucoup moins',
+          title: satisfaction === 'cher' ? 'Payez votre sécurité 5× moins cher' : 'Il existe une solution plus adaptée',
+          body:(satisfaction === 'cher' ? 'Vous êtes protégé mais la facture pèse. ' : 'Votre solution ne vous convient pas vraiment. ') + compare + ' L’intervention à la demande Edgward ' + where + ' vient à votre adresse ' + (canton === 'GE' ? 'en 10 à 15 min ' : '') + 'quand vous le décidez, pour <strong>~15.-/mois sans engagement</strong>. Seule différence à accepter : c’est vous qui déclenchez, ce n’est pas une surveillance passive 24/7.',
+          note:{ cls:'blue', ic:ic.info, html:'Vous voulez rester en surveillance permanente sans rien gérer ? Dans ce cas, une bonne télésurveillance reste plus adaptée - on peut aussi vous y orienter.' },
+          ctas:[{ t:'Découvrir Edgward', cls:'cta-primary' },{ t:'Être rappelé pour comparer', cls:'cta-ghost' }] };
+      }
+      if (bien === 'commerce' || bien === 'entreprise') {
+        return { id:'b2b-projet', cls:'v-fit', badge:'Parlons de votre projet',
+          title:'Une formule sur mesure pour ' + (bien === 'commerce' ? 'votre commerce' : 'votre entreprise'),
+          body:'Pour vous protéger contre ' + rk + (where ? ' ' + where : '') + ', l’intervention à la demande se combine souvent avec le bon partenaire selon vos horaires et vos locaux.' + (interv ? '' : ' L’intervention n’est pas encore active partout, mais on trouve la solution avec vous.') + ' Le plus simple : un échange rapide pour vous proposer la formule juste.',
+          ctas:[{ t:'Être rappelé', cls:'cta-primary' },{ t:'Demander un devis', cls:'cta-ghost' }] };
+      }
+      if (attente === 'tranquille') {
+        return { id:'besoin-tele', cls:'v-part', badge:'Une télésurveillance serait plus adaptée',
+          title:'Pour être rassuré sans rien gérer, visez la télésurveillance',
+          body:'Vous voulez une protection en continu contre ' + rk + ' <strong>sans avoir à gérer les alertes vous-même</strong> : c’est précisément le rôle d’une alarme reliée à une centrale, pas celui d’Edgward qui fonctionne à la demande. Autant vous orienter vers ce qui vous correspond vraiment.' + (plist ? ' Nos partenaires ' + where + ' installent et surveillent ce type de système.' : ''),
+          partners:plist,
+          note:{ cls:'good', ic:ic.check, html:'<b>En complément gratuit</b> - vous pouvez recevoir les alertes de sécurité de votre canton, quelle que soit votre solution.' },
+          ctas: plist ? [{ t:'Être mis en relation', cls:'cta-primary' },{ t:'Recevoir les alertes gratuites', cls:'cta-ghost' }]
+                      : [{ t:'Être conseillé', cls:'cta-primary' },{ t:'Recevoir les alertes gratuites', cls:'cta-ghost' }] };
+      }
+      if (attente === 'informe' || (attente === 'sais_pas' && budget === 'gratuit')) {
+        return { id:'alertes', cls:'v-free', badge:'Commencez par le gratuit',
+          title:'Les alertes gratuites sont faites pour vous',
+          body:'Recevez sans frais les alertes et informations de sécurité de votre canton, à partir des <strong>sources officielles</strong> (police, autorités, médias). Le jour où vous voudrez qu’une équipe intervienne' + (interv ? ' chez vous' : '') + ', l’intervention à la demande sera là - sans abonnement caché.',
+          note:{ cls:'good', ic:ic.check, html:'<b>100% gratuit</b> - aucun abonnement ni carte bancaire pour les alertes du canton.' },
+          ctas:[{ t:'Activer les alertes gratuites', cls:'cta-primary' },{ t:'Découvrir l’intervention à la demande', cls:'cta-ghost' }] };
+      }
+      if (!interv) {
+        return { id:'romand-bientot', cls:'v-soon', badge:'Les alertes vous couvrent déjà',
+          title:'L’intervention arrive bientôt dans votre canton',
+          body:'Bonne nouvelle : votre canton fait partie de notre veille sécurité <strong>gratuite</strong> (Genève, Vaud, Valais, Neuchâtel, Fribourg). L’intervention à la demande à votre adresse n’y est pas encore active - on vous prévient dès qu’elle arrive.',
+          note:{ cls:'good', ic:ic.check, html:'Activez dès maintenant les alertes de sécurité de votre canton, gratuitement.' },
+          ctas:[{ t:'Activer les alertes gratuites', cls:'cta-primary' },{ t:'Être prévenu pour l’intervention', cls:'cta-ghost' }] };
+      }
+      const budgetFree = budget === 'gratuit';
+      const disp = dispositif === 'autonome' ? ' Vos caméras et votre alarme gardent tout leur sens : Edgward apporte le maillon humain qui vient sur place.' : '';
+      return { id:'edgward-fit', cls:'v-fit', badge: budgetFree ? 'Le gratuit d’abord, l’intervention si besoin' : 'Edgward est fait pour vous',
+        title:'Alertes gratuites + intervention à votre adresse',
+        body:'Vous voulez garder la main et faire intervenir quelqu’un à votre demande contre ' + rk + '. Chez vous ' + where + ', profitez des <strong>alertes gratuites</strong> du canton, et déclenchez une <strong>intervention à votre adresse exacte</strong>' + (canton === 'GE' ? ' en 10 à 15 min' : '') + ' quand vous en avez besoin, pour <strong>~15.-/mois sans engagement</strong>.' + disp,
+        note: budgetFree
+          ? { cls:'good', ic:ic.check, html:'Commencez par les alertes <b>gratuites</b> - l’intervention reste disponible le jour où il le faut.' }
+          : { cls:'blue', ic:ic.info, html:'Environ <b>5× moins cher</b> qu’une télésurveillance classique (dès ~75.-/mois).' },
+        ctas: budgetFree
+          ? [{ t:'Activer les alertes gratuites', cls:'cta-primary' },{ t:'Découvrir l’intervention', cls:'cta-ghost' }]
+          : [{ t:'Télécharger l’app', cls:'cta-primary' },{ t:'Activer les alertes gratuites', cls:'cta-ghost' }] };
+    }
+
+    function renderResult() {
+      renderProgress(true);
+      const r = decide();
+      $head.innerHTML = '<button class="back" data-back="1">' + ic.chev + ' Modifier mes réponses</button>';
+
+      let chips = '<div class="chips">';
+      answered.forEach(k => { if (state[k] && labels[state[k]]) chips += '<span class="chip">' + labels[state[k]] + '</span>'; });
+      chips += '</div>';
+
+      const note = r.note ? '<div class="note ' + r.note.cls + '">' + r.note.ic + '<div>' + r.note.html + '</div></div>' : '';
+      let plist = '';
+      if (r.partners) { plist = '<div class="partners">'; r.partners.forEach(p => plist += '<span>' + p + '</span>'); plist += '</div>'; }
+
+      // Contexte d'attribution transmis aux formulaires (profil + réponses clés, anonyme).
+      const ctxParts: string[] = [r.id];
+      ['canton', 'bien', 'dispositif', 'prixActuel', 'satisfaction', 'risque'].forEach(k => {
+        if (state[k] && labels[state[k]]) ctxParts.push(labels[state[k]]);
+      });
+      const ctx = encodeURIComponent(ctxParts.join(' · '));
+
+      let ctas = '<div class="ctas">';
+      r.ctas.forEach(c => {
+        const cfg = ctaMap[c.t] || { kind: 'link', href: '#' };
+        if (cfg.kind === 'waitlist') {
+          ctas += '<form class="edg-wait" data-cta="' + c.t + '" novalidate>' +
+            '<input type="email" class="edg-wait-input" required placeholder="votre@email.ch" aria-label="Votre email">' +
+            '<button type="submit" class="cta ' + c.cls + '">' + c.t + '</button></form>' +
+            '<p class="edg-wait-ok" hidden>' + ic.check + ' Merci, on vous prévient dès que ça bouge dans votre région.</p>';
+        } else {
+          const href = cfg.kind === 'form' ? cfg.href + '?ctx=' + ctx + '&sujet=' + cfg.sujet + '#contact' : (cfg.href || '#');
+          ctas += '<a class="cta ' + c.cls + '" href="' + href + '" data-cta="' + c.t + '">' + c.t + '</a>';
+        }
+      });
+      ctas += '</div>';
+
+      $body.innerHTML = '<div class="fade">' +
+        '<span class="badge ' + r.cls + '">' + ic.check + ' ' + r.badge + '</span>' +
+        '<h3 class="res">' + r.title + '</h3>' + chips +
+        '<p class="res-p">' + r.body + '</p>' + note + plist + ctas +
+        '<button class="restart" data-restart="1">' + ic.redo + ' Recommencer le diagnostic</button></div>';
+
+      track('diag_complete', { profil: r.id, source, canton: state.canton || '', dispositif: state.dispositif || '', prix: state.prixActuel || '', satisfaction: state.satisfaction || '' });
+      logJournal({ source, bien: state.bien || '', canton: state.canton || '', risque: state.risque || '', dispositif: state.dispositif || '', prixActuel: state.prixActuel || '', satisfaction: state.satisfaction || '', attente: state.attente || '', budget: state.budget || '', profil: r.id });
+
+      (root.querySelector('[data-back]') as HTMLElement)?.addEventListener('click', goBack);
+      (root.querySelector('[data-restart]') as HTMLElement)?.addEventListener('click', () => { applyPrefill(null); render(); });
+
+      // Liens (app / alertes / intervention / formulaires) : on trace puis on laisse naviguer (gtag envoie en beacon).
+      root.querySelectorAll('a[data-cta]').forEach(a => a.addEventListener('click', () => {
+        track('diag_cta', { profil: r.id, cta: (a as HTMLElement).dataset.cta, source });
+      }));
+
+      // Liste d'attente : capture email inline -> Brevo (canton + profil en contexte), sans quitter la page.
+      root.querySelectorAll('.edg-wait').forEach(f => f.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = f.querySelector('.edg-wait-input') as HTMLInputElement;
+        const email = (input.value || '').trim();
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { input.reportValidity(); return; }
+        const region = labels[state.canton] || 'hors zone';
+        const params = new URLSearchParams();
+        params.append('NOM', 'Liste attente');
+        params.append('EMAIL', email);
+        params.append('SUJET', '5');
+        params.append('MESSAGE', ('Liste d’attente diagnostic - ' + region + ' - profil ' + r.id).slice(0, 255));
+        params.append('email_address_check', '');
+        params.append('locale', 'en');
+        fetch(BREVO_ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params, keepalive: true }).catch(() => {});
+        track('diag_cta', { profil: r.id, cta: (f as HTMLElement).dataset.cta, source });
+        (f as HTMLElement).hidden = true;
+        const ok = (f as HTMLElement).nextElementSibling as HTMLElement | null;
+        if (ok) ok.hidden = false;
+      }));
+    }
+
+    // Redémarrage piloté de l'extérieur (amorce hero / bloc contextuel) avec un pré-remplissage.
+    root.addEventListener('edg-diag:restart', (e) => {
+      const p = (e as CustomEvent).detail?.prefill as Record<string, string> | undefined;
+      applyPrefill(p || null); render();
+    });
+
+    applyPrefill(null);
+    render();
+  }
+
+  function boot() { document.querySelectorAll<HTMLElement>('.edg-diag:not([data-defer="1"])').forEach(initDiag); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  // Mount ciblé (overlay différé) : { detail: { root } } ; sinon (re)scan global.
+  document.addEventListener('edg-diag:mount', (e) => {
+    const root = (e as CustomEvent).detail?.root as HTMLElement | undefined;
+    if (root) initDiag(root); else boot();
+  });
+</script>
