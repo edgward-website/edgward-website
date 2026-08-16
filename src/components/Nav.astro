@@ -123,7 +123,8 @@ const switchTarget = getSwitchTarget(currentPath, lang === 'fr' ? 'en' : 'fr');
 
   .nav-links {
     display: flex;
-    gap: 24px;
+    flex-wrap: nowrap;
+    gap: 15px;
     list-style: none;
   }
   .nav-links a {
@@ -131,6 +132,7 @@ const switchTarget = getSwitchTarget(currentPath, lang === 'fr' ? 'en' : 'fr');
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
+    white-space: nowrap;
     transition: color 0.15s ease;
   }
   .nav-links a:hover,
@@ -188,7 +190,7 @@ const switchTarget = getSwitchTarget(currentPath, lang === 'fr' ? 'en' : 'fr');
 
   .nav-links-cta { display: none; }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     .nav-right { display: none; }
     .burger { display: block; }
     .nav-lang-mobile { display: list-item; }
