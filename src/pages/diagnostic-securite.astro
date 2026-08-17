@@ -2,11 +2,49 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import DiagnosticSecurite from '../components/DiagnosticSecurite.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
 import ContactForm from '../components/ContactForm.astro';
 
 const title = 'Quelle sécurité choisir ? Diagnostic gratuit en 1 minute | Edgward';
 const description =
-  "Répondez à quelques questions et découvrez la solution de sécurité adaptée à votre situation : alertes gratuites, intervention à la demande, télésurveillance ou partenaire. Un conseil honnête, sans engagement.";
+  "Quelle sécurité choisir ? Notre diagnostic gratuit vous oriente vers la solution adaptée : alertes, intervention à la demande ou télésurveillance.";
+
+// FAQ décisionnelle (SEO + GEO). Réponses honnêtes, chiffrées, self-contained ;
+// FAQAccordion émet automatiquement le JSON-LD FAQPage.
+const faqItems = [
+  {
+    question: 'Quelle solution de sécurité choisir pour sa maison ou son appartement ?',
+    answer: `Tout dépend de la façon dont vous voulez gérer les alertes. Pour une protection permanente sans rien gérer, une alarme reliée à une centrale (télésurveillance) reste la référence. Si vous préférez être informé puis déclencher une intervention à votre adresse seulement en cas de doute, la sécurité à la demande est plus souple et bien moins chère (environ CHF 15.-/mois contre ~75.- pour une télésurveillance). Beaucoup commencent par les <a href="/activer-les-alertes">alertes gratuites</a> de leur canton, puis ajoutent l’intervention si besoin.`,
+  },
+  {
+    question: 'Télésurveillance ou intervention à la demande : quelle différence, et laquelle choisir ?',
+    answer: `La télésurveillance relie votre alarme à une centrale qui la surveille 24h/24 et réagit automatiquement : idéale pour être rassuré sans jamais rien gérer, mais c’est un abonnement élevé (souvent 75.- à plus de 100.-/mois). L’<a href="/intervention-alarme">intervention à la demande</a> vous laisse la main : vous recevez l’alerte et faites venir un agent à votre adresse quand vous le jugez utile, pour environ 15.-/mois. En résumé : télésurveillance pour le "zéro effort", intervention à la demande pour de la souplesse à petit prix.`,
+  },
+  {
+    question: 'Combien coûte une télésurveillance par mois en Suisse romande ?',
+    answer: `Une télésurveillance résidentielle coûte généralement entre 50.- et plus de 100.-/mois, hors matériel et installation : c’est le prix d’une surveillance permanente reliée à une centrale. La sécurité à la demande revient elle à environ CHF 15.-/mois d’abonnement, soit jusqu’à 5 fois moins. Vous ne payez ensuite que les interventions que vous commandez vous-même (entre 100.- et 150.- chacune) : pas de veille permanente à financer, seulement une venue à votre adresse quand vous en avez réellement besoin.`,
+  },
+  {
+    question: 'Une alarme reliée à une centrale est-elle nécessaire, ou des caméras suffisent-elles ?',
+    answer: `Des caméras seules montrent ce qui se passe mais n’envoient personne sur place : c’est de la constatation, pas de la réponse. Une alarme reliée à une centrale ajoute une réaction automatique 24h/24. Entre les deux, vous pouvez garder vos caméras et y ajouter le maillon humain : être alerté, puis faire intervenir un agent à la demande. Si vous êtes déjà équipé, inutile de tout remplacer - il suffit souvent de compléter par une capacité d’intervention.`,
+  },
+  {
+    question: 'Quelle sécurité pour protéger son logement pendant les vacances ou une absence ?',
+    answer: `Pour une absence prolongée, le plus efficace est de combiner information et intervention. Les <a href="/activer-les-alertes">alertes de sécurité</a> de votre canton, gratuites, vous tiennent au courant de ce qui se passe autour de chez vous, et une intervention à la demande permet de lever un doute ou de faire contrôler votre domicile sans que vous ayez à rentrer. Pour quelques semaines par an, c’est souvent plus adapté qu’un abonnement de télésurveillance à l’année.`,
+  },
+  {
+    question: 'Ma télésurveillance est trop chère : quelles sont les alternatives ?',
+    answer: `Si votre télésurveillance vous convient mais que le prix pèse, deux options : faire jouer la concurrence sur votre contrat actuel, ou passer à un modèle à la demande. La sécurité à la demande revient jusqu’à 5 fois moins cher (environ 15.-/mois), à condition d’accepter de déclencher vous-même l’intervention plutôt qu’une surveillance passive. Si vous tenez à une surveillance permanente sans rien gérer, mieux vaut garder une télésurveillance : le diagnostic ci-dessus vous aide à trancher honnêtement.`,
+  },
+  {
+    question: 'Quelle sécurité pour un commerce ou une PME ?',
+    answer: `Pour un commerce ou une PME, la bonne solution dépend de vos horaires, de vos locaux et de votre exposition, et combine souvent plusieurs briques : alarme, caméras et capacité d’intervention. Plutôt qu’une offre standard, le plus efficace est un échange rapide pour la dimensionner. Edgward s’appuie sur un réseau de sociétés de sécurité partenaires pour couvrir gardiennage, rondes et interventions ; vous pouvez <a href="/entreprises">demander un devis</a> adapté à votre activité.`,
+  },
+  {
+    question: 'Comment savoir quelle solution de sécurité est faite pour moi ?',
+    answer: `Le plus simple est de répondre à quelques questions sur votre situation : ce que vous protégez, votre canton, votre équipement actuel et la façon dont vous voulez gérer les alertes. En moins d’une minute, le diagnostic ci-dessus vous oriente honnêtement vers la solution la plus adaptée - alertes gratuites, intervention à la demande, télésurveillance ou société partenaire - même quand la meilleure réponse n’est pas Edgward.`,
+  },
+];
 ---
 
 <Base title={title} description={description}>
@@ -22,6 +60,20 @@ const description =
       <p class="diag-reassure">
         Aucune donnée personnelle demandée. Vos réponses servent uniquement à vous conseiller.
       </p>
+    </div>
+  </section>
+
+  <!-- FAQ décisionnelle (SEO + GEO : "quelle sécurité choisir", comparatifs, prix) -->
+  <section class="section diag-faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Bien choisir</span>
+        <h2>Vos questions avant de <em>choisir</em></h2>
+        <p class="section-subtitle">Ce qu'il faut savoir pour trouver la sécurité la plus adaptée à votre situation.</p>
+      </div>
+      <div class="faq-wrap">
+        <FAQAccordion items={faqItems} />
+      </div>
     </div>
   </section>
 
@@ -48,5 +100,7 @@ const description =
     color: var(--text-light);
     line-height: 1.5;
   }
+  .diag-faq { padding-top: 8px; }
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
   .diag-contact { background: var(--soft); border-top: 1px solid var(--border); }
 </style>
