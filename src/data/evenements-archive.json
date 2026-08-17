@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-17T10:35:47.930Z",
-  "total": 102,
+  "compileLe": "2026-08-17T17:26:47.376Z",
+  "total": 104,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1225,6 +1225,30 @@
       "heure": "13 août 22:35",
       "source": "Pomona",
       "dateVue": "2026-08-16T17:19:31.760Z"
+    },
+    {
+      "titre": "Collision de trams",
+      "resume": "Une collision entre deux trams a provoqué d'importantes perturbations sur le réseau de transports publics.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "17 août 18:48",
+      "source": "20 Minuten",
+      "dateVue": "2026-08-17T17:26:47.376Z"
+    },
+    {
+      "titre": "Bus dévale une pente",
+      "resume": "Un bus a dévalé une pente d'environ 50 mètres sans faire de blessé.",
+      "commune": "Loèche-les-Bains",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.63,
+      "lat": 46.381,
+      "heure": "17 août 12:39",
+      "source": "24 Heures",
+      "dateVue": "2026-08-17T17:26:47.376Z"
     }
   ]
 }
