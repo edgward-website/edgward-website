@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-18T17:27:08.086Z",
-  "total": 106,
+  "compileLe": "2026-08-19T10:33:23.889Z",
+  "total": 108,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1273,6 +1273,30 @@
       "heure": "17 août 18:56",
       "source": "24 Heures",
       "dateVue": "2026-08-18T17:27:08.086Z"
+    },
+    {
+      "titre": "Poids lourd contre une signalisation sur l'A12",
+      "resume": "Un poids lourd a percuté une installation de signalisation lumineuse de chantier sur l'autoroute A12. Trafic perturbé.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.161,
+      "lat": 46.803,
+      "heure": "19 août 11:53",
+      "source": "FR.ch",
+      "dateVue": "2026-08-19T10:33:23.889Z"
+    },
+    {
+      "titre": "Corps de deux alpinistes retrouvés dans un glacier",
+      "resume": "Les dépouilles de deux alpinistes disparus en 1992 ont été retrouvées dans un glacier, résolvant une disparition vieille de plus de 30 ans.",
+      "commune": "Saas-Grund",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.94,
+      "lat": 46.121,
+      "heure": "19 août 08:47",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-19T10:33:23.889Z"
     }
   ]
 }
