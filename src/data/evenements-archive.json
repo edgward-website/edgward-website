@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-19T10:33:23.889Z",
-  "total": 108,
+  "compileLe": "2026-08-19T17:26:54.581Z",
+  "total": 110,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1297,6 +1297,30 @@
       "heure": "19 août 08:47",
       "source": "Police cantonale valaisanne",
       "dateVue": "2026-08-19T10:33:23.889Z"
+    },
+    {
+      "titre": "Incendie dans un appartement",
+      "resume": "Un incendie a provoqué d'importants dégâts dans un appartement du quartier des Eaux-Vives.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.1602,
+      "lat": 46.2044,
+      "heure": "19 août 14:53",
+      "source": "tdg.ch",
+      "dateVue": "2026-08-19T17:26:54.581Z"
+    },
+    {
+      "titre": "Interpellations pour trafic de stupéfiants",
+      "resume": "Plusieurs personnes ont été interpellées dans le cadre d'une enquête sur un trafic de stupéfiants.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "ordre",
+      "lon": 7.162,
+      "lat": 46.8065,
+      "heure": "19 août 11:03",
+      "source": "Frapp",
+      "dateVue": "2026-08-19T17:26:54.581Z"
     }
   ]
 }
