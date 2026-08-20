@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-20T10:35:28.176Z",
-  "total": 110,
+  "compileLe": "2026-08-20T17:29:16.622Z",
+  "total": 115,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1321,6 +1321,66 @@
       "heure": "19 août 11:03",
       "source": "Frapp",
       "dateVue": "2026-08-19T17:26:54.581Z"
+    },
+    {
+      "titre": "Incendie criminel dans un immeuble",
+      "resume": "L'incendie qui avait éclaté au-dessus d'un restaurant, nécessitant un important déploiement, est d'origine criminelle selon l'enquête.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "20 août 18:17",
+      "source": "La Liberté",
+      "dateVue": "2026-08-20T17:29:16.622Z"
+    },
+    {
+      "titre": "Cyberattaque contre une commune",
+      "resume": "Une messagerie communale a été piratée et environ 300 courriels contenant des données sensibles ont été dérobés.",
+      "commune": "Martigny-Combe",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.05,
+      "lat": 46.083,
+      "heure": "20 août 16:15",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-20T17:29:16.622Z"
+    },
+    {
+      "titre": "Braquage d'un musée: arrestations",
+      "resume": "Les auteurs présumés du braquage d'un musée d'horlogerie ont été interpellés en France.",
+      "commune": "Le Locle",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.749,
+      "lat": 47.056,
+      "heure": "20 août 09:48",
+      "source": "Le Temps",
+      "dateVue": "2026-08-20T17:29:16.622Z"
+    },
+    {
+      "titre": "Poids lourd contre une signalisation sur l'A12",
+      "resume": "Un poids lourd a percuté de plein fouet une signalisation lumineuse de chantier, détruisant l'installation.",
+      "commune": "A12",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7,
+      "lat": 46.75,
+      "heure": "19 août 11:41",
+      "source": "La Liberté",
+      "dateVue": "2026-08-20T17:29:16.622Z"
+    },
+    {
+      "titre": "Bus tombe dans un ravin",
+      "resume": "Un bus a fait une chute d'une cinquantaine de mètres sans faire de victime.",
+      "commune": "Haut-Valais",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.9,
+      "lat": 46.3,
+      "heure": "18 août 16:12",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-20T17:29:16.622Z"
     }
   ]
 }
