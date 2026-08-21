@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-21T10:34:59.920Z",
-  "total": 119,
+  "compileLe": "2026-08-21T17:28:56.421Z",
+  "total": 120,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1429,6 +1429,18 @@
       "heure": "19 août 11:51",
       "source": "FR.ch",
       "dateVue": "2026-08-21T10:34:59.920Z"
+    },
+    {
+      "titre": "Accident mortel de moto",
+      "resume": "Un motard de 17 ans a perdu la vie dans un accident de la route.",
+      "commune": "Bavois",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.615,
+      "lat": 46.716,
+      "heure": "21 août 14:46",
+      "source": "La Côte",
+      "dateVue": "2026-08-21T17:28:56.421Z"
     }
   ]
 }
