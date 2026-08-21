@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-20T17:29:16.622Z",
-  "total": 115,
+  "compileLe": "2026-08-21T10:34:59.920Z",
+  "total": 119,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1381,6 +1381,54 @@
       "heure": "18 août 16:12",
       "source": "Le Nouvelliste",
       "dateVue": "2026-08-20T17:29:16.622Z"
+    },
+    {
+      "titre": "Fuite de gaz dans un quartier",
+      "resume": "Une fuite de gaz a nécessité une intervention d'urgence dans un quartier résidentiel.",
+      "commune": "Martigny",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.073,
+      "lat": 46.103,
+      "heure": "21 août 11:05",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-21T10:34:59.920Z"
+    },
+    {
+      "titre": "Vol de vélos dans un commerce",
+      "resume": "Près de 30 vélos ont été dérobés dans un magasin, pour un préjudice estimé entre 300 000 et 400 000 francs.",
+      "commune": "Monthey",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 6.947,
+      "lat": 46.254,
+      "heure": "20 août 14:50",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-21T10:34:59.920Z"
+    },
+    {
+      "titre": "Accident de la route mortel",
+      "resume": "Un enfant de neuf ans a perdu la vie dans un accident de la circulation.",
+      "commune": "Bas-Valais",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 6.98,
+      "lat": 46.22,
+      "heure": "19 août 18:15",
+      "source": "Pomona",
+      "dateVue": "2026-08-21T10:34:59.920Z"
+    },
+    {
+      "titre": "Poids lourd contre une signalisation sur l'A12",
+      "resume": "Un poids lourd a percuté de plein fouet une signalisation lumineuse sur l'autoroute A12.",
+      "commune": "Matran",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.09,
+      "lat": 46.78,
+      "heure": "19 août 11:51",
+      "source": "FR.ch",
+      "dateVue": "2026-08-21T10:34:59.920Z"
     }
   ]
 }
