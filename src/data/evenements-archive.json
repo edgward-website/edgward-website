@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-22T10:28:10.852Z",
-  "total": 122,
+  "compileLe": "2026-08-22T17:20:44.888Z",
+  "total": 123,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1465,6 +1465,18 @@
       "heure": "19 août 13:56",
       "source": "Watson",
       "dateVue": "2026-08-22T10:28:10.852Z"
+    },
+    {
+      "titre": "Alpiniste retrouvé sans vie",
+      "resume": "Le corps d'un alpiniste a été découvert dans une région de haute montagne.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.7486,
+      "lat": 46.0207,
+      "heure": "21 août 17:21",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-22T17:20:44.888Z"
     }
   ]
 }
