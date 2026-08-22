@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-21T17:28:56.421Z",
-  "total": 120,
+  "compileLe": "2026-08-22T10:28:10.852Z",
+  "total": 122,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1441,6 +1441,30 @@
       "heure": "21 août 14:46",
       "source": "La Côte",
       "dateVue": "2026-08-21T17:28:56.421Z"
+    },
+    {
+      "titre": "Explosion dans un immeuble",
+      "resume": "Une explosion a grièvement blessé un homme et provoqué l'évacuation d'une trentaine de personnes.",
+      "commune": "Chiètres",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.19,
+      "lat": 46.98,
+      "heure": "22 août 10:49",
+      "source": "La Télé",
+      "dateVue": "2026-08-22T10:28:10.852Z"
+    },
+    {
+      "titre": "Deux corps retrouvés par la fonte d'un glacier",
+      "resume": "Les dépouilles de deux alpinistes disparus il y a 34 ans ont été identifiées grâce à l'ADN.",
+      "commune": "Valais",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.75,
+      "lat": 46.02,
+      "heure": "19 août 13:56",
+      "source": "Watson",
+      "dateVue": "2026-08-22T10:28:10.852Z"
     }
   ]
 }
