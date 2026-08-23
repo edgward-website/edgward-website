@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-23T10:28:38.815Z",
-  "total": 125,
+  "compileLe": "2026-08-23T17:20:05.766Z",
+  "total": 127,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1501,6 +1501,30 @@
       "heure": "21 août 10:13",
       "source": "Police cantonale valaisanne",
       "dateVue": "2026-08-23T10:28:38.815Z"
+    },
+    {
+      "titre": "Avis de disparition en Valais",
+      "resume": "La police cantonale valaisanne recherche un homme et lance un appel à témoins.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "23 août 17:04",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-23T17:20:05.766Z"
+    },
+    {
+      "titre": "Cambriolage déjoué et suspect arrêté",
+      "resume": "La police a empêché un cambriolage et interpellé un suspect.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "cambriolage",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "21 août 14:50",
+      "source": "wir Freiburg",
+      "dateVue": "2026-08-23T17:20:05.766Z"
     }
   ]
 }
