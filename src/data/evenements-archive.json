@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-22T17:20:44.888Z",
-  "total": 123,
+  "compileLe": "2026-08-23T10:28:38.815Z",
+  "total": 125,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1477,6 +1477,30 @@
       "heure": "21 août 17:21",
       "source": "Le Nouvelliste",
       "dateVue": "2026-08-22T17:20:44.888Z"
+    },
+    {
+      "titre": "Explosion dans une habitation",
+      "resume": "Un homme a été grièvement blessé lors d'une explosion à son domicile. Un quartier a été évacué et 31 personnes mises en sécurité.",
+      "commune": "Kerzers",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.1975,
+      "lat": 47.0225,
+      "heure": "22 août 09:47",
+      "source": "FR.ch",
+      "dateVue": "2026-08-23T10:28:38.815Z"
+    },
+    {
+      "titre": "Chute mortelle en montagne",
+      "resume": "Une personne a fait une chute mortelle. La police cantonale a communiqué un complément d'information.",
+      "commune": "Randa",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.7866,
+      "lat": 46.0994,
+      "heure": "21 août 10:13",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-23T10:28:38.815Z"
     }
   ]
 }
