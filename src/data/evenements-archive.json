@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-23T17:20:05.766Z",
-  "total": 127,
+  "compileLe": "2026-08-24T10:40:33.637Z",
+  "total": 129,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1525,6 +1525,30 @@
       "heure": "21 août 14:50",
       "source": "wir Freiburg",
       "dateVue": "2026-08-23T17:20:05.766Z"
+    },
+    {
+      "titre": "Incendie dans un fitness",
+      "resume": "Un incendie s'est déclaré dans un centre de fitness durant la nuit. Aucune victime n'est à déplorer.",
+      "commune": "Monthey",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 6.9481,
+      "lat": 46.2544,
+      "heure": "24 août 10:45",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-24T10:40:33.637Z"
+    },
+    {
+      "titre": "Détention provisoire après violences conjugales",
+      "resume": "Le gérant d'un établissement, également suspect dans l'enquête sur l'incendie de Crans-Montana, a été placé en détention provisoire pour des violences présumées sur son épouse.",
+      "commune": "Crans-Montana",
+      "canton": "VS",
+      "categorie": "agression",
+      "lon": 7.4808,
+      "lat": 46.3122,
+      "heure": "23 août 19:37",
+      "source": "rts.ch",
+      "dateVue": "2026-08-24T10:40:33.637Z"
     }
   ]
 }
