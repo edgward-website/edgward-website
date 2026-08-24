@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-24T10:40:33.637Z",
-  "total": 129,
+  "compileLe": "2026-08-24T17:31:01.569Z",
+  "total": 133,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1549,6 +1549,54 @@
       "heure": "23 août 19:37",
       "source": "rts.ch",
       "dateVue": "2026-08-24T10:40:33.637Z"
+    },
+    {
+      "titre": "Incendie à l'usine de traitement des déchets Tridel",
+      "resume": "Un incendie s'est déclaré à l'usine de valorisation des déchets Tridel, à la Sallaz. Le secteur a été temporairement à éviter avant que le feu ne soit maîtrisé.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "24 août 15:07",
+      "source": "rts.ch",
+      "dateVue": "2026-08-24T17:31:01.569Z"
+    },
+    {
+      "titre": "Chute mortelle lors d'une randonnée",
+      "resume": "Une randonneuse de 77 ans a fait une chute mortelle en montagne.",
+      "commune": "Chandolin",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.532,
+      "lat": 46.262,
+      "heure": "24 août 14:18",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-08-24T17:31:01.569Z"
+    },
+    {
+      "titre": "Chute mortelle d'un alpiniste",
+      "resume": "Un alpiniste a perdu la vie dans une chute au-dessus de Saas-Fee.",
+      "commune": "Saas-Fee",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.929,
+      "lat": 46.109,
+      "heure": "24 août 17:02",
+      "source": "La Télé",
+      "dateVue": "2026-08-24T17:31:01.569Z"
+    },
+    {
+      "titre": "Disparition d'un octogénaire",
+      "resume": "La police recherche un homme de 82 ans porté disparu. Appel à témoins.",
+      "commune": "Monthey",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 6.954,
+      "lat": 46.254,
+      "heure": "24 août 07:25",
+      "source": "20 Minuten",
+      "dateVue": "2026-08-24T17:31:01.569Z"
     }
   ]
 }
