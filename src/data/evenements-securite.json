@@ -1,46 +1,94 @@
 {
-  "genereLe": "2026-08-24T17:31:01.569Z",
+  "genereLe": "2026-08-25T10:36:59.927Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Incendie à l'usine de traitement des déchets Tridel",
-      "resume": "Un incendie s'est déclaré à l'usine de valorisation des déchets Tridel, à la Sallaz. Le secteur a été temporairement à éviter avant que le feu ne soit maîtrisé.",
+      "titre": "Accident mortel de la circulation",
+      "resume": "Une automobiliste a perdu la vie après avoir percuté un arbre.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "25 août 10:25",
+      "source": "Le Nouvelliste",
+      "recent": true
+    },
+    {
+      "titre": "Crash d'hélicoptère",
+      "resume": "Un hélicoptère s'est écrasé, sans faire de victime.",
+      "commune": "Anzère",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.397,
+      "lat": 46.293,
+      "heure": "24 août 21:31",
+      "source": "Rhône FM",
+      "recent": false
+    },
+    {
+      "titre": "Incendie dans un centre de traitement des déchets",
+      "resume": "Un incendie s'est déclaré à l'usine de déchets Tridel; la population a été appelée à éviter la zone. Le sinistre a été maîtrisé.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "incendie",
-      "lon": 6.6323,
-      "lat": 46.5197,
+      "lon": 6.633,
+      "lat": 46.533,
       "heure": "24 août 15:07",
       "source": "rts.ch",
-      "recent": true
+      "recent": false
     },
     {
-      "titre": "Chute mortelle lors d'une randonnée",
-      "resume": "Une randonneuse de 77 ans a fait une chute mortelle en montagne.",
-      "commune": "Chandolin",
-      "canton": "VS",
-      "categorie": "accident",
-      "lon": 7.532,
-      "lat": 46.262,
-      "heure": "24 août 14:18",
-      "source": "Police cantonale valaisanne",
-      "recent": true
-    },
-    {
-      "titre": "Chute mortelle d'un alpiniste",
-      "resume": "Un alpiniste a perdu la vie dans une chute au-dessus de Saas-Fee.",
+      "titre": "Chute mortelle en montagne",
+      "resume": "Un alpiniste a fait une chute mortelle au-dessus de Saas-Fee.",
       "commune": "Saas-Fee",
       "canton": "VS",
       "categorie": "accident",
       "lon": 7.929,
       "lat": 46.109,
       "heure": "24 août 17:02",
-      "source": "La Télé",
-      "recent": true
+      "source": "24 Heures",
+      "recent": false
     },
     {
-      "titre": "Disparition d'un octogénaire",
-      "resume": "La police recherche un homme de 82 ans porté disparu. Appel à témoins.",
+      "titre": "Chute mortelle lors d'une randonnée",
+      "resume": "Une randonneuse a fait une chute mortelle en montagne.",
+      "commune": "Chandolin",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.594,
+      "lat": 46.263,
+      "heure": "24 août 14:18",
+      "source": "Police cantonale valaisanne",
+      "recent": false
+    },
+    {
+      "titre": "Collision avec un camion",
+      "resume": "Un automobiliste a percuté un camion tampon sur un chantier.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.343,
+      "lat": 47.366,
+      "heure": "24 août 17:01",
+      "source": "24 Heures",
+      "recent": false
+    },
+    {
+      "titre": "Incendie dans un fitness",
+      "resume": "Un incendie s'est déclaré dans un fitness durant la nuit, sans faire de victime.",
+      "commune": "Monthey",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 6.954,
+      "lat": 46.254,
+      "heure": "24 août 10:45",
+      "source": "Le Nouvelliste",
+      "recent": false
+    },
+    {
+      "titre": "Appel à témoins - disparition",
+      "resume": "La police recherche un homme de 82 ans porté disparu.",
       "commune": "Monthey",
       "canton": "VS",
       "categorie": "disparition",
@@ -48,18 +96,6 @@
       "lat": 46.254,
       "heure": "24 août 07:25",
       "source": "20 Minuten",
-      "recent": false
-    },
-    {
-      "titre": "Explosion à un domicile",
-      "resume": "Un homme a été grièvement blessé lors d'une explosion à son domicile. Une trentaine de personnes ont été évacuées.",
-      "commune": "Kerzers",
-      "canton": "FR",
-      "categorie": "accident",
-      "lon": 7.196,
-      "lat": 46.976,
-      "heure": "22 août 10:49",
-      "source": "ArcInfo",
       "recent": false
     }
   ]

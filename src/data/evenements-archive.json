@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-24T17:31:01.569Z",
-  "total": 133,
+  "compileLe": "2026-08-25T10:36:59.927Z",
+  "total": 136,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1597,6 +1597,42 @@
       "heure": "24 août 07:25",
       "source": "20 Minuten",
       "dateVue": "2026-08-24T17:31:01.569Z"
+    },
+    {
+      "titre": "Accident mortel de la circulation",
+      "resume": "Une automobiliste a perdu la vie après avoir percuté un arbre.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "25 août 10:25",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-25T10:36:59.927Z"
+    },
+    {
+      "titre": "Crash d'hélicoptère",
+      "resume": "Un hélicoptère s'est écrasé, sans faire de victime.",
+      "commune": "Anzère",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.397,
+      "lat": 46.293,
+      "heure": "24 août 21:31",
+      "source": "Rhône FM",
+      "dateVue": "2026-08-25T10:36:59.927Z"
+    },
+    {
+      "titre": "Collision avec un camion",
+      "resume": "Un automobiliste a percuté un camion tampon sur un chantier.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.343,
+      "lat": 47.366,
+      "heure": "24 août 17:01",
+      "source": "24 Heures",
+      "dateVue": "2026-08-25T10:36:59.927Z"
     }
   ]
 }
