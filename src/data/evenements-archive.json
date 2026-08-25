@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-25T10:36:59.927Z",
-  "total": 136,
+  "compileLe": "2026-08-25T17:32:21.036Z",
+  "total": 139,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1633,6 +1633,42 @@
       "heure": "24 août 17:01",
       "source": "24 Heures",
       "dateVue": "2026-08-25T10:36:59.927Z"
+    },
+    {
+      "titre": "Appel à témoins après une disparition",
+      "resume": "La police recherche une femme de 39 ans disparue. Toute information est à communiquer aux autorités.",
+      "commune": "Saint-Maurice",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.004,
+      "lat": 46.216,
+      "heure": "25 août 18:01",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-25T17:32:21.036Z"
+    },
+    {
+      "titre": "Agression mortelle",
+      "resume": "Un septuagénaire est décédé après avoir été violemment agressé. Un mineur a été interpellé.",
+      "commune": "Sainte-Croix",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.502,
+      "lat": 46.822,
+      "heure": "25 août 14:22",
+      "source": "ArcInfo",
+      "dateVue": "2026-08-25T17:32:21.036Z"
+    },
+    {
+      "titre": "Braquage d'une banque",
+      "resume": "Un brigandage a visé un établissement bancaire. Un suspect a été arrêté peu après.",
+      "commune": "Farvagny",
+      "canton": "FR",
+      "categorie": "agression",
+      "lon": 7.088,
+      "lat": 46.687,
+      "heure": "25 août 14:47",
+      "source": "FR.ch",
+      "dateVue": "2026-08-25T17:32:21.036Z"
     }
   ]
 }
