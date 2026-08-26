@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-26T10:39:26.831Z",
-  "total": 139,
+  "compileLe": "2026-08-26T19:03:07.398Z",
+  "total": 144,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1669,6 +1669,66 @@
       "heure": "25 août 14:47",
       "source": "FR.ch",
       "dateVue": "2026-08-25T17:32:21.036Z"
+    },
+    {
+      "titre": "Accident mortel de la circulation",
+      "resume": "Un automobiliste de 90 ans a percuté un mur et a perdu la vie dans un accident près de Fribourg.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.1615,
+      "lat": 46.8065,
+      "heure": "26 août 14:12",
+      "source": "Watson",
+      "dateVue": "2026-08-26T19:03:07.398Z"
+    },
+    {
+      "titre": "Collision impliquant une trottinette",
+      "resume": "Un homme de 26 ans a été grièvement blessé lors d'un choc à trottinette électrique à Genève.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "26 août 14:11",
+      "source": "bluewin.ch",
+      "dateVue": "2026-08-26T19:03:07.398Z"
+    },
+    {
+      "titre": "Enfant blessée dans un accident",
+      "resume": "Une enfant a été blessée lors d'un accident survenu à Massonnens.",
+      "commune": "Massonnens",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 6.9887,
+      "lat": 46.6694,
+      "heure": "26 août 13:52",
+      "source": "FR.ch",
+      "dateVue": "2026-08-26T19:03:07.398Z"
+    },
+    {
+      "titre": "Accident mortel de la circulation",
+      "resume": "Un accident de la route a fait un mort à Epagny.",
+      "commune": "Epagny",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.0833,
+      "lat": 46.5833,
+      "heure": "26 août 13:45",
+      "source": "FR.ch",
+      "dateVue": "2026-08-26T19:03:07.398Z"
+    },
+    {
+      "titre": "Arrestation après un brigandage",
+      "resume": "L'auteur présumé d'un brigandage commis à Farvagny a été arrêté.",
+      "commune": "Farvagny",
+      "canton": "FR",
+      "categorie": "cambriolage",
+      "lon": 7.083,
+      "lat": 46.717,
+      "heure": "25 août 13:29",
+      "source": "FR.ch",
+      "dateVue": "2026-08-26T19:03:07.398Z"
     }
   ]
 }
