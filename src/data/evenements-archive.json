@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-26T19:03:07.398Z",
-  "total": 144,
+  "compileLe": "2026-08-27T20:14:02.459Z",
+  "total": 145,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1729,6 +1729,18 @@
       "heure": "25 août 13:29",
       "source": "FR.ch",
       "dateVue": "2026-08-26T19:03:07.398Z"
+    },
+    {
+      "titre": "Disparition dans le Haut-Valais",
+      "resume": "Un homme de 43 ans est porté disparu dans la région de Blatten bei Naters. Un appel à témoins a été lancé.",
+      "commune": "Naters",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.988,
+      "lat": 46.347,
+      "heure": "27 août 11:03",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-08-27T20:14:02.459Z"
     }
   ]
 }
