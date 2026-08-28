@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-27T20:14:02.459Z",
-  "total": 145,
+  "compileLe": "2026-08-28T01:17:43.363Z",
+  "total": 146,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1741,6 +1741,18 @@
       "heure": "27 août 11:03",
       "source": "Le Nouvelliste",
       "dateVue": "2026-08-27T20:14:02.459Z"
+    },
+    {
+      "titre": "Sortie de route",
+      "resume": "Une voiture a dévalé une soixantaine de mètres avant de s'immobiliser près de la voie ferrée. Le conducteur a été blessé.",
+      "commune": "Pensier",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.152,
+      "lat": 46.842,
+      "heure": "27 août 16:45",
+      "source": "Frapp",
+      "dateVue": "2026-08-28T01:17:43.363Z"
     }
   ]
 }
