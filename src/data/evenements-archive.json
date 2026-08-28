@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-28T01:17:43.363Z",
-  "total": 146,
+  "compileLe": "2026-08-28T21:09:29.220Z",
+  "total": 152,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1753,6 +1753,78 @@
       "heure": "27 août 16:45",
       "source": "Frapp",
       "dateVue": "2026-08-28T01:17:43.363Z"
+    },
+    {
+      "titre": "Incendie dans un centre de recyclage",
+      "resume": "Un incendie s'est déclaré dans un entrepôt d'une zone industrielle, provoquant un important dégagement de fumée. Le trafic routier et ferroviaire a été perturbé et la population alertée.",
+      "commune": "Ecublens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.5636,
+      "lat": 46.5286,
+      "heure": "28 août 19:51",
+      "source": "rts.ch",
+      "dateVue": "2026-08-28T21:09:29.220Z"
+    },
+    {
+      "titre": "Trafic ferroviaire interrompu après un accident",
+      "resume": "Un accident a interrompu le trafic ferroviaire sur la ligne entre Rolle et Nyon.",
+      "commune": "Gland",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.2686,
+      "lat": 46.421,
+      "heure": "28 août 22:18",
+      "source": "24 Heures",
+      "dateVue": "2026-08-28T21:09:29.220Z"
+    },
+    {
+      "titre": "Braquage manqué dans un office postal",
+      "resume": "Une tentative de braquage a échoué dans un bureau de poste. L'auteure a pris la fuite.",
+      "commune": "Les Breuleux",
+      "canton": "JU",
+      "categorie": "agression",
+      "lon": 6.9908,
+      "lat": 47.22,
+      "heure": "28 août 18:21",
+      "source": "20 Minuten",
+      "dateVue": "2026-08-28T21:09:29.220Z"
+    },
+    {
+      "titre": "Cyberattaque contre les services des automobiles",
+      "resume": "Une fuite de données touchant des propriétaires de véhicules a été révélée après une cyberattaque et une tentative de chantage visant les cantons de Vaud et du Valais. Une plainte pénale a été déposée.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "28 août 17:47",
+      "source": "Le Matin",
+      "dateVue": "2026-08-28T21:09:29.220Z"
+    },
+    {
+      "titre": "Appel à témoins - homme disparu",
+      "resume": "Un homme de 62 ans est porté disparu depuis lundi. Un avis de recherche a été lancé.",
+      "commune": "Leysin",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 7.013,
+      "lat": 46.342,
+      "heure": "28 août 11:51",
+      "source": "24 Heures",
+      "dateVue": "2026-08-28T21:09:29.220Z"
+    },
+    {
+      "titre": "Fuite d'huile provoque la chute de motards",
+      "resume": "Un bus a répandu de l'huile sur la chaussée, provoquant la chute de cinq motards.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "28 août 11:46",
+      "source": "24 Heures",
+      "dateVue": "2026-08-28T21:09:29.220Z"
     }
   ]
 }
