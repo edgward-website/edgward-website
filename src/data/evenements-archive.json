@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-29T14:58:31.927Z",
-  "total": 155,
+  "compileLe": "2026-08-29T19:37:28.069Z",
+  "total": 157,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1861,6 +1861,30 @@
       "heure": "28 août 22:57",
       "source": "Tribune de Genève",
       "dateVue": "2026-08-29T14:58:31.927Z"
+    },
+    {
+      "titre": "Personne happée par un train",
+      "resume": "Une personne est décédée après avoir été happée par un train en gare de Loèche.",
+      "commune": "Loèche",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.6311,
+      "lat": 46.3139,
+      "heure": "29 août 17:15",
+      "source": "Rhône FM",
+      "dateVue": "2026-08-29T19:37:28.069Z"
+    },
+    {
+      "titre": "Trafic ferroviaire interrompu après un accident",
+      "resume": "Le trafic ferroviaire a été interrompu entre Rolle et Nyon à la suite d'un accident.",
+      "commune": "Rolle",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.3339,
+      "lat": 46.4586,
+      "heure": "28 août 22:18",
+      "source": "24 Heures",
+      "dateVue": "2026-08-29T19:37:28.069Z"
     }
   ]
 }
