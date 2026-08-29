@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-29T00:52:59.637Z",
-  "total": 154,
+  "compileLe": "2026-08-29T14:58:31.927Z",
+  "total": 155,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1849,6 +1849,18 @@
       "heure": "28 août 11:23",
       "source": "Etat de Vaud",
       "dateVue": "2026-08-29T00:52:59.637Z"
+    },
+    {
+      "titre": "Station-service attaquée par deux individus armés",
+      "resume": "Deux personnes armées ont attaqué une station-service au Lignon.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.109,
+      "lat": 46.201,
+      "heure": "28 août 22:57",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-29T14:58:31.927Z"
     }
   ]
 }
