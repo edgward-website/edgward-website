@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-28T21:09:29.220Z",
-  "total": 152,
+  "compileLe": "2026-08-29T00:52:59.637Z",
+  "total": 154,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1825,6 +1825,30 @@
       "heure": "28 août 11:46",
       "source": "24 Heures",
       "dateVue": "2026-08-28T21:09:29.220Z"
+    },
+    {
+      "titre": "Accident perturbant le trafic ferroviaire",
+      "resume": "Un accident a entraîné l'interruption du trafic ferroviaire entre Rolle et Nyon.",
+      "commune": "Nyon",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.239,
+      "lat": 46.383,
+      "heure": "28 août 22:18",
+      "source": "24 Heures",
+      "dateVue": "2026-08-29T00:52:59.637Z"
+    },
+    {
+      "titre": "Disparition inquiétante",
+      "resume": "Les autorités ont lancé un avis de disparition et un appel à témoins.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "28 août 11:23",
+      "source": "Etat de Vaud",
+      "dateVue": "2026-08-29T00:52:59.637Z"
     }
   ]
 }
