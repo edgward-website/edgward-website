@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-30T14:44:35.929Z",
-  "total": 157,
+  "compileLe": "2026-08-30T19:39:36.521Z",
+  "total": 159,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1885,6 +1885,30 @@
       "heure": "28 août 22:18",
       "source": "24 Heures",
       "dateVue": "2026-08-29T19:37:28.069Z"
+    },
+    {
+      "titre": "Appel à témoins après un accident impliquant des motards",
+      "resume": "La police recherche un groupe de motards à la suite d'un accident. Un appel à témoins a été lancé.",
+      "commune": "Cossonay",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.5106,
+      "lat": 46.6111,
+      "heure": "30 août 18:08",
+      "source": "20 Minuten",
+      "dateVue": "2026-08-30T19:39:36.521Z"
+    },
+    {
+      "titre": "Deux accidents sur l'A12",
+      "resume": "Deux accidents survenus en peu de temps ont perturbé le trafic sur l'autoroute A12.",
+      "commune": "Vaud",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.85,
+      "lat": 46.55,
+      "heure": "28 août 18:55",
+      "source": "24 Heures",
+      "dateVue": "2026-08-30T19:39:36.521Z"
     }
   ]
 }
