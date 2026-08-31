@@ -5,7 +5,7 @@ description: "Nouveau logement, cartons partout, et une question qu'on repousse 
 author: "Équipe Edgward"
 category: "Conseils"
 image: "/assets/blog/emmenagement-cover.jpg"
-featured: false
+featured: true
 ctaB2C: true
 guidePdf: "/assets/checklist-emmenagement-edgward.pdf"
 guideTitle: "Check-list emménagement : la première semaine"
