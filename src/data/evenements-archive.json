@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-30T19:39:36.521Z",
-  "total": 159,
+  "compileLe": "2026-08-31T17:28:20.785Z",
+  "total": 161,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1909,6 +1909,30 @@
       "heure": "28 août 18:55",
       "source": "24 Heures",
       "dateVue": "2026-08-30T19:39:36.521Z"
+    },
+    {
+      "titre": "Incendie d'un poids lourd sur l'A1",
+      "resume": "Un camion a pris feu sur l'autoroute A1, entraînant une fermeture et de fortes perturbations du trafic.",
+      "commune": "La Sarraz",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.5142,
+      "lat": 46.6588,
+      "heure": "31 août 17:19",
+      "source": "24 Heures",
+      "dateVue": "2026-08-31T17:28:20.785Z"
+    },
+    {
+      "titre": "Chute mortelle au Cervin",
+      "resume": "Un alpiniste a fait une chute mortelle dans le massif du Cervin.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.7491,
+      "lat": 46.0207,
+      "heure": "31 août 15:02",
+      "source": "Radio LFM",
+      "dateVue": "2026-08-31T17:28:20.785Z"
     }
   ]
 }
