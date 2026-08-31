@@ -6,6 +6,7 @@ import { site } from '../../data/site';
 import ContactForm from '../../components/ContactForm.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import BlogCTAHot from '../../components/BlogCTAHot.astro';
+import BlogGuideDownload from '../../components/BlogGuideDownload.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -91,6 +92,16 @@ const blogPostingSchema = {
       </div>
     </div>
   </article>
+
+  <!-- GUIDE / CHECK-LIST A TELECHARGER -->
+  {post.data.guidePdf && post.data.guideTitle && (
+    <BlogGuideDownload
+      pdf={post.data.guidePdf}
+      title={post.data.guideTitle}
+      desc={post.data.guideDesc}
+      promo={post.data.guidePromo}
+    />
+  )}
 
   <!-- CONTACT -->
   {post.data.contact && (

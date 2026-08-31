@@ -14,6 +14,10 @@ const blog = defineCollection({
     contact: z.boolean().default(false),
     contactSubject: z.string().optional(),
     ctaB2C: z.boolean().default(false),
+    guidePdf: z.string().optional(),
+    guideTitle: z.string().optional(),
+    guideDesc: z.string().optional(),
+    guidePromo: z.string().optional(),
   }),
 });
 
