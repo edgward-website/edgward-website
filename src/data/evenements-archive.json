@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-08-31T21:44:56.623Z",
-  "total": 163,
+  "compileLe": "2026-09-01T14:38:33.768Z",
+  "total": 165,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1957,6 +1957,30 @@
       "heure": "30 août 08:59",
       "source": "FR.ch",
       "dateVue": "2026-08-31T21:44:56.623Z"
+    },
+    {
+      "titre": "Collision entre deux autocars",
+      "resume": "Un accident impliquant deux autocars a fait treize blessés dans le Haut-Valais.",
+      "commune": "Stalden",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.87,
+      "lat": 46.23,
+      "heure": "1 sept. 16:13",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-01T14:38:33.768Z"
+    },
+    {
+      "titre": "Incendie d'une ferme",
+      "resume": "Une ferme appartenant à l'Abbaye de St-Maurice a été détruite par les flammes.",
+      "commune": "Saint-Maurice",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7,
+      "lat": 46.22,
+      "heure": "30 août 10:59",
+      "source": "Rhône FM",
+      "dateVue": "2026-09-01T14:38:33.768Z"
     }
   ]
 }
