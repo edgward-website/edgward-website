@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-01T14:38:33.768Z",
-  "total": 165,
+  "compileLe": "2026-09-01T19:46:26.606Z",
+  "total": 170,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -1981,6 +1981,66 @@
       "heure": "30 août 10:59",
       "source": "Rhône FM",
       "dateVue": "2026-09-01T14:38:33.768Z"
+    },
+    {
+      "titre": "Fuite de données visant des automobilistes",
+      "resume": "Des milliers d'automobilistes du canton ont été ciblés à la suite d'une fuite de données.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "1 sept. 15:42",
+      "source": "24 Heures",
+      "dateVue": "2026-09-01T19:46:26.606Z"
+    },
+    {
+      "titre": "Balayeuse de voirie en feu",
+      "resume": "Une balayeuse de la voirie a pris feu en pleine rue.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "1 sept. 10:33",
+      "source": "24 Heures",
+      "dateVue": "2026-09-01T19:46:26.606Z"
+    },
+    {
+      "titre": "Camion en feu sur l'A1",
+      "resume": "L'incendie d'un poids lourd a entraîné la fermeture partielle de l'autoroute A1 entre Lausanne et Yverdon.",
+      "commune": "Yverdon-les-Bains",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.6413,
+      "lat": 46.7785,
+      "heure": "31 août 23:27",
+      "source": "24 Heures",
+      "dateVue": "2026-09-01T19:46:26.606Z"
+    },
+    {
+      "titre": "Incendie dans un immeuble",
+      "resume": "Un sinistre a nécessité le relogement de locataires.",
+      "commune": "Sainte-Croix",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.5006,
+      "lat": 46.8214,
+      "heure": "31 août 12:56",
+      "source": "20 Minuten",
+      "dateVue": "2026-09-01T19:46:26.606Z"
+    },
+    {
+      "titre": "Valises suspectes au terminus du métro",
+      "resume": "Deux valises suspectes ont mobilisé des démineurs au terminus du M2.",
+      "commune": "Épalinges",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.6667,
+      "lat": 46.5528,
+      "heure": "31 août 12:05",
+      "source": "24 Heures",
+      "dateVue": "2026-09-01T19:46:26.606Z"
     }
   ]
 }
