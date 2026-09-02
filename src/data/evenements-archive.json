@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-02T14:12:39.138Z",
-  "total": 172,
+  "compileLe": "2026-09-02T19:38:43.530Z",
+  "total": 175,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2065,6 +2065,42 @@
       "heure": "01 sept. 19:14",
       "source": "Tribune de Genève",
       "dateVue": "2026-09-02T14:12:39.138Z"
+    },
+    {
+      "titre": "Deux parapentistes blessés",
+      "resume": "Deux parapentistes ont été blessés dans un accident dans le district de la Gruyère.",
+      "commune": "Gruyères",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.0833,
+      "lat": 46.5833,
+      "heure": "2 sept. 14:19",
+      "source": "FR.ch",
+      "dateVue": "2026-09-02T19:38:43.530Z"
+    },
+    {
+      "titre": "Incendie d'un entrepôt",
+      "resume": "Un incendie a ravagé un entrepôt à Ecublens, soulevant des questions sur d'éventuels polluants dispersés.",
+      "commune": "Ecublens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.5601,
+      "lat": 46.5286,
+      "heure": "1 sept. 19:30",
+      "source": "rts.ch",
+      "dateVue": "2026-09-02T19:38:43.530Z"
+    },
+    {
+      "titre": "Collision entre deux autocars",
+      "resume": "Une collision entre deux autocars près de Viège, en Haut-Valais, a fait treize blessés hospitalisés.",
+      "commune": "Viège",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.8817,
+      "lat": 46.2939,
+      "heure": "1 sept. 16:13",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-02T19:38:43.530Z"
     }
   ]
 }
