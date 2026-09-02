@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-01T19:46:26.606Z",
-  "total": 170,
+  "compileLe": "2026-09-02T14:12:39.138Z",
+  "total": 172,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2041,6 +2041,30 @@
       "heure": "31 août 12:05",
       "source": "24 Heures",
       "dateVue": "2026-09-01T19:46:26.606Z"
+    },
+    {
+      "titre": "Sortie de route mortelle à Fionnay",
+      "resume": "Un automobiliste de 81 ans a perdu la vie après une sortie de route dans le Val de Bagnes.",
+      "commune": "Val de Bagnes",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.285,
+      "lat": 46.017,
+      "heure": "02 sept. 11:09",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-02T14:12:39.138Z"
+    },
+    {
+      "titre": "Intervention de police lors d'une dispute conjugale",
+      "resume": "Une dispute conjugale a mobilisé la police et paralysé un quartier de Genève.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "ordre",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "01 sept. 19:14",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-09-02T14:12:39.138Z"
     }
   ]
 }
