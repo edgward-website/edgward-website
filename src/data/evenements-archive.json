@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-02T19:38:43.530Z",
-  "total": 175,
+  "compileLe": "2026-09-03T14:15:43.065Z",
+  "total": 177,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2101,6 +2101,30 @@
       "heure": "1 sept. 16:13",
       "source": "Le Nouvelliste",
       "dateVue": "2026-09-02T19:38:43.530Z"
+    },
+    {
+      "titre": "Deux parapentistes blessés",
+      "resume": "Deux parapentistes ont été blessés lors d'un accident dans le district de la Gruyère.",
+      "commune": "Bulle",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.0568,
+      "lat": 46.6193,
+      "heure": "2 sept. 14:19",
+      "source": "FR.ch",
+      "dateVue": "2026-09-03T14:15:43.065Z"
+    },
+    {
+      "titre": "Accident mortel",
+      "resume": "Un octogénaire a perdu la vie dans un accident en Valais.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.359,
+      "lat": 46.2312,
+      "heure": "2 sept. 11:22",
+      "source": "Watson",
+      "dateVue": "2026-09-03T14:15:43.065Z"
     }
   ]
 }
