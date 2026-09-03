@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-03T14:15:43.065Z",
-  "total": 177,
+  "compileLe": "2026-09-03T19:40:53.559Z",
+  "total": 182,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2125,6 +2125,66 @@
       "heure": "2 sept. 11:22",
       "source": "Watson",
       "dateVue": "2026-09-03T14:15:43.065Z"
+    },
+    {
+      "titre": "Découverte d'un corps en forêt",
+      "resume": "Le corps d'une femme portée disparue depuis près de trois mois côté français a été retrouvé dans une forêt en Suisse voisine.",
+      "commune": "Vallorbe",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.378,
+      "lat": 46.712,
+      "heure": "3 sept. 15:06",
+      "source": "L'Indépendant",
+      "dateVue": "2026-09-03T19:40:53.559Z"
+    },
+    {
+      "titre": "Accident de travail mortel",
+      "resume": "Un chauffeur de poids lourd a perdu la vie dans un accident survenu sur un chantier.",
+      "commune": "Le Châble",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.216,
+      "lat": 46.083,
+      "heure": "3 sept. 17:44",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-03T19:40:53.559Z"
+    },
+    {
+      "titre": "Accident sur l'A9",
+      "resume": "Une collision a fait trois blessés et entraîné la fermeture de l'autoroute en direction de Martigny durant plusieurs heures.",
+      "commune": "Conthey",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.3,
+      "lat": 46.22,
+      "heure": "3 sept. 14:45",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-03T19:40:53.559Z"
+    },
+    {
+      "titre": "Incendie dans un centre de recyclage",
+      "resume": "Un feu s'est déclaré dans un centre de traitement de déchets, mobilisant plusieurs dizaines de pompiers. La population a été appelée à fermer ses fenêtres.",
+      "commune": "Morat",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.117,
+      "lat": 46.928,
+      "heure": "3 sept. 14:18",
+      "source": "fr.ch",
+      "dateVue": "2026-09-03T19:40:53.559Z"
+    },
+    {
+      "titre": "Pollution chimique dans un local technique",
+      "resume": "Une pollution chimique a mobilisé une dizaine de pompiers, un local technique a été sécurisé sans danger pour la population.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "2 sept. 18:30",
+      "source": "Police",
+      "dateVue": "2026-09-03T19:40:53.559Z"
     }
   ]
 }
