@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-03T19:40:53.559Z",
-  "total": 182,
+  "compileLe": "2026-09-04T14:06:23.780Z",
+  "total": 188,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2185,6 +2185,78 @@
       "heure": "2 sept. 18:30",
       "source": "Police",
       "dateVue": "2026-09-03T19:40:53.559Z"
+    },
+    {
+      "titre": "Excès de vitesse extrême sur l'A12",
+      "resume": "Un automobiliste a été flashé à 251 km/h sur l'autoroute A12 à Bösingen. Le cas relève de la loi Via Sicura.",
+      "commune": "Bösingen",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.253,
+      "lat": 46.9,
+      "heure": "04 sept. 13:07",
+      "source": "FR.ch",
+      "dateVue": "2026-09-04T14:06:23.780Z"
+    },
+    {
+      "titre": "Incendie dans une menuiserie",
+      "resume": "Un important incendie s'est déclaré dans une menuiserie, provoquant un fort nuage de fumée et la fermeture partielle de la route cantonale. Le feu a été maîtrisé.",
+      "commune": "Savièse",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.35,
+      "lat": 46.25,
+      "heure": "04 sept. 06:51",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-04T14:06:23.780Z"
+    },
+    {
+      "titre": "Adolescent percuté par un train",
+      "resume": "Un jeune de 15 ans a été percuté par un train à la gare et est décédé.",
+      "commune": "Allaman",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.4,
+      "lat": 46.46,
+      "heure": "04 sept. 04:38",
+      "source": "La Télé",
+      "dateVue": "2026-09-04T14:06:23.780Z"
+    },
+    {
+      "titre": "Interpellations après des vols d'armes",
+      "resume": "Quatre personnes ont été interpellées à la suite de vols d'armes.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "cambriolage",
+      "lon": 7.15,
+      "lat": 46.8,
+      "heure": "04 sept. 03:37",
+      "source": "Blick",
+      "dateVue": "2026-09-04T14:06:23.780Z"
+    },
+    {
+      "titre": "Passants agressés avec une seringue",
+      "resume": "Une personne s'en prenait à des passants au moyen d'une seringue usagée.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.63,
+      "lat": 46.52,
+      "heure": "03 sept. 22:37",
+      "source": "24 Heures",
+      "dateVue": "2026-09-04T14:06:23.780Z"
+    },
+    {
+      "titre": "Accident mortel après une fuite devant la police",
+      "resume": "Un conducteur mineur en fuite face à la police a provoqué un accident mortel.",
+      "commune": "Granges-près-Marnand",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.93,
+      "lat": 46.77,
+      "heure": "03 sept. 19:17",
+      "source": "24 Heures",
+      "dateVue": "2026-09-04T14:06:23.780Z"
     }
   ]
 }
