@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-04T14:06:23.780Z",
-  "total": 188,
+  "compileLe": "2026-09-04T19:19:37.232Z",
+  "total": 192,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2257,6 +2257,54 @@
       "heure": "03 sept. 19:17",
       "source": "24 Heures",
       "dateVue": "2026-09-04T14:06:23.780Z"
+    },
+    {
+      "titre": "Enfant renversé, conducteur en fuite",
+      "resume": "Un enfant a été renversé par un véhicule dont le conducteur a pris la fuite. La police mène des recherches.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.343,
+      "lat": 47.366,
+      "heure": "4 sept. 18:00",
+      "source": "24 Heures",
+      "dateVue": "2026-09-04T19:19:37.232Z"
+    },
+    {
+      "titre": "Appel à témoins après une disparition",
+      "resume": "Un homme de 67 ans est porté disparu à Sion. La police lance un appel à témoins.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "4 sept. 17:55",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-04T19:19:37.232Z"
+    },
+    {
+      "titre": "Voiture sur le toit, conductrice héliportée",
+      "resume": "Une automobiliste de 77 ans a été héliportée après avoir fait un tonneau sur la route d'Oron.",
+      "commune": "Oron",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.832,
+      "lat": 46.556,
+      "heure": "4 sept. 17:37",
+      "source": "24 Heures",
+      "dateVue": "2026-09-04T19:19:37.232Z"
+    },
+    {
+      "titre": "Grange et maison ravagées par un incendie",
+      "resume": "Une grange et une maison ont été détruites par les flammes dans le canton du Jura.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.343,
+      "lat": 47.366,
+      "heure": "4 sept. 11:41",
+      "source": "24 Heures",
+      "dateVue": "2026-09-04T19:19:37.232Z"
     }
   ]
 }
