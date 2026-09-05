@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-04T19:19:37.232Z",
-  "total": 192,
+  "compileLe": "2026-09-05T13:20:13.340Z",
+  "total": 197,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2305,6 +2305,66 @@
       "heure": "4 sept. 11:41",
       "source": "24 Heures",
       "dateVue": "2026-09-04T19:19:37.232Z"
+    },
+    {
+      "titre": "Collision impliquant plusieurs véhicules",
+      "resume": "Une conductrice a percuté quatre véhicules avant de coopérer avec la police.",
+      "commune": "Renens",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.578,
+      "lat": 46.539,
+      "heure": "04 sept. 22:10",
+      "source": "20 Minuten",
+      "dateVue": "2026-09-05T13:20:13.340Z"
+    },
+    {
+      "titre": "Automobiliste flashé à 251 km/h",
+      "resume": "Un conducteur a été flashé à 251 km/h sur l'autoroute A12, un cas relevant de Via Sicura.",
+      "commune": "Bösingen",
+      "canton": "FR",
+      "categorie": "ordre",
+      "lon": 7.222,
+      "lat": 46.897,
+      "heure": "04 sept. 13:07",
+      "source": "FR.ch",
+      "dateVue": "2026-09-05T13:20:13.340Z"
+    },
+    {
+      "titre": "Grange et maison ravagées par un incendie",
+      "resume": "Une grange et une maison ont été détruites par les flammes.",
+      "commune": "Jura",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.35,
+      "lat": 47.3,
+      "heure": "04 sept. 11:41",
+      "source": "24 Heures",
+      "dateVue": "2026-09-05T13:20:13.340Z"
+    },
+    {
+      "titre": "Personne disparue retrouvée sans vie en forêt",
+      "resume": "Le corps d'une femme disparue depuis mai a été retrouvé dans une forêt.",
+      "commune": "Baulmes",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.523,
+      "lat": 46.789,
+      "heure": "03 sept. 12:59",
+      "source": "24 Heures",
+      "dateVue": "2026-09-05T13:20:13.340Z"
+    },
+    {
+      "titre": "Automobiliste flashé à 248 km/h",
+      "resume": "Un conducteur a été flashé à 248 km/h sur l'autoroute A9 et risque une lourde peine.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "ordre",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "03 sept. 18:09",
+      "source": "24 Heures",
+      "dateVue": "2026-09-05T13:20:13.340Z"
     }
   ]
 }
