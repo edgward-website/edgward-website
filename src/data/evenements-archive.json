@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-05T13:20:13.340Z",
-  "total": 197,
+  "compileLe": "2026-09-05T18:48:42.540Z",
+  "total": 199,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2365,6 +2365,30 @@
       "heure": "03 sept. 18:09",
       "source": "24 Heures",
       "dateVue": "2026-09-05T13:20:13.340Z"
+    },
+    {
+      "titre": "Agression à la batte de baseball",
+      "resume": "Un adolescent a été hospitalisé après avoir été violemment attaqué. Une enquête est ouverte.",
+      "commune": "Onex",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.1,
+      "lat": 46.18,
+      "heure": "5 sept. 16:15",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-09-05T18:48:42.540Z"
+    },
+    {
+      "titre": "Incendie perturbant le trafic ferroviaire",
+      "resume": "Un incendie a paralysé une partie de la ville et le trafic des CFF. Des dégâts importants sont à déplorer.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.63,
+      "lat": 46.52,
+      "heure": "5 sept. 10:36",
+      "source": "Watson",
+      "dateVue": "2026-09-05T18:48:42.540Z"
     }
   ]
 }
