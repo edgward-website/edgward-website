@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-05T18:48:42.540Z",
-  "total": 199,
+  "compileLe": "2026-09-06T13:29:12.630Z",
+  "total": 201,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2389,6 +2389,30 @@
       "heure": "5 sept. 10:36",
       "source": "Watson",
       "dateVue": "2026-09-05T18:48:42.540Z"
+    },
+    {
+      "titre": "Incendie dans une entreprise",
+      "resume": "Un incendie s'est déclaré dans les locaux d'une entreprise, perturbant fortement le trafic ferroviaire et autoroutier de la région lausannoise. Importants dégâts.",
+      "commune": "Ecublens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.5619,
+      "lat": 46.5289,
+      "heure": "05 sept. 09:04",
+      "source": "Le Temps",
+      "dateVue": "2026-09-06T13:29:12.630Z"
+    },
+    {
+      "titre": "Accident de circulation avec blessée",
+      "resume": "Un accident de la route a fait une blessée en ville. La police cantonale est intervenue.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.9317,
+      "lat": 46.9925,
+      "heure": "05 sept. 23:57",
+      "source": "ne.ch",
+      "dateVue": "2026-09-06T13:29:12.630Z"
     }
   ]
 }
