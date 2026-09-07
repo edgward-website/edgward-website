@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-06T18:53:15.865Z",
-  "total": 204,
+  "compileLe": "2026-09-07T15:38:33.281Z",
+  "total": 207,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2449,6 +2449,42 @@
       "heure": "4 sept. 11:16",
       "source": "RTN.ch",
       "dateVue": "2026-09-06T18:53:15.865Z"
+    },
+    {
+      "titre": "Chute mortelle d'un alpiniste au Weissmies",
+      "resume": "Un alpiniste de 54 ans a perdu la vie lors d'une course dans le massif du Weissmies.",
+      "commune": "Saas-Grund",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.94,
+      "lat": 46.12,
+      "heure": "7 sept. 16:21",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-07T15:38:33.281Z"
+    },
+    {
+      "titre": "Cycliste blessée sur la Voie verte",
+      "resume": "La roue d'une cycliste s'est coincée dans une grille, provoquant une chute et une hospitalisation.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.14,
+      "lat": 46.2,
+      "heure": "7 sept. 11:08",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-09-07T15:38:33.281Z"
+    },
+    {
+      "titre": "Agression signalée à Vidy",
+      "resume": "Une agression survenue samedi fait l'objet de réactions et d'une mobilisation dans le secteur de Vidy.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.6,
+      "lat": 46.51,
+      "heure": "7 sept. 11:05",
+      "source": "24 Heures",
+      "dateVue": "2026-09-07T15:38:33.281Z"
     }
   ]
 }
