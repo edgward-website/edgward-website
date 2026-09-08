@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-07T20:22:34.870Z",
-  "total": 207,
+  "compileLe": "2026-09-08T14:16:14.715Z",
+  "total": 211,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2485,6 +2485,54 @@
       "heure": "7 sept. 11:05",
       "source": "24 Heures",
       "dateVue": "2026-09-07T15:38:33.281Z"
+    },
+    {
+      "titre": "Intervention policière, homme reclus sur un toit",
+      "resume": "Un homme s'est retranché sur un toit, mobilisant les forces de l'ordre pour une intervention en ville.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "ordre",
+      "lon": 6.931,
+      "lat": 46.99,
+      "heure": "8 sept. 08:40",
+      "source": "Blick",
+      "dateVue": "2026-09-08T14:16:14.715Z"
+    },
+    {
+      "titre": "Cambriolage dans un musée",
+      "resume": "Un musée consacré à l'horlogerie a été visité par des cambrioleurs.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.931,
+      "lat": 46.99,
+      "heure": "8 sept. 01:51",
+      "source": "Blick",
+      "dateVue": "2026-09-08T14:16:14.715Z"
+    },
+    {
+      "titre": "Automobiliste décédé en ville",
+      "resume": "Un conducteur a perdu la vie lors d'un accident survenu au centre-ville.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "8 sept. 01:46",
+      "source": "Blick",
+      "dateVue": "2026-09-08T14:16:14.715Z"
+    },
+    {
+      "titre": "Chute mortelle dans des falaises",
+      "resume": "Un homme a chuté de plusieurs dizaines de mètres dans des falaises bordant la Sarine.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "7 sept. 19:20",
+      "source": "24 Heures",
+      "dateVue": "2026-09-08T14:16:14.715Z"
     }
   ]
 }
