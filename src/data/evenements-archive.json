@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-08T19:45:24.370Z",
-  "total": 211,
+  "compileLe": "2026-09-09T14:17:08.314Z",
+  "total": 216,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2533,6 +2533,66 @@
       "heure": "7 sept. 19:20",
       "source": "24 Heures",
       "dateVue": "2026-09-08T14:16:14.715Z"
+    },
+    {
+      "titre": "Collision mortelle moto-tracteur",
+      "resume": "Un motocycliste de 17 ans a chuté puis heurté un engin agricole sur la route des Mosses. Il a perdu la vie.",
+      "commune": "Ormont-Dessous",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 7.1,
+      "lat": 46.39,
+      "heure": "9 sept. 14:36",
+      "source": "24 Heures",
+      "dateVue": "2026-09-09T14:17:08.314Z"
+    },
+    {
+      "titre": "Chute mortelle en montagne",
+      "resume": "Un randonneur recherché a été retrouvé sans vie après une chute dans le secteur du Haut-de-Cry.",
+      "commune": "Conthey",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.3,
+      "lat": 46.22,
+      "heure": "9 sept. 12:03",
+      "source": "Police cantonale VS",
+      "dateVue": "2026-09-09T14:17:08.314Z"
+    },
+    {
+      "titre": "Chute mortelle d'un randonneur",
+      "resume": "Un randonneur a fait une chute mortelle sur le territoire de Grandvillard.",
+      "commune": "Grandvillard",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.11,
+      "lat": 46.5,
+      "heure": "9 sept. 11:55",
+      "source": "Police cantonale FR",
+      "dateVue": "2026-09-09T14:17:08.314Z"
+    },
+    {
+      "titre": "Engin de chantier dans un talus",
+      "resume": "Un engin de chantier a dévalé un talus et fait plusieurs tonneaux.",
+      "commune": "Belfaux",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.1,
+      "lat": 46.82,
+      "heure": "8 sept. 17:24",
+      "source": "24 Heures",
+      "dateVue": "2026-09-09T14:17:08.314Z"
+    },
+    {
+      "titre": "Cambriolage dans un musée",
+      "resume": "Le musée de l'horlogerie a été victime d'un cambriolage.",
+      "commune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.83,
+      "lat": 47.1,
+      "heure": "8 sept. 01:51",
+      "source": "Blick",
+      "dateVue": "2026-09-09T14:17:08.314Z"
     }
   ]
 }
