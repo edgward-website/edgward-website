@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-09T19:37:32.321Z",
-  "total": 219,
+  "compileLe": "2026-09-10T14:10:31.746Z",
+  "total": 220,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2629,6 +2629,18 @@
       "heure": "9 sept. 06:36",
       "source": "Tribune de Genève",
       "dateVue": "2026-09-09T19:37:32.321Z"
+    },
+    {
+      "titre": "Accident de la circulation avec plusieurs blessés",
+      "resume": "Un accident de la route a fait plusieurs blessés à Sion ce jeudi.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "10 sept. 15:18",
+      "source": "Rhône FM",
+      "dateVue": "2026-09-10T14:10:31.746Z"
     }
   ]
 }
