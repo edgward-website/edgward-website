@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-12T13:27:48.818Z",
-  "total": 227,
+  "compileLe": "2026-09-12T18:58:20.462Z",
+  "total": 228,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2725,6 +2725,18 @@
       "heure": "9 sept. 16:42",
       "source": "24 Heures",
       "dateVue": "2026-09-12T13:27:48.818Z"
+    },
+    {
+      "titre": "Personne âgée disparue retrouvée",
+      "resume": "Une femme de 84 ans portée disparue a été retrouvée vivante.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "disparition",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "12 sept. 14:11",
+      "source": "20 Minuten",
+      "dateVue": "2026-09-12T18:58:20.462Z"
     }
   ]
 }
