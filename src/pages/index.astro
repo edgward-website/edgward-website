@@ -8,7 +8,7 @@ import { site } from '../data/site';
 
 <Base
   title="Patrouille de sécurité à la demande à Genève et en Suisse romande | Edgward"
-  description="Commandez une patrouille de sécurité à la demande à Genève et en Suisse romande, en un clic. Sans engagement, sans installation. Dès CHF 15/mois."
+  description="Un doute chez vous ? Les entreprises de sécurité agréées près de chez vous annoncent leur prix et leur délai estimé. Vous choisissez, l'agent part."
 >
 
   <!-- HERO -->
@@ -20,8 +20,8 @@ import { site } from '../data/site';
             <span class="hero-badge-dot" aria-hidden="true"></span>
             Disponible en Suisse romande
           </div>
-          <h1>Une patrouille<br>de sécurité<br>chez vous <em>en 1 clic</em>.</h1>
-          <p>Un doute, une inquiétude, une urgence ? Commandez l'intervention d'un agent près de chez vous en un clic. Sans engagement, sans installation.</p>
+          <h1>Un doute chez vous ?<br>Une patrouille<br><em>part maintenant</em>.</h1>
+          <p>Vous déclenchez depuis l'app. Les entreprises de sécurité agréées disponibles autour de votre adresse se positionnent, avec leur prix et leur délai estimé. Vous choisissez, l'agent part.</p>
           <div class="hero-ctas">
             <a href={site.apps.appStore} class="store-btn" target="_blank" rel="noopener noreferrer" aria-label="Télécharger sur l'App Store">
               <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -36,7 +36,7 @@ import { site } from '../data/site';
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
             Voir la démo (60 s)
           </a>
-          <p class="hero-reassurance">1 mois d'essai gratuit · Résiliable à tout moment · Dès CHF 15/mois</p>
+          <p class="hero-reassurance">1 mois d'essai gratuit</p>
           <div class="hero-audiences" aria-label="Type de client">
             <a href="/particuliers" class="audience-card active">
               <div class="audience-title">Particuliers</div>
@@ -90,7 +90,7 @@ import { site } from '../data/site';
           <a href="/medias">Tribune de Genève</a>
           <a href="/medias">24heures</a>
         </div>
-        <div class="trust-rating"><span class="star" aria-hidden="true">★</span> 4,8/5 · 240+ utilisateurs</div>
+        <div class="trust-rating"><span class="star" aria-hidden="true">★</span> 4,8/5 · 2'500+ utilisateurs</div>
       </div>
     </div>
   </section>
@@ -122,6 +122,34 @@ import { site } from '../data/site';
       </div>
       <div class="steps-cta fade-in">
         <a href="/comment-ca-marche" class="btn-ghost">En savoir plus sur le fonctionnement →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POURQUOI C'EST RAPIDE (la sélection du réseau, pas une promesse de délai) -->
+  <section class="section speed-section" id="rapidite">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Rapidité</span>
+        <h2>Pourquoi une patrouille<br>arrive <em>vite</em> chez vous</h2>
+        <p class="section-subtitle">Nous ne promettons pas un chrono. Nous mettons en concurrence tout un réseau d'entreprises de sécurité sur chaque demande, et c'est ce qui raccourcit le délai.</p>
+      </div>
+      <div class="speed-grid">
+        <div class="speed-card fade-in">
+          <div class="speed-num" aria-hidden="true">01</div>
+          <h3>Un réseau, pas un prestataire unique</h3>
+          <p>Avec un contrat classique, une seule société intervient, où qu'elle se trouve au moment de votre appel. Edgward interroge toutes les entreprises partenaires disponibles autour de votre adresse et vous propose celles qui peuvent s'y rendre.</p>
+        </div>
+        <div class="speed-card fade-in">
+          <div class="speed-num" aria-hidden="true">02</div>
+          <h3>Des entreprises choisies pour leur couverture</h3>
+          <p>Chaque partenaire est une entreprise de sécurité agréée, avec du personnel formé et assuré, sélectionnée notamment sur sa présence réelle sur le terrain dans votre secteur. Plus le réseau est dense près de chez vous, plus la patrouille est proche.</p>
+        </div>
+        <div class="speed-card fade-in">
+          <div class="speed-num" aria-hidden="true">03</div>
+          <h3>Le délai s'affiche avant que vous confirmiez</h3>
+          <p>Chaque entreprise annonce son propre temps d'intervention estimé et son prix. Vous décidez en connaissance de cause, puis vous suivez l'agent en temps réel jusqu'à son arrivée. Personne ne vous vend un délai à l'aveugle.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -394,6 +422,15 @@ import { site } from '../data/site';
   .ed-ring:nth-child(2) { width: 80%; height: 80%; animation-delay: 1s; }
   .ed-ring:nth-child(3) { width: 100%; height: 100%; animation-delay: 2s; }
 
+  /* RAPIDITÉ */
+  .speed-section { background: var(--soft); }
+  .speed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .speed-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px 28px; transition: all 0.2s ease; }
+  .speed-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+  .speed-num { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 30px; color: var(--brand); line-height: 1; margin-bottom: 16px; }
+  .speed-card h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.25; letter-spacing: -0.015em; }
+  .speed-card p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+
   /* TRUST */
   .trust { background: var(--soft); border-bottom: 1px solid var(--border); padding: 18px 0; }
   .trust-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -520,12 +557,12 @@ import { site } from '../data/site';
     .final-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
     .final-ed { margin: 0 auto; width: 140px; }
     .stores { justify-content: center; }
-    .b2b-grid, .testimonials, .steps { grid-template-columns: 1fr; }
+    .b2b-grid, .testimonials, .steps, .speed-grid { grid-template-columns: 1fr; }
     .steps::before { display: none; }
   }
   @media (max-width: 768px) {
     .hero { padding: 24px 0 36px; }
-    .hero h1 { font-size: clamp(32px, 9vw, 42px); margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(27px, 7.4vw, 42px); margin-bottom: 10px; }
     .hero p { margin-bottom: 14px; }
     .partners-grid { grid-template-columns: repeat(3, 1fr); }
     .hero-audiences { grid-template-columns: 1fr; }

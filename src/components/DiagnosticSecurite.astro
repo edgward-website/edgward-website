@@ -431,7 +431,7 @@ const {
         }
         return { id:'tele-save', cls:'v-fit', badge:'Vous pouvez payer beaucoup moins',
           title: satisfaction === 'cher' ? 'Payez votre sécurité 5× moins cher' : 'Il existe une solution plus adaptée',
-          body:(satisfaction === 'cher' ? 'Vous êtes protégé mais la facture pèse. ' : 'Votre solution ne vous convient pas vraiment. ') + compare + ' L’intervention à la demande Edgward ' + where + ' vient à votre adresse ' + (canton === 'GE' ? 'en 10 à 15 min ' : '') + 'quand vous le décidez, pour <strong>~15.-/mois sans engagement</strong>. Seule différence à accepter : c’est vous qui déclenchez, ce n’est pas une surveillance passive 24/7.',
+          body:(satisfaction === 'cher' ? 'Vous êtes protégé mais la facture pèse. ' : 'Votre solution ne vous convient pas vraiment. ') + compare + ' L’intervention à la demande Edgward ' + where + ' vient à votre adresse ' + (canton === 'GE' ? 'en 10 à 15 min en moyenne ' : '') + 'quand vous le décidez, pour <strong>~15.-/mois sans engagement</strong>. Seule différence à accepter : c’est vous qui déclenchez, ce n’est pas une surveillance passive 24/7.',
           note:{ cls:'blue', ic:ic.info, html:'Vous voulez rester en surveillance permanente sans rien gérer ? Dans ce cas, une bonne télésurveillance reste plus adaptée - on peut aussi vous y orienter.' },
           ctas:[{ t:'Découvrir Edgward', cls:'cta-primary' },{ t:'Être rappelé pour comparer', cls:'cta-ghost' }] };
       }
@@ -468,7 +468,7 @@ const {
       const disp = dispositif === 'autonome' ? ' Vos caméras et votre alarme gardent tout leur sens : Edgward apporte le maillon humain qui vient sur place.' : '';
       return { id:'edgward-fit', cls:'v-fit', badge: budgetFree ? 'Le gratuit d’abord, l’intervention si besoin' : 'Edgward est fait pour vous',
         title:'Alertes gratuites + intervention à votre adresse',
-        body:'Vous voulez garder la main et faire intervenir quelqu’un à votre demande contre ' + rk + '. Chez vous ' + where + ', profitez des <strong>alertes gratuites</strong> du canton, et déclenchez une <strong>intervention à votre adresse exacte</strong>' + (canton === 'GE' ? ' en 10 à 15 min' : '') + ' quand vous en avez besoin, pour <strong>~15.-/mois sans engagement</strong>.' + disp,
+        body:'Vous voulez garder la main et faire intervenir quelqu’un à votre demande contre ' + rk + '. Chez vous ' + where + ', profitez des <strong>alertes gratuites</strong> du canton, et déclenchez une <strong>intervention à votre adresse exacte</strong>' + (canton === 'GE' ? ' en 10 à 15 min en moyenne' : '') + ' quand vous en avez besoin, pour <strong>~15.-/mois sans engagement</strong>.' + disp,
         note: budgetFree
           ? { cls:'good', ic:ic.check, html:'Commencez par les alertes <b>gratuites</b> - l’intervention reste disponible le jour où il le faut.' }
           : { cls:'blue', ic:ic.info, html:'Environ <b>5× moins cher</b> qu’une télésurveillance classique (dès ~75.-/mois).' },
