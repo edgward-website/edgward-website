@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-13T14:11:30.791Z",
-  "total": 230,
+  "compileLe": "2026-09-13T19:12:41.943Z",
+  "total": 231,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2761,6 +2761,18 @@
       "heure": "13 sept. 05:34",
       "source": "ne.ch",
       "dateVue": "2026-09-13T14:11:30.791Z"
+    },
+    {
+      "titre": "Intervention policière au centre pour requérants d'asile",
+      "resume": "La police s'est présentée au centre fédéral d'asile de Boudry dans le cadre d'une opération liée à des requérants.",
+      "commune": "Boudry",
+      "canton": "NE",
+      "categorie": "ordre",
+      "lon": 6.8404,
+      "lat": 46.9497,
+      "heure": "13 sept. 16:14",
+      "source": "rts.ch",
+      "dateVue": "2026-09-13T19:12:41.943Z"
     }
   ]
 }
