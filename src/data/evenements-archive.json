@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-12T18:58:20.462Z",
-  "total": 228,
+  "compileLe": "2026-09-13T14:11:30.791Z",
+  "total": 230,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2737,6 +2737,30 @@
       "heure": "12 sept. 14:11",
       "source": "20 Minuten",
       "dateVue": "2026-09-12T18:58:20.462Z"
+    },
+    {
+      "titre": "Incendie d'une ferme, environ 250 bovins périssent",
+      "resume": "Un violent incendie a ravagé une ferme, causant la mort d'environ 250 bovins et de gros dégâts au bâtiment.",
+      "commune": "Palézieux",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.8339,
+      "lat": 46.5478,
+      "heure": "12 sept. 22:06",
+      "source": "rts.ch",
+      "dateVue": "2026-09-13T14:11:30.791Z"
+    },
+    {
+      "titre": "Accident de la circulation avec blessés",
+      "resume": "Un accident de la route a fait des blessés en ville de Neuchâtel.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.9319,
+      "lat": 46.9924,
+      "heure": "13 sept. 05:34",
+      "source": "ne.ch",
+      "dateVue": "2026-09-13T14:11:30.791Z"
     }
   ]
 }
