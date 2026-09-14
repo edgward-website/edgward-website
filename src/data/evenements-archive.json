@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-13T19:12:41.943Z",
-  "total": 231,
+  "compileLe": "2026-09-14T16:14:53.201Z",
+  "total": 232,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2773,6 +2773,18 @@
       "heure": "13 sept. 16:14",
       "source": "rts.ch",
       "dateVue": "2026-09-13T19:12:41.943Z"
+    },
+    {
+      "titre": "Cambriolage dans un musée privé",
+      "resume": "Un musée privé d'horlogerie a été la cible d'un cambriolage au Locle.",
+      "commune": "Le Locle",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.749,
+      "lat": 47.056,
+      "heure": "14 sept. 17:09",
+      "source": "La Télé",
+      "dateVue": "2026-09-14T16:14:53.201Z"
     }
   ]
 }
