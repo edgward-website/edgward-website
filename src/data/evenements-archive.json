@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-14T20:45:32.990Z",
-  "total": 232,
+  "compileLe": "2026-09-15T14:44:21.351Z",
+  "total": 233,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2785,6 +2785,18 @@
       "heure": "14 sept. 17:09",
       "source": "La Télé",
       "dateVue": "2026-09-14T16:14:53.201Z"
+    },
+    {
+      "titre": "Accident et perturbations du trafic",
+      "resume": "Un accident a provoqué des bouchons à La Chaux-de-Fonds.",
+      "commune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.826,
+      "lat": 47.099,
+      "heure": "15 sept. 08:24",
+      "source": "arcinfo.ch",
+      "dateVue": "2026-09-15T14:44:21.351Z"
     }
   ]
 }
