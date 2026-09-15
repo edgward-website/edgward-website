@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-15T14:44:21.351Z",
-  "total": 233,
+  "compileLe": "2026-09-15T20:02:32.900Z",
+  "total": 234,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2797,6 +2797,18 @@
       "heure": "15 sept. 08:24",
       "source": "arcinfo.ch",
       "dateVue": "2026-09-15T14:44:21.351Z"
+    },
+    {
+      "titre": "Incendie de véhicules sur l'A1",
+      "resume": "Quatre véhicules, dont des camions, ont pris feu sur une aire de repos autoroutière. Un homme a été blessé.",
+      "commune": "Lully",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 6.842,
+      "lat": 46.836,
+      "heure": "15 sept. 19:51",
+      "source": "La Liberté",
+      "dateVue": "2026-09-15T20:02:32.900Z"
     }
   ]
 }

@@ -1,22 +1,46 @@
 {
-  "genereLe": "2026-09-15T14:44:21.351Z",
+  "genereLe": "2026-09-15T20:02:32.900Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Cambriolage d'un musée horloger",
-      "resume": "Un musée privé consacré à l'horlogerie a été visité par des cambrioleurs au Locle. Une enquête a été ouverte.",
+      "titre": "Incendie de véhicules sur l'A1",
+      "resume": "Quatre véhicules, dont des camions, ont pris feu sur une aire de repos autoroutière. Un homme a été blessé.",
+      "commune": "Lully",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 6.842,
+      "lat": 46.836,
+      "heure": "15 sept. 19:51",
+      "source": "La Liberté",
+      "recent": true
+    },
+    {
+      "titre": "Appel à témoins - disparition",
+      "resume": "La police recherche une jeune fille née en 2009, portée disparue.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "disparition",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "15 sept. 17:04",
+      "source": "Tribune de Genève",
+      "recent": true
+    },
+    {
+      "titre": "Cambriolage dans un musée privé",
+      "resume": "Un musée horloger privé a été la cible d'un cambriolage.",
       "commune": "Le Locle",
       "canton": "NE",
       "categorie": "cambriolage",
       "lon": 6.749,
       "lat": 47.056,
-      "heure": "14 sept. 16:34",
-      "source": "Police neuchâteloise (ne.ch)",
+      "heure": "14 sept. 17:06",
+      "source": "La Télé",
       "recent": false
     },
     {
       "titre": "Incendie d'une ferme",
-      "resume": "Un incendie a détruit une ferme à Palézieux dans la nuit de samedi. Environ 250 bovins ont péri, une partie du bétail a pu être sauvée.",
+      "resume": "Environ 250 bovins ont péri dans l'incendie d'une ferme. Le bâtiment a été détruit, une partie du bétail a pu être sauvée.",
       "commune": "Palézieux",
       "canton": "VD",
       "categorie": "incendie",
@@ -28,38 +52,14 @@
     },
     {
       "titre": "Accident de circulation avec blessés",
-      "resume": "Un accident de la route ayant fait des blessés s'est produit à Neuchâtel.",
+      "resume": "Un accident de la circulation a fait des blessés.",
       "commune": "Neuchâtel",
       "canton": "NE",
       "categorie": "accident",
       "lon": 6.931,
       "lat": 46.992,
       "heure": "13 sept. 05:34",
-      "source": "Police neuchâteloise (ne.ch)",
-      "recent": false
-    },
-    {
-      "titre": "Accident et perturbations du trafic",
-      "resume": "Un accident a provoqué des bouchons à La Chaux-de-Fonds.",
-      "commune": "La Chaux-de-Fonds",
-      "canton": "NE",
-      "categorie": "accident",
-      "lon": 6.826,
-      "lat": 47.099,
-      "heure": "15 sept. 08:24",
-      "source": "arcinfo.ch",
-      "recent": true
-    },
-    {
-      "titre": "Intervention policière dans un centre d'asile",
-      "resume": "La police est intervenue au centre pour requérants d'asile de Boudry.",
-      "commune": "Boudry",
-      "canton": "NE",
-      "categorie": "ordre",
-      "lon": 6.838,
-      "lat": 46.949,
-      "heure": "13 sept. 16:14",
-      "source": "rts.ch",
+      "source": "ne.ch",
       "recent": false
     }
   ]
