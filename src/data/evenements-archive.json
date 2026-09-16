@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-16T14:43:19.680Z",
-  "total": 236,
+  "compileLe": "2026-09-16T19:51:34.770Z",
+  "total": 237,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2833,6 +2833,18 @@
       "heure": "15 sept. 14:36",
       "source": "24 Heures",
       "dateVue": "2026-09-16T14:43:19.680Z"
+    },
+    {
+      "titre": "Possible fuite de données clients",
+      "resume": "Un opérateur télécom enquête sur une possible fuite de données concernant ses clients.",
+      "commune": "Renens",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.5878,
+      "lat": 46.5347,
+      "heure": "16 sept. 17:02",
+      "source": "ICTjournal",
+      "dateVue": "2026-09-16T19:51:34.770Z"
     }
   ]
 }
