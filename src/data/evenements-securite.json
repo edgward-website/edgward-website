@@ -1,34 +1,58 @@
 {
-  "genereLe": "2026-09-15T20:02:32.900Z",
+  "genereLe": "2026-09-16T14:43:19.680Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Incendie de véhicules sur l'A1",
-      "resume": "Quatre véhicules, dont des camions, ont pris feu sur une aire de repos autoroutière. Un homme a été blessé.",
+      "titre": "Crash d'un petit avion",
+      "resume": "Un petit avion s'est écrasé dans la région de Loèche-les-Bains. L'accident a fait trois morts.",
+      "commune": "Loèche-les-Bains",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.627,
+      "lat": 46.379,
+      "heure": "16 sept. 11:35",
+      "source": "Le Nouvelliste",
+      "recent": true
+    },
+    {
+      "titre": "Incendie de poids lourds sur une aire d'autoroute",
+      "resume": "Un incendie s'est déclaré sur l'aire de la Rose de la Broye à Lully, détruisant plusieurs poids lourds. Un homme a été hospitalisé.",
       "commune": "Lully",
       "canton": "FR",
       "categorie": "incendie",
-      "lon": 6.842,
-      "lat": 46.836,
-      "heure": "15 sept. 19:51",
-      "source": "La Liberté",
-      "recent": true
+      "lon": 6.877,
+      "lat": 46.842,
+      "heure": "15 sept. 19:39",
+      "source": "FR.ch",
+      "recent": false
     },
     {
-      "titre": "Appel à témoins - disparition",
-      "resume": "La police recherche une jeune fille née en 2009, portée disparue.",
-      "commune": "Genève",
-      "canton": "GE",
+      "titre": "Troubles après un match de football",
+      "resume": "Des tensions ont éclaté à Lausanne après une rencontre de football, avec usage de mortiers et intervention policière.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "14 sept. 06:03",
+      "source": "Le Matin",
+      "recent": false
+    },
+    {
+      "titre": "Alpiniste disparue au Cervin",
+      "resume": "Une alpiniste disparue dans la région du Cervin est désormais considérée comme décédée par sa famille.",
+      "commune": "Zermatt",
+      "canton": "VS",
       "categorie": "disparition",
-      "lon": 6.143,
-      "lat": 46.204,
-      "heure": "15 sept. 17:04",
-      "source": "Tribune de Genève",
-      "recent": true
+      "lon": 7.749,
+      "lat": 46.02,
+      "heure": "15 sept. 14:36",
+      "source": "24 Heures",
+      "recent": false
     },
     {
       "titre": "Cambriolage dans un musée privé",
-      "resume": "Un musée horloger privé a été la cible d'un cambriolage.",
+      "resume": "Un cambriolage a été commis dans un musée privé au Locle. Une enquête a été ouverte.",
       "commune": "Le Locle",
       "canton": "NE",
       "categorie": "cambriolage",
@@ -40,26 +64,14 @@
     },
     {
       "titre": "Incendie d'une ferme",
-      "resume": "Environ 250 bovins ont péri dans l'incendie d'une ferme. Le bâtiment a été détruit, une partie du bétail a pu être sauvée.",
+      "resume": "Environ 250 bovins ont péri dans l'incendie d'une ferme à Palézieux. Une partie du bétail a pu être sauvée.",
       "commune": "Palézieux",
       "canton": "VD",
       "categorie": "incendie",
       "lon": 6.837,
       "lat": 46.545,
-      "heure": "13 sept. 10:30",
+      "heure": "13 sept. 18:44",
       "source": "rts.ch",
-      "recent": false
-    },
-    {
-      "titre": "Accident de circulation avec blessés",
-      "resume": "Un accident de la circulation a fait des blessés.",
-      "commune": "Neuchâtel",
-      "canton": "NE",
-      "categorie": "accident",
-      "lon": 6.931,
-      "lat": 46.992,
-      "heure": "13 sept. 05:34",
-      "source": "ne.ch",
       "recent": false
     }
   ]

@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-15T20:02:32.900Z",
-  "total": 234,
+  "compileLe": "2026-09-16T14:43:19.680Z",
+  "total": 236,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2809,6 +2809,30 @@
       "heure": "15 sept. 19:51",
       "source": "La Liberté",
       "dateVue": "2026-09-15T20:02:32.900Z"
+    },
+    {
+      "titre": "Crash d'un petit avion",
+      "resume": "Un petit avion s'est écrasé dans la région de Loèche-les-Bains. L'accident a fait trois morts.",
+      "commune": "Loèche-les-Bains",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.627,
+      "lat": 46.379,
+      "heure": "16 sept. 11:35",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-16T14:43:19.680Z"
+    },
+    {
+      "titre": "Alpiniste disparue au Cervin",
+      "resume": "Une alpiniste disparue dans la région du Cervin est désormais considérée comme décédée par sa famille.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.749,
+      "lat": 46.02,
+      "heure": "15 sept. 14:36",
+      "source": "24 Heures",
+      "dateVue": "2026-09-16T14:43:19.680Z"
     }
   ]
 }
