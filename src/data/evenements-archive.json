@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-17T14:47:06.554Z",
-  "total": 240,
+  "compileLe": "2026-09-17T20:02:23.007Z",
+  "total": 242,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2881,6 +2881,30 @@
       "heure": "15 sept. 12:43",
       "source": "Pomona",
       "dateVue": "2026-09-17T14:47:06.554Z"
+    },
+    {
+      "titre": "Accident mortel de la route",
+      "resume": "Une automobiliste a perdu la vie après que son véhicule a dévalé un talus.",
+      "commune": "Rougemont",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 7.201,
+      "lat": 46.489,
+      "heure": "17 sept. 17:40",
+      "source": "24 Heures",
+      "dateVue": "2026-09-17T20:02:23.007Z"
+    },
+    {
+      "titre": "Incendie sur l'autoroute A1",
+      "resume": "Un incendie a perturbé le trafic sur l'A1 entre Rolle et Ecublens.",
+      "commune": "Rolle",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.34,
+      "lat": 46.458,
+      "heure": "17 sept. 19:43",
+      "source": "rts.ch",
+      "dateVue": "2026-09-17T20:02:23.007Z"
     }
   ]
 }
