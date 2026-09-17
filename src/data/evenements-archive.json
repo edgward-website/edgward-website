@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-16T19:51:34.770Z",
-  "total": 237,
+  "compileLe": "2026-09-17T14:47:06.554Z",
+  "total": 240,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2845,6 +2845,42 @@
       "heure": "16 sept. 17:02",
       "source": "ICTjournal",
       "dateVue": "2026-09-16T19:51:34.770Z"
+    },
+    {
+      "titre": "Accident mortel de la circulation",
+      "resume": "Un homme a perdu la vie dans un accident de la route à Grächen.",
+      "commune": "Grächen",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.8367,
+      "lat": 46.1953,
+      "heure": "17 sept. 16:11",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-09-17T14:47:06.554Z"
+    },
+    {
+      "titre": "Accident sur l'A9",
+      "resume": "Un accident de la circulation sur l'autoroute A9 près de Conthey a fait des blessés.",
+      "commune": "Conthey",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.3047,
+      "lat": 46.2261,
+      "heure": "17 sept. 09:34",
+      "source": "Pomona",
+      "dateVue": "2026-09-17T14:47:06.554Z"
+    },
+    {
+      "titre": "Accidents en montagne",
+      "resume": "Des alpinistes décédés dans des accidents survenus au Nadeljoch et au Cervin ont été identifiés.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.7491,
+      "lat": 46.0207,
+      "heure": "15 sept. 12:43",
+      "source": "Pomona",
+      "dateVue": "2026-09-17T14:47:06.554Z"
     }
   ]
 }
