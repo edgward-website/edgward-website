@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-18T19:27:42.232Z",
-  "total": 247,
+  "compileLe": "2026-09-19T13:48:00.491Z",
+  "total": 248,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2965,6 +2965,18 @@
       "heure": "15 sept. 23:03",
       "source": "24 Heures",
       "dateVue": "2026-09-18T19:27:42.232Z"
+    },
+    {
+      "titre": "Court-circuit et incendie sur la ligne CFF Renens-Morges",
+      "resume": "Un court-circuit suivi d'un incendie sur une ligne de contact a paralysé le trafic ferroviaire entre Renens et Morges, perturbant l'axe Lausanne-Genève.",
+      "commune": "Morges",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.4986,
+      "lat": 46.5108,
+      "heure": "17 sept. 18:51",
+      "source": "rts.ch",
+      "dateVue": "2026-09-19T13:48:00.491Z"
     }
   ]
 }
