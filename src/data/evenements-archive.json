@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-19T19:12:29.584Z",
-  "total": 248,
+  "compileLe": "2026-09-20T14:02:10.681Z",
+  "total": 250,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -2977,6 +2977,30 @@
       "heure": "17 sept. 18:51",
       "source": "rts.ch",
       "dateVue": "2026-09-19T13:48:00.491Z"
+    },
+    {
+      "titre": "Incendie à la Porte d'Octodure",
+      "resume": "Un feu s'est déclaré dans un bâtiment à Martigny-Croix. Les pompiers sont intervenus.",
+      "commune": "Martigny-Croix",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.055,
+      "lat": 46.099,
+      "heure": "20 sept. 15:30",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-20T14:02:10.681Z"
+    },
+    {
+      "titre": "Deux cyclistes blessés",
+      "resume": "Deux cyclistes ont été blessés dans des accidents distincts, l'un à Chez-le-Bart, l'autre aux Ponts-de-Martel.",
+      "commune": "Chez-le-Bart",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.851,
+      "lat": 46.93,
+      "heure": "20 sept. 10:44",
+      "source": "ArcInfo",
+      "dateVue": "2026-09-20T14:02:10.681Z"
     }
   ]
 }
