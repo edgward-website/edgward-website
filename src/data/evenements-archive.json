@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-20T14:02:10.681Z",
-  "total": 250,
+  "compileLe": "2026-09-20T19:17:04.505Z",
+  "total": 252,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3001,6 +3001,30 @@
       "heure": "20 sept. 10:44",
       "source": "ArcInfo",
       "dateVue": "2026-09-20T14:02:10.681Z"
+    },
+    {
+      "titre": "Accident mortel de scooter",
+      "resume": "Un jeune scootériste a perdu la vie après avoir percuté un candélabre.",
+      "commune": "Renens",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.585,
+      "lat": 46.539,
+      "heure": "20 sept. 17:36",
+      "source": "watson.ch",
+      "dateVue": "2026-09-20T19:17:04.505Z"
+    },
+    {
+      "titre": "Cycliste blessé",
+      "resume": "Un cycliste a été blessé dans un accident de la circulation.",
+      "commune": "Les Ponts-de-Martel",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.732,
+      "lat": 47.005,
+      "heure": "20 sept. 10:44",
+      "source": "ArcInfo",
+      "dateVue": "2026-09-20T19:17:04.505Z"
     }
   ]
 }
