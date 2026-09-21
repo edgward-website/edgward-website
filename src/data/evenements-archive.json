@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-20T19:17:04.505Z",
-  "total": 252,
+  "compileLe": "2026-09-21T16:20:54.308Z",
+  "total": 253,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3025,6 +3025,18 @@
       "heure": "20 sept. 10:44",
       "source": "ArcInfo",
       "dateVue": "2026-09-20T19:17:04.505Z"
+    },
+    {
+      "titre": "Accident et fermeture de l'A12",
+      "resume": "Un accident a entraîne la fermeture de l'autoroute A12 entre Rossens et Matran.",
+      "commune": "Rossens",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.104,
+      "lat": 46.716,
+      "heure": "21 sept. 11:39",
+      "source": "La Liberté",
+      "dateVue": "2026-09-21T16:20:54.308Z"
     }
   ]
 }

@@ -1,57 +1,69 @@
 {
-  "genereLe": "2026-09-20T19:17:04.505Z",
+  "genereLe": "2026-09-21T16:20:54.308Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Accident mortel de scooter",
-      "resume": "Un jeune scootériste a perdu la vie après avoir percuté un candélabre.",
-      "commune": "Renens",
-      "canton": "VD",
-      "categorie": "accident",
-      "lon": 6.585,
-      "lat": 46.539,
-      "heure": "20 sept. 17:36",
-      "source": "watson.ch",
-      "recent": true
-    },
-    {
-      "titre": "Cycliste blessé",
-      "resume": "Un cycliste a été blessé lors d'un accident de la circulation.",
-      "commune": "Chez-le-Bart",
-      "canton": "NE",
-      "categorie": "accident",
-      "lon": 6.828,
-      "lat": 46.906,
-      "heure": "19 sept. 19:01",
-      "source": "ne.ch",
-      "recent": false
-    },
-    {
-      "titre": "Cycliste blessé",
-      "resume": "Un cycliste a été blessé dans un accident de la circulation.",
-      "commune": "Les Ponts-de-Martel",
-      "canton": "NE",
-      "categorie": "accident",
-      "lon": 6.732,
-      "lat": 47.005,
-      "heure": "20 sept. 10:44",
-      "source": "ArcInfo",
-      "recent": false
-    },
-    {
-      "titre": "Accident sur l'A12",
-      "resume": "Un chargement mal arrimé a provoqué un accident sur l'autoroute entre Fribourg-Sud et Matran.",
+      "titre": "Accident sur l'A12 près de Matran",
+      "resume": "Un chargement mal arrimé a provoqué un accident sur l'autoroute A12 entre Fribourg-Sud et Matran, perturbant la circulation.",
       "commune": "Matran",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 7.093,
+      "lon": 7.088,
       "lat": 46.786,
       "heure": "19 sept. 13:00",
       "source": "FR.ch",
       "recent": false
     },
     {
-      "titre": "Piéton blessé",
+      "titre": "Accident et fermeture de l'A12",
+      "resume": "Un accident a entraîne la fermeture de l'autoroute A12 entre Rossens et Matran.",
+      "commune": "Rossens",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.104,
+      "lat": 46.716,
+      "heure": "21 sept. 11:39",
+      "source": "La Liberté",
+      "recent": true
+    },
+    {
+      "titre": "Accident mortel de scooter à Renens",
+      "resume": "Un jeune scootériste a perdu la vie après avoir percuté un candélabre.",
+      "commune": "Renens",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.588,
+      "lat": 46.539,
+      "heure": "20 sept. 16:42",
+      "source": "24 Heures",
+      "recent": false
+    },
+    {
+      "titre": "Incendie dans un local à Martigny-Croix",
+      "resume": "Un feu s'est déclaré dans un local associatif à la Porte d'Octodure.",
+      "commune": "Martigny-Croix",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.055,
+      "lat": 46.093,
+      "heure": "20 sept. 15:30",
+      "source": "Le Nouvelliste",
+      "recent": false
+    },
+    {
+      "titre": "Cyclistes blessés dans un accident",
+      "resume": "Deux cyclistes ont été blessés lors d'accidents de la circulation à Chez-le-Bart et aux Ponts-de-Martel.",
+      "commune": "Chez-le-Bart",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.808,
+      "lat": 46.925,
+      "heure": "20 sept. 10:44",
+      "source": "ArcInfo",
+      "recent": false
+    },
+    {
+      "titre": "Piéton blessé lors de l'interception d'une trottinette",
       "resume": "Un piéton a été blessé en tentant d'intercepter une trottinette électrique en fuite.",
       "commune": "Genève",
       "canton": "GE",
@@ -60,30 +72,6 @@
       "lat": 46.204,
       "heure": "18 sept. 20:43",
       "source": "20 Minuten",
-      "recent": false
-    },
-    {
-      "titre": "Collision entre deux voitures",
-      "resume": "Deux véhicules ont été impliqués dans un accident de la route.",
-      "commune": "Ried-Brig",
-      "canton": "VS",
-      "categorie": "accident",
-      "lon": 7.988,
-      "lat": 46.317,
-      "heure": "18 sept. 20:23",
-      "source": "Pomona",
-      "recent": false
-    },
-    {
-      "titre": "Crash d'un petit avion",
-      "resume": "Un avion léger s'est écrasé, faisant plusieurs victimes.",
-      "commune": "Loèche-les-Bains",
-      "canton": "VS",
-      "categorie": "accident",
-      "lon": 7.627,
-      "lat": 46.379,
-      "heure": "18 sept. 12:40",
-      "source": "24 Heures",
       "recent": false
     }
   ]
