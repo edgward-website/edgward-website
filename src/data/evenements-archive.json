@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-21T16:20:54.308Z",
-  "total": 253,
+  "compileLe": "2026-09-21T20:48:32.064Z",
+  "total": 256,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3037,6 +3037,42 @@
       "heure": "21 sept. 11:39",
       "source": "La Liberté",
       "dateVue": "2026-09-21T16:20:54.308Z"
+    },
+    {
+      "titre": "Manifestation pour le climat",
+      "resume": "Entre 1500 et 2000 personnes ont manifesté pour le climat dans les rues de la ville.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "ordre",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "20 sept. 18:49",
+      "source": "RFJ",
+      "dateVue": "2026-09-21T20:48:32.064Z"
+    },
+    {
+      "titre": "Manifestation pour le climat",
+      "resume": "Des manifestants se sont rassemblés pour le climat à Genève et à Lausanne.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "ordre",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "19 sept. 18:27",
+      "source": "Watson",
+      "dateVue": "2026-09-21T20:48:32.064Z"
+    },
+    {
+      "titre": "Incendie d'une menuiserie",
+      "resume": "Une menuiserie a été détruite par un incendie, l'entreprise prépare sa reconstruction.",
+      "commune": "Savièse",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.35,
+      "lat": 46.25,
+      "heure": "19 sept. 05:00",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-21T20:48:32.064Z"
     }
   ]
 }
