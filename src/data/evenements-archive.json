@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-21T20:48:32.064Z",
-  "total": 256,
+  "compileLe": "2026-09-22T14:31:07.200Z",
+  "total": 258,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3073,6 +3073,30 @@
       "heure": "19 sept. 05:00",
       "source": "Le Nouvelliste",
       "dateVue": "2026-09-21T20:48:32.064Z"
+    },
+    {
+      "titre": "Hausse des commandes frauduleuses en ligne",
+      "resume": "Une soixantaine et plus de personnes sont impliquees dans une serie de commandes frauduleuses passees sur internet dans le canton.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "cyber",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "22 sept. 11:44",
+      "source": "La Télé",
+      "dateVue": "2026-09-22T14:31:07.200Z"
+    },
+    {
+      "titre": "Cycliste grievement blessee sur un rail de tram",
+      "resume": "Une cycliste a chute apres que sa roue s'est coincee dans un rail de tram; son pronostic vital est engage.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "22 sept. 10:51",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-09-22T14:31:07.200Z"
     }
   ]
 }
