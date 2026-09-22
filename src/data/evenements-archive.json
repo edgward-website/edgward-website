@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-22T14:31:07.200Z",
-  "total": 258,
+  "compileLe": "2026-09-22T20:01:14.359Z",
+  "total": 260,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3097,6 +3097,30 @@
       "heure": "22 sept. 10:51",
       "source": "Tribune de Genève",
       "dateVue": "2026-09-22T14:31:07.200Z"
+    },
+    {
+      "titre": "Incendie, une personne grièvement blessée",
+      "resume": "Un incendie a fait un blessé grave à Delémont.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.3389,
+      "lat": 47.3646,
+      "heure": "22 sept. 18:19",
+      "source": "RFJ",
+      "dateVue": "2026-09-22T20:01:14.359Z"
+    },
+    {
+      "titre": "Vague d'escroqueries en Valais",
+      "resume": "La police cantonale alerte sur une série d'escroqueries ayant causé environ 150'000 francs de pertes en une semaine.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.359,
+      "lat": 46.2311,
+      "heure": "22 sept. 16:49",
+      "source": "rts.ch",
+      "dateVue": "2026-09-22T20:01:14.359Z"
     }
   ]
 }
