@@ -1,10 +1,22 @@
 {
-  "genereLe": "2026-09-23T14:48:27.619Z",
+  "genereLe": "2026-09-23T19:58:51.150Z",
   "source": "collecte automatique",
   "evenements": [
     {
+      "titre": "Accident de la route, trois blessés",
+      "resume": "Un accident a fait trois blessés et entraîné la fermeture de la route durant six heures.",
+      "commune": "Payerne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.937,
+      "lat": 46.822,
+      "heure": "23 sept. 17:31",
+      "source": "La Liberté",
+      "recent": true
+    },
+    {
       "titre": "Vol de voitures de luxe, deux jeunes arrêtés",
-      "resume": "Deux adolescents ont été interpellés en Ajoie après des vols de véhicules de luxe.",
+      "resume": "Deux adolescents ont été interpellés en Ajoie après le vol de véhicules de luxe.",
       "commune": "Porrentruy",
       "canton": "JU",
       "categorie": "cambriolage",
@@ -12,35 +24,35 @@
       "lat": 47.415,
       "heure": "23 sept. 14:09",
       "source": "Blick",
-      "recent": true
-    },
-    {
-      "titre": "Accident de la route, trois blessés",
-      "resume": "Un accident a fait trois blessés et entraîné la fermeture de la route durant six heures.",
-      "commune": "Payerne",
-      "canton": "VD",
-      "categorie": "accident",
-      "lon": 6.938,
-      "lat": 46.822,
-      "heure": "23 sept. 11:16",
-      "source": "La Liberté",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Incendie, une personne grièvement blessée",
-      "resume": "Un homme a été grièvement blessé dans un incendie.",
+      "resume": "Une personne a été grièvement blessée dans un incendie.",
       "commune": "Delémont",
       "canton": "JU",
       "categorie": "incendie",
-      "lon": 7.343,
-      "lat": 47.366,
+      "lon": 7.345,
+      "lat": 47.365,
       "heure": "22 sept. 18:19",
       "source": "RFJ",
       "recent": false
     },
     {
-      "titre": "Cycliste grièvement blessée",
-      "resume": "Une cycliste a chuté après que sa roue s'est prise dans un rail de tram, son pronostic vital est engagé.",
+      "titre": "Vague d'escroqueries signalée",
+      "resume": "La police cantonale alerte sur une série d'escroqueries ayant causé d'importantes pertes financières en une semaine.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.36,
+      "lat": 46.23,
+      "heure": "22 sept. 16:49",
+      "source": "rts.ch",
+      "recent": false
+    },
+    {
+      "titre": "Cycliste blessée par un rail de tram",
+      "resume": "Une cycliste dont la roue s'est prise dans un rail de tram a été grièvement blessée, son pronostic vital étant engagé.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "accident",
@@ -51,39 +63,15 @@
       "recent": false
     },
     {
-      "titre": "Autoroute A12 fermée après un accident",
-      "resume": "Un accident a entraîné la fermeture de l'A12 entre Rossens et Matran.",
+      "titre": "Accident sur l'autoroute A12",
+      "resume": "Un accident a entraîné la fermeture de l'autoroute A12 entre Rossens et Matran.",
       "commune": "Rossens",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 7.108,
-      "lat": 46.716,
+      "lon": 7.104,
+      "lat": 46.719,
       "heure": "21 sept. 08:46",
       "source": "La Liberté",
-      "recent": false
-    },
-    {
-      "titre": "Accident mortel de scooter",
-      "resume": "Un jeune scootériste a perdu la vie après avoir percuté un candélabre.",
-      "commune": "Renens",
-      "canton": "VD",
-      "categorie": "accident",
-      "lon": 6.588,
-      "lat": 46.539,
-      "heure": "20 sept. 17:43",
-      "source": "24 Heures",
-      "recent": false
-    },
-    {
-      "titre": "Incendie dans un local du club",
-      "resume": "Un incendie s'est déclaré dans un local lié au FC Sion.",
-      "commune": "Sion",
-      "canton": "VS",
-      "categorie": "incendie",
-      "lon": 7.359,
-      "lat": 46.233,
-      "heure": "20 sept. 16:56",
-      "source": "Pomona",
       "recent": false
     }
   ]
