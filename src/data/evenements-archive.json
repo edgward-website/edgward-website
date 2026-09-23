@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-22T20:01:14.359Z",
-  "total": 260,
+  "compileLe": "2026-09-23T14:48:27.619Z",
+  "total": 262,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3121,6 +3121,30 @@
       "heure": "22 sept. 16:49",
       "source": "rts.ch",
       "dateVue": "2026-09-22T20:01:14.359Z"
+    },
+    {
+      "titre": "Vol de voitures de luxe, deux jeunes arrêtés",
+      "resume": "Deux adolescents ont été interpellés en Ajoie après des vols de véhicules de luxe.",
+      "commune": "Porrentruy",
+      "canton": "JU",
+      "categorie": "cambriolage",
+      "lon": 7.075,
+      "lat": 47.415,
+      "heure": "23 sept. 14:09",
+      "source": "Blick",
+      "dateVue": "2026-09-23T14:48:27.619Z"
+    },
+    {
+      "titre": "Accident de la route, trois blessés",
+      "resume": "Un accident a fait trois blessés et entraîné la fermeture de la route durant six heures.",
+      "commune": "Payerne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.938,
+      "lat": 46.822,
+      "heure": "23 sept. 11:16",
+      "source": "La Liberté",
+      "dateVue": "2026-09-23T14:48:27.619Z"
     }
   ]
 }
