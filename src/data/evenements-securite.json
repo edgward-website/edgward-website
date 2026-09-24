@@ -1,57 +1,57 @@
 {
-  "genereLe": "2026-09-23T19:58:51.150Z",
+  "genereLe": "2026-09-24T14:44:59.841Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Accident de la route, trois blessés",
+      "titre": "Accident sur le pont de Valangin",
+      "resume": "Un accident de la circulation s'est produit sur le pont de Valangin, perturbant le trafic.",
+      "commune": "Valangin",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.898,
+      "lat": 46.995,
+      "heure": "24 sept. 07:30",
+      "source": "RTN.ch",
+      "recent": true
+    },
+    {
+      "titre": "Deux adolescents interpellés après des vols de véhicules",
+      "resume": "Deux jeunes de 16 ans ont été interpellés dans le canton du Jura en lien avec des vols de véhicules de luxe.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "cambriolage",
+      "lon": 7.344,
+      "lat": 47.365,
+      "heure": "23 sept. 13:15",
+      "source": "bluewin.ch",
+      "recent": false
+    },
+    {
+      "titre": "Accident de la route à Payerne",
       "resume": "Un accident a fait trois blessés et entraîné la fermeture de la route durant six heures.",
       "commune": "Payerne",
       "canton": "VD",
       "categorie": "accident",
-      "lon": 6.937,
+      "lon": 6.938,
       "lat": 46.822,
-      "heure": "23 sept. 17:31",
+      "heure": "23 sept. 10:03",
       "source": "La Liberté",
-      "recent": true
-    },
-    {
-      "titre": "Vol de voitures de luxe, deux jeunes arrêtés",
-      "resume": "Deux adolescents ont été interpellés en Ajoie après le vol de véhicules de luxe.",
-      "commune": "Porrentruy",
-      "canton": "JU",
-      "categorie": "cambriolage",
-      "lon": 7.075,
-      "lat": 47.415,
-      "heure": "23 sept. 14:09",
-      "source": "Blick",
       "recent": false
     },
     {
-      "titre": "Incendie, une personne grièvement blessée",
-      "resume": "Une personne a été grièvement blessée dans un incendie.",
+      "titre": "Incendie à Delémont",
+      "resume": "Une personne a été grièvement blessée dans un incendie à Delémont.",
       "commune": "Delémont",
       "canton": "JU",
       "categorie": "incendie",
       "lon": 7.345,
-      "lat": 47.365,
+      "lat": 47.366,
       "heure": "22 sept. 18:19",
-      "source": "RFJ",
+      "source": "rfj.ch",
       "recent": false
     },
     {
-      "titre": "Vague d'escroqueries signalée",
-      "resume": "La police cantonale alerte sur une série d'escroqueries ayant causé d'importantes pertes financières en une semaine.",
-      "commune": "Sion",
-      "canton": "VS",
-      "categorie": "cyber",
-      "lon": 7.36,
-      "lat": 46.23,
-      "heure": "22 sept. 16:49",
-      "source": "rts.ch",
-      "recent": false
-    },
-    {
-      "titre": "Cycliste blessée par un rail de tram",
+      "titre": "Cycliste grièvement blessée à Genève",
       "resume": "Une cycliste dont la roue s'est prise dans un rail de tram a été grièvement blessée, son pronostic vital étant engagé.",
       "commune": "Genève",
       "canton": "GE",
@@ -60,18 +60,6 @@
       "lat": 46.204,
       "heure": "22 sept. 10:51",
       "source": "Tribune de Genève",
-      "recent": false
-    },
-    {
-      "titre": "Accident sur l'autoroute A12",
-      "resume": "Un accident a entraîné la fermeture de l'autoroute A12 entre Rossens et Matran.",
-      "commune": "Rossens",
-      "canton": "FR",
-      "categorie": "accident",
-      "lon": 7.104,
-      "lat": 46.719,
-      "heure": "21 sept. 08:46",
-      "source": "La Liberté",
       "recent": false
     }
   ]

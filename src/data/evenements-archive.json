@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-23T19:58:51.150Z",
-  "total": 262,
+  "compileLe": "2026-09-24T14:44:59.841Z",
+  "total": 264,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3145,6 +3145,30 @@
       "heure": "23 sept. 11:16",
       "source": "La Liberté",
       "dateVue": "2026-09-23T14:48:27.619Z"
+    },
+    {
+      "titre": "Accident sur le pont de Valangin",
+      "resume": "Un accident de la circulation s'est produit sur le pont de Valangin, perturbant le trafic.",
+      "commune": "Valangin",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.898,
+      "lat": 46.995,
+      "heure": "24 sept. 07:30",
+      "source": "RTN.ch",
+      "dateVue": "2026-09-24T14:44:59.841Z"
+    },
+    {
+      "titre": "Deux adolescents interpellés après des vols de véhicules",
+      "resume": "Deux jeunes de 16 ans ont été interpellés dans le canton du Jura en lien avec des vols de véhicules de luxe.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "cambriolage",
+      "lon": 7.344,
+      "lat": 47.365,
+      "heure": "23 sept. 13:15",
+      "source": "bluewin.ch",
+      "dateVue": "2026-09-24T14:44:59.841Z"
     }
   ]
 }
