@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-24T14:44:59.841Z",
-  "total": 264,
+  "compileLe": "2026-09-24T20:17:24.733Z",
+  "total": 265,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3169,6 +3169,18 @@
       "heure": "23 sept. 13:15",
       "source": "bluewin.ch",
       "dateVue": "2026-09-24T14:44:59.841Z"
+    },
+    {
+      "titre": "Incendie et évacuation d'un centre pour requérants",
+      "resume": "Un incendie a nécessité l'évacuation de 54 requérants à Viège.",
+      "commune": "Viège",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.883,
+      "lat": 46.294,
+      "heure": "22 sept. 09:00",
+      "source": "Rhône FM",
+      "dateVue": "2026-09-24T20:17:24.733Z"
     }
   ]
 }
