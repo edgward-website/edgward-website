@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-25T15:04:51.591Z",
-  "total": 269,
+  "compileLe": "2026-09-25T20:18:10.705Z",
+  "total": 270,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3229,6 +3229,18 @@
       "heure": "25 sept. 13:20",
       "source": "La Côte",
       "dateVue": "2026-09-25T15:04:51.591Z"
+    },
+    {
+      "titre": "Cambriolage d'un garage, trois interpellations",
+      "resume": "Un vol par effraction dans un garage automobile a mené à l'interpellation de trois personnes après des recherches impliquant plusieurs unités de police.",
+      "commune": "Brig-Glis",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 7.99,
+      "lat": 46.32,
+      "heure": "25 sept. 18:40",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-09-25T20:18:10.705Z"
     }
   ]
 }
