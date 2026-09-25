@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-24T20:17:24.733Z",
-  "total": 265,
+  "compileLe": "2026-09-25T15:04:51.591Z",
+  "total": 269,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3181,6 +3181,54 @@
       "heure": "22 sept. 09:00",
       "source": "Rhône FM",
       "dateVue": "2026-09-24T20:17:24.733Z"
+    },
+    {
+      "titre": "Incendie sur une ligne CFF",
+      "resume": "Une ligne électrique des CFF a pris feu, interrompant le trafic ferroviaire entre Lausanne et Fribourg.",
+      "commune": "Palézieux",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.837,
+      "lat": 46.545,
+      "heure": "25 sept. 16:46",
+      "source": "La Liberté",
+      "dateVue": "2026-09-25T15:04:51.591Z"
+    },
+    {
+      "titre": "Incendie de forêt sur les hauteurs",
+      "resume": "Un feu de forêt s'est déclaré au-dessus de la commune, mobilisant d'importants moyens et des hélicoptères.",
+      "commune": "Evolène",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.494,
+      "lat": 46.113,
+      "heure": "25 sept. 13:47",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-25T15:04:51.591Z"
+    },
+    {
+      "titre": "Incendie dans une usine",
+      "resume": "Un incendie nocturne a ravagé une usine de matériaux isolants, avec un important dégagement de fumée. Le feu a été maîtrisé sans blessé.",
+      "commune": "Lucens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.838,
+      "lat": 46.708,
+      "heure": "25 sept. 05:28",
+      "source": "rts.ch",
+      "dateVue": "2026-09-25T15:04:51.591Z"
+    },
+    {
+      "titre": "Accident de moto sur l'autoroute",
+      "resume": "L'accident d'un motard a entraîné la fermeture de l'autoroute.",
+      "commune": "Coppet",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.191,
+      "lat": 46.317,
+      "heure": "25 sept. 13:20",
+      "source": "La Côte",
+      "dateVue": "2026-09-25T15:04:51.591Z"
     }
   ]
 }
