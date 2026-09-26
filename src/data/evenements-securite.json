@@ -1,58 +1,82 @@
 {
-  "genereLe": "2026-09-25T20:18:10.705Z",
+  "genereLe": "2026-09-26T14:15:16.708Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Cambriolage d'un garage, trois interpellations",
-      "resume": "Un vol par effraction dans un garage automobile a mené à l'interpellation de trois personnes après des recherches impliquant plusieurs unités de police.",
-      "commune": "Brig-Glis",
+      "titre": "Cambriolage dans un garage à Glis",
+      "resume": "Vol par effraction dans un garage automobile. Trois personnes ont été interpellées après une intervention policière avec unité cynophile.",
+      "commune": "Glis",
       "canton": "VS",
       "categorie": "cambriolage",
       "lon": 7.99,
-      "lat": 46.32,
-      "heure": "25 sept. 18:40",
+      "lat": 46.31,
+      "heure": "25 sept. 18:44",
       "source": "Police cantonale valaisanne",
-      "recent": true
+      "recent": false
+    },
+    {
+      "titre": "Appel à témoins après la chute d'un cycliste",
+      "resume": "Un cycliste octogénaire a été retrouvé inconscient. La police recherche des témoins.",
+      "commune": "Chevroux",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.92,
+      "lat": 46.87,
+      "heure": "25 sept. 19:07",
+      "source": "24 Heures",
+      "recent": false
+    },
+    {
+      "titre": "Trafic ferroviaire interrompu par un court-circuit",
+      "resume": "Un incendie provoqué par un oiseau sur une ligne électrique a interrompu le trafic CFF entre Lausanne et Fribourg.",
+      "commune": "Palézieux",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.83,
+      "lat": 46.54,
+      "heure": "25 sept. 16:48",
+      "source": "rts.ch",
+      "recent": false
     },
     {
       "titre": "Incendie dans une usine d'isolants",
-      "resume": "Un incendie s'est déclaré durant la nuit dans une usine de matériaux isolants, provoquant un important dégagement de fumée. Aucun blessé n'est à déplorer.",
+      "resume": "Un incendie nocturne s'est déclaré dans une usine de matériaux isolants, avec important dégagement de fumée. Aucun blessé.",
       "commune": "Lucens",
       "canton": "VD",
       "categorie": "incendie",
       "lon": 6.83,
       "lat": 46.71,
-      "heure": "25 sept. 05:19",
-      "source": "24 Heures",
+      "heure": "25 sept. 05:28",
+      "source": "rts.ch",
       "recent": false
     },
     {
-      "titre": "Incendie de forêt au-dessus d'Evolène",
-      "resume": "Un feu de forêt s'est déclaré sur les hauts de la commune, dans la région de Ferpècle. D'importants moyens, dont des hélicoptères, ont été mobilisés.",
+      "titre": "Feu de forêt au-dessus d'Evolène",
+      "resume": "Un incendie de forêt a mobilisé d'importants moyens de secours dans la région de Ferpècle. Environ quatre hectares ont brûlé.",
       "commune": "Evolène",
       "canton": "VS",
       "categorie": "incendie",
-      "lon": 7.49,
+      "lon": 7.5,
       "lat": 46.11,
       "heure": "25 sept. 13:43",
       "source": "Le Nouvelliste",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Accident de moto sur l'autoroute",
-      "resume": "L'accident d'un motard a entraîné la fermeture temporaire de l'autoroute dans le secteur.",
+      "resume": "L'accident d'un motard a entraîné la fermeture temporaire de l'autoroute.",
       "commune": "Coppet",
       "canton": "VD",
       "categorie": "accident",
-      "lon": 6.16,
+      "lon": 6.19,
       "lat": 46.32,
       "heure": "25 sept. 13:20",
       "source": "La Côte",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Cyberattaque contre un groupe de radiologie",
-      "resume": "Cinq mois après le piratage informatique d'un groupe de radiologie, le système de santé reste affecté dans la région.",
+      "resume": "Cinq mois après le piratage, un groupe de radiologie subit toujours des perturbations affectant le système de santé.",
       "commune": "Sion",
       "canton": "VS",
       "categorie": "cyber",
@@ -63,8 +87,20 @@
       "recent": false
     },
     {
-      "titre": "Cycliste renversé",
-      "resume": "Un cycliste a été renversé par une voiture, plusieurs semaines après des alertes signalant la dangerosité du secteur.",
+      "titre": "Collision entre deux voitures",
+      "resume": "Un accident de la route impliquant deux véhicules s'est produit à proximité de la commune.",
+      "commune": "Ried-Brig",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 8.02,
+      "lat": 46.31,
+      "heure": "25 sept. 05:14",
+      "source": "Pomona",
+      "recent": false
+    },
+    {
+      "titre": "Cycliste renversé par une voiture",
+      "resume": "Un cycliste a été renversé par une voiture, plusieurs semaines après des alertes de sécurité sur cet axe.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "accident",
@@ -76,26 +112,14 @@
     },
     {
       "titre": "Accident sur le pont de Valangin",
-      "resume": "Un accident de la circulation s'est produit sur le pont de Valangin.",
+      "resume": "Un accident de la route s'est produit sur le pont de Valangin.",
       "commune": "Valangin",
       "canton": "NE",
       "categorie": "accident",
       "lon": 6.9,
       "lat": 47.02,
       "heure": "24 sept. 07:30",
-      "source": "rtn.ch",
-      "recent": false
-    },
-    {
-      "titre": "Vol de voitures de luxe, deux interpellations",
-      "resume": "Deux adolescents ont été arrêtés en Ajoie après le vol de véhicules de luxe.",
-      "commune": "Porrentruy",
-      "canton": "JU",
-      "categorie": "cambriolage",
-      "lon": 7.07,
-      "lat": 47.42,
-      "heure": "23 sept. 12:52",
-      "source": "Blick",
+      "source": "RTN.ch",
       "recent": false
     }
   ]
