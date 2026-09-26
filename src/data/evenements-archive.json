@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-26T14:15:16.708Z",
-  "total": 272,
+  "compileLe": "2026-09-26T19:32:55.167Z",
+  "total": 273,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3265,6 +3265,18 @@
       "heure": "25 sept. 05:14",
       "source": "Pomona",
       "dateVue": "2026-09-26T14:15:16.708Z"
+    },
+    {
+      "titre": "Excès de vitesse en ville",
+      "resume": "Un motard a été contrôlé à 122 km/h en localité.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "ordre",
+      "lon": 7.345,
+      "lat": 47.366,
+      "heure": "26 sept. 10:33",
+      "source": "24 Heures",
+      "dateVue": "2026-09-26T19:32:55.167Z"
     }
   ]
 }
