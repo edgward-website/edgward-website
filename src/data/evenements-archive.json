@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-26T19:32:55.167Z",
-  "total": 273,
+  "compileLe": "2026-09-27T15:02:47.775Z",
+  "total": 276,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3277,6 +3277,42 @@
       "heure": "26 sept. 10:33",
       "source": "24 Heures",
       "dateVue": "2026-09-26T19:32:55.167Z"
+    },
+    {
+      "titre": "Course-poursuite et accident",
+      "resume": "Un conducteur en fuite a percuté un autre véhicule avant d'être hospitalisé. Interpellation par la police.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "27 sept. 08:14",
+      "source": "20min.ch",
+      "dateVue": "2026-09-27T15:02:47.775Z"
+    },
+    {
+      "titre": "Accident mortel de la route",
+      "resume": "Un automobiliste de 22 ans a perdu la vie dans un accident de la circulation.",
+      "commune": "Saint-Aubin",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 6.792,
+      "lat": 46.882,
+      "heure": "26 sept. 20:15",
+      "source": "FR.ch",
+      "dateVue": "2026-09-27T15:02:47.775Z"
+    },
+    {
+      "titre": "Incendie dans une entreprise",
+      "resume": "Un incendie s'est déclaré dans une entreprise, sans pollution constatée.",
+      "commune": "Ecublens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.56,
+      "lat": 46.528,
+      "heure": "24 sept. 23:10",
+      "source": "rts.ch",
+      "dateVue": "2026-09-27T15:02:47.775Z"
     }
   ]
 }
