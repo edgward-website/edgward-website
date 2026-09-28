@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-27T19:59:00.640Z",
-  "total": 276,
+  "compileLe": "2026-09-28T18:01:18.751Z",
+  "total": 279,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3313,6 +3313,42 @@
       "heure": "24 sept. 23:10",
       "source": "rts.ch",
       "dateVue": "2026-09-27T15:02:47.775Z"
+    },
+    {
+      "titre": "Victimes d'un crash aérien identifiées",
+      "resume": "Les trois victimes de l'accident d'un petit avion survenu le 15 septembre près de Loèche-les-Bains ont été formellement identifiées.",
+      "commune": "Loèche-les-Bains",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.6294,
+      "lat": 46.3806,
+      "heure": "28 sept. 16:28",
+      "source": "La Liberté",
+      "dateVue": "2026-09-28T18:01:18.751Z"
+    },
+    {
+      "titre": "Cambrioleur arrêté",
+      "resume": "Un individu a été interpellé après une série de cambriolages commis dans la région, à la suite d'une enquête de police.",
+      "commune": "Bevaix",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.7906,
+      "lat": 46.9394,
+      "heure": "28 sept. 11:49",
+      "source": "latele.ch",
+      "dateVue": "2026-09-28T18:01:18.751Z"
+    },
+    {
+      "titre": "Accident de circulation avec blessé",
+      "resume": "Un accident de la circulation a fait un blessé en ville. Les secours sont intervenus sur place.",
+      "commune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.8281,
+      "lat": 47.1039,
+      "heure": "27 sept. 17:19",
+      "source": "ArcInfo",
+      "dateVue": "2026-09-28T18:01:18.751Z"
     }
   ]
 }
