@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-28T18:01:18.751Z",
-  "total": 279,
+  "compileLe": "2026-09-28T22:25:41.727Z",
+  "total": 280,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3349,6 +3349,18 @@
       "heure": "27 sept. 17:19",
       "source": "ArcInfo",
       "dateVue": "2026-09-28T18:01:18.751Z"
+    },
+    {
+      "titre": "Agression d'un adolescent en rue",
+      "resume": "Un adolescent a été violenté par un groupe en pleine rue. Une enquête a été ouverte.",
+      "commune": "Vernier",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.085,
+      "lat": 46.213,
+      "heure": "28 sept. 14:23",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-09-28T22:25:41.727Z"
     }
   ]
 }
