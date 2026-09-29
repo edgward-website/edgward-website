@@ -1,10 +1,34 @@
 {
-  "genereLe": "2026-09-28T22:25:41.727Z",
+  "genereLe": "2026-09-29T16:24:18.009Z",
   "source": "collecte automatique",
   "evenements": [
     {
+      "titre": "Chute mortelle dans une crevasse à Zermatt",
+      "resume": "Un alpiniste a fait une chute mortelle dans une crevasse située dans une zone interdite.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.7486,
+      "lat": 46.0207,
+      "heure": "29 sept. 16:52",
+      "source": "Le Matin",
+      "recent": true
+    },
+    {
+      "titre": "Explosion suivie d'un incendie dans un immeuble",
+      "resume": "Une explosion suivie d'un incendie a fait quatre blessés, dont un grave, dans un immeuble. L'immeuble a été évacué et une intervention policière a été menée.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "incendie",
+      "lon": 6.931,
+      "lat": 46.992,
+      "heure": "29 sept. 13:34",
+      "source": "ArcInfo",
+      "recent": true
+    },
+    {
       "titre": "Camion renversé sur un chantier",
-      "resume": "Un camion transportant des baies vitrées s'est renversé sur le côté sur un chantier. Une opération de dégagement délicate a été engagée.",
+      "resume": "Un camion transportant des vitres s'est renversé sur un chantier, nécessitant une opération de dégagement délicate.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "accident",
@@ -12,24 +36,24 @@
       "lat": 46.204,
       "heure": "28 sept. 17:26",
       "source": "Tribune de Genève",
-      "recent": true
+      "recent": false
     },
     {
-      "titre": "Agression d'un adolescent en rue",
-      "resume": "Un adolescent a été violenté par un groupe en pleine rue. Une enquête a été ouverte.",
+      "titre": "Agression d'un adolescent à Vernier",
+      "resume": "Un adolescent a été agressé par un groupe en pleine rue.",
       "commune": "Vernier",
       "canton": "GE",
       "categorie": "agression",
       "lon": 6.085,
-      "lat": 46.213,
+      "lat": 46.217,
       "heure": "28 sept. 14:23",
       "source": "Tribune de Genève",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Chute mortelle d'un randonneur",
-      "resume": "Un randonneur de 76 ans a fait une chute mortelle dans le Nessultal, au-dessus de Brigue.",
-      "commune": "Brig-Glis",
+      "resume": "Un randonneur a fait une chute mortelle dans le Nessultal, au-dessus de Brigue.",
+      "commune": "Brigue-Glis",
       "canton": "VS",
       "categorie": "accident",
       "lon": 7.988,
@@ -39,28 +63,28 @@
       "recent": false
     },
     {
-      "titre": "Victimes d'un crash aérien identifiées",
-      "resume": "Les trois victimes de l'accident d'un petit avion près de Loèche-les-Bains ont été formellement identifiées.",
+      "titre": "Cambriolages: un voleur interpellé",
+      "resume": "Un individu a été arrêté après une série de cambriolages commis dans la région.",
+      "commune": "Bevaix",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.816,
+      "lat": 46.937,
+      "heure": "28 sept. 11:49",
+      "source": "La Télé",
+      "recent": false
+    },
+    {
+      "titre": "Crash d'un petit avion",
+      "resume": "Un accident d'aviation a fait plusieurs victimes, désormais formellement identifiées.",
       "commune": "Loèche-les-Bains",
       "canton": "VS",
       "categorie": "accident",
       "lon": 7.627,
-      "lat": 46.381,
+      "lat": 46.379,
       "heure": "28 sept. 11:26",
       "source": "Le Nouvelliste",
       "recent": false
-    },
-    {
-      "titre": "Cambrioleur interpellé sur le littoral",
-      "resume": "Un individu a été arrêté après une série de cambriolages sur le littoral neuchâtelois.",
-      "commune": "Bevaix",
-      "canton": "NE",
-      "categorie": "cambriolage",
-      "lon": 6.808,
-      "lat": 46.93,
-      "heure": "28 sept. 12:15",
-      "source": "24 Heures",
-      "recent": true
     },
     {
       "titre": "Accident mortel de la route",
@@ -68,46 +92,22 @@
       "commune": "Saint-Aubin",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 6.933,
-      "lat": 46.881,
+      "lon": 6.796,
+      "lat": 46.882,
       "heure": "26 sept. 20:15",
       "source": "FR.ch",
       "recent": false
     },
     {
-      "titre": "Accident de circulation avec blessé",
-      "resume": "Un accident de la circulation a fait un blessé.",
-      "commune": "La Chaux-de-Fonds",
-      "canton": "NE",
-      "categorie": "accident",
-      "lon": 6.828,
-      "lat": 47.104,
-      "heure": "27 sept. 17:22",
-      "source": "ArcInfo",
-      "recent": false
-    },
-    {
-      "titre": "Course-poursuite et automobiliste blessé",
-      "resume": "Un conducteur en fuite face à la police a percuté une voiture avant de finir à l'hôpital.",
+      "titre": "Course-poursuite et accident",
+      "resume": "Un conducteur en fuite a percuté une voiture avant de finir à l'hôpital.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "accident",
       "lon": 6.143,
       "lat": 46.204,
       "heure": "27 sept. 08:14",
-      "source": "20min.ch",
-      "recent": false
-    },
-    {
-      "titre": "Interpellations après un cambriolage",
-      "resume": "Trois personnes ont été arrêtées après un cambriolage visant des voitures.",
-      "commune": "Glis",
-      "canton": "VS",
-      "categorie": "cambriolage",
-      "lon": 7.988,
-      "lat": 46.316,
-      "heure": "26 sept. 05:57",
-      "source": "Le Matin",
+      "source": "20 Minuten",
       "recent": false
     }
   ]

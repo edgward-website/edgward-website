@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-28T22:25:41.727Z",
-  "total": 280,
+  "compileLe": "2026-09-29T16:24:18.009Z",
+  "total": 282,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3361,6 +3361,30 @@
       "heure": "28 sept. 14:23",
       "source": "Tribune de Genève",
       "dateVue": "2026-09-28T22:25:41.727Z"
+    },
+    {
+      "titre": "Chute mortelle dans une crevasse à Zermatt",
+      "resume": "Un alpiniste a fait une chute mortelle dans une crevasse située dans une zone interdite.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.7486,
+      "lat": 46.0207,
+      "heure": "29 sept. 16:52",
+      "source": "Le Matin",
+      "dateVue": "2026-09-29T16:24:18.009Z"
+    },
+    {
+      "titre": "Explosion suivie d'un incendie dans un immeuble",
+      "resume": "Une explosion suivie d'un incendie a fait quatre blessés, dont un grave, dans un immeuble. L'immeuble a été évacué et une intervention policière a été menée.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "incendie",
+      "lon": 6.931,
+      "lat": 46.992,
+      "heure": "29 sept. 13:34",
+      "source": "ArcInfo",
+      "dateVue": "2026-09-29T16:24:18.009Z"
     }
   ]
 }
