@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-29T16:24:18.009Z",
-  "total": 282,
+  "compileLe": "2026-09-29T21:17:24.704Z",
+  "total": 283,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3385,6 +3385,18 @@
       "heure": "29 sept. 13:34",
       "source": "ArcInfo",
       "dateVue": "2026-09-29T16:24:18.009Z"
+    },
+    {
+      "titre": "Incendie d'une maison familiale",
+      "resume": "Une maison familiale a été ravagée par les flammes. Pompiers et agriculteurs sont intervenus.",
+      "commune": "Jura",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.343,
+      "lat": 47.366,
+      "heure": "29 sept. 19:17",
+      "source": "24 Heures",
+      "dateVue": "2026-09-29T21:17:24.704Z"
     }
   ]
 }
