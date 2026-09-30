@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-29T21:17:24.704Z",
-  "total": 283,
+  "compileLe": "2026-09-30T16:19:59.268Z",
+  "total": 285,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3397,6 +3397,30 @@
       "heure": "29 sept. 19:17",
       "source": "24 Heures",
       "dateVue": "2026-09-29T21:17:24.704Z"
+    },
+    {
+      "titre": "Collision entre cyclistes et une remorque",
+      "resume": "Un accident impliquant des cyclistes et une remorque s'est produit à l'entrée de la commune.",
+      "commune": "Vex",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.398,
+      "lat": 46.217,
+      "heure": "30 sept. 17:33",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-09-30T16:19:59.268Z"
+    },
+    {
+      "titre": "Personne disparue retrouvée sans vie en montagne",
+      "resume": "Un homme porté disparu depuis environ un mois a été retrouvé sans vie dans un secteur de montagne du Haut-Valais.",
+      "commune": "Baltschieder",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.85,
+      "lat": 46.32,
+      "heure": "30 sept. 11:36",
+      "source": "20 Min",
+      "dateVue": "2026-09-30T16:19:59.268Z"
     }
   ]
 }
