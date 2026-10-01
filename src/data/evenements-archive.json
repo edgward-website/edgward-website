@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-09-30T21:14:26.504Z",
-  "total": 285,
+  "compileLe": "2026-10-01T16:56:41.264Z",
+  "total": 287,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3421,6 +3421,30 @@
       "heure": "30 sept. 11:36",
       "source": "20 Min",
       "dateVue": "2026-09-30T16:19:59.268Z"
+    },
+    {
+      "titre": "Neuf arrestations après des vols dans des garages",
+      "resume": "Neuf personnes ont été interpellées en flagrant délit lors de vols par effraction dans des garages du Valais central.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "1 oct. 09:00",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-10-01T16:56:41.264Z"
+    },
+    {
+      "titre": "Accident de scooter à Châtelaine",
+      "resume": "Un scootériste a été grièvement blessé dans un accident et se trouve dans un état critique.",
+      "commune": "Vernier",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.108,
+      "lat": 46.209,
+      "heure": "1 oct. 11:40",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-01T16:56:41.264Z"
     }
   ]
 }
