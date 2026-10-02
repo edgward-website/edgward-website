@@ -40,10 +40,14 @@ const CANTONS = [
                 </select>
               </label>
               <label class="rc-field">
-                <span>Votre e-mail</span>
-                <input type="email" name="EMAIL" placeholder="votre@email.ch" autocomplete="email" required />
+                <span>Votre commune</span>
+                <input type="text" name="COMMUNE" id="rc-commune" placeholder="Ex. Nyon" autocomplete="address-level2" required />
               </label>
             </div>
+            <label class="rc-field">
+              <span>Votre e-mail</span>
+              <input type="email" name="EMAIL" placeholder="votre@email.ch" autocomplete="email" required />
+            </label>
             <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="rc-hp" />
             <button type="submit" class="btn btn-primary rc-submit">Recevoir le rapport</button>
           </form>
@@ -65,7 +69,7 @@ const CANTONS = [
   const success = document.getElementById('rc-success');
   const thanks = document.getElementById('rc-thanks');
 
-  // À REMPLACER par l'URL du formulaire Brevo « Rapport mensuel » (avec attribut CANTON).
+  // À REMPLACER par l'URL du formulaire Brevo « Rapport mensuel » (déclarer les attributs CANTON et COMMUNE).
   const BREVO_ACTION = '';
 
   const CANTONS = { GE: 'Genève', VD: 'Vaud', VS: 'Valais', NE: 'Neuchâtel', FR: 'Fribourg', JU: 'Jura' };
@@ -84,7 +88,9 @@ const CANTONS = [
     if (Date.now() - chargeA < DELAI_MIN_MS) return;
     const email = form.EMAIL.value.trim();
     const canton = form.CANTON.value;
+    const commune = form.COMMUNE.value.trim();
     if (!canton) { form.CANTON.focus(); return; }
+    if (!commune) { form.COMMUNE.focus(); form.COMMUNE.reportValidity(); return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { form.EMAIL.focus(); form.EMAIL.reportValidity(); return; }
 
     const btn = form.querySelector('button[type="submit"]');
@@ -92,13 +98,14 @@ const CANTONS = [
 
     const done = () => {
       reveal(canton);
-      window.gtag?.('event', 'rapport_canton_inscription', { canton });
+      window.gtag?.('event', 'rapport_canton_inscription', { canton, commune });
     };
 
     if (!BREVO_ACTION) { done(); return; } // pas encore branché : on confirme sans enregistrer
     const params = new URLSearchParams();
     params.append('EMAIL', email);
     params.append('CANTON', canton);
+    params.append('COMMUNE', commune);
     params.append('email_address_check', '');
     params.append('locale', 'fr');
     fetch(BREVO_ACTION, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() })

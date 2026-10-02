@@ -26,10 +26,12 @@ const cle = (e: any) => [e.commune, (e.dateVue || '').slice(0, 10), e.titre].joi
 // Mois en cours (Europe/Zurich) exclu : la carte ne montre que des mois complets.
 const parts = new Intl.DateTimeFormat('fr-CH', { timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit' }).formatToParts(new Date());
 const moisCourant = `${parts.find((p) => p.type === 'year')!.value}-${parts.find((p) => p.type === 'month')!.value}`;
+// Premier mois pleinement couvert : la veille a démarré le 24 juillet 2026 (mois partiel exclu).
+const DEBUT = '2026-08';
 
 const evts = (archive.evenements as any[])
   .filter((e) => typeof e.lon === 'number' && typeof e.lat === 'number' && ROMANDS.has(e.canton))
-  .filter((e) => (e.dateVue || '').slice(0, 7) && (e.dateVue || '').slice(0, 7) !== moisCourant)
+  .filter((e) => { const m = (e.dateVue || '').slice(0, 7); return m && m >= DEBUT && m !== moisCourant; })
   .filter((e) => !exclus.has(cle(e)))
   .map((e) => ({
     x: +(A * e.lon + Bx).toFixed(1), y: +(C * e.lat + Dy).toFixed(1),
