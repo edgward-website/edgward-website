@@ -6,10 +6,12 @@
  * téléchargement immédiat). Le contact est rangé par canton côté Brevo (attribut CANTON).
  *
  * À FAIRE (Daniel) : remplacer BREVO_ACTION ci-dessous par l'URL du formulaire Brevo
- * dédié « Rapport mensuel » (Brevo > Contacts > Formulaires), et y déclarer un attribut
- * CANTON. Tant que l'URL n'est pas remplacée, l'inscription affiche la confirmation
- * mais n'enregistre rien.
+ * dédié « Rapport mensuel » (Brevo > Contacts > Formulaires), et y déclarer les
+ * attributs CANTON et COMMUNE. Tant que l'URL n'est pas remplacée, l'inscription
+ * affiche la confirmation mais n'enregistre rien.
  */
+import communesData from '../data/communes-par-canton.json';
+const COMMUNES = communesData.communes as Record<string, string[]>;
 const CANTONS = [
   { code: 'GE', nom: 'Genève' }, { code: 'VD', nom: 'Vaud' }, { code: 'VS', nom: 'Valais' },
   { code: 'NE', nom: 'Neuchâtel' }, { code: 'FR', nom: 'Fribourg' }, { code: 'JU', nom: 'Jura' },
@@ -41,7 +43,10 @@ const CANTONS = [
               </label>
               <label class="rc-field">
                 <span>Votre commune</span>
-                <input type="text" name="COMMUNE" id="rc-commune" placeholder="Ex. Nyon" autocomplete="address-level2" required />
+                <select name="COMMUNE" id="rc-commune" aria-label="Votre commune" required disabled>
+                  <option value="" disabled selected>Choisissez d'abord le canton</option>
+                </select>
+                <input type="text" id="rc-commune-autre" placeholder="Nom de votre commune" autocomplete="address-level2" aria-label="Nom de votre commune" hidden />
               </label>
             </div>
             <label class="rc-field">
@@ -63,6 +68,8 @@ const CANTONS = [
   </div>
 </section>
 
+<script type="application/json" id="rc-communes-data" set:html={JSON.stringify(COMMUNES)}></script>
+
 <script>
   const form = document.getElementById('rc-form');
   const box = document.getElementById('rc-default');
@@ -76,6 +83,25 @@ const CANTONS = [
   const DELAI_MIN_MS = 1500;
   const chargeA = Date.now();
 
+  // Liste déroulante des communes dépendante du canton choisi
+  const COMMUNES = JSON.parse(document.getElementById('rc-communes-data').textContent);
+  const cantonSel = document.getElementById('rc-canton');
+  const communeSel = document.getElementById('rc-commune');
+  const communeAutre = document.getElementById('rc-commune-autre');
+  cantonSel?.addEventListener('change', () => {
+    const list = COMMUNES[cantonSel.value] || [];
+    communeSel.innerHTML = '<option value="" disabled selected>Choisir…</option>'
+      + list.map((c) => '<option>' + c + '</option>').join('')
+      + '<option value="_autre">Ma commune n\'est pas dans la liste…</option>';
+    communeSel.disabled = false;
+    communeAutre.hidden = true; communeAutre.value = '';
+  });
+  communeSel?.addEventListener('change', () => {
+    const autre = communeSel.value === '_autre';
+    communeAutre.hidden = !autre;
+    if (autre) communeAutre.focus();
+  });
+
   function reveal(canton) {
     if (canton && CANTONS[canton]) thanks.textContent = 'Merci ! Votre prochain rapport ' + CANTONS[canton] + ' arrivera par e-mail.';
     box.setAttribute('hidden', '');
@@ -88,9 +114,10 @@ const CANTONS = [
     if (Date.now() - chargeA < DELAI_MIN_MS) return;
     const email = form.EMAIL.value.trim();
     const canton = form.CANTON.value;
-    const commune = form.COMMUNE.value.trim();
+    let commune = communeSel.value;
+    if (commune === '_autre') commune = communeAutre.value.trim();
     if (!canton) { form.CANTON.focus(); return; }
-    if (!commune) { form.COMMUNE.focus(); form.COMMUNE.reportValidity(); return; }
+    if (!commune) { (communeSel.value === '_autre' ? communeAutre : communeSel).focus(); return; }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { form.EMAIL.focus(); form.EMAIL.reportValidity(); return; }
 
     const btn = form.querySelector('button[type="submit"]');
