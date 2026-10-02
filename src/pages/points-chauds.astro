@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import CarteChaleur from '../components/CarteChaleur.astro';
+import RapportCantonForm from '../components/RapportCantonForm.astro';
+
+const title = 'Points chauds de la sécurité - Suisse romande | Edgward';
+const description = "Carte de chaleur des événements de sécurité en Suisse romande : où se concentrent cambriolages, agressions, incendies et accidents, par canton et par commune. Mise à jour en continu.";
+---
+
+<Base title={title} description={description}>
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Veille sécurité</span>
+        <h2>Points <em>chauds</em> · Suisse romande</h2>
+        <p class="section-subtitle">
+          Où se concentrent les événements de sécurité relayés dans les médias et les communiqués de police ?
+          Cette carte de chaleur agrège les mois écoulés, par canton et par commune.
+        </p>
+      </div>
+
+      <CarteChaleur />
+
+      <div class="pc-switch">
+        <span>Vous cherchez les faits les plus récents ?</span>
+        <a href="/carte" class="btn btn-secondary">Voir la carte des derniers événements</a>
+      </div>
+
+      <RapportCantonForm />
+    </div>
+  </section>
+
+  <section class="carte-cta">
+    <div class="container">
+      <div class="cc-inner">
+        <div class="cc-text">
+          <h2>Savoir, c'est bien. <em>Agir, c'est mieux.</em></h2>
+          <p>Vous voyez où les événements se concentrent. Avec l'application Edgward, recevez une notification <b>dès qu'un événement survient près de chez vous</b> et déclenchez une intervention à la demande en un geste.</p>
+        </div>
+        <div class="cc-actions">
+          <a href="/alertes" class="btn btn-primary">Activer les alertes</a>
+          <a href="/#telecharger" class="btn btn-secondary">Télécharger l'app</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pc-switch {
+    display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+    max-width: 760px; margin: 28px auto 40px; padding: 14px 20px;
+    background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg);
+  }
+  .pc-switch span { font-size: 14px; font-weight: 500; color: var(--text-muted); }
+  .pc-switch .btn { flex: none; white-space: nowrap; }
+
+  .carte-cta { background: var(--navy); color: #fff; padding: 72px 0; position: relative; overflow: hidden; }
+  .carte-cta::before { content: ''; position: absolute; top: 50%; left: 78%; transform: translate(-50%, -50%); width: 720px; height: 720px; background: radial-gradient(circle, var(--brand-glow) 0%, transparent 55%); pointer-events: none; }
+  .cc-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 36px; flex-wrap: wrap; }
+  .cc-text { flex: 1 1 460px; }
+  .cc-text h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: #fff; margin-bottom: 12px; text-wrap: balance; }
+  .cc-text h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand-light); }
+  .cc-text p { font-size: 15px; color: #cbd5e1; line-height: 1.6; max-width: 620px; }
+  .cc-text p b { color: #fff; font-weight: 600; }
+  .cc-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 720px) {
+    .cc-inner { flex-direction: column; align-items: flex-start; }
+    .cc-actions { width: 100%; }
+    .cc-actions .btn { flex: 1; justify-content: center; }
+  }
+  @media (max-width: 600px) {
+    .pc-switch { flex-direction: column; align-items: stretch; text-align: center; }
+    .pc-switch .btn { justify-content: center; }
+  }
+</style>

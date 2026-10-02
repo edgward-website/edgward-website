@@ -1,0 +1,302 @@
+---
+/**
+ * Carte de chaleur mensuelle des événements de sécurité en Suisse romande.
+ * Densité par commune, filtrable par mois (complets uniquement) et par catégorie,
+ * avec détail des incidents au clic. Données : archive dédoublonnée du robot
+ * (src/data/evenements-archive.json), moins une courte liste de doublons
+ * sémantiques résiduels (src/data/doublons-exclus.json), le mois en cours exclu.
+ * Géographie lue depuis CoverageMap.astro au build (source unique des contours).
+ */
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import archive from '../data/evenements-archive.json';
+import doublons from '../data/doublons-exclus.json';
+
+const ROMANDS = new Set(['GE', 'VD', 'VS', 'NE', 'FR', 'JU']);
+
+// --- Contours depuis CoverageMap.astro (chemin relatif au module, indépendant du cwd) ---
+const cov = readFileSync(fileURLToPath(new URL('./CoverageMap.astro', import.meta.url)), 'utf8');
+const cantons: { code: string; d: string; romand: boolean }[] = [];
+{
+  const re = /<path\b[^>]*class="canton[^"]*"[^>]*>/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(cov))) {
+    const code = (m[0].match(/data-code="([^"]+)"/) || [])[1];
+    const d = (m[0].match(/\sd="([^"]+)"/) || [])[1];
+    if (code && d) cantons.push({ code, d, romand: ROMANDS.has(code) });
+  }
+}
+const lakes: string[] = [];
+{
+  const re = /<path\b[^>]*class="lake"[^>]*\sd="([^"]+)"/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(cov))) lakes.push(m[1]);
+}
+const labels: { x: number; y: number; name: string }[] = [];
+{
+  const re = /<text\b[^>]*class="label label-name[^"]*"[^>]*x="([\d.]+)"[^>]*y="([\d.]+)"[^>]*>([^<]+)<\/text>/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(cov))) labels.push({ x: +m[1], y: +m[2], name: m[3] });
+}
+
+// --- Événements ---
+const A = 192.0, Bx = -1081.9, C = -276.6, Dy = 13248.9;
+const exclus = new Set((doublons as any).exclus as string[]);
+const cle = (e: any) => [e.commune, (e.dateVue || '').slice(0, 10), e.titre].join(' | ');
+
+// Mois en cours (Europe/Zurich) exclu : la carte ne montre que des mois complets.
+const parts = new Intl.DateTimeFormat('fr-CH', { timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit' }).formatToParts(new Date());
+const moisCourant = `${parts.find((p) => p.type === 'year')!.value}-${parts.find((p) => p.type === 'month')!.value}`;
+
+const evts = (archive.evenements as any[])
+  .filter((e) => typeof e.lon === 'number' && typeof e.lat === 'number' && ROMANDS.has(e.canton))
+  .filter((e) => (e.dateVue || '').slice(0, 7) && (e.dateVue || '').slice(0, 7) !== moisCourant)
+  .filter((e) => !exclus.has(cle(e)))
+  .map((e) => ({
+    x: +(A * e.lon + Bx).toFixed(1), y: +(C * e.lat + Dy).toFixed(1),
+    c: e.commune, k: e.canton, cat: e.categorie, t: e.titre,
+    r: e.resume || '', s: e.source || '', h: e.heure || '', mois: (e.dateVue || '').slice(0, 7),
+  }));
+
+const MOIS_FR: Record<string, string> = { '01': 'Janvier', '02': 'Février', '03': 'Mars', '04': 'Avril', '05': 'Mai', '06': 'Juin', '07': 'Juillet', '08': 'Août', '09': 'Septembre', '10': 'Octobre', '11': 'Novembre', '12': 'Décembre' };
+const moisDispo = [...new Set(evts.map((e) => e.mois))].filter(Boolean).sort().map((m) => ({ key: m, label: MOIS_FR[m.slice(5)] }));
+
+const data = { cantons, lakes, labels, evts, moisDispo, total: evts.length };
+---
+
+<div class="ch-wrap">
+  <div class="ch-controls">
+    <div class="ch-seg" id="chMois"></div>
+    <div class="ch-cats" id="chCats"></div>
+  </div>
+
+  <div class="ch-layout">
+    <div class="ch-mapcard">
+      <div class="ch-stage">
+        <svg id="chMap" viewBox="47 89 518 496" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte de densité des événements de sécurité en Suisse romande"></svg>
+        <canvas id="chHeat"></canvas>
+        <svg id="chDots" class="ch-dots" viewBox="47 89 518 496" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+      </div>
+      <div class="ch-legend">
+        <div class="ch-lt">Densité d'événements</div>
+        <div class="ch-ramp"></div>
+        <div class="ch-ramplabels"><span>faible</span><span>élevée</span></div>
+      </div>
+    </div>
+
+    <aside class="ch-panel">
+      <div id="chTops">
+        <h3>Points chauds <span class="ch-hint">- cliquez pour le détail</span></h3>
+        <p class="ch-pmeta" id="chMeta">Communes les plus exposées</p>
+        <ol class="ch-rank" id="chRank"></ol>
+      </div>
+      <div id="chDetail" hidden></div>
+    </aside>
+  </div>
+
+  <p class="ch-foot" id="chFoot"></p>
+</div>
+
+<script type="application/json" id="chData" set:html={JSON.stringify(data)}></script>
+
+<script>
+  const D = JSON.parse(document.getElementById('chData').textContent);
+  const CATS = {
+    cambriolage: { l: 'Cambriolages', c: '#f59e0b' }, agression: { l: 'Agressions', c: '#ef4444' },
+    incendie: { l: 'Incendies', c: '#fb7a3c' }, accident: { l: 'Accidents', c: '#2563eb' },
+    disparition: { l: 'Disparitions', c: '#8b5cf6' }, ordre: { l: 'Ordre public', c: '#0891b2' },
+    cyber: { l: 'Cyber', c: '#059669' },
+  };
+  const VB = { x: 47, y: 89, w: 518, h: 496 };
+  const SCALE = 2, CW = Math.round(VB.w * SCALE), CH = Math.round(VB.h * SCALE);
+  const NS = 'http://www.w3.org/2000/svg';
+  const map = document.getElementById('chMap');
+  D.cantons.forEach((c) => { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', c.d); p.setAttribute('class', 'ch-canton ' + (c.romand ? 'r' : 'ctx')); map.appendChild(p); });
+  D.lakes.forEach((d) => { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); p.setAttribute('class', 'ch-lake'); map.appendChild(p); });
+  D.labels.forEach((l) => { const t = document.createElementNS(NS, 'text'); t.setAttribute('x', l.x); t.setAttribute('y', l.y); t.setAttribute('class', 'ch-lbl'); t.textContent = l.name; map.appendChild(t); });
+
+  const clip = new Path2D();
+  D.cantons.filter((c) => c.romand).forEach((c) => clip.addPath(new Path2D(c.d)));
+
+  const cv = document.getElementById('chHeat'); cv.width = CW; cv.height = CH;
+  const ctx = cv.getContext('2d');
+  const w2x = (x) => (x - VB.x) * SCALE, w2y = (y) => (y - VB.y) * SCALE;
+  const R = 30, BLUR = 20;
+  const circ = document.createElement('canvas'); circ.width = circ.height = 2 * (R + BLUR);
+  const cc = circ.getContext('2d');
+  const g = cc.createRadialGradient(R + BLUR, R + BLUR, 0, R + BLUR, R + BLUR, R + BLUR);
+  g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+  cc.fillStyle = g; cc.beginPath(); cc.arc(R + BLUR, R + BLUR, R + BLUR, 0, 7); cc.fill();
+
+  const rampC = document.createElement('canvas'); rampC.width = 256; rampC.height = 1;
+  const rctx = rampC.getContext('2d');
+  const rg = rctx.createLinearGradient(0, 0, 256, 0);
+  rg.addColorStop(0.00, '#3b82f6'); rg.addColorStop(0.32, '#22d3ee'); rg.addColorStop(0.48, '#34d399');
+  rg.addColorStop(0.64, '#facc15'); rg.addColorStop(0.82, '#fb923c'); rg.addColorStop(1.00, '#ef4444');
+  rctx.fillStyle = rg; rctx.fillRect(0, 0, 256, 1);
+  const ramp = rctx.getImageData(0, 0, 256, 1).data;
+  const MAXW = 6, MINOP = 0.08;
+
+  function drawHeat(points) {
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.clearRect(0, 0, CW, CH);
+    ctx.save();
+    ctx.setTransform(SCALE, 0, 0, SCALE, -VB.x * SCALE, -VB.y * SCALE); ctx.clip(clip); ctx.setTransform(1, 0, 0, 1, 0, 0);
+    for (const p of points) { ctx.globalAlpha = Math.max(MINOP, Math.min(1, (p.w || 1) / MAXW)); ctx.drawImage(circ, w2x(p.x) - (R + BLUR), w2y(p.y) - (R + BLUR)); }
+    const img = ctx.getImageData(0, 0, CW, CH), pix = img.data;
+    for (let i = 0; i < pix.length; i += 4) { const a = pix[i + 3]; if (a) { const j = a * 4; pix[i] = ramp[j]; pix[i + 1] = ramp[j + 1]; pix[i + 2] = ramp[j + 2]; pix[i + 3] = Math.min(220, a + 30); } }
+    ctx.putImageData(img, 0, 0);
+    ctx.restore();
+  }
+
+  let mois = 'all';
+  const activeCats = new Set(Object.keys(CATS));
+  const esc = (s) => String(s).replace(/[&<>"]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+  const filtered = () => D.evts.filter((e) => (mois === 'all' || e.mois === mois) && activeCats.has(e.cat));
+
+  // Boutons mois
+  const segEl = document.getElementById('chMois');
+  const btnAll = document.createElement('button'); btnAll.dataset.mois = 'all'; btnAll.textContent = 'Tous les mois'; btnAll.setAttribute('aria-pressed', 'true');
+  segEl.appendChild(btnAll);
+  D.moisDispo.forEach((m) => { const b = document.createElement('button'); b.dataset.mois = m.key; b.textContent = m.label; b.setAttribute('aria-pressed', 'false'); segEl.appendChild(b); });
+  segEl.querySelectorAll('button').forEach((b) => { b.onclick = () => { mois = b.dataset.mois; segEl.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); render(); }; });
+
+  // Chips catégories
+  const catsEl = document.getElementById('chCats');
+  Object.entries(CATS).forEach(([k, v]) => {
+    const b = document.createElement('button'); b.className = 'ch-cat'; b.dataset.cat = k; b.setAttribute('aria-pressed', 'true');
+    b.innerHTML = '<span class="ch-dot" style="background:' + v.c + '"></span>' + v.l;
+    b.onclick = () => { if (activeCats.has(k)) { activeCats.delete(k); b.setAttribute('aria-pressed', 'false'); } else { activeCats.add(k); b.setAttribute('aria-pressed', 'true'); } render(); };
+    catsEl.appendChild(b);
+  });
+
+  const dotsSvg = document.getElementById('chDots');
+  const tops = document.getElementById('chTops');
+  const detail = document.getElementById('chDetail');
+
+  function showDetail(commune) {
+    const ev = filtered().filter((e) => e.c === commune); if (!ev.length) return;
+    let h = '<button class="ch-back" type="button">&#8592; Points chauds</button>';
+    h += '<div class="ch-dhead">' + esc(commune) + '<small>' + ev.length + ' événement' + (ev.length > 1 ? 's' : '') + ' · ' + ev[0].k + '</small></div>';
+    ev.forEach((e) => { const c = CATS[e.cat] || { l: e.cat, c: '#64748b' };
+      h += '<div class="ch-inc"><span class="ch-icat" style="color:' + c.c + '">' + c.l + '</span><div class="ch-it">' + esc(e.t) + '</div>' + (e.r ? '<div class="ch-ir">' + esc(e.r) + '</div>' : '') + '<div class="ch-im">' + (e.h ? esc(e.h) + ' · ' : '') + esc(e.s) + '</div></div>'; });
+    detail.innerHTML = h; detail.querySelector('.ch-back').onclick = backToTops;
+    tops.hidden = true; detail.hidden = false;
+  }
+  function backToTops() { detail.hidden = true; tops.hidden = false; }
+
+  let tip;
+  function ensureTip() { if (!tip) { tip = document.createElement('div'); tip.className = 'ch-tip'; document.body.appendChild(tip); } return tip; }
+  function showTip(e, o) {
+    const t = ensureTip();
+    const brk = Object.entries(o.cats).sort((a, b) => b[1] - a[1]).map(([k, v]) => (CATS[k] ? CATS[k].l : k) + ' ' + v).join(' · ');
+    t.innerHTML = '<b>' + o.c + '</b> (' + o.k + ')<br>' + o.n + ' événement' + (o.n > 1 ? 's' : '') + '<div class="ch-tc">' + brk + '</div>';
+    t.style.opacity = '1';
+    let x = e.clientX + 14, y = e.clientY + 14;
+    if (x + 230 > innerWidth) x = e.clientX - 230; if (y + 90 > innerHeight) y = e.clientY - 90;
+    t.style.left = x + 'px'; t.style.top = y + 'px';
+  }
+  function hideTip() { if (tip) tip.style.opacity = '0'; }
+
+  function render() {
+    backToTops();
+    const ev = filtered();
+    const byCom = new Map();
+    for (const e of ev) { let o = byCom.get(e.c); if (!o) { o = { c: e.c, k: e.k, x: 0, y: 0, n: 0, cats: {} }; byCom.set(e.c, o); } o.x += e.x; o.y += e.y; o.n++; o.cats[e.cat] = (o.cats[e.cat] || 0) + 1; }
+    const coms = [...byCom.values()].map((o) => ({ ...o, x: o.x / o.n, y: o.y / o.n })).sort((a, b) => b.n - a.n);
+    drawHeat(coms.map((o) => ({ x: o.x, y: o.y, w: o.n })));
+
+    dotsSvg.innerHTML = '';
+    coms.slice(0, 10).forEach((o) => {
+      const gg = document.createElementNS(NS, 'g'); gg.setAttribute('class', 'ch-hot');
+      const r = 3 + Math.min(5, Math.sqrt(o.n));
+      const c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', o.x); c.setAttribute('cy', o.y); c.setAttribute('r', r);
+      const t = document.createElementNS(NS, 'text'); t.setAttribute('x', o.x); t.setAttribute('y', o.y - r - 3); t.setAttribute('text-anchor', 'middle'); t.textContent = o.c;
+      gg.appendChild(c); gg.appendChild(t);
+      gg.addEventListener('mousemove', (e) => showTip(e, o));
+      gg.addEventListener('mouseleave', hideTip);
+      gg.addEventListener('click', () => { hideTip(); showDetail(o.c); });
+      dotsSvg.appendChild(gg);
+    });
+
+    const rank = document.getElementById('chRank'); rank.innerHTML = '';
+    const max = coms.length ? coms[0].n : 1;
+    coms.slice(0, 8).forEach((o, i) => {
+      const top = Object.entries(o.cats).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([k]) => (CATS[k] ? CATS[k].l : k)).join(', ');
+      const li = document.createElement('li');
+      li.innerHTML = '<span class="ch-n">' + (i + 1) + '</span><span class="ch-nm">' + o.c + '<small>' + top + '</small></span><span class="ch-bar" style="width:' + (28 + 64 * o.n / max) + 'px"></span><span class="ch-ct">' + o.n + '</span>';
+      li.addEventListener('click', () => showDetail(o.c));
+      rank.appendChild(li);
+    });
+    const label = mois === 'all' ? 'tous les mois complets' : (D.moisDispo.find((m) => m.key === mois) || {}).label;
+    document.getElementById('chMeta').textContent = 'Communes les plus exposées · ' + (label || '');
+    document.getElementById('chFoot').textContent =
+      D.total + ' événements recensés et dédoublonnés automatiquement dans les médias et communiqués de police romands. Données neutres, sans information personnelle.';
+  }
+
+  render();
+</script>
+
+<style is:global>
+  .ch-wrap { --ch-land: #e9edf3; --ch-land-r: #dfe7f3; --ch-ctx: #eef2f7; --ch-lake: #cfe8f5; }
+  .ch-controls { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .ch-seg { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 4px; background: var(--soft); border: 1px solid var(--border); border-radius: 999px; padding: 4px; }
+  .ch-seg button { border: 0; background: transparent; color: var(--text-muted); font: inherit; font-weight: 600; font-size: 13px; padding: 7px 15px; border-radius: 999px; cursor: pointer; transition: .15s; }
+  .ch-seg button:hover { color: var(--navy); }
+  .ch-seg button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+  .ch-cats { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .ch-cat { border: 1px solid var(--border); background: #fff; color: var(--text-muted); font: inherit; font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: .15s; }
+  .ch-cat .ch-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .ch-cat[aria-pressed="false"] { opacity: .4; }
+  .ch-cat:hover { color: var(--navy); }
+
+  .ch-layout { display: grid; grid-template-columns: 1fr 300px; gap: 20px; align-items: start; }
+  @media (max-width: 820px) { .ch-layout { grid-template-columns: 1fr; } }
+  .ch-mapcard { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 1px 2px rgba(15,23,42,.04), 0 10px 30px rgba(15,23,42,.05); }
+  .ch-stage { position: relative; width: 100%; aspect-ratio: 518 / 496; }
+  .ch-stage svg, .ch-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ch-stage #chMap { z-index: 1; }
+  .ch-stage #chHeat { z-index: 2; pointer-events: none; }
+  .ch-stage .ch-dots { z-index: 3; }
+  .ch-canton { fill: var(--ch-land); stroke: #fff; stroke-width: .6; }
+  .ch-canton.ctx { fill: var(--ch-ctx); stroke: #fff; stroke-width: .5; }
+  .ch-canton.r { fill: var(--ch-land-r); stroke: #fff; stroke-width: .8; }
+  .ch-lake { fill: var(--ch-lake); stroke: #bcdcef; stroke-width: .4; }
+  .ch-lbl { fill: #5b6b80; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 11px; text-anchor: middle; paint-order: stroke; stroke: #fff; stroke-width: 2.6px; }
+  .ch-hot { cursor: pointer; }
+  .ch-hot circle { fill: var(--navy); stroke: #fff; stroke-width: 1.4; }
+  .ch-hot text { fill: var(--navy); font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 9.5px; paint-order: stroke; stroke: #fff; stroke-width: 2.8px; }
+
+  .ch-legend { position: absolute; left: 14px; bottom: 12px; z-index: 4; background: rgba(255,255,255,.9); backdrop-filter: blur(4px); border: 1px solid var(--border); border-radius: 10px; padding: 9px 11px; font-size: 11px; color: var(--text-muted); }
+  .ch-lt { font-weight: 700; font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; }
+  .ch-ramp { height: 8px; width: 150px; border-radius: 4px; background: linear-gradient(90deg,#3b82f6,#22d3ee,#34d399,#facc15,#fb923c,#ef4444); }
+  .ch-ramplabels { display: flex; justify-content: space-between; font-size: 10px; margin-top: 3px; }
+
+  .ch-panel { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px 16px 10px; }
+  .ch-panel h3 { margin: 0 0 2px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--navy); }
+  .ch-hint { font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--text-light); font-size: 11px; }
+  .ch-pmeta { color: var(--text-muted); font-size: 12px; margin: 0 0 12px; }
+  .ch-rank { list-style: none; margin: 0; padding: 0; }
+  .ch-rank li { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-top: 1px solid var(--border); cursor: pointer; border-radius: 8px; margin: 0 -8px; transition: background .12s; }
+  .ch-rank li:first-child { border-top: 0; }
+  .ch-rank li:hover { background: var(--brand-soft); }
+  .ch-n { width: 20px; color: var(--text-light); font-size: 12px; font-weight: 700; text-align: right; }
+  .ch-nm { flex: 1; font-weight: 600; font-size: 14px; color: var(--navy); }
+  .ch-nm small { display: block; color: var(--text-muted); font-weight: 500; font-size: 11px; }
+  .ch-bar { height: 6px; border-radius: 3px; background: linear-gradient(90deg,#3b82f6,#ef4444); min-width: 6px; }
+  .ch-ct { width: 26px; text-align: right; font-weight: 800; font-size: 14px; color: var(--navy); }
+  .ch-back { display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; color: var(--brand); font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; padding: 0; margin: 0 0 10px; }
+  .ch-dhead { font-weight: 800; font-size: 17px; color: var(--navy); line-height: 1.2; }
+  .ch-dhead small { display: block; font-weight: 500; font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .ch-inc { padding: 11px 0; border-top: 1px solid var(--border); }
+  .ch-inc:first-of-type { border-top: 0; }
+  .ch-icat { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; font-weight: 800; }
+  .ch-it { font-weight: 700; font-size: 14px; color: var(--navy); margin: 3px 0 2px; }
+  .ch-ir { font-size: 12.5px; color: var(--text-muted); line-height: 1.45; }
+  .ch-im { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+  .ch-foot { text-align: center; color: var(--text-light); font-size: 12px; margin: 18px auto 0; max-width: 680px; line-height: 1.5; }
+
+  .ch-tip { position: fixed; z-index: 60; pointer-events: none; background: var(--navy); color: #fff; border-radius: 9px; padding: 8px 10px; font-size: 12px; max-width: 220px; opacity: 0; transition: opacity .12s; box-shadow: 0 8px 24px rgba(0,0,0,.25); font-family: 'Manrope', sans-serif; }
+  .ch-tip b { color: var(--brand-light); }
+  .ch-tc { color: #cbd5e1; font-size: 11px; margin-top: 3px; }
+</style>

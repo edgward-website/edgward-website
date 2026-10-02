@@ -9,7 +9,7 @@ const dateMaj = data.genereLe
   : '';
 
 const title = 'Carte des événements de sécurité - Suisse romande | Edgward';
-const description = "Carte des principaux événements de sécurité (cambriolages, agressions, incendies, accidents, cyber…) relayés en Suisse romande ces derniers jours. Actualisée automatiquement 2× par jour.";
+const description = "Les principaux événements de sécurité relayés en Suisse romande ces derniers jours : cambriolages, agressions, incendies. Actualisée 2× par jour.";
 ---
 
 <Base title={title} description={description}>
@@ -30,6 +30,11 @@ const description = "Carte des principaux événements de sécurité (cambriolag
       </div>
 
       <CarteEvenements evenements={evenements} genereLe={data.genereLe} />
+
+      <div class="carte-xlink">
+        <span>Envie de voir où les événements se concentrent sur la durée ?</span>
+        <a href="/points-chauds" class="btn btn-secondary">Voir les points chauds du mois</a>
+      </div>
     </div>
   </section>
 
@@ -75,6 +80,26 @@ const description = "Carte des principaux événements de sécurité (cambriolag
   @media (max-width: 640px) {
     .carte-lead { flex-direction: column; align-items: stretch; text-align: center; }
     .carte-lead .btn { justify-content: center; }
+  }
+
+  .carte-xlink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 760px;
+    margin: 30px auto 0;
+    padding: 14px 20px;
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .carte-xlink span { font-size: 14px; font-weight: 500; color: var(--text-muted); }
+  .carte-xlink .btn { flex: none; white-space: nowrap; }
+  @media (max-width: 600px) {
+    .carte-xlink { flex-direction: column; align-items: stretch; text-align: center; }
+    .carte-xlink .btn { justify-content: center; }
   }
 
   .carte-cta {

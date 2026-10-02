@@ -1,0 +1,22 @@
+{
+  "_note": "Événements à masquer à l'affichage : doublons sémantiques (même événement réel) que le dédoublonnage mécanique ne rattrape pas (articles à >3 jours d'écart, fait reclassé, ou rattaché à une commune voisine), et quelques événements hors-périmètre (hors Suisse). Chaque clé = commune | date (dateVue, AAAA-MM-JJ) | titre. À terme, une passe de dédoublonnage sémantique dans le robot réduira ce fichier.",
+  "exclus": [
+    "Sion | 2026-08-09 | Incendie dans un immeuble",
+    "Aigle | 2026-08-12 | Incendie d'un immeuble à Aigle",
+    "Neuchâtel | 2026-08-09 | Débordements après un match de football",
+    "Renens | 2026-09-16 | Possible fuite de données clients",
+    "Farvagny | 2026-08-25 | Braquage d'une banque",
+    "Farvagny | 2026-08-26 | Arrestation après un brigandage",
+    "Zermatt | 2026-09-17 | Accidents en montagne",
+    "Le Locle | 2026-08-20 | Braquage d'un musée: arrestations",
+    "Neuchâtel | 2026-09-08 | Cambriolage dans un musée",
+    "Loèche-les-Bains | 2026-09-28 | Victimes d'un crash aérien identifiées",
+    "Nyon | 2026-08-09 | Cambriolage suivi d'interpellations",
+    "Fribourg | 2026-08-19 | Poids lourd contre une signalisation sur l'A12",
+    "A12 | 2026-08-20 | Poids lourd contre une signalisation sur l'A12",
+    "Neuchâtel | 2026-08-01 | Accident d'avion à l'atterrissage",
+    "Stalden | 2026-09-01 | Collision entre deux autocars",
+    "Bulle | 2026-09-03 | Deux parapentistes blessés",
+    "Le Salève | 2026-08-05 | Incendie d'un chalet sur le Salève"
+  ]
+}

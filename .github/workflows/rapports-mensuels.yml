@@ -1,0 +1,62 @@
+name: Rapports mensuels de sécurité
+
+# Le 2 de chaque mois (~06h UTC), une fois le mois précédent terminé.
+# Génère un rapport par canton et par mois complet, avec synthèse rédigée par l'IA.
+on:
+  schedule:
+    - cron: "0 6 2 * *"
+  workflow_dispatch:         # bouton « Run » manuel (ex. premier lot)
+
+# Comme la collecte : on écrit sur main puis on construit/déploie dans la foulée.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  rapports:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Générer les rapports (synthèse IA)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/carte-securite/rapports-mensuels.mjs
+
+      - name: Publier sur main (si changement)
+        id: publish
+        run: |
+          if git diff --quiet -- public/rapports; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Aucun nouveau rapport."
+            exit 0
+          fi
+          git config user.name "Robot Rapports Edgward"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/rapports
+          git commit -m "Rapports mensuels de sécurité — génération automatique"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Construire le site
+        if: steps.publish.outputs.changed == 'true'
+        uses: withastro/action@v3
+        with:
+          node-version: 22
+
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        if: steps.publish.outputs.changed == 'true'
+        uses: actions/deploy-pages@v4
