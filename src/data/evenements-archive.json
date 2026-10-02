@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-02T09:34:23.218Z",
-  "total": 296,
+  "compileLe": "2026-10-02T14:56:48.049Z",
+  "total": 300,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3553,6 +3553,54 @@
       "heure": "1 oct. 11:40",
       "source": "Tribune de Genève",
       "dateVue": "2026-10-01T16:56:41.264Z"
+    },
+    {
+      "titre": "Incendie d'un garage automobile",
+      "resume": "Un incendie s'est déclaré dans un garage automobile du centre, faisant trois blessés dont deux héliportés. Le feu a été maîtrisé et le trafic ferroviaire rétabli.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.748,
+      "lat": 46.02,
+      "heure": "1 oct. 17:06",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-10-02T14:56:48.049Z"
+    },
+    {
+      "titre": "Collision mortelle à moto",
+      "resume": "Une motocycliste de 48 ans a perdu la vie dans un choc frontal avec une voiture.",
+      "commune": "Saint-Saphorin",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.805,
+      "lat": 46.464,
+      "heure": "2 oct. 11:18",
+      "source": "24 Heures",
+      "dateVue": "2026-10-02T14:56:48.049Z"
+    },
+    {
+      "titre": "Appel à témoins après un accident",
+      "resume": "Un cycliste blessé recherche le motard qui l'a renversé avant de quitter les lieux.",
+      "commune": "Aclens",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.49,
+      "lat": 46.55,
+      "heure": "1 oct. 18:28",
+      "source": "24 Heures",
+      "dateVue": "2026-10-02T14:56:48.049Z"
+    },
+    {
+      "titre": "Scootériste gravement blessé",
+      "resume": "Un conducteur de scooter a été grièvement blessé après une embardée.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.11,
+      "lat": 46.21,
+      "heure": "1 oct. 11:40",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-02T14:56:48.049Z"
     }
   ]
 }
