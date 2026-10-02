@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-01T21:34:59.891Z",
-  "total": 287,
+  "compileLe": "2026-10-02T09:34:23.218Z",
+  "total": 296,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -157,6 +157,18 @@
       "heure": "26 juil. 14:15",
       "source": "20 minutes",
       "dateVue": "2026-07-26T19:01:34.298Z"
+    },
+    {
+      "titre": "Cambrioleurs interpellés après une fuite",
+      "resume": "Deux cambrioleurs ont été interpellés après une fuite en voiture volée et un accident.",
+      "commune": "Massongex",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 6.9833,
+      "lat": 46.25,
+      "heure": "24 juil. 16:21",
+      "source": "bluewin.ch",
+      "dateVue": "2026-07-26T19:34:14.139Z"
     },
     {
       "titre": "Incendie dans la vieille ville de Sierre",
@@ -783,6 +795,30 @@
       "dateVue": "2026-08-07T17:50:16.849Z"
     },
     {
+      "titre": "Effondrement d'une chaussée à Lausanne",
+      "resume": "Une partie de la chaussée s'est effondrée, entraînant des mesures de sécurité.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.63,
+      "lat": 46.52,
+      "heure": "6 août 11:58",
+      "source": "Blick",
+      "dateVue": "2026-08-07T17:50:16.849Z"
+    },
+    {
+      "titre": "Appel à témoins après un accident",
+      "resume": "La police lance un appel à témoins à la suite d'un accident survenu dans le secteur d'Aïre.",
+      "commune": "Vernier",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.09,
+      "lat": 46.21,
+      "heure": "7 août 17:31",
+      "source": "tdg.ch",
+      "dateVue": "2026-08-08T10:38:27.800Z"
+    },
+    {
       "titre": "Incendie lors de célébrations de supporters",
       "resume": "Des célébrations de supporters après un match ont dégénéré et provoqué un incendie.",
       "commune": "Neuchâtel",
@@ -867,18 +903,6 @@
       "dateVue": "2026-08-09T17:32:13.580Z"
     },
     {
-      "titre": "Appel à témoins après un accident",
-      "resume": "La police lance un appel à témoins à la suite d'un accident de la circulation impliquant plusieurs deux-roues.",
-      "commune": "Vernier",
-      "canton": "GE",
-      "categorie": "accident",
-      "lon": 6.1073,
-      "lat": 46.2064,
-      "heure": "07 aoû. 17:31",
-      "source": "Tribune de Genève",
-      "dateVue": "2026-08-09T17:32:13.580Z"
-    },
-    {
       "titre": "Cambriolage suivi d'interpellations",
       "resume": "Quatre jeunes ont été arrêtés après un cambriolage.",
       "commune": "Nyon",
@@ -949,6 +973,18 @@
       "heure": "8 août 14:56",
       "source": "La Liberté",
       "dateVue": "2026-08-10T11:12:45.475Z"
+    },
+    {
+      "titre": "Décès dans l'eau aux Bains des Pâquis",
+      "resume": "Un homme a succombé après un malaise survenu dans l'eau aux Bains des Pâquis.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.1547,
+      "lat": 46.2107,
+      "heure": "11 août 17:23",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-08-11T17:57:24.952Z"
     },
     {
       "titre": "Avis de disparition",
@@ -1321,6 +1357,18 @@
       "heure": "19 août 11:03",
       "source": "Frapp",
       "dateVue": "2026-08-19T17:26:54.581Z"
+    },
+    {
+      "titre": "Un enfant meurt dans un accident de la route",
+      "resume": "Un enfant de neuf ans a perdu la vie dans un accident de circulation dans le Bas-Valais.",
+      "commune": "Monthey",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 6.9481,
+      "lat": 46.2542,
+      "heure": "19 août 18:15",
+      "source": "Pomona",
+      "dateVue": "2026-08-20T10:35:28.176Z"
     },
     {
       "titre": "Incendie criminel dans un immeuble",
@@ -1731,6 +1779,18 @@
       "dateVue": "2026-08-26T19:03:07.398Z"
     },
     {
+      "titre": "Sortie de route à Pensier",
+      "resume": "Une voiture a dévalé une soixantaine de mètres avant de s'immobiliser contre une voie ferrée. Le conducteur a été blessé.",
+      "commune": "Pensier",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.13,
+      "lat": 46.828,
+      "heure": "27 août 17:17",
+      "source": "24 Heures",
+      "dateVue": "2026-08-27T20:14:02.459Z"
+    },
+    {
       "titre": "Disparition dans le Haut-Valais",
       "resume": "Un homme de 43 ans est porté disparu dans la région de Blatten bei Naters. Un appel à témoins a été lancé.",
       "commune": "Naters",
@@ -1743,15 +1803,15 @@
       "dateVue": "2026-08-27T20:14:02.459Z"
     },
     {
-      "titre": "Sortie de route",
-      "resume": "Une voiture a dévalé une soixantaine de mètres avant de s'immobiliser près de la voie ferrée. Le conducteur a été blessé.",
-      "commune": "Pensier",
-      "canton": "FR",
-      "categorie": "accident",
-      "lon": 7.152,
-      "lat": 46.842,
-      "heure": "27 août 16:45",
-      "source": "Frapp",
+      "titre": "Randonneur porté disparu",
+      "resume": "Un homme de 43 ans est porté disparu dans une région de montagne. Un appel à témoins a été lancé.",
+      "commune": "Blatten bei Naters",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.985,
+      "lat": 46.352,
+      "heure": "27 août 11:03",
+      "source": "24 Heures",
       "dateVue": "2026-08-28T01:17:43.363Z"
     },
     {
@@ -1836,6 +1896,18 @@
       "lat": 46.383,
       "heure": "28 août 22:18",
       "source": "24 Heures",
+      "dateVue": "2026-08-29T00:52:59.637Z"
+    },
+    {
+      "titre": "Accident avec perte de chargement",
+      "resume": "Trois personnes ont été blessées dans un accident impliquant une camionnette ayant perdu une partie de son chargement.",
+      "commune": "Châtel-Saint-Denis",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 6.903,
+      "lat": 46.527,
+      "heure": "28 août 20:42",
+      "source": "La Liberté",
       "dateVue": "2026-08-29T00:52:59.637Z"
     },
     {
@@ -2643,6 +2715,18 @@
       "dateVue": "2026-09-10T14:10:31.746Z"
     },
     {
+      "titre": "Deux accidents successifs sur l'A12",
+      "resume": "Deux voitures ont fini dans le même talus à quelques minutes d'intervalle sur l'A12, à Granges-Paccot.",
+      "commune": "Granges-Paccot",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.13,
+      "lat": 46.82,
+      "heure": "09 sept. 14:44",
+      "source": "24 Heures",
+      "dateVue": "2026-09-10T14:10:31.746Z"
+    },
+    {
       "titre": "Fuite de données clients d'un opérateur télécom",
       "resume": "Un opérateur de téléphonie alerte sur un vol de données concernant ses clients. Les informations qui auraient fuité sont en cours d'analyse.",
       "commune": "Renens",
@@ -3123,6 +3207,18 @@
       "dateVue": "2026-09-22T20:01:14.359Z"
     },
     {
+      "titre": "Deux cyclistes blessés",
+      "resume": "Deux cyclistes ont été blessés lors d'accidents distincts à Chez-le-Bart et aux Ponts-de-Martel.",
+      "commune": "Ponts-de-Martel",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.7333,
+      "lat": 47,
+      "heure": "20 sept. 10:44",
+      "source": "ArcInfo",
+      "dateVue": "2026-09-22T20:01:14.359Z"
+    },
+    {
       "titre": "Vol de voitures de luxe, deux jeunes arrêtés",
       "resume": "Deux adolescents ont été interpellés en Ajoie après des vols de véhicules de luxe.",
       "commune": "Porrentruy",
@@ -3267,6 +3363,18 @@
       "dateVue": "2026-09-26T14:15:16.708Z"
     },
     {
+      "titre": "Accident de la route",
+      "resume": "Un accident de la circulation a fait l'objet d'une intervention des secours.",
+      "commune": "Saint-Aubin",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 6.964,
+      "lat": 46.882,
+      "heure": "26 sept. 20:48",
+      "source": "Blick",
+      "dateVue": "2026-09-26T19:32:55.167Z"
+    },
+    {
       "titre": "Excès de vitesse en ville",
       "resume": "Un motard a été contrôlé à 122 km/h en localité.",
       "commune": "Delémont",
@@ -3291,18 +3399,6 @@
       "dateVue": "2026-09-27T15:02:47.775Z"
     },
     {
-      "titre": "Accident mortel de la route",
-      "resume": "Un automobiliste de 22 ans a perdu la vie dans un accident de la circulation.",
-      "commune": "Saint-Aubin",
-      "canton": "FR",
-      "categorie": "accident",
-      "lon": 6.792,
-      "lat": 46.882,
-      "heure": "26 sept. 20:15",
-      "source": "FR.ch",
-      "dateVue": "2026-09-27T15:02:47.775Z"
-    },
-    {
       "titre": "Incendie dans une entreprise",
       "resume": "Un incendie s'est déclaré dans une entreprise, sans pollution constatée.",
       "commune": "Ecublens",
@@ -3313,6 +3409,18 @@
       "heure": "24 sept. 23:10",
       "source": "rts.ch",
       "dateVue": "2026-09-27T15:02:47.775Z"
+    },
+    {
+      "titre": "Chute mortelle d'un randonneur",
+      "resume": "Un randonneur a fait une chute mortelle dans le Nessultal, sur le territoire de Brig-Glis, dans le Haut-Valais.",
+      "commune": "Brigue-Glis",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.9857,
+      "lat": 46.3167,
+      "heure": "28 sept. 13:25",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-09-28T18:01:18.751Z"
     },
     {
       "titre": "Victimes d'un crash aérien identifiées",

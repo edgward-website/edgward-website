@@ -22,6 +22,8 @@ function git(cmd) {
 // sont dans la même commune (ou à < ~4 km) ET se ressemblent (même catégorie OU
 // mots de titre communs). Absorbe : variantes de nom de lieu, re-classements de
 // catégorie du même fait, coordonnées instables, labels de date variables.
+// NB : la fusion par proximité (< ~4 km) exige aussi des titres proches, pour ne
+// pas confondre deux faits distincts seulement voisins (ex. deux accidents séparés).
 const MOISNUM = { janv: 1, "févr": 2, fevr: 2, mars: 3, avr: 4, mai: 5, juin: 6, juil: 7, "août": 8, aout: 8, sept: 9, oct: 10, nov: 11, "déc": 12, dec: 12 };
 const SEUIL_KM = 4;
 const SEUIL_JOURS = 3;
@@ -47,7 +49,7 @@ function estDoublon(e, dv, liste) {
     const memeJour = (j === null || oj === null) ? true : Math.abs(oj - j) <= SEUIL_JOURS;
     if (!memeJour) return false;
     if (communeNorm(o.commune) === communeNorm(e.commune) && (o.categorie === e.categorie || titreSimilaire(o.titre, e.titre))) return true;
-    if (o.categorie === e.categorie) {
+    if (o.categorie === e.categorie && titreSimilaire(o.titre, e.titre)) {
       const dx = (o.lon - e.lon) * 76, dy = (o.lat - e.lat) * 111;
       if (Math.hypot(dx, dy) <= SEUIL_KM) return true;
     }

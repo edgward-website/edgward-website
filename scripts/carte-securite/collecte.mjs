@@ -199,7 +199,9 @@ async function ecrire(evenements, genereLe) {
 
 // --- Archivage (historique cumulé pour la future carte de chaleur) -------
 
-// Dédoublonnage par PROXIMITÉ : même catégorie + < ~4 km + à quelques jours = même incident.
+// Dédoublonnage par PROXIMITÉ : même catégorie + titres proches + < ~4 km + à quelques
+// jours = même incident. La similarité de titre est requise pour ne pas fusionner deux
+// accidents distincts simplement voisins (ex. deux accidents de la route à 3 km le même jour).
 const MOISNUM = { janv: 1, "févr": 2, fevr: 2, mars: 3, avr: 4, mai: 5, juin: 6, juil: 7, "août": 8, aout: 8, sept: 9, oct: 10, nov: 11, "déc": 12, dec: 12 };
 const SEUIL_KM = 4, SEUIL_JOURS = 3;
 function jourNum(heure, dv) {
@@ -224,7 +226,7 @@ function estDoublon(e, dv, liste) {
     const memeJour = (j === null || oj === null) ? true : Math.abs(oj - j) <= SEUIL_JOURS;
     if (!memeJour) return false;
     if (communeNorm(o.commune) === communeNorm(e.commune) && (o.categorie === e.categorie || titreSimilaire(o.titre, e.titre))) return true;
-    if (o.categorie === e.categorie) {
+    if (o.categorie === e.categorie && titreSimilaire(o.titre, e.titre)) {
       const dx = (o.lon - e.lon) * 76, dy = (o.lat - e.lat) * 111;
       if (Math.hypot(dx, dy) <= SEUIL_KM) return true;
     }
