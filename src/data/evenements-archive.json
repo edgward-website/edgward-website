@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-02T16:10:01.236Z",
-  "total": 300,
+  "compileLe": "2026-10-02T21:11:01.669Z",
+  "total": 301,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3601,6 +3601,18 @@
       "heure": "1 oct. 11:40",
       "source": "Tribune de Genève",
       "dateVue": "2026-10-02T14:56:48.049Z"
+    },
+    {
+      "titre": "Automobiliste tente de percuter des piétons",
+      "resume": "Un conducteur a tenté de percuter des piétons à Yverdon-les-Bains. Une intervention policière a eu lieu.",
+      "commune": "Yverdon-les-Bains",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.641,
+      "lat": 46.778,
+      "heure": "2 oct. 18:31",
+      "source": "La Télé",
+      "dateVue": "2026-10-02T21:11:01.669Z"
     }
   ]
 }
