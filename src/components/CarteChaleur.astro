@@ -7,37 +7,16 @@
  * sémantiques résiduels (src/data/doublons-exclus.json), le mois en cours exclu.
  * Géographie lue depuis CoverageMap.astro au build (source unique des contours).
  */
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import archive from '../data/evenements-archive.json';
 import doublons from '../data/doublons-exclus.json';
+import geo from '../data/cantons-romands.json';
 
 const ROMANDS = new Set(['GE', 'VD', 'VS', 'NE', 'FR', 'JU']);
 
-// --- Contours depuis CoverageMap.astro (chemin relatif au module, indépendant du cwd) ---
-const cov = readFileSync(fileURLToPath(new URL('./CoverageMap.astro', import.meta.url)), 'utf8');
-const cantons: { code: string; d: string; romand: boolean }[] = [];
-{
-  const re = /<path\b[^>]*class="canton[^"]*"[^>]*>/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(cov))) {
-    const code = (m[0].match(/data-code="([^"]+)"/) || [])[1];
-    const d = (m[0].match(/\sd="([^"]+)"/) || [])[1];
-    if (code && d) cantons.push({ code, d, romand: ROMANDS.has(code) });
-  }
-}
-const lakes: string[] = [];
-{
-  const re = /<path\b[^>]*class="lake"[^>]*\sd="([^"]+)"/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(cov))) lakes.push(m[1]);
-}
-const labels: { x: number; y: number; name: string }[] = [];
-{
-  const re = /<text\b[^>]*class="label label-name[^"]*"[^>]*x="([\d.]+)"[^>]*y="([\d.]+)"[^>]*>([^<]+)<\/text>/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(cov))) labels.push({ x: +m[1], y: +m[2], name: m[3] });
-}
+// --- Contours (extraits de CoverageMap.astro vers un JSON importé, sûr au build) ---
+const cantons = geo.cantons as { code: string; d: string; romand: boolean }[];
+const lakes = geo.lakes as string[];
+const labels = geo.labels as { x: number; y: number; name: string }[];
 
 // --- Événements ---
 const A = 192.0, Bx = -1081.9, C = -276.6, Dy = 13248.9;
