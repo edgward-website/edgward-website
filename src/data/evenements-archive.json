@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-02T21:11:01.669Z",
-  "total": 301,
+  "compileLe": "2026-10-03T14:36:54.100Z",
+  "total": 303,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3613,6 +3613,30 @@
       "heure": "2 oct. 18:31",
       "source": "La Télé",
       "dateVue": "2026-10-02T21:11:01.669Z"
+    },
+    {
+      "titre": "Accident sur l'autoroute A1",
+      "resume": "Un accident a provoqué la fermeture temporaire de l'A1 et environ 6 km de bouchon avant que le trafic ne reprenne.",
+      "commune": "Morges",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.498,
+      "lat": 46.511,
+      "heure": "03 oct. 10:46",
+      "source": "rts.ch",
+      "dateVue": "2026-10-03T14:36:54.100Z"
+    },
+    {
+      "titre": "Arnaque par usurpation du numéro de la police",
+      "resume": "Des escrocs usurpent le numéro de téléphone de la police pour tromper leurs victimes.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "cyber",
+      "lon": 7.343,
+      "lat": 47.366,
+      "heure": "03 oct. 09:14",
+      "source": "Watson",
+      "dateVue": "2026-10-03T14:36:54.100Z"
     }
   ]
 }
