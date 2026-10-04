@@ -57,11 +57,29 @@ for (const k of Object.keys(hotAgg)) {
   const mm = hotAgg[k][dernierMois] || {};
   hotspots[k] = Object.values(mm).map((o) => ({ x: +(o.x / o.n).toFixed(1), y: +(o.y / o.n).toFixed(1), n: o.n }));
 }
+
+// Encart de contexte : Suisse romande (fixe) + profil du canton + situation de la commune (calculée)
+const ROMANDIE = "La Suisse romande demeure une région sûre : la majorité des événements recensés relèvent d'accidents et d'incendies plutôt que d'atteintes directes aux personnes.";
+const CANTON_PROFIL: Record<string, string> = {
+  GE: "Genève, canton très urbain, connaît une activité surtout routière et citadine - pertes de maîtrise, collisions, mobilité douce - les atteintes aux biens y restant ponctuelles.",
+  VD: "Vaud, canton le plus peuplé de Romandie, concentre logiquement le plus d'événements, en particulier sur ses axes routiers et son réseau ferroviaire.",
+  VS: "En Valais, la montagne pèse fortement dans le bilan : une part notable des accidents survient en altitude (chutes, alpinisme, randonnée), aux côtés des accidents de la route.",
+  NE: "Neuchâtel connaît une activité contenue ; l'Arc jurassien voit ponctuellement des atteintes à son patrimoine horloger.",
+  FR: "Fribourg voit son activité marquée par ses axes autoroutiers et quelques incendies ; la délinquance organisée y reste l'exception.",
+  JU: "Le Jura, peu densément peuplé, enregistre peu d'événements, essentiellement des accidents de la route et des incendies.",
+};
+const cantonStats: Record<string, { total: number; concernees: number; maxC: number; nbTotal: number }> = {};
+for (const c of CANTONS) {
+  const k = c.code;
+  const hs = hotspots[k] || [];
+  cantonStats[k] = { total: (cantonParMois[k] || {})[dernierMois] || 0, concernees: hs.length, maxC: hs.reduce((m, h) => Math.max(m, h.n), 0), nbTotal: (COMMUNES[k] || []).length };
+}
+
 const geo = {
   cantons: (geoData.cantons as any[]).filter((c) => ROMANDS.has(c.code)).map((c) => ({ code: c.code, d: c.d })),
   lakes: geoData.lakes as string[],
 };
-const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLabel, communes: COMMUNES, geo };
+const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLabel, communes: COMMUNES, geo, romandie: ROMANDIE, profils: CANTON_PROFIL, cantonStats };
 ---
 
 <section class="rc" id="rapport">
@@ -206,6 +224,12 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
       h += '<p class="rc-rcalm">Aucun événement de sécurité relayé à ' + esc(commune) + ' en ' + D.dernierLabel + '. Un mois calme, selon les sources publiques.</p>';
     }
     h += '</div></div>';
+    const st = D.cantonStats[canton] || { total: 0, concernees: 0, maxC: 0, nbTotal: 0 };
+    let ligne;
+    if (!evs.length) ligne = 'Aucun événement n\'a été relayé à ' + esc(commune) + ' en ' + D.dernierLabel + ', comme pour la plupart des communes du canton (' + Math.max(0, st.nbTotal - st.concernees) + ' sur ' + st.nbTotal + ' sans fait recensé ce mois).';
+    else if (st.maxC && evs.length >= st.maxC) ligne = 'Avec ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ', ' + esc(commune) + ' figure parmi les communes les plus concernées du canton ce mois.';
+    else ligne = esc(commune) + ' enregistre ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ' en ' + D.dernierLabel + ', un niveau modéré à l\'échelle du canton.';
+    h += '<div class="rc-rencart"><h4>Le contexte</h4><p>' + D.romandie + ' ' + (D.profils[canton] || '') + ' ' + ligne + '</p></div>';
     h += '<p class="rc-rctx">Dans le canton de ' + esc(CANTONS[canton] || canton) + ' : <b>' + cantonTot + '</b> événement' + (cantonTot > 1 ? 's' : '') + ' recensé' + (cantonTot > 1 ? 's' : '') + ' en ' + D.dernierLabel + '. Sources : médias romands et communiqués de police, recensés et dédoublonnés automatiquement par Edgward. Données neutres, sans information personnelle.</p>';
     return h;
   }
@@ -288,6 +312,9 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   .rc-ev-s { color: #64748b; font-size: 11px; margin-top: 1px; }
   .rc-ev-c { flex: 0 0 auto; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; font-weight: 800; align-self: flex-start; }
   .rc-rcalm { font-size: 13.5px; color: #64748b; margin: 0; padding: 10px 0; }
+  .rc-rencart { background: rgba(70,120,220,.07); border-left: 3px solid #4678DC; border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 16px 0 0; }
+  .rc-rencart h4 { margin: 0 0 5px; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: #3C6EC8; font-weight: 800; }
+  .rc-rencart p { margin: 0; font-size: 13px; line-height: 1.6; color: #334155; }
   .rc-rctx { font-size: 12px; color: #64748b; margin: 14px 0 0; line-height: 1.5; }
   @media (max-width: 640px) { .rc-rgrid { grid-template-columns: 1fr; } }
   .rc-print { border: 0; }
@@ -322,6 +349,9 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   .rc-ev-s{color:#64748b;font-size:11px;margin-top:1px}
   .rc-ev-c{flex:0 0 auto;font-size:10px;text-transform:uppercase;letter-spacing:.04em;font-weight:800;align-self:flex-start}
   .rc-rcalm{font-size:13.5px;color:#64748b;margin:0;padding:10px 0}
+  .rc-rencart{background:rgba(70,120,220,.07);border-left:3px solid #4678DC;border-radius:0 10px 10px 0;padding:12px 16px;margin:16px 0 0}
+  .rc-rencart h4{margin:0 0 5px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#3C6EC8;font-weight:800}
+  .rc-rencart p{margin:0;font-size:13px;line-height:1.6;color:#334155}
   .rc-rctx{font-size:12px;color:#64748b;margin:14px 0 0;line-height:1.5}
   .rc-pfoot{margin-top:18px;border-top:1px solid #e5e7eb;padding-top:10px;font-size:11px;color:#6b7280}
   .rc-pfoot b{color:#0a1929}
