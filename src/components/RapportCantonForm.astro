@@ -1,20 +1,21 @@
 ---
 /**
- * « Voir le rapport de sa commune, le télécharger, puis s'abonner. »
- * Étape 1 : le visiteur choisit canton + commune et voit immédiatement un rapport
- * personnalisé du dernier mois complet (carte du canton situant la commune, chiffres,
- * événements), sans e-mail.
- * Étape 2 : il peut le télécharger en PDF, et/ou s'abonner pour le recevoir chaque mois.
+ * « Voir le rapport (commune ou canton, par mois), le télécharger, puis s'abonner. »
+ * Le visiteur choisit canton + commune (ou « Tout le canton ») + mois, et voit un
+ * rapport personnalisé (logo Edgward, carte situant la commune, chiffres, événements,
+ * barres de répartition du canton, encart de contexte). Téléchargeable en PDF.
+ * Puis abonnement mensuel (Brevo).
  *
  * À FAIRE (Daniel) : remplacer BREVO_ACTION par l'URL du formulaire Brevo
- * « Rapport mensuel » (attributs CANTON et COMMUNE, double opt-in). Tant qu'elle
- * est vide, l'inscription confirme à l'écran mais n'enregistre rien.
+ * (attributs CANTON + COMMUNE, double opt-in). Tant qu'elle est vide, l'inscription
+ * confirme à l'écran mais n'enregistre rien.
  */
 import communesData from '../data/communes-par-canton.json';
 import geoData from '../data/cantons-romands.json';
 import archive from '../data/evenements-archive.json';
 import ajouts from '../data/ajouts-osint.json';
 import doublons from '../data/doublons-exclus.json';
+import logo from '../data/logo-edgward.json';
 
 const COMMUNES = communesData.communes as Record<string, { n: string; lon: number | null; lat: number | null }[]>;
 const CANTONS = [
@@ -23,43 +24,45 @@ const CANTONS = [
 ];
 const ROMANDS = new Set(CANTONS.map((c) => c.code));
 const MOIS_FR: Record<string, string> = { '01': 'janvier', '02': 'février', '03': 'mars', '04': 'avril', '05': 'mai', '06': 'juin', '07': 'juillet', '08': 'août', '09': 'septembre', '10': 'octobre', '11': 'novembre', '12': 'décembre' };
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const DEBUT = '2026-08';
 const A = 192.0, Bx = -1081.9, C = -276.6, Dy = 13248.9;
 
-const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-  .replace(/\bsaint(e)?\b/g, (m) => (m.endsWith('e') ? 'ste' : 'st')).replace(/[^a-z0-9]/g, '');
-
+const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\bsaint(e)?\b/g, (m) => (m.endsWith('e') ? 'ste' : 'st')).replace(/[^a-z0-9]/g, '');
 const exclus = new Set((doublons as any).exclus as string[]);
 const cle = (e: any) => [e.commune, (e.dateVue || '').slice(0, 10), e.titre].join(' | ');
 const parts = new Intl.DateTimeFormat('fr-CH', { timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit' }).formatToParts(new Date());
 const moisCourant = `${parts.find((p) => p.type === 'year')!.value}-${parts.find((p) => p.type === 'month')!.value}`;
 
-const perCommune: Record<string, { k: string; parMois: Record<string, { d: string; cat: string; t: string; s: string }[]> }> = {};
-const cantonParMois: Record<string, Record<string, number>> = {};
+// Agrégations par canton et par mois (+ bucket "all" = toute la période)
+type Ev = { d: string; cat: string; t: string; s: string; c: string };
+const cantonEvents: Record<string, Record<string, Ev[]>> = {};
+const cantonCats: Record<string, Record<string, Record<string, number>>> = {};
 const hotAgg: Record<string, Record<string, Record<string, { x: number; y: number; n: number }>>> = {};
 const moisSet = new Set<string>();
 for (const e of [...(archive.evenements as any[]), ...(ajouts.evenements as any[])]) {
   const m = (e.dateVue || '').slice(0, 7);
   if (!ROMANDS.has(e.canton) || m < DEBUT || m === moisCourant || exclus.has(cle(e)) || typeof e.lon !== 'number') continue;
   moisSet.add(m);
-  (cantonParMois[e.canton] ||= {})[m] = ((cantonParMois[e.canton] ||= {})[m] || 0) + 1;
-  const k = norm(e.commune);
-  const rec = (perCommune[k] ||= { k: e.canton, parMois: {} });
-  (rec.parMois[m] ||= []).push({ d: (e.dateVue || '').slice(8, 10) + '.' + (e.dateVue || '').slice(5, 7), cat: e.categorie, t: e.titre, s: e.source || '' });
-  const hm = ((hotAgg[e.canton] ||= {})[m] ||= {});
-  const h = (hm[k] ||= { x: 0, y: 0, n: 0 });
-  h.x += A * e.lon + Bx; h.y += C * e.lat + Dy; h.n++;
+  const dv = (e.dateVue || '').slice(0, 10);
+  const ev: Ev = { d: dv.slice(8, 10) + '.' + dv.slice(5, 7), cat: e.categorie, t: e.titre, s: e.source || '', c: e.commune };
+  for (const key of [m, 'all']) {
+    ((cantonEvents[e.canton] ||= {})[key] ||= []).push(ev);
+    const cc = ((cantonCats[e.canton] ||= {})[key] ||= {}); cc[e.categorie] = (cc[e.categorie] || 0) + 1;
+    const hm = ((hotAgg[e.canton] ||= {})[key] ||= {});
+    const h = (hm[norm(e.commune)] ||= { x: 0, y: 0, n: 0 });
+    h.x += A * e.lon + Bx; h.y += C * e.lat + Dy; h.n++;
+  }
 }
-const mois = [...moisSet].sort();
-const dernierMois = mois[mois.length - 1] || DEBUT;
-const dernierLabel = `${MOIS_FR[dernierMois.slice(5)]} ${dernierMois.slice(0, 4)}`;
-const hotspots: Record<string, { x: number; y: number; n: number }[]> = {};
-for (const k of Object.keys(hotAgg)) {
-  const mm = hotAgg[k][dernierMois] || {};
-  hotspots[k] = Object.values(mm).map((o) => ({ x: +(o.x / o.n).toFixed(1), y: +(o.y / o.n).toFixed(1), n: o.n }));
-}
+for (const k of Object.keys(cantonEvents)) for (const m of Object.keys(cantonEvents[k])) cantonEvents[k][m].sort((a, b) => a.d.localeCompare(b.d));
+const hotspots: Record<string, Record<string, { x: number; y: number; n: number }[]>> = {};
+for (const k of Object.keys(hotAgg)) { hotspots[k] = {}; for (const m of Object.keys(hotAgg[k])) hotspots[k][m] = Object.values(hotAgg[k][m]).map((o) => ({ x: +(o.x / o.n).toFixed(1), y: +(o.y / o.n).toFixed(1), n: o.n })); }
 
-// Encart de contexte : Suisse romande (fixe) + profil du canton + situation de la commune (calculée)
+const mois = [...moisSet].sort();
+const moisDispo = mois.map((m) => ({ key: m, label: cap(MOIS_FR[m.slice(5)]) + ' ' + m.slice(0, 4) }));
+moisDispo.push({ key: 'all', label: 'Toute la période' });
+const defautMois = mois[mois.length - 1] || DEBUT;
+
 const ROMANDIE = "La Suisse romande demeure une région sûre : la majorité des événements recensés relèvent d'accidents et d'incendies plutôt que d'atteintes directes aux personnes.";
 const CANTON_PROFIL: Record<string, string> = {
   GE: "Genève, canton très urbain, connaît une activité surtout routière et citadine - pertes de maîtrise, collisions, mobilité douce - les atteintes aux biens y restant ponctuelles.",
@@ -69,18 +72,9 @@ const CANTON_PROFIL: Record<string, string> = {
   FR: "Fribourg voit son activité marquée par ses axes autoroutiers et quelques incendies ; la délinquance organisée y reste l'exception.",
   JU: "Le Jura, peu densément peuplé, enregistre peu d'événements, essentiellement des accidents de la route et des incendies.",
 };
-const cantonStats: Record<string, { total: number; concernees: number; maxC: number; nbTotal: number }> = {};
-for (const c of CANTONS) {
-  const k = c.code;
-  const hs = hotspots[k] || [];
-  cantonStats[k] = { total: (cantonParMois[k] || {})[dernierMois] || 0, concernees: hs.length, maxC: hs.reduce((m, h) => Math.max(m, h.n), 0), nbTotal: (COMMUNES[k] || []).length };
-}
 
-const geo = {
-  cantons: (geoData.cantons as any[]).filter((c) => ROMANDS.has(c.code)).map((c) => ({ code: c.code, d: c.d })),
-  lakes: geoData.lakes as string[],
-};
-const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLabel, communes: COMMUNES, geo, romandie: ROMANDIE, profils: CANTON_PROFIL, cantonStats };
+const geo = { cantons: (geoData.cantons as any[]).filter((c) => ROMANDS.has(c.code)).map((c) => ({ code: c.code, d: c.d })), lakes: geoData.lakes as string[] };
+const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, communes: COMMUNES, geo, romandie: ROMANDIE, profils: CANTON_PROFIL, logo };
 ---
 
 <section class="rc" id="rapport">
@@ -94,7 +88,7 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
       <div class="rc-main">
         <span class="rc-eyebrow">Rapport de sécurité · gratuit</span>
         <h2>Le rapport de sécurité de votre commune</h2>
-        <p class="rc-desc">Choisissez votre commune pour voir son rapport du mois - téléchargeable, et à recevoir chaque mois par e-mail.</p>
+        <p class="rc-desc">Choisissez votre commune (ou tout le canton) et un mois pour voir le rapport - téléchargeable, et à recevoir chaque mois par e-mail.</p>
 
         <div id="rc-step1">
           <div class="rc-row">
@@ -113,16 +107,21 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
               <input type="text" id="rc-commune-autre" placeholder="Nom de votre commune" autocomplete="address-level2" aria-label="Nom de votre commune" hidden />
             </label>
           </div>
-          <button type="button" id="rc-voir" class="btn btn-primary rc-submit">Voir le rapport de ma commune</button>
+          <div class="rc-row">
+            <label class="rc-field">
+              <span>Mois</span>
+              <select id="rc-mois" aria-label="Mois"></select>
+            </label>
+            <div class="rc-field rc-field-btn"><span>&nbsp;</span><button type="button" id="rc-voir" class="btn btn-primary rc-submit">Voir le rapport</button></div>
+          </div>
         </div>
 
         <div id="rc-report" hidden>
-          <button type="button" id="rc-retour" class="rc-retour">&#8592; Changer de commune</button>
+          <button type="button" id="rc-retour" class="rc-retour">&#8592; Modifier la recherche</button>
           <div id="rc-report-body" class="rc-doc"></div>
           <div class="rc-actions">
             <button type="button" id="rc-dl" class="btn btn-primary">Télécharger le rapport (PDF)</button>
           </div>
-
           <div class="rc-sub" id="rc-sub">
             <p class="rc-sub-title">Recevez le rapport de <b id="rc-sub-commune"></b> chaque mois</p>
             <form class="rc-subform" id="rc-subform" novalidate>
@@ -168,12 +167,17 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   const cantonSel = document.getElementById('rc-canton');
   const communeSel = document.getElementById('rc-commune');
   const communeAutre = document.getElementById('rc-commune-autre');
+  const moisSel = document.getElementById('rc-mois');
   const subCommune = document.getElementById('rc-sub-commune');
-  let choix = { canton: '', commune: '' };
+  let choix = { canton: '', commune: '', mois: '', scope: 'commune' };
+
+  D.moisDispo.forEach((m) => { const o = document.createElement('option'); o.value = m.key; o.textContent = m.label; moisSel.appendChild(o); });
+  moisSel.value = D.defautMois;
 
   cantonSel.addEventListener('change', () => {
     const list = D.communes[cantonSel.value] || [];
-    communeSel.innerHTML = '<option value="" disabled selected>Choisir…</option>'
+    communeSel.innerHTML = '<option value="_canton">Tout le canton</option>'
+      + '<option value="" disabled selected>Choisir une commune…</option>'
       + list.map((c) => '<option>' + c.n + '</option>').join('')
       + '<option value="_autre">Ma commune n\'est pas dans la liste…</option>';
     communeSel.disabled = false;
@@ -188,114 +192,129 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
 
   function bbox(d) { const re = /(-?[\d.]+),(-?[\d.]+)/g; let m, xs = [], ys = []; while ((m = re.exec(d))) { xs.push(+m[1]); ys.push(+m[2]); } return { x: Math.min(...xs), y: Math.min(...ys), X: Math.max(...xs), Y: Math.max(...ys) }; }
 
-  function carteSVG(canton, commune) {
+  function carteSVG(canton, mois, commune) {
     const g = D.geo.cantons.find((c) => c.code === canton); if (!g) return '';
     const bb = bbox(g.d), pad = 6;
     const vb = { x: bb.x - pad, y: bb.y - pad, w: (bb.X - bb.x) + 2 * pad, h: (bb.Y - bb.y) + 2 * pad };
     const fs = vb.w * 0.03;
-    let s = '<svg class="rc-map" viewBox="' + [vb.x, vb.y, vb.w, vb.h].join(' ') + '" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte de ' + esc(commune) + '">';
+    let s = '<svg class="rc-map" viewBox="' + [vb.x, vb.y, vb.w, vb.h].join(' ') + '" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Carte">';
     s += '<path d="' + g.d + '" fill="#e9edf3" stroke="#cdd7e5" stroke-width="0.5"/>';
     D.geo.lakes.forEach((d) => { s += '<path d="' + d + '" fill="#cfe8f5" stroke="#bcdcef" stroke-width="0.3"/>'; });
-    (D.hotspots[canton] || []).forEach((p) => { s += '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + (0.8 + Math.min(1.8, Math.sqrt(p.n) * 0.5)).toFixed(2) + '" fill="#9fb0c4" opacity="0.55"/>'; });
-    const co = (D.communes[canton] || []).find((c) => norm(c.n) === norm(commune));
-    if (co && co.lon != null) {
-      const x = A * co.lon + Bx, y = C * co.lat + Dy;
-      s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (fs * 1.6).toFixed(2) + '" fill="#4678DC" opacity="0.18"/>';
-      s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (fs * 0.55).toFixed(2) + '" fill="#4678DC" stroke="#fff" stroke-width="' + (fs * 0.12).toFixed(2) + '"/>';
-      s += '<text x="' + x.toFixed(1) + '" y="' + (y - fs * 0.9).toFixed(1) + '" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="' + fs.toFixed(2) + '" fill="#0a1929" paint-order="stroke" stroke="#fff" stroke-width="' + (fs * 0.3).toFixed(2) + '">' + esc(commune) + '</text>';
+    const hs = (D.hotspots[canton] && D.hotspots[canton][mois]) || [];
+    hs.forEach((p) => { s += '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + (0.8 + Math.min(1.8, Math.sqrt(p.n) * 0.5)).toFixed(2) + '" fill="#9fb0c4" opacity="0.55"/>'; });
+    if (commune) {
+      const co = (D.communes[canton] || []).find((c) => norm(c.n) === norm(commune));
+      if (co && co.lon != null) {
+        const x = A * co.lon + Bx, y = C * co.lat + Dy;
+        s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (fs * 1.6).toFixed(2) + '" fill="#4678DC" opacity="0.18"/>';
+        s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (fs * 0.55).toFixed(2) + '" fill="#4678DC" stroke="#fff" stroke-width="' + (fs * 0.12).toFixed(2) + '"/>';
+        s += '<text x="' + x.toFixed(1) + '" y="' + (y - fs * 0.9).toFixed(1) + '" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="' + fs.toFixed(2) + '" fill="#0a1929" paint-order="stroke" stroke="#fff" stroke-width="' + (fs * 0.3).toFixed(2) + '">' + esc(commune) + '</text>';
+      }
     }
     s += '</svg>'; return s;
   }
 
-  function rapportHTML(canton, commune) {
-    const rec = D.perCommune[norm(commune)];
-    const evs = (rec && rec.k === canton && rec.parMois[D.dernierMois]) ? rec.parMois[D.dernierMois] : [];
-    const cantonTot = (D.cantonParMois[canton] && D.cantonParMois[canton][D.dernierMois]) || 0;
+  function barres(canton, mois) {
+    const cats = (D.cantonCats[canton] && D.cantonCats[canton][mois]) || {};
+    const rows = Object.keys(CATS).filter((c) => cats[c]).sort((a, b) => cats[b] - cats[a]);
+    if (!rows.length) return '';
+    const max = cats[rows[0]];
+    return '<h4 class="rc-rsec">Répartition par type - canton de ' + esc(CANTONS[canton]) + '</h4><div class="rc-bars">'
+      + rows.map((c) => '<div class="rc-bar"><span class="rc-bar-l">' + CATS[c].l + '</span><span class="rc-bar-t"><span class="rc-bar-f" style="width:' + (100 * cats[c] / max).toFixed(0) + '%;background:' + CATS[c].c + '"></span></span><span class="rc-bar-v">' + cats[c] + '</span></div>').join('')
+      + '</div>';
+  }
+
+  function moisLabel(mois) { const m = D.moisDispo.find((x) => x.key === mois); return m ? m.label : mois; }
+
+  function rapportHTML(canton, commune, mois, scope) {
+    const toutCanton = scope === 'canton';
+    const tousEvs = (D.cantonEvents[canton] && D.cantonEvents[canton][mois]) || [];
+    const evs = toutCanton ? tousEvs : tousEvs.filter((e) => norm(e.c) === norm(commune));
+    const cantonTot = tousEvs.length;
+    const titre = toutCanton ? 'Canton de ' + CANTONS[canton] : commune;
+    const label = moisLabel(mois);
     const cats = {}; evs.forEach((e) => (cats[e.cat] = (cats[e.cat] || 0) + 1));
     const dom = Object.entries(cats).sort((a, b) => b[1] - a[1])[0];
-    let h = '<div class="rc-rhead"><div class="rc-rwm"><span class="rc-rm">E</span>EDGWARD</div>'
-      + '<div class="rc-rhi"><span class="rc-rtag">Rapport de sécurité</span><div class="rc-rtitle">' + esc(commune) + '</div><div class="rc-rmo">' + esc(CANTONS[canton] || canton) + ' · ' + D.dernierLabel + '</div></div></div>';
-    h += '<div class="rc-rgrid"><div class="rc-rmapwrap">' + carteSVG(canton, commune) + '<div class="rc-rmapcap">' + esc(commune) + ' dans le canton · chaque point gris = une commune concernée ce mois</div></div><div class="rc-rside">';
+
+    let h = '<div class="rc-rhead"><img class="rc-rlogo" src="' + D.logo.sigle + '" alt="" width="30" height="30"><img class="rc-rwm" src="' + D.logo.wordmark + '" alt="Edgward" height="16">'
+      + '<div class="rc-rhi"><span class="rc-rtag">Rapport de sécurité</span><div class="rc-rtitle">' + esc(titre) + '</div><div class="rc-rmo">' + esc(toutCanton ? label : CANTONS[canton] + ' · ' + label) + '</div></div></div>';
+    h += '<div class="rc-rgrid"><div class="rc-rmapwrap">' + carteSVG(canton, mois, toutCanton ? '' : commune) + '<div class="rc-rmapcap">' + (toutCanton ? 'Communes concernées' : esc(commune) + ' dans le canton') + ' · chaque point gris = une commune concernée</div></div><div class="rc-rside">';
     h += '<div class="rc-rkpis"><div class="rc-rkpi"><b>' + evs.length + '</b><span>événement' + (evs.length > 1 ? 's' : '') + '</span></div>' + (dom ? '<div class="rc-rkpi"><b>' + dom[1] + '</b><span>' + (CATS[dom[0]] ? CATS[dom[0]].l.toLowerCase() : dom[0]) + '</span></div>' : '') + '</div>';
     if (evs.length) {
       h += '<div class="rc-evs">' + evs.map((e) => { const c = CATS[e.cat] || { l: e.cat, c: '#64748b' };
-        return '<div class="rc-ev"><span class="rc-ev-d">' + e.d + '</span><span class="rc-ev-b"><span class="rc-ev-t">' + esc(e.t) + '</span>' + (e.s ? '<span class="rc-ev-s">' + esc(e.s) + '</span>' : '') + '</span><span class="rc-ev-c" style="color:' + c.c + '">' + c.l + '</span></div>';
+        return '<div class="rc-ev"><span class="rc-ev-d">' + e.d + '</span><span class="rc-ev-b"><span class="rc-ev-t">' + esc(e.t) + '</span><span class="rc-ev-s">' + (toutCanton ? esc(e.c) + (e.s ? ' · ' + esc(e.s) : '') : esc(e.s)) + '</span></span><span class="rc-ev-c" style="color:' + c.c + '">' + c.l + '</span></div>';
       }).join('') + '</div>';
     } else {
-      h += '<p class="rc-rcalm">Aucun événement de sécurité relayé à ' + esc(commune) + ' en ' + D.dernierLabel + '. Un mois calme, selon les sources publiques.</p>';
+      h += '<p class="rc-rcalm">Aucun événement de sécurité relayé à ' + esc(commune) + ' sur cette période. Un mois calme, selon les sources publiques.</p>';
     }
     h += '</div></div>';
-    const st = D.cantonStats[canton] || { total: 0, concernees: 0, maxC: 0, nbTotal: 0 };
+
+    h += barres(canton, mois);
+
+    const st = { total: cantonTot, concernees: ((D.hotspots[canton] && D.hotspots[canton][mois]) || []).length, nbTotal: (D.communes[canton] || []).length };
     let ligne;
-    if (!evs.length) ligne = 'Aucun événement n\'a été relayé à ' + esc(commune) + ' en ' + D.dernierLabel + ', comme pour la plupart des communes du canton (' + Math.max(0, st.nbTotal - st.concernees) + ' sur ' + st.nbTotal + ' sans fait recensé ce mois).';
-    else if (st.maxC && evs.length >= st.maxC) ligne = 'Avec ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ', ' + esc(commune) + ' figure parmi les communes les plus concernées du canton ce mois.';
-    else ligne = esc(commune) + ' enregistre ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ' en ' + D.dernierLabel + ', un niveau modéré à l\'échelle du canton.';
+    if (toutCanton) ligne = 'Sur la période, ' + st.concernees + ' commune' + (st.concernees > 1 ? 's' : '') + ' du canton ' + (st.concernees > 1 ? 'ont' : 'a') + ' connu au moins un événement, sur ' + st.nbTotal + '.';
+    else if (!evs.length) ligne = 'Aucun événement relayé à ' + esc(commune) + ', comme pour la plupart des communes du canton (' + Math.max(0, st.nbTotal - st.concernees) + ' sur ' + st.nbTotal + ' sans fait recensé).';
+    else { const maxC = Math.max(0, ...((D.hotspots[canton] && D.hotspots[canton][mois]) || []).map((p) => p.n)); ligne = (maxC && evs.length >= maxC) ? ('Avec ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ', ' + esc(commune) + ' figure parmi les communes les plus concernées du canton.') : (esc(commune) + ' enregistre ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ', un niveau modéré à l\'échelle du canton.'); }
     h += '<div class="rc-rencart"><h4>Le contexte</h4><p>' + D.romandie + ' ' + (D.profils[canton] || '') + ' ' + ligne + '</p></div>';
-    h += '<p class="rc-rctx">Dans le canton de ' + esc(CANTONS[canton] || canton) + ' : <b>' + cantonTot + '</b> événement' + (cantonTot > 1 ? 's' : '') + ' recensé' + (cantonTot > 1 ? 's' : '') + ' en ' + D.dernierLabel + '. Sources : médias romands et communiqués de police, recensés et dédoublonnés automatiquement par Edgward. Données neutres, sans information personnelle.</p>';
+    h += '<p class="rc-rctx">Dans le canton de ' + esc(CANTONS[canton]) + ' : <b>' + cantonTot + '</b> événement' + (cantonTot > 1 ? 's' : '') + ' recensé' + (cantonTot > 1 ? 's' : '') + ' sur la période. Sources : médias romands et communiqués de police, recensés et dédoublonnés automatiquement par Edgward. Données neutres, sans information personnelle.</p>';
     return h;
   }
 
   function afficher() {
-    const canton = cantonSel.value, commune = resoudreCommune();
+    const canton = cantonSel.value, communeRaw = resoudreCommune(), mois = moisSel.value;
     if (!canton) { cantonSel.focus(); return; }
-    if (!commune) { (communeSel.value === '_autre' ? communeAutre : communeSel).focus(); return; }
-    choix = { canton, commune };
-    reportBody.innerHTML = rapportHTML(canton, commune);
-    subCommune.textContent = commune;
+    if (!communeRaw) { (communeSel.value === '_autre' ? communeAutre : communeSel).focus(); return; }
+    const scope = communeRaw === '_canton' ? 'canton' : 'commune';
+    const commune = scope === 'canton' ? 'Tout le canton' : communeRaw;
+    choix = { canton, commune, mois, scope };
+    reportBody.innerHTML = rapportHTML(canton, commune, mois, scope);
+    subCommune.textContent = scope === 'canton' ? 'tout le canton (' + CANTONS[canton] + ')' : commune;
     step1.hidden = true; report.hidden = false;
     report.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   document.getElementById('rc-voir').addEventListener('click', afficher);
   document.getElementById('rc-retour').addEventListener('click', () => { report.hidden = true; step1.hidden = false; });
 
-  // Téléchargement : page imprimable autonome -> « Enregistrer en PDF »
   document.getElementById('rc-dl').addEventListener('click', () => {
-    const corps = rapportHTML(choix.canton, choix.commune);
+    const corps = rapportHTML(choix.canton, choix.commune, choix.mois, choix.scope);
     const style = document.getElementById('rc-print-style').textContent;
-    const w = window.open('', '_blank');
-    if (!w) return;
-    w.document.write('<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Rapport sécurité ' + esc(choix.commune) + ' - ' + esc(D.dernierLabel) + '</title>'
+    const w = window.open('', '_blank'); if (!w) return;
+    w.document.write('<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Rapport sécurité ' + esc(choix.commune) + '</title>'
       + '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
       + '<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">'
       + '<style>' + style + '</style></head><body><div class="rc-doc rc-print">' + corps
       + '<div class="rc-pfoot"><b>Edgward</b> - service d\'intervention de sécurité à la demande en Suisse romande. edgward.ch</div></div>'
-      + '<scr' + 'ipt>window.onload=function(){setTimeout(function(){window.print();},400);};</scr' + 'ipt></body></html>');
+      + '<scr' + 'ipt>window.onload=function(){setTimeout(function(){window.print();},500);};</scr' + 'ipt></body></html>');
     w.document.close();
   });
 
-  function reveal() {
-    thanks.textContent = 'Merci ! Le rapport de ' + choix.commune + ' vous sera envoyé chaque mois par e-mail.';
-    report.hidden = true; success.removeAttribute('hidden');
-  }
+  function reveal() { thanks.textContent = 'Merci ! Le rapport de ' + choix.commune + ' vous sera envoyé chaque mois par e-mail.'; report.hidden = true; success.removeAttribute('hidden'); }
   document.getElementById('rc-subform').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const f = e.target;
+    e.preventDefault(); const f = e.target;
     if (f.email_address_check.value) return;
     if (Date.now() - chargeA < DELAI_MIN_MS) return;
     const email = f.EMAIL.value.trim();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { f.EMAIL.focus(); f.EMAIL.reportValidity(); return; }
-    const btn = f.querySelector('button[type="submit"]');
-    btn.disabled = true; btn.textContent = 'Envoi…';
+    const btn = f.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Envoi…';
     const done = () => { reveal(); window.gtag?.('event', 'rapport_commune_inscription', { canton: choix.canton, commune: choix.commune }); };
     if (!BREVO_ACTION) { done(); return; }
     const params = new URLSearchParams();
     params.append('EMAIL', email); params.append('CANTON', choix.canton); params.append('COMMUNE', choix.commune);
     params.append('email_address_check', ''); params.append('locale', 'fr');
-    fetch(BREVO_ACTION, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() })
-      .catch(() => {}).finally(done);
+    fetch(BREVO_ACTION, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() }).catch(() => {}).finally(done);
   });
 </script>
 
-<!-- Styles du rapport, partagés entre l'affichage et la version imprimable -->
-<style is:global id="rc-print-style-src">
+<style is:global>
   .rc-doc { background: #fff; border: 1px solid var(--border, #e5e7eb); border-radius: 12px; padding: 22px; color: #0a1929; font-family: 'Manrope', system-ui, sans-serif; }
-  .rc-rhead { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; border-bottom: 2px solid #0a1929; padding-bottom: 12px; }
-  .rc-rwm { font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 7px; white-space: nowrap; }
-  .rc-rwm .rc-rm { width: 23px; height: 23px; border-radius: 6px; background: #4678DC; color: #fff; display: grid; place-items: center; font-size: 12px; }
-  .rc-rhi { text-align: right; }
+  .rc-rhead { display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #0a1929; padding-bottom: 12px; }
+  .rc-rlogo { width: 30px; height: 30px; border-radius: 7px; flex: none; }
+  .rc-rwm { height: 17px; width: auto; }
+  .rc-rhi { margin-left: auto; text-align: right; }
   .rc-rtag { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: #4678DC; font-weight: 800; }
   .rc-rtitle { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.05; }
-  .rc-rmo { font-size: 12.5px; color: #64748b; text-transform: capitalize; }
+  .rc-rmo { font-size: 12.5px; color: #64748b; }
   .rc-rgrid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 20px; align-items: start; margin-top: 16px; }
   .rc-rmapwrap { border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; background: #f4f7fb; }
   .rc-map { display: block; width: 100%; height: auto; }
@@ -304,7 +323,7 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   .rc-rkpi { background: rgba(70,120,220,.1); border-radius: 10px; padding: 9px 14px; }
   .rc-rkpi b { display: block; font-family: 'Instrument Serif', serif; font-size: 26px; line-height: 1; }
   .rc-rkpi span { font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: #64748b; }
-  .rc-evs { display: flex; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+  .rc-evs { display: flex; flex-direction: column; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; max-height: 340px; overflow-y: auto; }
   .rc-ev { display: flex; gap: 10px; padding: 9px 12px; border-top: 1px solid #eef2f7; font-size: 12.5px; }
   .rc-ev:first-child { border-top: 0; }
   .rc-ev-d { flex: 0 0 36px; color: #6b7280; font-weight: 600; }
@@ -313,26 +332,29 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   .rc-ev-s { color: #64748b; font-size: 11px; margin-top: 1px; }
   .rc-ev-c { flex: 0 0 auto; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; font-weight: 800; align-self: flex-start; }
   .rc-rcalm { font-size: 13.5px; color: #64748b; margin: 0; padding: 10px 0; }
-  .rc-rencart { background: rgba(70,120,220,.07); border-left: 3px solid #4678DC; border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 16px 0 0; }
+  .rc-rsec { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #0a1929; margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; }
+  .rc-bars { display: flex; flex-direction: column; gap: 7px; }
+  .rc-bar { display: flex; align-items: center; gap: 10px; font-size: 12.5px; }
+  .rc-bar-l { width: 96px; color: #334155; font-weight: 600; }
+  .rc-bar-t { flex: 1; height: 10px; background: #eef2f7; border-radius: 5px; overflow: hidden; }
+  .rc-bar-f { display: block; height: 100%; border-radius: 5px; }
+  .rc-bar-v { width: 22px; text-align: right; font-weight: 800; }
+  .rc-rencart { background: rgba(70,120,220,.07); border-left: 3px solid #4678DC; border-radius: 0 10px 10px 0; padding: 12px 16px; margin: 20px 0 0; }
   .rc-rencart h4 { margin: 0 0 5px; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: #3C6EC8; font-weight: 800; }
   .rc-rencart p { margin: 0; font-size: 13px; line-height: 1.6; color: #334155; }
   .rc-rctx { font-size: 12px; color: #64748b; margin: 14px 0 0; line-height: 1.5; }
   @media (max-width: 640px) { .rc-rgrid { grid-template-columns: 1fr; } }
-  .rc-print { border: 0; }
-  .rc-pfoot { margin-top: 16px; border-top: 1px solid #e5e7eb; padding-top: 10px; font-size: 11px; color: #6b7280; }
-  .rc-print .rc-pfoot b { color: #0a1929; }
-  @media print { @page { size: A4; margin: 12mm; } body { margin: 0; } .rc-print { padding: 0; } }
 </style>
 <script type="application/x-rc-style" id="rc-print-style" is:inline set:html={`
   *{box-sizing:border-box} body{margin:0;background:#fff}
   .rc-doc{font-family:'Manrope',system-ui,sans-serif;color:#0a1929;padding:0}
-  .rc-rhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:2px solid #0a1929;padding-bottom:12px}
-  .rc-rwm{font-weight:800;font-size:16px;display:flex;align-items:center;gap:8px}
-  .rc-rwm .rc-rm{width:25px;height:25px;border-radius:7px;background:#4678DC;color:#fff;display:grid;place-items:center;font-size:13px}
-  .rc-rhi{text-align:right}
+  .rc-rhead{display:flex;align-items:center;gap:10px;border-bottom:2px solid #0a1929;padding-bottom:12px}
+  img{max-width:100%}
+  .rc-rlogo{width:30px;height:30px;border-radius:7px;flex:none} .rc-rwm{height:18px;width:auto}
+  .rc-rhi{margin-left:auto;text-align:right}
   .rc-rtag{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#4678DC;font-weight:800}
   .rc-rtitle{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:30px;line-height:1.05}
-  .rc-rmo{font-size:13px;color:#64748b;text-transform:capitalize}
+  .rc-rmo{font-size:13px;color:#64748b}
   .rc-rgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:22px;align-items:start;margin-top:18px}
   .rc-rmapwrap{border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;background:#f4f7fb}
   .rc-map{display:block;width:100%;height:auto}
@@ -350,7 +372,14 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   .rc-ev-s{color:#64748b;font-size:11px;margin-top:1px}
   .rc-ev-c{flex:0 0 auto;font-size:10px;text-transform:uppercase;letter-spacing:.04em;font-weight:800;align-self:flex-start}
   .rc-rcalm{font-size:13.5px;color:#64748b;margin:0;padding:10px 0}
-  .rc-rencart{background:rgba(70,120,220,.07);border-left:3px solid #4678DC;border-radius:0 10px 10px 0;padding:12px 16px;margin:16px 0 0}
+  .rc-rsec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#0a1929;margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid #e5e7eb}
+  .rc-bars{display:flex;flex-direction:column;gap:7px}
+  .rc-bar{display:flex;align-items:center;gap:10px;font-size:12.5px}
+  .rc-bar-l{width:96px;color:#334155;font-weight:600}
+  .rc-bar-t{flex:1;height:10px;background:#eef2f7;border-radius:5px;overflow:hidden}
+  .rc-bar-f{display:block;height:100%;border-radius:5px}
+  .rc-bar-v{width:22px;text-align:right;font-weight:800}
+  .rc-rencart{background:rgba(70,120,220,.07);border-left:3px solid #4678DC;border-radius:0 10px 10px 0;padding:12px 16px;margin:20px 0 0}
   .rc-rencart h4{margin:0 0 5px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#3C6EC8;font-weight:800}
   .rc-rencart p{margin:0;font-size:13px;line-height:1.6;color:#334155}
   .rc-rctx{font-size:12px;color:#64748b;margin:14px 0 0;line-height:1.5}
@@ -368,12 +397,13 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   .rc-eyebrow { display: block; font-size: 11px; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
   .rc-main h2 { font-size: 21px; font-weight: 800; color: var(--navy); line-height: 1.25; letter-spacing: -.02em; margin: 0 0 8px; }
   .rc-desc { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 18px; }
-  .rc-row { display: flex; gap: 10px; margin-bottom: 12px; }
+  .rc-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: flex-end; }
   .rc-field { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
   .rc-field span { font-size: 12px; font-weight: 600; color: var(--text-muted); }
   .rc-field select, .rc-field input { width: 100%; padding: 11px 14px; font-family: inherit; font-size: 14px; color: var(--navy); background: #fff; border: 1px solid var(--border); border-radius: 8px; }
   .rc-field select:focus, .rc-field input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-soft); }
-  .rc-submit { align-self: flex-start; }
+  .rc-field-btn span { visibility: hidden; }
+  .rc-submit { width: 100%; justify-content: center; }
   .rc-hp { position: absolute; left: -9999px; width: 1px; height: 1px; }
   .rc-privacy { font-size: 12px; color: var(--text-light); line-height: 1.5; margin: 10px 0 0; }
   .rc-privacy a { color: var(--text-muted); text-decoration: underline; }
@@ -390,8 +420,8 @@ const reportData = { perCommune, cantonParMois, hotspots, dernierMois, dernierLa
   .rc-subform button { flex: none; white-space: nowrap; }
   @media (max-width: 600px) {
     .rc-card { flex-direction: column; gap: 16px; padding: 24px 20px; }
-    .rc-row { flex-direction: column; }
-    .rc-submit { width: 100%; justify-content: center; }
+    .rc-row { flex-direction: column; align-items: stretch; }
+    .rc-field-btn span { display: none; }
     .rc-subform { flex-direction: column; }
     .rc-subform button { width: 100%; justify-content: center; }
   }
