@@ -63,18 +63,10 @@ const moisDispo = mois.map((m) => ({ key: m, label: cap(MOIS_FR[m.slice(5)]) + '
 moisDispo.push({ key: 'all', label: 'Toute la période' });
 const defautMois = mois[mois.length - 1] || DEBUT;
 
-const ROMANDIE = "La Suisse romande demeure une région sûre : la majorité des événements recensés relèvent d'accidents et d'incendies plutôt que d'atteintes directes aux personnes.";
-const CANTON_PROFIL: Record<string, string> = {
-  GE: "Genève, canton très urbain, connaît une activité surtout routière et citadine - pertes de maîtrise, collisions, mobilité douce - les atteintes aux biens y restant ponctuelles.",
-  VD: "Vaud, canton le plus peuplé de Romandie, concentre logiquement le plus d'événements, en particulier sur ses axes routiers et son réseau ferroviaire.",
-  VS: "En Valais, la montagne pèse fortement dans le bilan : une part notable des accidents survient en altitude (chutes, alpinisme, randonnée), aux côtés des accidents de la route.",
-  NE: "Neuchâtel connaît une activité contenue ; l'Arc jurassien voit ponctuellement des atteintes à son patrimoine horloger.",
-  FR: "Fribourg voit son activité marquée par ses axes autoroutiers et quelques incendies ; la délinquance organisée y reste l'exception.",
-  JU: "Le Jura, peu densément peuplé, enregistre peu d'événements, essentiellement des accidents de la route et des incendies.",
-};
+const ROMANDIE = "La Suisse romande reste une région sûre. L'essentiel de ce qui est relayé, ce sont des accidents et des incendies, bien plus que des atteintes aux personnes.";
 
 const geo = { cantons: (geoData.cantons as any[]).filter((c) => ROMANDS.has(c.code)).map((c) => ({ code: c.code, d: c.d })), lakes: geoData.lakes as string[] };
-const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, communes: COMMUNES, geo, romandie: ROMANDIE, profils: CANTON_PROFIL, logo };
+const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, communes: COMMUNES, geo, romandie: ROMANDIE, logo };
 ---
 
 <section class="rc" id="rapport">
@@ -86,9 +78,9 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
         </svg>
       </div>
       <div class="rc-main">
-        <span class="rc-eyebrow">Rapport de sécurité · gratuit</span>
-        <h2>Le rapport de sécurité de votre commune</h2>
-        <p class="rc-desc">Choisissez votre commune (ou tout le canton) et un mois pour voir le rapport - téléchargeable, et à recevoir chaque mois par e-mail.</p>
+        <span class="rc-eyebrow">Gratuit · chaque mois</span>
+        <h2>Que s'est-il passé près de chez vous ?</h2>
+        <p class="rc-desc">Choisissez votre commune et un mois : vous voyez le bilan tout de suite. Vous pouvez le télécharger, et le recevoir chaque mois par e-mail.</p>
 
         <div id="rc-step1">
           <div class="rc-row">
@@ -219,33 +211,62 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
     const rows = Object.keys(CATS).filter((c) => cats[c]).sort((a, b) => cats[b] - cats[a]);
     if (!rows.length) return '';
     const max = cats[rows[0]];
-    return '<h4 class="rc-rsec">Répartition par type - canton de ' + esc(CANTONS[canton]) + '</h4><div class="rc-bars">'
+    return '<h4 class="rc-rsec">Les faits du canton, par type</h4><div class="rc-bars">'
       + rows.map((c) => '<div class="rc-bar"><span class="rc-bar-l">' + CATS[c].l + '</span><span class="rc-bar-t"><span class="rc-bar-f" style="width:' + (100 * cats[c] / max).toFixed(0) + '%;background:' + CATS[c].c + '"></span></span><span class="rc-bar-v">' + cats[c] + '</span></div>').join('')
       + '</div>';
   }
 
   function moisLabel(mois) { const m = D.moisDispo.find((x) => x.key === mois); return m ? m.label : mois; }
 
+  // Profil dynamique du canton : part romande, rang, dominante et signal du mois.
+  function profilCanton(canton, mois) {
+    const evs = (D.cantonEvents[canton] && D.cantonEvents[canton][mois]) || [];
+    const total = evs.length; if (!total) return '';
+    const parCanton = Object.keys(CANTONS).map((k) => ({ k, n: (D.cantonEvents[k] && D.cantonEvents[k][mois]) ? D.cantonEvents[k][mois].length : 0 }));
+    const romTot = parCanton.reduce((s, c) => s + c.n, 0);
+    const actifs = parCanton.filter((c) => c.n > 0).sort((a, b) => b.n - a.n);
+    const rank = actifs.findIndex((c) => c.k === canton) + 1;
+    const share = romTot ? Math.round(100 * total / romTot) : 0;
+    let pos;
+    if (rank === 1) pos = 'le plus concerné de la région';
+    else if (rank === actifs.length) pos = 'parmi les plus calmes de la région';
+    else pos = rank + 'e des six cantons romands';
+    const cats = {}; evs.forEach((e) => (cats[e.cat] = (cats[e.cat] || 0) + 1));
+    const d0 = Object.entries(cats).sort((a, b) => b[1] - a[1])[0];
+    const domShare = Math.round(100 * d0[1] / total);
+    const mont = evs.filter((e) => e.cat === 'accident' && /chute|alpinist|randonn|montagne|cervin|crevasse|parapente|sommet|glacier|weissmies|cabane/i.test(e.t)).length;
+    const auto = evs.filter((e) => /\bA\d{1,2}\b|autoroute/i.test(e.t)).length;
+    const rail = evs.filter((e) => /\bCFF\b|ferroviaire|\btrain\b|rail|ligne de contact/i.test(e.t)).length;
+    const cyber = cats['cyber'] || 0;
+    const quand = mois === 'all' ? 'Sur la période' : 'Ce mois';
+    let s = quand + ', le canton rassemble ' + share + '% des faits recensés en Romandie (' + pos + '). Les ' + (CATS[d0[0]] ? CATS[d0[0]].l.toLowerCase() : d0[0]) + ' y dominent (' + domShare + '%).';
+    if (mont >= 2) s += ' La montagne pèse dans le bilan (' + mont + ' accidents en altitude).';
+    else if (auto >= 2) s += ' Plusieurs faits se concentrent sur les axes autoroutiers (' + auto + ').';
+    else if (rail >= 2) s += ' Le rail est aussi touché (' + rail + ' faits).';
+    else if (cyber >= 2 && d0[0] !== 'cyber') s += ' Le risque cyber s\'y manifeste (' + cyber + ' cas).';
+    return s;
+  }
+
   function rapportHTML(canton, commune, mois, scope) {
     const toutCanton = scope === 'canton';
     const tousEvs = (D.cantonEvents[canton] && D.cantonEvents[canton][mois]) || [];
     const evs = toutCanton ? tousEvs : tousEvs.filter((e) => norm(e.c) === norm(commune));
     const cantonTot = tousEvs.length;
-    const titre = toutCanton ? 'Canton de ' + CANTONS[canton] : commune;
+    const titre = toutCanton ? CANTONS[canton] : commune;
     const label = moisLabel(mois);
     const cats = {}; evs.forEach((e) => (cats[e.cat] = (cats[e.cat] || 0) + 1));
     const dom = Object.entries(cats).sort((a, b) => b[1] - a[1])[0];
 
     let h = '<div class="rc-rhead"><img class="rc-rlogo" src="' + D.logo.sigle + '" alt="" width="30" height="30"><img class="rc-rwm" src="' + D.logo.wordmark + '" alt="Edgward" height="16">'
-      + '<div class="rc-rhi"><span class="rc-rtag">Rapport de sécurité</span><div class="rc-rtitle">' + esc(titre) + '</div><div class="rc-rmo">' + esc(toutCanton ? label : CANTONS[canton] + ' · ' + label) + '</div></div></div>';
-    h += '<div class="rc-rgrid"><div class="rc-rmapwrap">' + carteSVG(canton, mois, toutCanton ? '' : commune) + '<div class="rc-rmapcap">' + (toutCanton ? 'Communes concernées' : esc(commune) + ' dans le canton') + ' · chaque point gris = une commune concernée</div></div><div class="rc-rside">';
-    h += '<div class="rc-rkpis"><div class="rc-rkpi"><b>' + evs.length + '</b><span>événement' + (evs.length > 1 ? 's' : '') + '</span></div>' + (dom ? '<div class="rc-rkpi"><b>' + dom[1] + '</b><span>' + (CATS[dom[0]] ? CATS[dom[0]].l.toLowerCase() : dom[0]) + '</span></div>' : '') + '</div>';
+      + '<div class="rc-rhi"><span class="rc-rtag">Veille sécurité</span><div class="rc-rtitle">' + esc(titre) + '</div><div class="rc-rmo">' + esc(toutCanton ? 'Tout le canton · ' + label : CANTONS[canton] + ' · ' + label) + '</div></div></div>';
+    h += '<div class="rc-rgrid"><div class="rc-rmapwrap">' + carteSVG(canton, mois, toutCanton ? '' : commune) + '<div class="rc-rmapcap">' + (toutCanton ? 'Les communes touchées ce mois' : esc(commune) + ' dans son canton') + ' · un point = une commune touchée</div></div><div class="rc-rside">';
+    h += '<div class="rc-rkpis"><div class="rc-rkpi"><b>' + evs.length + '</b><span>fait' + (evs.length > 1 ? 's' : '') + ' recensé' + (evs.length > 1 ? 's' : '') + '</span></div>' + (dom ? '<div class="rc-rkpi"><b>' + dom[1] + '</b><span>' + (CATS[dom[0]] ? CATS[dom[0]].l.toLowerCase() : dom[0]) + '</span></div>' : '') + '</div>';
     if (evs.length) {
       h += '<div class="rc-evs">' + evs.map((e) => { const c = CATS[e.cat] || { l: e.cat, c: '#64748b' };
         return '<div class="rc-ev"><span class="rc-ev-d">' + e.d + '</span><span class="rc-ev-b"><span class="rc-ev-t">' + esc(e.t) + '</span><span class="rc-ev-s">' + (toutCanton ? esc(e.c) + (e.s ? ' · ' + esc(e.s) : '') : esc(e.s)) + '</span></span><span class="rc-ev-c" style="color:' + c.c + '">' + c.l + '</span></div>';
       }).join('') + '</div>';
     } else {
-      h += '<p class="rc-rcalm">Aucun événement de sécurité relayé à ' + esc(commune) + ' sur cette période. Un mois calme, selon les sources publiques.</p>';
+      h += '<p class="rc-rcalm">Rien de relayé à ' + esc(commune) + ' sur cette période. Bonne nouvelle : un mois calme.</p>';
     }
     h += '</div></div>';
 
@@ -253,11 +274,11 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
 
     const st = { total: cantonTot, concernees: ((D.hotspots[canton] && D.hotspots[canton][mois]) || []).length, nbTotal: (D.communes[canton] || []).length };
     let ligne;
-    if (toutCanton) ligne = 'Sur la période, ' + st.concernees + ' commune' + (st.concernees > 1 ? 's' : '') + ' du canton ' + (st.concernees > 1 ? 'ont' : 'a') + ' connu au moins un événement, sur ' + st.nbTotal + '.';
-    else if (!evs.length) ligne = 'Aucun événement relayé à ' + esc(commune) + ', comme pour la plupart des communes du canton (' + Math.max(0, st.nbTotal - st.concernees) + ' sur ' + st.nbTotal + ' sans fait recensé).';
-    else { const maxC = Math.max(0, ...((D.hotspots[canton] && D.hotspots[canton][mois]) || []).map((p) => p.n)); ligne = (maxC && evs.length >= maxC) ? ('Avec ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ', ' + esc(commune) + ' figure parmi les communes les plus concernées du canton.') : (esc(commune) + ' enregistre ' + evs.length + ' événement' + (evs.length > 1 ? 's' : '') + ', un niveau modéré à l\'échelle du canton.'); }
-    h += '<div class="rc-rencart"><h4>Le contexte</h4><p>' + D.romandie + ' ' + (D.profils[canton] || '') + ' ' + ligne + '</p></div>';
-    h += '<p class="rc-rctx">Dans le canton de ' + esc(CANTONS[canton]) + ' : <b>' + cantonTot + '</b> événement' + (cantonTot > 1 ? 's' : '') + ' recensé' + (cantonTot > 1 ? 's' : '') + ' sur la période. Sources : médias romands et communiqués de police, recensés et dédoublonnés automatiquement par Edgward. Données neutres, sans information personnelle.</p>';
+    if (toutCanton) ligne = 'Au total, ' + st.concernees + ' commune' + (st.concernees > 1 ? 's' : '') + ' sur ' + st.nbTotal + ' ' + (st.concernees > 1 ? 'ont' : 'a') + ' connu au moins un fait.';
+    else if (!evs.length) ligne = 'Rien à signaler à ' + esc(commune) + ' ce mois-ci - comme ' + Math.max(0, st.nbTotal - st.concernees) + ' communes sur ' + st.nbTotal + ' dans le canton.';
+    else { const maxC = Math.max(0, ...((D.hotspots[canton] && D.hotspots[canton][mois]) || []).map((p) => p.n)); ligne = (maxC && evs.length >= maxC) ? ('Avec ' + evs.length + ' fait' + (evs.length > 1 ? 's' : '') + ', ' + esc(commune) + ' fait partie des communes les plus concernées du canton.') : (esc(commune) + ' compte ' + evs.length + ' fait' + (evs.length > 1 ? 's' : '') + ' - un mois dans la moyenne du canton.'); }
+    h += '<div class="rc-rencart"><h4>À retenir</h4><p>' + D.romandie + ' ' + profilCanton(canton, mois) + ' ' + ligne + '</p></div>';
+    h += '<p class="rc-rctx">Sur tout le canton de ' + esc(CANTONS[canton]) + ' : <b>' + cantonTot + '</b> fait' + (cantonTot > 1 ? 's' : '') + ' sur la période. Sources : médias romands et communiqués de police, recensés et dédoublonnés par Edgward. Aucune donnée personnelle.</p>';
     return h;
   }
 
