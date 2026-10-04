@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-04T15:12:10.934Z",
-  "total": 304,
+  "compileLe": "2026-10-04T19:55:00.598Z",
+  "total": 306,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3649,6 +3649,30 @@
       "heure": "4 oct. 11:01",
       "source": "ArcInfo",
       "dateVue": "2026-10-04T15:12:10.934Z"
+    },
+    {
+      "titre": "Accident de la route",
+      "resume": "Un accident de voiture a fait un blessé dans la région de Soubey.",
+      "commune": "Soubey",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.0469,
+      "lat": 47.2906,
+      "heure": "4 oct. 18:05",
+      "source": "SWI swissinfo.ch",
+      "dateVue": "2026-10-04T19:55:00.598Z"
+    },
+    {
+      "titre": "Opération douanière",
+      "resume": "Une opération de contrôle douanier dans le sud du canton a abouti au constat de plusieurs infractions.",
+      "commune": "Bulle",
+      "canton": "FR",
+      "categorie": "ordre",
+      "lon": 7.0569,
+      "lat": 46.6194,
+      "heure": "2 oct. 17:07",
+      "source": "La Liberté",
+      "dateVue": "2026-10-04T19:55:00.598Z"
     }
   ]
 }
