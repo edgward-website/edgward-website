@@ -13,6 +13,7 @@
 import communesData from '../data/communes-par-canton.json';
 import geoData from '../data/cantons-romands.json';
 import archive from '../data/evenements-archive.json';
+import ajouts from '../data/ajouts-osint.json';
 import doublons from '../data/doublons-exclus.json';
 
 const COMMUNES = communesData.communes as Record<string, { n: string; lon: number | null; lat: number | null }[]>;
@@ -37,7 +38,7 @@ const perCommune: Record<string, { k: string; parMois: Record<string, { d: strin
 const cantonParMois: Record<string, Record<string, number>> = {};
 const hotAgg: Record<string, Record<string, Record<string, { x: number; y: number; n: number }>>> = {};
 const moisSet = new Set<string>();
-for (const e of archive.evenements as any[]) {
+for (const e of [...(archive.evenements as any[]), ...(ajouts.evenements as any[])]) {
   const m = (e.dateVue || '').slice(0, 7);
   if (!ROMANDS.has(e.canton) || m < DEBUT || m === moisCourant || exclus.has(cle(e)) || typeof e.lon !== 'number') continue;
   moisSet.add(m);

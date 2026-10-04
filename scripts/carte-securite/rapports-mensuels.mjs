@@ -42,7 +42,10 @@ const lakes = []; { const re = /<path\b[^>]*class="lake"[^>]*\sd="([^"]+)"/g; le
 
 const A = 192.0, Bx = -1081.9, C = -276.6, Dy = 13248.9;
 const cle = (e) => [e.commune, (e.dateVue || "").slice(0, 10), e.titre].join(" | ");
-const tous = arc.evenements
+// Ajouts OSINT (cross-check manuel) fusionnés avec la collecte automatique.
+let ajouts = { evenements: [] };
+try { ajouts = JSON.parse(await readFile(resolve(RACINE, "src/data/ajouts-osint.json"), "utf8")); } catch {}
+const tous = [...arc.evenements, ...ajouts.evenements]
   .filter((e) => CANTONS[e.canton] && !exc.has(cle(e)) && typeof e.lon === "number" && typeof e.lat === "number" && (e.dateVue || "").length >= 7)
   .map((e) => { const dv = (e.dateVue || "").slice(0, 10); return { k: e.canton, m: dv.slice(0, 7), x: +(A * e.lon + Bx).toFixed(1), y: +(C * e.lat + Dy).toFixed(1), d: dv.slice(8, 10) + "." + dv.slice(5, 7), c: e.commune, cat: e.categorie, t: e.titre, s: e.source || "" }; });
 

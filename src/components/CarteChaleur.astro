@@ -8,6 +8,7 @@
  * Géographie lue depuis CoverageMap.astro au build (source unique des contours).
  */
 import archive from '../data/evenements-archive.json';
+import ajouts from '../data/ajouts-osint.json';
 import doublons from '../data/doublons-exclus.json';
 import geo from '../data/cantons-romands.json';
 
@@ -29,7 +30,7 @@ const moisCourant = `${parts.find((p) => p.type === 'year')!.value}-${parts.find
 // Premier mois pleinement couvert : la veille a démarré le 24 juillet 2026 (mois partiel exclu).
 const DEBUT = '2026-08';
 
-const evts = (archive.evenements as any[])
+const evts = ([...(archive.evenements as any[]), ...(ajouts.evenements as any[])])
   .filter((e) => typeof e.lon === 'number' && typeof e.lat === 'number' && ROMANDS.has(e.canton))
   .filter((e) => { const m = (e.dateVue || '').slice(0, 7); return m && m >= DEBUT && m !== moisCourant; })
   .filter((e) => !exclus.has(cle(e)))
