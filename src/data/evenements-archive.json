@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-03T19:41:39.445Z",
-  "total": 303,
+  "compileLe": "2026-10-04T15:12:10.934Z",
+  "total": 304,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3637,6 +3637,18 @@
       "heure": "03 oct. 09:14",
       "source": "Watson",
       "dateVue": "2026-10-03T14:36:54.100Z"
+    },
+    {
+      "titre": "Motard blessé dans un accident",
+      "resume": "Un motard a été blessé lors d'un accident de la route entre Pierre-à-Bot et Fenin.",
+      "commune": "Fenin",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.8833,
+      "lat": 47.0333,
+      "heure": "4 oct. 11:01",
+      "source": "ArcInfo",
+      "dateVue": "2026-10-04T15:12:10.934Z"
     }
   ]
 }
