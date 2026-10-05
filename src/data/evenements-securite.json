@@ -1,33 +1,33 @@
 {
-  "genereLe": "2026-10-05T19:09:02.861Z",
+  "genereLe": "2026-10-05T23:04:04.458Z",
   "source": "collecte automatique",
   "evenements": [
     {
       "titre": "Chute mortelle en montagne",
-      "resume": "Un randonneur a fait une chute mortelle dans la région du Mont Pleureur.",
+      "resume": "Un randonneur a fait une chute mortelle dans le secteur du Mont Pleureur.",
       "commune": "Val de Bagnes",
       "canton": "VS",
       "categorie": "accident",
-      "lon": 7.45,
-      "lat": 46,
-      "heure": "5 oct. 17:22",
-      "source": "20 Min",
+      "lon": 7.37,
+      "lat": 46.03,
+      "heure": "5 oct. 17:50",
+      "source": "Le Nouvelliste",
       "recent": true
     },
     {
       "titre": "Ambulance renversée",
-      "resume": "Une ambulance transportant une patiente s'est renversée en ville, faisant une ambulancière légèrement blessée.",
+      "resume": "Une ambulance transportant une patiente s'est renversée en ville, faisant une blessée légère.",
       "commune": "Neuchâtel",
       "canton": "NE",
       "categorie": "accident",
-      "lon": 6.93,
+      "lon": 6.931,
       "lat": 46.99,
       "heure": "5 oct. 09:46",
-      "source": "ne.ch",
-      "recent": true
+      "source": "Police NE",
+      "recent": false
     },
     {
-      "titre": "Incendie d'un appartement",
+      "titre": "Incendie d'appartement",
       "resume": "Un feu parti d'un balcon a ravagé un appartement.",
       "commune": "Carouge",
       "canton": "GE",
@@ -39,7 +39,7 @@
       "recent": true
     },
     {
-      "titre": "Tentative de cambriolage d'une armurerie",
+      "titre": "Tentative de cambriolage",
       "resume": "Une armurerie a été la cible d'une tentative de cambriolage.",
       "commune": "Genève",
       "canton": "GE",
@@ -59,17 +59,17 @@
       "lon": 7.161,
       "lat": 46.806,
       "heure": "5 oct. 11:07",
-      "source": "Frapp",
+      "source": "frapp.ch",
       "recent": false
     },
     {
       "titre": "Accident de la route",
-      "resume": "Un accident de voiture a fait un blessé près de Soubey.",
+      "resume": "Un accident de voiture a fait un blessé.",
       "commune": "Soubey",
       "canton": "JU",
       "categorie": "accident",
-      "lon": 7.05,
-      "lat": 47.33,
+      "lon": 7.063,
+      "lat": 47.287,
       "heure": "4 oct. 18:05",
       "source": "SWI swissinfo.ch",
       "recent": false
@@ -80,7 +80,7 @@
       "commune": "Neuchâtel",
       "canton": "NE",
       "categorie": "accident",
-      "lon": 6.85,
+      "lon": 6.9,
       "lat": 47.02,
       "heure": "4 oct. 11:01",
       "source": "ArcInfo",
@@ -88,12 +88,12 @@
     },
     {
       "titre": "Accident sur l'autoroute A1",
-      "resume": "Un accident a entraîné la fermeture de l'A1 et environ six kilomètres de bouchon.",
+      "resume": "Un accident a entraîné la fermeture de l'A1 et d'importants bouchons.",
       "commune": "Morges",
       "canton": "VD",
       "categorie": "accident",
       "lon": 6.498,
-      "lat": 46.511,
+      "lat": 46.509,
       "heure": "3 oct. 10:46",
       "source": "rts.ch",
       "recent": false
