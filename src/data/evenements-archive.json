@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-04T19:55:00.598Z",
-  "total": 306,
+  "compileLe": "2026-10-05T19:09:02.861Z",
+  "total": 311,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3673,6 +3673,66 @@
       "heure": "2 oct. 17:07",
       "source": "La Liberté",
       "dateVue": "2026-10-04T19:55:00.598Z"
+    },
+    {
+      "titre": "Chute mortelle en montagne",
+      "resume": "Un randonneur a fait une chute mortelle dans la région du Mont Pleureur.",
+      "commune": "Val de Bagnes",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.45,
+      "lat": 46,
+      "heure": "5 oct. 17:22",
+      "source": "20 Min",
+      "dateVue": "2026-10-05T19:09:02.861Z"
+    },
+    {
+      "titre": "Ambulance renversée",
+      "resume": "Une ambulance transportant une patiente s'est renversée en ville, faisant une ambulancière légèrement blessée.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 6.93,
+      "lat": 46.99,
+      "heure": "5 oct. 09:46",
+      "source": "ne.ch",
+      "dateVue": "2026-10-05T19:09:02.861Z"
+    },
+    {
+      "titre": "Incendie d'un appartement",
+      "resume": "Un feu parti d'un balcon a ravagé un appartement.",
+      "commune": "Carouge",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.139,
+      "lat": 46.181,
+      "heure": "5 oct. 13:51",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-05T19:09:02.861Z"
+    },
+    {
+      "titre": "Tentative de cambriolage d'une armurerie",
+      "resume": "Une armurerie a été la cible d'une tentative de cambriolage.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "cambriolage",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "5 oct. 11:50",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-05T19:09:02.861Z"
+    },
+    {
+      "titre": "Autogrue renversée sur un chantier",
+      "resume": "Une autogrue de chantier s'est renversée.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "5 oct. 11:07",
+      "source": "Frapp",
+      "dateVue": "2026-10-05T19:09:02.861Z"
     }
   ]
 }
