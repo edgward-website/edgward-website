@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-05T23:04:04.458Z",
-  "total": 311,
+  "compileLe": "2026-10-06T16:36:05.263Z",
+  "total": 314,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3733,6 +3733,42 @@
       "heure": "5 oct. 11:07",
       "source": "Frapp",
       "dateVue": "2026-10-05T19:09:02.861Z"
+    },
+    {
+      "titre": "Coups de feu, un homme blessé",
+      "resume": "Un individu a tiré plusieurs coups de feu sur un jeune homme, sérieusement blessé. Enquête en cours.",
+      "commune": "Carouge",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.139,
+      "lat": 46.181,
+      "heure": "06 oct. 14:58",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-06T16:36:05.263Z"
+    },
+    {
+      "titre": "Cambrioleur récidiviste arrêté",
+      "resume": "Un homme de 18 ans impliqué dans huit affaires de vols dans trois cantons a été interpellé par la police.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "cambriolage",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "06 oct. 10:30",
+      "source": "Police cantonale FR",
+      "dateVue": "2026-10-06T16:36:05.263Z"
+    },
+    {
+      "titre": "Véhicule intercepté à contresens sur l'A1",
+      "resume": "Un véhicule circulant à contresens sur l'autoroute A1 a été intercepté.",
+      "commune": "Domdidier",
+      "canton": "FR",
+      "categorie": "ordre",
+      "lon": 6.967,
+      "lat": 46.874,
+      "heure": "04 oct. 12:28",
+      "source": "FR.ch",
+      "dateVue": "2026-10-06T16:36:05.263Z"
     }
   ]
 }
