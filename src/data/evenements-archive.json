@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-06T16:36:05.263Z",
-  "total": 314,
+  "compileLe": "2026-10-06T21:27:18.132Z",
+  "total": 316,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3769,6 +3769,30 @@
       "heure": "04 oct. 12:28",
       "source": "FR.ch",
       "dateVue": "2026-10-06T16:36:05.263Z"
+    },
+    {
+      "titre": "Cyberattaque et fuite de données touchant des entités vaudoises",
+      "resume": "Une cyberattaque a provoqué la fuite d'informations de sécurité de prisons vaudoises, de banques et de dizaines de sociétés.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.632,
+      "lat": 46.519,
+      "heure": "6 oct. 20:36",
+      "source": "Le Temps",
+      "dateVue": "2026-10-06T21:27:18.132Z"
+    },
+    {
+      "titre": "Accident de la circulation à Saint-Nicolas",
+      "resume": "Un accident de la route s'est produit dans la commune.",
+      "commune": "Saint-Nicolas",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.8028,
+      "lat": 46.1769,
+      "heure": "6 oct. 20:36",
+      "source": "Pomona",
+      "dateVue": "2026-10-06T21:27:18.132Z"
     }
   ]
 }
