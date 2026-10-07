@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-06T21:27:18.132Z",
-  "total": 316,
+  "compileLe": "2026-10-07T17:21:13.757Z",
+  "total": 319,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3793,6 +3793,42 @@
       "heure": "6 oct. 20:36",
       "source": "Pomona",
       "dateVue": "2026-10-06T21:27:18.132Z"
+    },
+    {
+      "titre": "Accident grave sur la route Aigle-Le Sépey",
+      "resume": "Un accident grave a entraîné la fermeture de la route cantonale H11 entre Aigle et Le Sépey.",
+      "commune": "Aigle",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.9644,
+      "lat": 46.3176,
+      "heure": "7 oct. 18:17",
+      "source": "24 Heures",
+      "dateVue": "2026-10-07T17:21:13.757Z"
+    },
+    {
+      "titre": "Villa ravagée par un incendie",
+      "resume": "Une villa a été détruite par les flammes durant la nuit.",
+      "commune": "Blonay",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.903,
+      "lat": 46.468,
+      "heure": "7 oct. 13:24",
+      "source": "24 Heures",
+      "dateVue": "2026-10-07T17:21:13.757Z"
+    },
+    {
+      "titre": "Valise suspecte à la Foire du Valais",
+      "resume": "Une valise suspecte a provoqué une évacuation avant un retour à la normale.",
+      "commune": "Martigny",
+      "canton": "VS",
+      "categorie": "ordre",
+      "lon": 7.072,
+      "lat": 46.102,
+      "heure": "7 oct. 12:05",
+      "source": "rts.ch",
+      "dateVue": "2026-10-07T17:21:13.757Z"
     }
   ]
 }
