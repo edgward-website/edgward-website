@@ -1,69 +1,57 @@
 {
-  "genereLe": "2026-10-08T17:17:47.272Z",
+  "genereLe": "2026-10-08T21:51:13.639Z",
   "source": "collecte automatique",
   "evenements": [
     {
       "titre": "Accident mortel de la route",
-      "resume": "Un conducteur a perdu la vie après avoir percuté un arbre sur une route cantonale.",
+      "resume": "Un automobiliste a perdu la vie après avoir percuté un arbre.",
       "commune": "Montricher",
       "canton": "VD",
       "categorie": "accident",
-      "lon": 6.39,
-      "lat": 46.6,
-      "heure": "7 oct. 09:00",
-      "source": "La Côte",
-      "recent": false
-    },
-    {
-      "titre": "Accident de moto",
-      "resume": "Un motard a perdu la vie dans un accident grave qui a entraîné la fermeture temporaire de la route entre Aigle et Le Sépey.",
-      "commune": "Aigle",
-      "canton": "VD",
-      "categorie": "accident",
-      "lon": 6.97,
-      "lat": 46.31,
-      "heure": "7 oct. 17:56",
-      "source": "24 Heures",
-      "recent": false
+      "lon": 6.393,
+      "lat": 46.605,
+      "heure": "8 oct. 15:46",
+      "source": "Blick",
+      "recent": true
     },
     {
       "titre": "Villa ravagée par un incendie",
-      "resume": "Une villa a été détruite par un incendie survenu durant la nuit.",
+      "resume": "Une villa a été détruite par les flammes durant la nuit.",
       "commune": "Blonay",
       "canton": "VD",
       "categorie": "incendie",
       "lon": 6.9,
-      "lat": 46.46,
+      "lat": 46.467,
       "heure": "8 oct. 14:42",
       "source": "24 Heures",
       "recent": false
     },
     {
       "titre": "Appel à témoins - disparition",
-      "resume": "Un homme de 71 ans a disparu après avoir quitté son domicile. La police lance un appel à témoins.",
+      "resume": "Un homme de 71 ans est porté disparu après avoir quitté son domicile.",
       "commune": "Eischoll",
       "canton": "VS",
       "categorie": "disparition",
-      "lon": 7.77,
+      "lon": 7.78,
       "lat": 46.3,
       "heure": "8 oct. 12:01",
       "source": "Police cantonale valaisanne",
       "recent": true
     },
     {
-      "titre": "Collision frontale",
-      "resume": "Un véhicule a dévié sur la voie opposée et provoqué une collision frontale, faisant deux blessés.",
+      "titre": "Collision frontale entre deux véhicules",
+      "resume": "Un véhicule a dévié sur la voie opposée, faisant deux blessés.",
       "commune": "Épagny",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 7.12,
-      "lat": 46.59,
-      "heure": "8 oct. 12:01",
+      "lon": 7.11,
+      "lat": 46.58,
+      "heure": "8 oct. 11:52",
       "source": "FR.ch",
       "recent": true
     },
     {
-      "titre": "Accident de parapente mortel",
+      "titre": "Accident mortel de parapente",
       "resume": "Un parapentiste de 23 ans a perdu la vie après avoir percuté une cheminée.",
       "commune": "Haute-Nendaz",
       "canton": "VS",
@@ -72,11 +60,23 @@
       "lat": 46.18,
       "heure": "8 oct. 11:21",
       "source": "Police cantonale valaisanne",
+      "recent": true
+    },
+    {
+      "titre": "Accident grave sur la route cantonale",
+      "resume": "Un accident impliquant une moto a entraîné la fermeture temporaire de la route entre Aigle et Le Sépey.",
+      "commune": "Le Sépey",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 7,
+      "lat": 46.33,
+      "heure": "7 oct. 17:56",
+      "source": "24 Heures",
       "recent": false
     },
     {
-      "titre": "Fuite de données après cyberattaque",
-      "resume": "Une cyberattaque a entraîné le vol de données de sécurité concernant des sites vaudois, dont des prisons.",
+      "titre": "Cyberattaque et fuite de données",
+      "resume": "Une attaque informatique a exposé des données de sécurité de sites vaudois, dont des prisons.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "cyber",
@@ -87,8 +87,20 @@
       "recent": false
     },
     {
-      "titre": "Incendie dans un appartement",
-      "resume": "Un incendie parti d'un balcon a ravagé un appartement.",
+      "titre": "Coups de feu, un homme blessé",
+      "resume": "Un individu a tiré plusieurs coups de feu, blessant sérieusement un jeune homme.",
+      "commune": "Carouge",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.14,
+      "lat": 46.18,
+      "heure": "6 oct. 14:58",
+      "source": "Tribune de Genève",
+      "recent": false
+    },
+    {
+      "titre": "Incendie d'un appartement",
+      "resume": "Un feu parti d'un balcon a ravagé un appartement.",
       "commune": "Carouge",
       "canton": "GE",
       "categorie": "incendie",
@@ -99,20 +111,8 @@
       "recent": false
     },
     {
-      "titre": "Coups de feu",
-      "resume": "Un jeune homme a été sérieusement blessé après plusieurs coups de feu.",
-      "commune": "Carouge",
-      "canton": "GE",
-      "categorie": "agression",
-      "lon": 6.14,
-      "lat": 46.18,
-      "heure": "6 oct. 15:29",
-      "source": "Tribune de Genève",
-      "recent": false
-    },
-    {
       "titre": "Cambrioleur récidiviste arrêté",
-      "resume": "Un homme de 18 ans a été interpellé après une série de huit cambriolages commis dans trois cantons romands.",
+      "resume": "Un homme de 18 ans impliqué dans plusieurs vols en Suisse romande a été interpellé.",
       "commune": "Fribourg",
       "canton": "FR",
       "categorie": "cambriolage",
@@ -123,8 +123,8 @@
       "recent": false
     },
     {
-      "titre": "Évacuation après une valise suspecte",
-      "resume": "Des halles de la Foire du Valais ont été évacuées en raison d'une valise suspecte, avant un retour à la normale.",
+      "titre": "Halles de foire évacuées",
+      "resume": "Les halles de la Foire du Valais ont été évacuées en raison d'une valise suspecte avant un retour à la normale.",
       "commune": "Martigny",
       "canton": "VS",
       "categorie": "ordre",
@@ -132,6 +132,18 @@
       "lat": 46.1,
       "heure": "7 oct. 11:08",
       "source": "rts.ch",
+      "recent": false
+    },
+    {
+      "titre": "Accident de la circulation",
+      "resume": "Un accident de la route s'est produit dans la vallée.",
+      "commune": "Saint-Nicolas",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.8,
+      "lat": 46.18,
+      "heure": "6 oct. 20:21",
+      "source": "Pomona",
       "recent": false
     }
   ]
