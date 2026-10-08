@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-07T21:47:46.526Z",
-  "total": 319,
+  "compileLe": "2026-10-08T17:17:47.272Z",
+  "total": 323,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3829,6 +3829,54 @@
       "heure": "7 oct. 12:05",
       "source": "rts.ch",
       "dateVue": "2026-10-07T17:21:13.757Z"
+    },
+    {
+      "titre": "Accident mortel de la route",
+      "resume": "Un conducteur a perdu la vie après avoir percuté un arbre sur une route cantonale.",
+      "commune": "Montricher",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.39,
+      "lat": 46.6,
+      "heure": "7 oct. 09:00",
+      "source": "La Côte",
+      "dateVue": "2026-10-08T17:17:47.272Z"
+    },
+    {
+      "titre": "Appel à témoins - disparition",
+      "resume": "Un homme de 71 ans a disparu après avoir quitté son domicile. La police lance un appel à témoins.",
+      "commune": "Eischoll",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.77,
+      "lat": 46.3,
+      "heure": "8 oct. 12:01",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-10-08T17:17:47.272Z"
+    },
+    {
+      "titre": "Collision frontale",
+      "resume": "Un véhicule a dévié sur la voie opposée et provoqué une collision frontale, faisant deux blessés.",
+      "commune": "Épagny",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.12,
+      "lat": 46.59,
+      "heure": "8 oct. 12:01",
+      "source": "FR.ch",
+      "dateVue": "2026-10-08T17:17:47.272Z"
+    },
+    {
+      "titre": "Accident de parapente mortel",
+      "resume": "Un parapentiste de 23 ans a perdu la vie après avoir percuté une cheminée.",
+      "commune": "Haute-Nendaz",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.3,
+      "lat": 46.18,
+      "heure": "8 oct. 11:21",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-10-08T17:17:47.272Z"
     }
   ]
 }
