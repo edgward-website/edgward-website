@@ -6,9 +6,9 @@
  * barres de répartition du canton, encart de contexte). Téléchargeable en PDF.
  * Puis abonnement mensuel (Brevo).
  *
- * À FAIRE (Daniel) : remplacer BREVO_ACTION par l'URL du formulaire Brevo
- * (attributs CANTON + COMMUNE, double opt-in). Tant qu'elle est vide, l'inscription
- * confirme à l'écran mais n'enregistre rien.
+ * Capture Brevo branchée via BREVO_ACTION (formulaire "Rapport points chauds",
+ * attributs CANTON + COMMUNE, double opt-in). POST no-cors : on ne lit pas la
+ * réponse, la vraie confirmation est l'e-mail de double opt-in.
  */
 import communesData from '../data/communes-par-canton.json';
 import geoData from '../data/cantons-romands.json';
@@ -145,7 +145,7 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
   };
   const CANTONS = { GE: 'Genève', VD: 'Vaud', VS: 'Valais', NE: 'Neuchâtel', FR: 'Fribourg', JU: 'Jura' };
   const A = 192.0, Bx = -1081.9, C = -276.6, Dy = 13248.9;
-  const BREVO_ACTION = ''; // À REMPLACER par l'URL du formulaire Brevo (attributs CANTON + COMMUNE, double opt-in).
+  const BREVO_ACTION = 'https://87714af1.sibforms.com/serve/MUIFANAwER9Jz2nhTvCWlwd_xqVzlo8q8KpQgqL2XYxldC8fzf2WtuSgaOtfClPeSkzgihXTfVcD7BSs8WU-POxvqg3qX9cIqsoVRAk__9vyKXr9zKqBw253gdVDgLi15kAQCpICuUqhFnniBgfRjSo2Q2i6teoiVlcMmkLU11tfkGYSAFuPKMkpETprjn1_OOxmVlmfEwlsRiw_'; // Formulaire Brevo (liste "Rapport points chauds", attributs CANTON + COMMUNE, double opt-in).
   const DELAI_MIN_MS = 1500;
   const chargeA = Date.now();
   const esc = (s) => String(s).replace(/[&<>"]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
