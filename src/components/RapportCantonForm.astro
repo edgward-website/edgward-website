@@ -299,12 +299,23 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
   document.getElementById('rc-retour').addEventListener('click', () => { report.hidden = true; step1.hidden = false; });
 
   document.getElementById('rc-dl').addEventListener('click', () => {
-    // On imprime la page réelle (rapport déjà affiché) : l'URL du pied de page
-    // reste edgward.ch (plus d'about:blank), et les règles @media print isolent
-    // le rapport + forcent l'impression des fonds de couleur (barres, encarts).
+    // Impression via un "portail" : on clone le rapport dans un conteneur enfant
+    // DIRECT de <body>, et le CSS masque tout le reste en display:none le temps de
+    // l'impression. Ainsi la hauteur du reste de la page n'est plus comptée -> plus
+    // de pages blanches. L'URL reste edgward.ch (pas d'about:blank).
+    const src = document.getElementById('rc-report-body');
+    if (!src) return;
+    const portal = document.createElement('div');
+    portal.id = 'rc-print-portal';
+    const clone = src.cloneNode(true);
+    clone.removeAttribute('id');
+    portal.appendChild(clone);
+    document.body.appendChild(portal);
     const t = document.title;
     document.title = 'Rapport sécurité ' + choix.commune;
-    window.addEventListener('afterprint', () => { document.title = t; }, { once: true });
+    const cleanup = () => { portal.remove(); document.body.classList.remove('rc-printing'); document.title = t; };
+    window.addEventListener('afterprint', cleanup, { once: true });
+    document.body.classList.add('rc-printing');
     window.print();
   });
 
@@ -364,15 +375,15 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
   .rc-rctx { font-size: 12px; color: #64748b; margin: 14px 0 0; line-height: 1.5; }
   @media (max-width: 640px) { .rc-rgrid { grid-template-columns: 1fr; } }
   .rc-pfoot { display: none; }
+  #rc-print-portal { display: none; }
   @media print {
     @page { size: A4; margin: 12mm; }
-    body * { visibility: hidden !important; }
-    .rc, .rc .container, .rc-card, .rc-main { position: static !important; }
-    #rc-report-body, #rc-report-body * { visibility: visible !important; }
-    #rc-report-body { position: absolute; left: 0; top: 0; width: 100%; border: 0; }
-    #rc-report-body * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-    #rc-report-body .rc-evs { max-height: none !important; overflow: visible !important; }
-    #rc-report-body .rc-pfoot { display: block !important; }
+    body.rc-printing > *:not(#rc-print-portal) { display: none !important; }
+    body.rc-printing #rc-print-portal { display: block !important; }
+    #rc-print-portal, #rc-print-portal * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    #rc-print-portal .rc-doc { border: 0; }
+    #rc-print-portal .rc-evs { max-height: none !important; overflow: visible !important; }
+    #rc-print-portal .rc-pfoot { display: block !important; }
   }
 </style>
 
