@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-08T21:51:13.639Z",
-  "total": 323,
+  "compileLe": "2026-10-09T16:53:45.392Z",
+  "total": 328,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -3877,6 +3877,66 @@
       "heure": "8 oct. 11:21",
       "source": "Police cantonale valaisanne",
       "dateVue": "2026-10-08T17:17:47.272Z"
+    },
+    {
+      "titre": "Incendie criminel près des voies CFF",
+      "resume": "Un incendie d'origine criminelle près des voies a interrompu le trafic ferroviaire sur la ligne Lausanne-Yverdon. Une enquête a été ouverte.",
+      "commune": "Eclépens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.5401,
+      "lat": 46.6589,
+      "heure": "09 oct. 12:36",
+      "source": "rts.ch",
+      "dateVue": "2026-10-09T16:53:45.392Z"
+    },
+    {
+      "titre": "Arbitre agressé lors d'un match",
+      "resume": "Un arbitre a été frappé et insulté durant une rencontre de football. Des mesures sont envisagées par les autorités sportives.",
+      "commune": "Romanel-sur-Lausanne",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.6019,
+      "lat": 46.5717,
+      "heure": "09 oct. 12:01",
+      "source": "24 Heures",
+      "dateVue": "2026-10-09T16:53:45.392Z"
+    },
+    {
+      "titre": "Appel à témoins après une chute de moto",
+      "resume": "La police lance un appel à témoins après la chute d'un motocycliste.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "09 oct. 10:43",
+      "source": "La Radio Plus",
+      "dateVue": "2026-10-09T16:53:45.392Z"
+    },
+    {
+      "titre": "Motocycliste décédé dans un accident",
+      "resume": "Un motard a perdu la vie dans un accident de la route dans le canton de Vaud.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "08 oct. 18:26",
+      "source": "Watson",
+      "dateVue": "2026-10-09T16:53:45.392Z"
+    },
+    {
+      "titre": "Avis de disparition",
+      "resume": "La police recherche un homme de 71 ans porté disparu et lance un appel à la population.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.359,
+      "lat": 46.2311,
+      "heure": "08 oct. 12:03",
+      "source": "Rhône FM",
+      "dateVue": "2026-10-09T16:53:45.392Z"
     }
   ]
 }
