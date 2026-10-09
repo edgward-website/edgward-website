@@ -279,6 +279,7 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
     else { const maxC = Math.max(0, ...((D.hotspots[canton] && D.hotspots[canton][mois]) || []).map((p) => p.n)); ligne = (maxC && evs.length >= maxC) ? ('Avec ' + evs.length + ' fait' + (evs.length > 1 ? 's' : '') + ', ' + esc(commune) + ' fait partie des communes les plus concernées du canton.') : (esc(commune) + ' compte ' + evs.length + ' fait' + (evs.length > 1 ? 's' : '') + ' - un mois dans la moyenne du canton.'); }
     h += '<div class="rc-rencart"><h4>À retenir</h4><p>' + D.romandie + ' ' + profilCanton(canton, mois) + ' ' + ligne + '</p></div>';
     h += '<p class="rc-rctx">Sur tout le canton de ' + esc(CANTONS[canton]) + ' : <b>' + cantonTot + '</b> fait' + (cantonTot > 1 ? 's' : '') + ' sur la période. Sources : médias romands et communiqués de police, recensés et dédoublonnés par Edgward. Aucune donnée personnelle.</p>';
+    h += '<div class="rc-pfoot"><b>Edgward</b> - votre application de sécurité à la demande, et d\'alertes et informations de sécurité. www.edgward.ch et sur les stores iOS et Android.</div>';
     return h;
   }
 
@@ -298,16 +299,13 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
   document.getElementById('rc-retour').addEventListener('click', () => { report.hidden = true; step1.hidden = false; });
 
   document.getElementById('rc-dl').addEventListener('click', () => {
-    const corps = rapportHTML(choix.canton, choix.commune, choix.mois, choix.scope);
-    const style = document.getElementById('rc-print-style').textContent;
-    const w = window.open('', '_blank'); if (!w) return;
-    w.document.write('<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Rapport sécurité ' + esc(choix.commune) + '</title>'
-      + '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-      + '<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">'
-      + '<style>' + style + '</style></head><body><div class="rc-doc rc-print">' + corps
-      + '<div class="rc-pfoot"><b>Edgward</b> - service d\'intervention de sécurité à la demande en Suisse romande. edgward.ch</div></div>'
-      + '<scr' + 'ipt>window.onload=function(){setTimeout(function(){window.print();},500);};</scr' + 'ipt></body></html>');
-    w.document.close();
+    // On imprime la page réelle (rapport déjà affiché) : l'URL du pied de page
+    // reste edgward.ch (plus d'about:blank), et les règles @media print isolent
+    // le rapport + forcent l'impression des fonds de couleur (barres, encarts).
+    const t = document.title;
+    document.title = 'Rapport sécurité ' + choix.commune;
+    window.addEventListener('afterprint', () => { document.title = t; }, { once: true });
+    window.print();
   });
 
   function reveal() { thanks.textContent = 'Merci ! Le rapport de ' + choix.commune + ' vous sera envoyé chaque mois par e-mail.'; report.hidden = true; success.removeAttribute('hidden'); }
@@ -365,50 +363,18 @@ const reportData = { cantonEvents, cantonCats, hotspots, moisDispo, defautMois, 
   .rc-rencart p { margin: 0; font-size: 13px; line-height: 1.6; color: #334155; }
   .rc-rctx { font-size: 12px; color: #64748b; margin: 14px 0 0; line-height: 1.5; }
   @media (max-width: 640px) { .rc-rgrid { grid-template-columns: 1fr; } }
+  .rc-pfoot { display: none; }
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    body * { visibility: hidden !important; }
+    .rc, .rc .container, .rc-card, .rc-main { position: static !important; }
+    #rc-report-body, #rc-report-body * { visibility: visible !important; }
+    #rc-report-body { position: absolute; left: 0; top: 0; width: 100%; border: 0; }
+    #rc-report-body * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    #rc-report-body .rc-evs { max-height: none !important; overflow: visible !important; }
+    #rc-report-body .rc-pfoot { display: block !important; }
+  }
 </style>
-<script type="application/x-rc-style" id="rc-print-style" is:inline set:html={`
-  *{box-sizing:border-box} body{margin:0;background:#fff}
-  .rc-doc{font-family:'Manrope',system-ui,sans-serif;color:#0a1929;padding:0}
-  .rc-rhead{display:flex;align-items:center;gap:10px;border-bottom:2px solid #0a1929;padding-bottom:12px}
-  img{max-width:100%}
-  .rc-rlogo{width:30px;height:30px;border-radius:7px;flex:none} .rc-rwm{height:18px;width:auto}
-  .rc-rhi{margin-left:auto;text-align:right}
-  .rc-rtag{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#4678DC;font-weight:800}
-  .rc-rtitle{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:30px;line-height:1.05}
-  .rc-rmo{font-size:13px;color:#64748b}
-  .rc-rgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:22px;align-items:start;margin-top:18px}
-  .rc-rmapwrap{border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;background:#f4f7fb}
-  .rc-map{display:block;width:100%;height:auto}
-  .rc-rmapcap{font-size:10px;color:#6b7280;padding:6px 8px;text-align:center}
-  .rc-rkpis{display:flex;gap:10px;margin-bottom:12px}
-  .rc-rkpi{background:rgba(70,120,220,.1);border-radius:10px;padding:9px 14px}
-  .rc-rkpi b{display:block;font-family:'Instrument Serif',serif;font-size:28px;line-height:1}
-  .rc-rkpi span{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:#64748b}
-  .rc-evs{display:flex;flex-direction:column;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden}
-  .rc-ev{display:flex;gap:10px;padding:9px 12px;border-top:1px solid #eef2f7;font-size:12.5px}
-  .rc-ev:first-child{border-top:0}
-  .rc-ev-d{flex:0 0 36px;color:#6b7280;font-weight:600}
-  .rc-ev-b{flex:1;min-width:0;display:flex;flex-direction:column}
-  .rc-ev-t{font-weight:700;line-height:1.3}
-  .rc-ev-s{color:#64748b;font-size:11px;margin-top:1px}
-  .rc-ev-c{flex:0 0 auto;font-size:10px;text-transform:uppercase;letter-spacing:.04em;font-weight:800;align-self:flex-start}
-  .rc-rcalm{font-size:13.5px;color:#64748b;margin:0;padding:10px 0}
-  .rc-rsec{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#0a1929;margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid #e5e7eb}
-  .rc-bars{display:flex;flex-direction:column;gap:7px}
-  .rc-bar{display:flex;align-items:center;gap:10px;font-size:12.5px}
-  .rc-bar-l{width:96px;color:#334155;font-weight:600}
-  .rc-bar-t{flex:1;height:10px;background:#eef2f7;border-radius:5px;overflow:hidden}
-  .rc-bar-f{display:block;height:100%;border-radius:5px}
-  .rc-bar-v{width:22px;text-align:right;font-weight:800}
-  .rc-rencart{background:rgba(70,120,220,.07);border-left:3px solid #4678DC;border-radius:0 10px 10px 0;padding:12px 16px;margin:20px 0 0}
-  .rc-rencart h4{margin:0 0 5px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#3C6EC8;font-weight:800}
-  .rc-rencart p{margin:0;font-size:13px;line-height:1.6;color:#334155}
-  .rc-rctx{font-size:12px;color:#64748b;margin:14px 0 0;line-height:1.5}
-  .rc-pfoot{margin-top:18px;border-top:1px solid #e5e7eb;padding-top:10px;font-size:11px;color:#6b7280}
-  .rc-pfoot b{color:#0a1929}
-  @media(max-width:640px){.rc-rgrid{grid-template-columns:1fr}}
-  @page{size:A4;margin:12mm}
-`}></script>
 
 <style>
   .rc { padding: 8px 0 0; }
