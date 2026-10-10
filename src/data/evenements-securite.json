@@ -1,30 +1,18 @@
 {
-  "genereLe": "2026-10-09T21:29:53.938Z",
+  "genereLe": "2026-10-10T15:47:34.059Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Cyberattaque touchant des données de sites vaudois",
-      "resume": "Une cyberattaque contre le prestataire Ixa Systems a entraîné le vol de données de sécurité liées à des sites vaudois.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "cyber",
-      "lon": 6.6323,
-      "lat": 46.5197,
-      "heure": "07 oct. 07:57",
-      "source": "agefi.com",
-      "recent": false
-    },
-    {
-      "titre": "Incendie criminel près des voies CFF",
-      "resume": "Un acte criminel a provoqué un incendie à proximité des voies à Eclépens, interrompant le trafic ferroviaire entre Lausanne et Yverdon.",
+      "titre": "Incendie criminel près des voies CFF à Eclépens",
+      "resume": "Un incendie d'origine criminelle survenu à proximité des voies a interrompu le trafic ferroviaire entre Lausanne et Yverdon pendant plusieurs jours.",
       "commune": "Eclépens",
       "canton": "VD",
       "categorie": "incendie",
-      "lon": 6.5386,
-      "lat": 46.6667,
-      "heure": "09 oct. 15:38",
-      "source": "rts.ch",
-      "recent": true
+      "lon": 6.5444,
+      "lat": 46.6611,
+      "heure": "09 oct. 07:14",
+      "source": "RTS",
+      "recent": false
     },
     {
       "titre": "Arbitre agressé lors d'un match de football",
@@ -32,15 +20,15 @@
       "commune": "Romanel-sur-Lausanne",
       "canton": "VD",
       "categorie": "agression",
-      "lon": 6.5953,
-      "lat": 46.5725,
+      "lon": 6.6056,
+      "lat": 46.5736,
       "heure": "09 oct. 12:01",
       "source": "24 Heures",
       "recent": false
     },
     {
       "titre": "Appel à témoins après la chute d'un motocycliste",
-      "resume": "La police lance un appel à témoins à la suite de la chute d'un motocycliste.",
+      "resume": "La police lance un appel à témoins après la chute d'un motard.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "accident",
@@ -51,13 +39,13 @@
       "recent": false
     },
     {
-      "titre": "Motard mortellement accidenté",
-      "resume": "Un motard a perdu la vie après avoir percuté un arbre sur une route de la région.",
+      "titre": "Accident mortel de moto",
+      "resume": "Un motard a perdu la vie dans un accident sur une route cantonale.",
       "commune": "Montricher",
       "canton": "VD",
       "categorie": "accident",
-      "lon": 6.392,
-      "lat": 46.602,
+      "lon": 6.3936,
+      "lat": 46.6061,
       "heure": "08 oct. 15:18",
       "source": "20 Min",
       "recent": false
@@ -68,8 +56,8 @@
       "commune": "Blonay",
       "canton": "VD",
       "categorie": "incendie",
-      "lon": 6.902,
-      "lat": 46.46,
+      "lon": 6.9006,
+      "lat": 46.4728,
       "heure": "08 oct. 14:42",
       "source": "24 Heures",
       "recent": false
@@ -77,23 +65,23 @@
     {
       "titre": "Accident mortel de parapente",
       "resume": "Un parapentiste de 23 ans a perdu la vie après avoir percuté une cheminée.",
-      "commune": "Haute-Nendaz",
+      "commune": "Nendaz",
       "canton": "VS",
       "categorie": "accident",
-      "lon": 7.308,
-      "lat": 46.183,
+      "lon": 7.3053,
+      "lat": 46.1839,
       "heure": "08 oct. 11:21",
       "source": "Police cantonale valaisanne",
       "recent": false
     },
     {
       "titre": "Avis de disparition d'un septuagénaire",
-      "resume": "Un appel à témoins a été lancé pour retrouver un homme de 71 ans porté disparu.",
+      "resume": "Un homme de 71 ans fait l'objet d'un avis de disparition.",
       "commune": "Sion",
       "canton": "VS",
       "categorie": "disparition",
       "lon": 7.359,
-      "lat": 46.23,
+      "lat": 46.2311,
       "heure": "08 oct. 12:03",
       "source": "Rhône FM",
       "recent": false
@@ -104,34 +92,22 @@
       "commune": "Fribourg",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 7.162,
-      "lat": 46.806,
+      "lon": 7.1615,
+      "lat": 46.8065,
       "heure": "08 oct. 12:01",
       "source": "Le Matin",
       "recent": false
     },
     {
       "titre": "Accident grave sur une route cantonale",
-      "resume": "Un accident grave a entraîné la fermeture de la route entre Aigle et Le Sépey.",
-      "commune": "Le Sépey",
+      "resume": "La route cantonale a été fermée en raison d'un accident grave.",
+      "commune": "Aigle",
       "canton": "VD",
       "categorie": "accident",
-      "lon": 7.01,
-      "lat": 46.33,
+      "lon": 6.968,
+      "lat": 46.3178,
       "heure": "07 oct. 17:56",
       "source": "24 Heures",
-      "recent": false
-    },
-    {
-      "titre": "Valise suspecte à la Foire du Valais",
-      "resume": "Une valise abandonnée a provoqué une évacuation avant un retour à la normale.",
-      "commune": "Martigny",
-      "canton": "VS",
-      "categorie": "ordre",
-      "lon": 7.072,
-      "lat": 46.1,
-      "heure": "07 oct. 11:51",
-      "source": "rts.ch",
       "recent": false
     }
   ]
