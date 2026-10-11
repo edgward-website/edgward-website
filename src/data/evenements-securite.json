@@ -1,15 +1,15 @@
 {
-  "genereLe": "2026-10-11T16:11:55.925Z",
+  "genereLe": "2026-10-11T20:48:57.417Z",
   "source": "collecte automatique",
   "evenements": [
     {
       "titre": "Incendie criminel près des voies CFF",
-      "resume": "Un incendie d'origine criminelle à proximité des voies a interrompu le trafic ferroviaire entre Lausanne et Yverdon. Le trafic a repris dimanche matin. Une plainte a été déposée et l'enquête se poursuit.",
+      "resume": "Un incendie d'origine criminelle à proximité des voies a interrompu le trafic ferroviaire entre Lausanne et Yverdon. Une plainte a été déposée et l'enquête se poursuit.",
       "commune": "Eclépens",
       "canton": "VD",
       "categorie": "incendie",
-      "lon": 6.5453,
-      "lat": 46.6653,
+      "lon": 6.5308,
+      "lat": 46.6664,
       "heure": "9 oct. 12:36",
       "source": "rts.ch",
       "recent": false
@@ -20,58 +20,34 @@
       "commune": "Mund",
       "canton": "VS",
       "categorie": "accident",
-      "lon": 7.95,
-      "lat": 46.33,
+      "lon": 7.9516,
+      "lat": 46.3161,
       "heure": "11 oct. 13:31",
       "source": "Le Nouvelliste",
-      "recent": false
-    },
-    {
-      "titre": "Fuite de données chez Ricardo",
-      "resume": "Les données de quelque 890'000 utilisateurs de la plateforme ricardo.ch ont été volées. Des tentatives d'arnaque par messagerie ont suivi.",
-      "commune": "Zoug",
-      "canton": "VD",
-      "categorie": "cyber",
-      "lon": 6.6323,
-      "lat": 46.5197,
-      "heure": "9 oct. 22:16",
-      "source": "rts.ch",
-      "recent": false
-    },
-    {
-      "titre": "Piratage de données chez quitt.ch",
-      "resume": "Les données sensibles de près de 30'000 personnes ont été dérobées et mises en vente après le piratage de la plateforme quitt.ch.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "cyber",
-      "lon": 6.6323,
-      "lat": 46.5197,
-      "heure": "10 oct. 07:45",
-      "source": "Cyberattaque.org",
-      "recent": false
+      "recent": true
     },
     {
       "titre": "Arbitre agressé lors d'un match de football",
-      "resume": "Un arbitre a été frappé et insulté lors d'un match de football amateur.",
+      "resume": "Un arbitre a été frappé et insulté durant une rencontre de football.",
       "commune": "Romanel-sur-Lausanne",
       "canton": "VD",
       "categorie": "agression",
-      "lon": 6.605,
-      "lat": 46.57,
+      "lon": 6.6024,
+      "lat": 46.5717,
       "heure": "9 oct. 12:01",
       "source": "24 Heures",
       "recent": false
     },
     {
-      "titre": "Accident mortel de moto",
-      "resume": "Un motard a perdu la vie dans un accident dans le canton de Vaud.",
-      "commune": "Canton de Vaud",
-      "canton": "VD",
+      "titre": "Appel à témoins après la chute d'un motocycliste",
+      "resume": "La police lance un appel à témoins à la suite de la chute d'un motocycliste.",
+      "commune": "Genève",
+      "canton": "GE",
       "categorie": "accident",
-      "lon": 6.6,
-      "lat": 46.6,
-      "heure": "8 oct. 18:26",
-      "source": "Watson",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "9 oct. 10:43",
+      "source": "La Radio Plus",
       "recent": false
     }
   ]
