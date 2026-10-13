@@ -114,6 +114,37 @@ const priceRows = [
     </div>
   </section>
 
+  <!-- PARTENAIRE CONSEIL ET AUDIT -->
+  <section class="section partner-study">
+    <div class="container">
+      <div class="ps-block fade-in">
+        <div class="ps-head">
+          <div class="ps-head-text">
+            <span class="ps-eyebrow">Partenaire conseil</span>
+            <h2>Avant l'intervention, <em>l'analyse</em></h2>
+          </div>
+          <img src="/assets/logo-dba-securite.png" alt="DBA Sécurité" class="ps-logo" width="307" height="240" loading="lazy">
+        </div>
+        <p class="ps-lead">
+          Edgward intervient sur le terrain, au moment où vous en avez besoin. Mais certaines questions se posent en amont :
+          où sont réellement vos vulnérabilités, quel dispositif dimensionner, comment organiser la sûreté d'un site ou d'un
+          événement. C'est le métier de notre partenaire DBA Sécurité, spécialisé dans les
+          <a href="https://dbasecurite.ch/" target="_blank" rel="noopener">études et analyses de sûreté</a>.
+        </p>
+        <ul class="ps-list">
+          <li>Concepts de sûreté et analyse de risques</li>
+          <li>Audit de sites et de dispositifs existants</li>
+          <li>Exercices et tests d'intrusion</li>
+          <li>Sûreté et coordination événementielle</li>
+        </ul>
+        <a href="https://dbasecurite.ch/" class="btn-primary ps-cta" target="_blank" rel="noopener">
+          Découvrir DBA Sécurité
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
 {/* 
 <!-- CENTRALES D'ALARME -->
   <section class="section centrales-section" id="centrales">
@@ -204,6 +235,29 @@ const priceRows = [
   .email-badge { display: inline-block; background: var(--brand); color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; margin-bottom: 6px; }
   .email-content p { font-size: 12px; color: #94a3b8; margin: 0; }
   .contact-section { background: white; }
+
+  /* Bloc partenaire conseil (DBA Sécurité) */
+  .partner-study { background: var(--soft); }
+  .ps-block { max-width: 760px; margin: 0 auto; background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px 44px; }
+  .ps-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; }
+  .ps-head-text { min-width: 0; }
+  .ps-logo { flex: 0 0 auto; width: auto; height: 74px; margin-top: 2px; }
+  .ps-eyebrow { display: inline-block; font-size: 12px; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .ps-block h2 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 16px; }
+  .ps-block h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: var(--brand); }
+  .ps-lead { font-size: 15px; line-height: 1.65; color: var(--text-muted); margin-bottom: 20px; }
+  .ps-lead a { color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .ps-list { list-style: none; padding: 0; margin: 0 0 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+  .ps-list li { position: relative; padding-left: 22px; font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+  .ps-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+  .ps-cta { display: inline-flex; align-items: center; gap: 8px; }
+  @media (max-width: 768px) {
+    .ps-block { padding: 28px 22px; }
+    .ps-list { grid-template-columns: 1fr; }
+    .ps-head { flex-direction: column-reverse; align-items: flex-start; gap: 18px; }
+    .ps-logo { height: 58px; }
+  }
+
   @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-visual { min-height: 340px; order: -1; }
