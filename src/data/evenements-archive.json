@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-12T23:31:19.494Z",
-  "total": 335,
+  "compileLe": "2026-10-13T17:26:58.414Z",
+  "total": 339,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4021,6 +4021,54 @@
       "heure": "12 oct. 09:03",
       "source": "20 Min",
       "dateVue": "2026-10-12T19:42:08.188Z"
+    },
+    {
+      "titre": "Incendie d'une ferme",
+      "resume": "Une ferme a été ravagée par les flammes durant la nuit. Les animaux ont pu être sauvés.",
+      "commune": "Le Prévoux",
+      "canton": "NE",
+      "categorie": "incendie",
+      "lon": 6.72,
+      "lat": 47.045,
+      "heure": "13 oct. 11:52",
+      "source": "24 Heures",
+      "dateVue": "2026-10-13T17:26:58.414Z"
+    },
+    {
+      "titre": "Arrestation d'un homme armé",
+      "resume": "Un jeune homme a été interpellé en possession d'un fusil d'assaut.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "ordre",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "13 oct. 11:26",
+      "source": "blue News",
+      "dateVue": "2026-10-13T17:26:58.414Z"
+    },
+    {
+      "titre": "Incendie d'un camion de foin",
+      "resume": "Un camion transportant du foin a pris feu, entraînant la fermeture de la route des Rangiers.",
+      "commune": "La Malcôte",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.11,
+      "lat": 47.33,
+      "heure": "12 oct. 21:18",
+      "source": "SWI swissinfo.ch",
+      "dateVue": "2026-10-13T17:26:58.414Z"
+    },
+    {
+      "titre": "Vol d'un bateau des pompiers",
+      "resume": "Un bateau de secours des pompiers genevois a été volé et retrouvé saccagé au port de Nyon. Une plainte a été déposée.",
+      "commune": "Nyon",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.239,
+      "lat": 46.383,
+      "heure": "12 oct. 17:47",
+      "source": "Rhône FM",
+      "dateVue": "2026-10-13T17:26:58.414Z"
     }
   ]
 }
