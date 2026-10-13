@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-13T17:26:58.414Z",
-  "total": 339,
+  "compileLe": "2026-10-13T21:45:57.529Z",
+  "total": 340,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4069,6 +4069,18 @@
       "heure": "12 oct. 17:47",
       "source": "Rhône FM",
       "dateVue": "2026-10-13T17:26:58.414Z"
+    },
+    {
+      "titre": "Incendie perturbant le trafic ferroviaire",
+      "resume": "Un incendie a perturbé le trafic des trains entre Vevey et Villeneuve.",
+      "commune": "Villeneuve",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.9281,
+      "lat": 46.3978,
+      "heure": "12 oct. 08:23",
+      "source": "24 Heures",
+      "dateVue": "2026-10-13T21:45:57.529Z"
     }
   ]
 }
