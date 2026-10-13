@@ -11,6 +11,7 @@ const builders = [
   { name: 'MediaOne', logo: '/assets/partners/mediaone.svg', invert: true, url: 'https://www.mediaone.ch/fr', role: 'Diffusion média', desc: "Partenaire média par lequel Edgward diffuse ses campagnes publicitaires." },
   { name: 'FONGIT', logo: '/assets/partners/fongit.png', url: 'https://www.fongit.ch/fr', role: 'Soutien & incubation', desc: "La Fondation genevoise pour l'innovation technologique accompagne la croissance d'Edgward." },
   { name: 'Innosuisse', logo: '/assets/partners/innosuisse.png', url: 'https://www.innosuisse.admin.ch/fr', role: 'Innovation', desc: "L'agence suisse pour l'encouragement de l'innovation soutient le développement d'Edgward." },
+  { name: 'DBA Sécurité', logo: '/assets/logo-dba-securite.png', url: 'https://dbasecurite.ch/', role: 'Conseil & audit de sûreté', desc: "Cabinet fondé par Daniel Barouch, partenaire d'Edgward pour les études et analyses de sûreté." },
 ];
 ---
 
@@ -92,7 +93,7 @@ const builders = [
         </aside>
         <div class="founder-bio fade-in">
           <p>À l'origine d'Edgward, il y a quelqu'un qui connaît la sécurité de l'intérieur. Daniel Barouch évolue depuis près de vingt ans dans la sécurité et la sûreté, du terrain à la direction.</p>
-          <p>Au fil de sa carrière, il a dirigé des départements opérationnels réunissant plusieurs centaines de collaborateurs et piloté la sécurité de mandats sensibles : organisations internationales, événements diplomatiques, visites de chefs d'État et de gouvernement. Il a aussi fondé et dirigé sa propre entreprise de sécurité, responsable de plus de 200 événements en Suisse romande.</p>
+          <p>Au fil de sa carrière, il a dirigé des départements opérationnels réunissant plusieurs centaines de collaborateurs et piloté la sécurité de mandats sensibles : organisations internationales, événements diplomatiques, visites de chefs d'État et de gouvernement. Il a aussi fondé et dirigé sa propre entreprise de sécurité, responsable de plus de 200 événements en Suisse romande. Il dirige aujourd'hui <a href="https://dbasecurite.ch/" target="_blank" rel="noopener">DBA Sécurité</a>, cabinet d'audit et de conseil en sûreté qui accompagne institutions, entreprises et communes.</p>
           <p>Titulaire de la certification Certified Protection Professional (CPP), la plus haute qualification internationale en management de la sécurité, il est également diplômé d'un Master en management et formé à la communication de crise. Il est aussi actif depuis plus de vingt ans au sein de l'armée suisse, dans diverses fonctions.</p>
           <p>C'est cette double expérience, du terrain et de la direction, qui l'a convaincu d'une chose : une sécurité de qualité ne devrait pas être réservée aux grandes organisations. Avec Edgward, il veut la rendre accessible à chacun.</p>
           <blockquote class="founder-quote">
@@ -248,6 +249,7 @@ const builders = [
   }
   .founder-chips li span { color: var(--brand); margin-right: 6px; }
 
+  .founder-bio a { color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
   .founder-bio p {
     font-size: 17px;
     color: var(--text-muted);
@@ -284,7 +286,7 @@ const builders = [
   /* RESEAU + ECOSYSTEME */
   .network-section { background: var(--soft); }
   .eco-section { background: white; }
-  .eco-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1040px; margin: 0 auto; }
+  .eco-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; max-width: 1040px; margin: 0 auto; }
   .eco-card { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 22px; display: flex; flex-direction: column; transition: all 0.2s ease; text-decoration: none; color: inherit; }
   .eco-card:hover { background: white; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
   .eco-brand { height: 44px; display: flex; align-items: center; margin-bottom: 14px; }
