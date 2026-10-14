@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-14T14:57:17.368Z",
-  "total": 343,
+  "compileLe": "2026-10-14T20:29:34.044Z",
+  "total": 346,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4117,6 +4117,42 @@
       "heure": "12 oct. 16:13",
       "source": "blue News",
       "dateVue": "2026-10-14T14:57:17.368Z"
+    },
+    {
+      "titre": "Avis de disparition",
+      "resume": "La police valaisanne recherche un homme de 41 ans qui pourrait avoir transité par le Valais. Appel à témoins lancé.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "14 oct. 19:22",
+      "source": "24 Heures",
+      "dateVue": "2026-10-14T20:29:34.044Z"
+    },
+    {
+      "titre": "Incendie perturbant le trafic ferroviaire",
+      "resume": "Un incendie a perturbé le trafic des trains entre Vevey et Villeneuve.",
+      "commune": "Vevey",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.843,
+      "lat": 46.462,
+      "heure": "12 oct. 09:24",
+      "source": "24 Heures",
+      "dateVue": "2026-10-14T20:29:34.044Z"
+    },
+    {
+      "titre": "Arnaques aux faux banquiers",
+      "resume": "Une vague d'escroqueries par de faux banquiers et faux policiers touche le canton. Trois auteurs présumés ont été mis en cause.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "cyber",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "13 oct. 14:38",
+      "source": "FR.ch",
+      "dateVue": "2026-10-14T20:29:34.044Z"
     }
   ]
 }
