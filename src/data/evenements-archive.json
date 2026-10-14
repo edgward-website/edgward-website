@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-13T21:45:57.529Z",
-  "total": 340,
+  "compileLe": "2026-10-14T14:57:17.368Z",
+  "total": 343,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4081,6 +4081,42 @@
       "heure": "12 oct. 08:23",
       "source": "24 Heures",
       "dateVue": "2026-10-13T21:45:57.529Z"
+    },
+    {
+      "titre": "Incendie dans un appartement",
+      "resume": "Un feu s'est déclaré dans la cuisine d'un appartement, faisant un blessé hospitalisé.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "14 oct. 15:20",
+      "source": "blue News",
+      "dateVue": "2026-10-14T14:57:17.368Z"
+    },
+    {
+      "titre": "Série de cambriolages dans des écoles",
+      "resume": "Huit écoles du canton ont été visées par des effractions nocturnes en une dizaine de jours.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "14 oct. 08:33",
+      "source": "rts.ch",
+      "dateVue": "2026-10-14T14:57:17.368Z"
+    },
+    {
+      "titre": "Chute mortelle en montagne",
+      "resume": "Un randonneur de 30 ans a perdu la vie après une chute d'environ 300 mètres.",
+      "commune": "Bex",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 7.01,
+      "lat": 46.25,
+      "heure": "12 oct. 16:13",
+      "source": "blue News",
+      "dateVue": "2026-10-14T14:57:17.368Z"
     }
   ]
 }
