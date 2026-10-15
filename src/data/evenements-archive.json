@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-14T20:29:34.044Z",
-  "total": 346,
+  "compileLe": "2026-10-15T14:46:19.515Z",
+  "total": 350,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4153,6 +4153,54 @@
       "heure": "13 oct. 14:38",
       "source": "FR.ch",
       "dateVue": "2026-10-14T20:29:34.044Z"
+    },
+    {
+      "titre": "Incendie d'une maison à Chalais",
+      "resume": "Une maison a pris feu près de l'église, provoquant la coupure de la route de Vercorin. L'incendie a été maîtrisé sans blessé.",
+      "commune": "Chalais",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.526,
+      "lat": 46.293,
+      "heure": "15 oct. 15:25",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-10-15T14:46:19.515Z"
+    },
+    {
+      "titre": "Arnaques aux faux policiers et faux banquiers",
+      "resume": "Des escrocs se faisant passer pour des policiers ou banquiers ont soutiré environ 7 millions de francs dans le canton de Vaud en moins d'un an.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.632,
+      "lat": 46.519,
+      "heure": "15 oct. 11:40",
+      "source": "24 Heures",
+      "dateVue": "2026-10-15T14:46:19.515Z"
+    },
+    {
+      "titre": "Personne disparue retrouvée",
+      "resume": "Un homme porté disparu depuis fin juin a été retrouvé en bonne santé.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.632,
+      "lat": 46.519,
+      "heure": "14 oct. 16:43",
+      "source": "24 Heures",
+      "dateVue": "2026-10-15T14:46:19.515Z"
+    },
+    {
+      "titre": "Incendie d'un camion de foin à La Malcôte",
+      "resume": "Un camion transportant du foin a pris feu, entraînant la fermeture de la route des Rangiers.",
+      "commune": "Cornol",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.085,
+      "lat": 47.375,
+      "heure": "12 oct. 21:18",
+      "source": "SWI swissinfo.ch",
+      "dateVue": "2026-10-15T14:46:19.515Z"
     }
   ]
 }
