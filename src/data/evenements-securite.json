@@ -1,34 +1,46 @@
 {
-  "genereLe": "2026-10-16T14:40:31.114Z",
+  "genereLe": "2026-10-16T19:49:14.138Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Effondrement d'un pylône à haute tension",
-      "resume": "Un pylône d'une ligne à haute tension s'est effondré en pleine nuit, provoquant une intervention.",
+      "titre": "Effondrement d'un pylône électrique",
+      "resume": "Un pylône d'une ligne à haute tension s'est effondré en pleine nuit dans la zone industrielle du Botza.",
       "commune": "Vétroz",
       "canton": "VS",
       "categorie": "accident",
       "lon": 7.2833,
       "lat": 46.2283,
       "heure": "16 oct. 08:38",
-      "source": "Rhône FM",
+      "source": "Le Nouvelliste",
       "recent": true
     },
     {
       "titre": "Incendie d'une maison",
-      "resume": "Une maison a pris feu près de l'église, entraînant la coupure d'une route. L'incendie a été maîtrisé sans blessé.",
+      "resume": "Une maison a pris feu à proximité de l'église, entraînant la coupure de la route de Vercorin. L'incendie a été maîtrisé sans blessé.",
       "commune": "Chalais",
       "canton": "VS",
       "categorie": "incendie",
       "lon": 7.5167,
-      "lat": 46.2917,
+      "lat": 46.2933,
       "heure": "15 oct. 11:17",
       "source": "Le Nouvelliste",
       "recent": false
     },
     {
-      "titre": "Homme menacé avec une arme",
-      "resume": "Un individu a été menacé avec une arme devant son immeuble.",
+      "titre": "Incendie dans un appartement",
+      "resume": "Un feu s'est déclaré dans la cuisine d'un appartement, faisant un blessé.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.6333,
+      "lat": 46.519,
+      "heure": "14 oct. 15:20",
+      "source": "24 Heures",
+      "recent": false
+    },
+    {
+      "titre": "Menaces avec une arme",
+      "resume": "Un homme indique avoir été menacé avec une arme devant son immeuble.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "agression",
@@ -40,7 +52,7 @@
     },
     {
       "titre": "Agression d'un bijoutier",
-      "resume": "Un bijoutier a été violemment agressé, une personne est soupçonnée dans cette affaire.",
+      "resume": "Un bijoutier a été violemment agressé; une personne de son entourage est suspectée.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "agression",
@@ -52,26 +64,14 @@
     },
     {
       "titre": "Appel à témoins pour une disparition",
-      "resume": "La police valaisanne recherche un homme de 41 ans qui pourrait être passé par le Valais.",
+      "resume": "La police cantonale recherche un homme de 41 ans porté disparu en Valais.",
       "commune": "Sion",
       "canton": "VS",
       "categorie": "disparition",
       "lon": 7.359,
       "lat": 46.2311,
-      "heure": "14 oct. 18:19",
-      "source": "Police cantonale valaisanne",
-      "recent": false
-    },
-    {
-      "titre": "Incendie dans un appartement",
-      "resume": "Un incendie s'est déclaré dans la cuisine d'un appartement, faisant un blessé.",
-      "commune": "Lausanne",
-      "canton": "VD",
-      "categorie": "incendie",
-      "lon": 6.6327,
-      "lat": 46.5197,
-      "heure": "14 oct. 15:20",
-      "source": "SWI swissinfo.ch",
+      "heure": "14 oct. 19:22",
+      "source": "24 Heures",
       "recent": false
     }
   ]
