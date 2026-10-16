@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-15T20:11:32.151Z",
-  "total": 350,
+  "compileLe": "2026-10-16T14:40:31.114Z",
+  "total": 352,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4201,6 +4201,30 @@
       "heure": "12 oct. 21:18",
       "source": "SWI swissinfo.ch",
       "dateVue": "2026-10-15T14:46:19.515Z"
+    },
+    {
+      "titre": "Effondrement d'un pylône à haute tension",
+      "resume": "Un pylône d'une ligne à haute tension s'est effondré en pleine nuit, provoquant une intervention.",
+      "commune": "Vétroz",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.2833,
+      "lat": 46.2283,
+      "heure": "16 oct. 08:38",
+      "source": "Rhône FM",
+      "dateVue": "2026-10-16T14:40:31.114Z"
+    },
+    {
+      "titre": "Agression d'un bijoutier",
+      "resume": "Un bijoutier a été violemment agressé, une personne est soupçonnée dans cette affaire.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "15 oct. 06:38",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-16T14:40:31.114Z"
     }
   ]
 }
