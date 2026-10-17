@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-17T13:32:13.286Z",
-  "total": 355,
+  "compileLe": "2026-10-17T19:03:06.596Z",
+  "total": 357,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4261,6 +4261,30 @@
       "heure": "14 oct. 17:49",
       "source": "Le Nouvelliste",
       "dateVue": "2026-10-17T13:32:13.286Z"
+    },
+    {
+      "titre": "Accident sur l'A1",
+      "resume": "Un accident a entraîne la fermeture d'un tronçon de l'autoroute A1 a Geneve.",
+      "commune": "Geneve",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.11,
+      "lat": 46.21,
+      "heure": "17 oct. 18:58",
+      "source": "Blick",
+      "dateVue": "2026-10-17T19:03:06.596Z"
+    },
+    {
+      "titre": "Double cambriolage dans un commerce",
+      "resume": "Deux cambriolages visant un commerce du secteur de Malley suscitent l'inquietude des habitants.",
+      "commune": "Prilly",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.6,
+      "lat": 46.53,
+      "heure": "17 oct. 07:55",
+      "source": "24 Heures",
+      "dateVue": "2026-10-17T19:03:06.596Z"
     }
   ]
 }
