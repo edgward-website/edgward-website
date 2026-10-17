@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-16T19:49:14.138Z",
-  "total": 352,
+  "compileLe": "2026-10-17T13:32:13.286Z",
+  "total": 355,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4225,6 +4225,42 @@
       "heure": "15 oct. 06:38",
       "source": "Tribune de Genève",
       "dateVue": "2026-10-16T14:40:31.114Z"
+    },
+    {
+      "titre": "Incendie dans un immeuble",
+      "resume": "Un incendie a provoqué l'évacuation d'un immeuble. L'incendie d'un appartement a été maîtrisé.",
+      "commune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "categorie": "incendie",
+      "lon": 6.8294,
+      "lat": 47.0997,
+      "heure": "17 oct. 14:11",
+      "source": "Watson",
+      "dateVue": "2026-10-17T13:32:13.286Z"
+    },
+    {
+      "titre": "Nombreux véhicules fracturés dans des parkings",
+      "resume": "Environ 70 voitures ont été fracturées dans des parkings du quartier de Plainpalais.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "cambriolage",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "16 oct. 19:58",
+      "source": "20 Minuten",
+      "dateVue": "2026-10-17T13:32:13.286Z"
+    },
+    {
+      "titre": "Personne disparue retrouvée saine et sauve",
+      "resume": "Un homme recherché dans la région de Verbier a été retrouvé sain et sauf.",
+      "commune": "Val de Bagnes",
+      "canton": "VS",
+      "categorie": "disparition",
+      "lon": 7.228,
+      "lat": 46.096,
+      "heure": "14 oct. 17:49",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-10-17T13:32:13.286Z"
     }
   ]
 }
