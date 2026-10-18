@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-18T13:50:53.267Z",
-  "total": 357,
+  "compileLe": "2026-10-18T19:15:13.263Z",
+  "total": 360,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4285,6 +4285,42 @@
       "heure": "17 oct. 07:55",
       "source": "24 Heures",
       "dateVue": "2026-10-17T19:03:06.596Z"
+    },
+    {
+      "titre": "Accident de la route",
+      "resume": "Un accident sur le tronçon Gampel-Goppenstein a fait trois blessés.",
+      "commune": "Gampel",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.744,
+      "lat": 46.313,
+      "heure": "18 oct. 16:46",
+      "source": "Pomona",
+      "dateVue": "2026-10-18T19:15:13.263Z"
+    },
+    {
+      "titre": "Incendie volontaire",
+      "resume": "Un incendie qualifié de volontaire a provoqué l'évacuation d'un quartier à Morges.",
+      "commune": "Morges",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.498,
+      "lat": 46.509,
+      "heure": "18 oct. 14:48",
+      "source": "La Côte",
+      "dateVue": "2026-10-18T19:15:13.263Z"
+    },
+    {
+      "titre": "Décès d'un cycliste",
+      "resume": "Un cycliste a perdu la vie dans des circonstances encore indéterminées au-dessus de Versoix.",
+      "commune": "Versoix",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.162,
+      "lat": 46.283,
+      "heure": "18 oct. 13:27",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-18T19:15:13.263Z"
     }
   ]
 }
