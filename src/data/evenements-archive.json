@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-18T19:15:13.263Z",
-  "total": 360,
+  "compileLe": "2026-10-19T16:52:06.914Z",
+  "total": 361,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4321,6 +4321,18 @@
       "heure": "18 oct. 13:27",
       "source": "Tribune de Genève",
       "dateVue": "2026-10-18T19:15:13.263Z"
+    },
+    {
+      "titre": "Collision entre Échallens et Assens",
+      "resume": "Une grave collision sur la route entre deux localités a fait six blessés.",
+      "commune": "Échallens",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.6333,
+      "lat": 46.6417,
+      "heure": "19 oct. 15:50",
+      "source": "24 Heures",
+      "dateVue": "2026-10-19T16:52:06.914Z"
     }
   ]
 }
