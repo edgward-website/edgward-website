@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-19T21:21:18.702Z",
-  "total": 361,
+  "compileLe": "2026-10-20T14:50:41.389Z",
+  "total": 366,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4333,6 +4333,66 @@
       "heure": "19 oct. 15:50",
       "source": "24 Heures",
       "dateVue": "2026-10-19T16:52:06.914Z"
+    },
+    {
+      "titre": "Avis de disparition d'une jeune femme",
+      "resume": "La police lance un appel à témoins pour retrouver une jeune femme disparue à Lausanne.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.63,
+      "lat": 46.52,
+      "heure": "20 oct. 15:25",
+      "source": "24 Heures",
+      "dateVue": "2026-10-20T14:50:41.389Z"
+    },
+    {
+      "titre": "Collision entre un tram et une voiture",
+      "resume": "Lors d'essais, le futur tramway lausannois est entré en collision avec une voiture.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.63,
+      "lat": 46.52,
+      "heure": "20 oct. 15:00",
+      "source": "24 Heures",
+      "dateVue": "2026-10-20T14:50:41.389Z"
+    },
+    {
+      "titre": "Home-jacking à domicile",
+      "resume": "Un couple de sexagénaires a été braqué et blessé à son domicile par des individus cagoulés.",
+      "commune": "Coppet",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.32,
+      "lat": 46.32,
+      "heure": "20 oct. 12:30",
+      "source": "Blick",
+      "dateVue": "2026-10-20T14:50:41.389Z"
+    },
+    {
+      "titre": "Armurerie prise pour cible à répétition",
+      "resume": "Une armurerie a été attaquée pour la troisième fois en quatre jours.",
+      "commune": "Bière",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.34,
+      "lat": 46.53,
+      "heure": "20 oct. 12:09",
+      "source": "24 Heures",
+      "dateVue": "2026-10-20T14:50:41.389Z"
+    },
+    {
+      "titre": "Campagne de phishing usurpant le fisc",
+      "resume": "Une fausse notification de remboursement d'impôt usurpe l'identité de l'administration fiscale genevoise.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "cyber",
+      "lon": 6.14,
+      "lat": 46.2,
+      "heure": "20 oct. 09:28",
+      "source": "ge.ch",
+      "dateVue": "2026-10-20T14:50:41.389Z"
     }
   ]
 }
