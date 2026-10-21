@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-20T20:18:36.266Z",
-  "total": 366,
+  "compileLe": "2026-10-21T14:58:27.580Z",
+  "total": 367,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4393,6 +4393,18 @@
       "heure": "20 oct. 09:28",
       "source": "ge.ch",
       "dateVue": "2026-10-20T14:50:41.389Z"
+    },
+    {
+      "titre": "Appel à témoins après le décès d'un cycliste",
+      "resume": "La police lance un appel à témoins à la suite du décès d'un cycliste.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "disparition",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "19 oct. 07:51",
+      "source": "La Radio Plus",
+      "dateVue": "2026-10-21T14:58:27.580Z"
     }
   ]
 }
