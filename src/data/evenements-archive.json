@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-22T15:04:48.489Z",
-  "total": 370,
+  "compileLe": "2026-10-22T20:26:04.453Z",
+  "total": 371,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4441,6 +4441,18 @@
       "heure": "22 oct. 09:54",
       "source": "La Télé",
       "dateVue": "2026-10-22T15:04:48.489Z"
+    },
+    {
+      "titre": "Collision à contresens, trois blessés graves",
+      "resume": "Un véhicule circulant à contresens a provoqué une collision faisant trois blessés graves aux portes de Genève.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "22 oct. 12:45",
+      "source": "24 Heures",
+      "dateVue": "2026-10-22T20:26:04.453Z"
     }
   ]
 }
