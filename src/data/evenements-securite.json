@@ -1,10 +1,22 @@
 {
-  "genereLe": "2026-10-23T14:46:38.873Z",
+  "genereLe": "2026-10-23T20:13:11.641Z",
   "source": "collecte automatique",
   "evenements": [
     {
+      "titre": "Vol d'armes dans des armureries",
+      "resume": "Plusieurs armes ont été dérobées dans deux armureries de la région, malgré l'arrestation de suspects. Une enquête est en cours.",
+      "commune": "Morges",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.498,
+      "lat": 46.509,
+      "heure": "21 oct. 14:51",
+      "source": "rts.ch",
+      "recent": false
+    },
+    {
       "titre": "Troubles à l'ordre public à Lausanne",
-      "resume": "Un individu a semé le désordre en ville avant de simuler un malaise pour tromper les forces de l'ordre. Il a été interpellé par la police.",
+      "resume": "Un individu a provoqué des troubles en ville avant de simuler un malaise pour tenter d'échapper à la police.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "ordre",
@@ -15,8 +27,20 @@
       "recent": true
     },
     {
+      "titre": "Boutique de luxe cambriolée à Vevey",
+      "resume": "Un commerce de luxe a été visé par un cambriolage, le troisième subi par l'enseigne.",
+      "commune": "Vevey",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.843,
+      "lat": 46.462,
+      "heure": "23 oct. 12:46",
+      "source": "24 Heures",
+      "recent": true
+    },
+    {
       "titre": "Accident de la circulation à Lausanne",
-      "resume": "Un conducteur a pris la fuite après une collision avant de revenir sur les lieux. La police est intervenue.",
+      "resume": "Un conducteur a d'abord pris la fuite après un accident avant de revenir sur les lieux.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "accident",
@@ -28,55 +52,19 @@
     },
     {
       "titre": "Tentative de cambriolage à Gimel",
-      "resume": "Cinq mineurs ont été interpellés après une tentative de cambriolage sur La Côte. Ils étaient en fuite au moment de l'intervention policière.",
+      "resume": "Cinq mineurs ont été interpellés après une tentative de cambriolage.",
       "commune": "Gimel",
       "canton": "VD",
       "categorie": "cambriolage",
       "lon": 6.26,
-      "lat": 46.48,
+      "lat": 46.51,
       "heure": "22 oct. 18:46",
       "source": "24 Heures",
       "recent": false
     },
     {
-      "titre": "Vol d'armes dans deux armureries",
-      "resume": "Des cambrioleurs ont dérobé des armes dans deux armureries situées à Morges et Bière. Une enquête est ouverte.",
-      "commune": "Morges",
-      "canton": "VD",
-      "categorie": "cambriolage",
-      "lon": 6.498,
-      "lat": 46.509,
-      "heure": "21 oct. 14:51",
-      "source": "rts.ch",
-      "recent": false
-    },
-    {
-      "titre": "Mesures de sécurité après des failles PHP à Genève",
-      "resume": "L'Etat de Genève a pris des mesures pour protéger ses services en ligne suite à la découverte de failles critiques dans le langage PHP.",
-      "commune": "Genève",
-      "canton": "GE",
-      "categorie": "cyber",
-      "lon": 6.143,
-      "lat": 46.204,
-      "heure": "22 oct. 17:22",
-      "source": "ge.ch",
-      "recent": false
-    },
-    {
-      "titre": "Sites de l'Etat coupés après une faille PHP",
-      "resume": "L'Etat de Neuchâtel a coupé certains de ses sites en ligne par précaution après la découverte d'une faille de sécurité dans le langage PHP.",
-      "commune": "Neuchâtel",
-      "canton": "NE",
-      "categorie": "cyber",
-      "lon": 6.931,
-      "lat": 46.99,
-      "heure": "22 oct. 09:54",
-      "source": "La Télé",
-      "recent": false
-    },
-    {
       "titre": "Incendie de deux-roues au Grand-Lancy",
-      "resume": "Une dizaine de deux-roues ont été détruits par les flammes. Les pompiers sont intervenus et une enquête a été ouverte.",
+      "resume": "Une dizaine de deux-roues ont été détruits par les flammes.",
       "commune": "Lancy",
       "canton": "GE",
       "categorie": "incendie",
@@ -88,26 +76,14 @@
     },
     {
       "titre": "Collision impliquant le futur tramway à Lausanne",
-      "resume": "Le futur tramway lausannois a été impliqué dans une collision lors de ses essais. Aucune circulation voyageurs n'était en cours.",
+      "resume": "Le futur tramway a été impliqué dans une collision lors d'essais.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "accident",
       "lon": 6.633,
       "lat": 46.519,
       "heure": "21 oct. 15:00",
-      "source": "Le Matin",
-      "recent": false
-    },
-    {
-      "titre": "Incendie au collège Numa-Droz",
-      "resume": "Un incendie a touché le collège Numa-Droz. Les cours ont repris le mercredi suivant après sécurisation des lieux.",
-      "commune": "La Chaux-de-Fonds",
-      "canton": "NE",
-      "categorie": "incendie",
-      "lon": 6.828,
-      "lat": 47.104,
-      "heure": "20 oct. 17:50",
-      "source": "SWI swissinfo.ch",
+      "source": "La Radio Plus",
       "recent": false
     }
   ]
