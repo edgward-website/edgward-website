@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-23T20:13:11.641Z",
-  "total": 373,
+  "compileLe": "2026-10-24T13:53:51.290Z",
+  "total": 374,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4477,6 +4477,18 @@
       "heure": "23 oct. 12:46",
       "source": "24 Heures",
       "dateVue": "2026-10-23T20:13:11.641Z"
+    },
+    {
+      "titre": "Perte de maîtrise et collision avec un tracteur",
+      "resume": "Un automobiliste a perdu la maîtrise de son véhicule et percuté un tracteur.",
+      "commune": "La Malcôte",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.2167,
+      "lat": 47.3333,
+      "heure": "23 oct. 22:24",
+      "source": "République et Canton du Jura",
+      "dateVue": "2026-10-24T13:53:51.290Z"
     }
   ]
 }
