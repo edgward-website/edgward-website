@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-24T13:53:51.290Z",
-  "total": 374,
+  "compileLe": "2026-10-24T19:16:25.119Z",
+  "total": 375,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4489,6 +4489,18 @@
       "heure": "23 oct. 22:24",
       "source": "République et Canton du Jura",
       "dateVue": "2026-10-24T13:53:51.290Z"
+    },
+    {
+      "titre": "Collision entre deux véhicules",
+      "resume": "Deux véhicules se sont percutés à Sceut. Aucun blessé n'est à déplorer.",
+      "commune": "Mervelier",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.46,
+      "lat": 47.35,
+      "heure": "24 oct. 19:42",
+      "source": "La Télé",
+      "dateVue": "2026-10-24T19:16:25.119Z"
     }
   ]
 }
