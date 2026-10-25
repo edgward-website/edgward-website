@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-25T14:10:38.918Z",
-  "total": 379,
+  "compileLe": "2026-10-25T19:27:49.214Z",
+  "total": 382,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4549,6 +4549,42 @@
       "heure": "24 oct. 19:42",
       "source": "La Télé",
       "dateVue": "2026-10-25T14:10:38.918Z"
+    },
+    {
+      "titre": "Heurts entre supporters de hockey",
+      "resume": "Des affrontements entre supporters ont fait deux blessés en marge d'un match de hockey. La police est intervenue.",
+      "commune": "Prilly",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.603,
+      "lat": 46.527,
+      "heure": "24 oct. 15:57",
+      "source": "blue News",
+      "dateVue": "2026-10-25T19:27:49.214Z"
+    },
+    {
+      "titre": "Collision entre deux véhicules",
+      "resume": "Deux véhicules se sont percutés sur une route jurassienne. Aucun blessé n'est à déplorer.",
+      "commune": "Undervelier",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.25,
+      "lat": 47.28,
+      "heure": "24 oct. 19:42",
+      "source": "La Télé",
+      "dateVue": "2026-10-25T19:27:49.214Z"
+    },
+    {
+      "titre": "Perte de maîtrise et collision avec un tracteur",
+      "resume": "Un automobiliste a perdu la maîtrise de son véhicule et percuté un tracteur à La Malcôte.",
+      "commune": "Ocourt",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.07,
+      "lat": 47.33,
+      "heure": "23 oct. 22:24",
+      "source": "République et Canton du Jura",
+      "dateVue": "2026-10-25T19:27:49.214Z"
     }
   ]
 }

@@ -1,34 +1,34 @@
 {
-  "genereLe": "2026-10-25T14:10:38.918Z",
+  "genereLe": "2026-10-25T19:27:49.214Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Violences après un match de hockey",
-      "resume": "Deux supporters lausannois ont été blessés lors d'incidents survenus en marge de la rencontre de hockey Lausanne-Fribourg.",
-      "commune": "Lausanne",
+      "titre": "Heurts entre supporters de hockey",
+      "resume": "Des affrontements entre supporters ont fait deux blessés en marge d'un match de hockey. La police est intervenue.",
+      "commune": "Prilly",
       "canton": "VD",
-      "categorie": "agression",
-      "lon": 6.633,
-      "lat": 46.519,
-      "heure": "25 oct. 14:41",
-      "source": "Le Matin",
-      "recent": true
+      "categorie": "ordre",
+      "lon": 6.603,
+      "lat": 46.527,
+      "heure": "24 oct. 15:57",
+      "source": "blue News",
+      "recent": false
     },
     {
       "titre": "Incendie dans un garage souterrain",
-      "resume": "Un feu s'est déclaré dans un parking souterrain, endommageant plusieurs dizaines de véhicules. Plus de cent personnes ont dû être évacuées.",
+      "resume": "Un feu dans un parking souterrain a endommagé plusieurs dizaines de véhicules et contraint à l'évacuation de plus de cent personnes en pleine nuit.",
       "commune": "Fribourg",
       "canton": "FR",
       "categorie": "incendie",
       "lon": 7.161,
       "lat": 46.806,
-      "heure": "25 oct. 09:28",
+      "heure": "25 oct. 09:38",
       "source": "FR.ch",
       "recent": true
     },
     {
       "titre": "Appel à témoins pour deux adolescents disparus",
-      "resume": "La police lance un appel à témoins pour retrouver deux adolescents portés disparus depuis mercredi.",
+      "resume": "La police a lancé un appel à témoins pour retrouver deux adolescents portés disparus depuis mercredi.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "disparition",
@@ -36,16 +36,16 @@
       "lat": 46.204,
       "heure": "25 oct. 12:05",
       "source": "Tribune de Genève",
-      "recent": true
+      "recent": false
     },
     {
       "titre": "Collision entre deux véhicules",
-      "resume": "Deux véhicules se sont percutés à Sceut, sans faire de blessé.",
-      "commune": "Sceut",
+      "resume": "Deux véhicules se sont percutés sur une route jurassienne. Aucun blessé n'est à déplorer.",
+      "commune": "Undervelier",
       "canton": "JU",
       "categorie": "accident",
-      "lon": 7.33,
-      "lat": 47.35,
+      "lon": 7.25,
+      "lat": 47.28,
       "heure": "24 oct. 19:42",
       "source": "La Télé",
       "recent": false
@@ -53,17 +53,17 @@
     {
       "titre": "Perte de maîtrise et collision avec un tracteur",
       "resume": "Un automobiliste a perdu la maîtrise de son véhicule et percuté un tracteur à La Malcôte.",
-      "commune": "La Malcôte",
+      "commune": "Ocourt",
       "canton": "JU",
       "categorie": "accident",
-      "lon": 7.12,
-      "lat": 47.42,
+      "lon": 7.07,
+      "lat": 47.33,
       "heure": "23 oct. 22:24",
       "source": "République et Canton du Jura",
       "recent": false
     },
     {
-      "titre": "Vol dans une armurerie",
+      "titre": "Cambriolage d'une armurerie",
       "resume": "Une armurerie a été dévalisée malgré l'arrestation préalable de deux suspects.",
       "commune": "Morges",
       "canton": "VD",
@@ -75,7 +75,7 @@
       "recent": false
     },
     {
-      "titre": "Cambriolage d'une boutique de luxe",
+      "titre": "Boutique de luxe cambriolée",
       "resume": "Une boutique de luxe a été cambriolée pour la troisième fois.",
       "commune": "Vevey",
       "canton": "VD",
@@ -83,18 +83,6 @@
       "lon": 6.843,
       "lat": 46.462,
       "heure": "23 oct. 12:46",
-      "source": "24 Heures",
-      "recent": false
-    },
-    {
-      "titre": "Tentative de cambriolage, cinq mineurs interpellés",
-      "resume": "Cinq mineurs ont été interpellés par la police après une tentative de cambriolage.",
-      "commune": "Gimel",
-      "canton": "VD",
-      "categorie": "cambriolage",
-      "lon": 6.263,
-      "lat": 46.508,
-      "heure": "22 oct. 18:46",
       "source": "24 Heures",
       "recent": false
     }
