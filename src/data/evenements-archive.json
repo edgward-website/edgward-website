@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-24T19:16:25.119Z",
-  "total": 375,
+  "compileLe": "2026-10-25T14:10:38.918Z",
+  "total": 379,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4501,6 +4501,54 @@
       "heure": "24 oct. 19:42",
       "source": "La Télé",
       "dateVue": "2026-10-24T19:16:25.119Z"
+    },
+    {
+      "titre": "Violences après un match de hockey",
+      "resume": "Deux supporters lausannois ont été blessés lors d'incidents survenus en marge de la rencontre de hockey Lausanne-Fribourg.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "25 oct. 14:41",
+      "source": "Le Matin",
+      "dateVue": "2026-10-25T14:10:38.918Z"
+    },
+    {
+      "titre": "Incendie dans un garage souterrain",
+      "resume": "Un feu s'est déclaré dans un parking souterrain, endommageant plusieurs dizaines de véhicules. Plus de cent personnes ont dû être évacuées.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "25 oct. 09:28",
+      "source": "FR.ch",
+      "dateVue": "2026-10-25T14:10:38.918Z"
+    },
+    {
+      "titre": "Appel à témoins pour deux adolescents disparus",
+      "resume": "La police lance un appel à témoins pour retrouver deux adolescents portés disparus depuis mercredi.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "disparition",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "25 oct. 12:05",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-25T14:10:38.918Z"
+    },
+    {
+      "titre": "Collision entre deux véhicules",
+      "resume": "Deux véhicules se sont percutés à Sceut, sans faire de blessé.",
+      "commune": "Sceut",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.33,
+      "lat": 47.35,
+      "heure": "24 oct. 19:42",
+      "source": "La Télé",
+      "dateVue": "2026-10-25T14:10:38.918Z"
     }
   ]
 }
