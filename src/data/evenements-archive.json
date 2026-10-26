@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-25T19:27:49.214Z",
-  "total": 382,
+  "compileLe": "2026-10-26T16:39:50.615Z",
+  "total": 385,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4585,6 +4585,42 @@
       "heure": "23 oct. 22:24",
       "source": "République et Canton du Jura",
       "dateVue": "2026-10-25T19:27:49.214Z"
+    },
+    {
+      "titre": "Fuite de données sur une plateforme de camping",
+      "resume": "La plateforme TCS Camping a été touchée par une fuite de données affectant des utilisateurs.",
+      "commune": "Vernier",
+      "canton": "GE",
+      "categorie": "cyber",
+      "lon": 6.1167,
+      "lat": 46.2167,
+      "heure": "26 oct. 17:16",
+      "source": "Blick",
+      "dateVue": "2026-10-26T16:39:50.615Z"
+    },
+    {
+      "titre": "Accident sur l'autoroute A12",
+      "resume": "Une collision impliquant trois véhicules a entraîné la fermeture de l'A12 entre Matran et Fribourg-Sud.",
+      "commune": "Matran",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.085,
+      "lat": 46.785,
+      "heure": "26 oct. 16:59",
+      "source": "La Liberté",
+      "dateVue": "2026-10-26T16:39:50.615Z"
+    },
+    {
+      "titre": "Conducteur blessé dans un accident",
+      "resume": "Un conducteur a été blessé lors d'un accident de la circulation.",
+      "commune": "Auboranges",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 6.83,
+      "lat": 46.56,
+      "heure": "26 oct. 16:11",
+      "source": "FR.ch",
+      "dateVue": "2026-10-26T16:39:50.615Z"
     }
   ]
 }
