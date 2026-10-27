@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-26T21:24:25.893Z",
-  "total": 387,
+  "compileLe": "2026-10-27T15:47:40.168Z",
+  "total": 388,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4645,6 +4645,18 @@
       "heure": "26 oct. 19:09",
       "source": "24 Heures",
       "dateVue": "2026-10-26T21:24:25.893Z"
+    },
+    {
+      "titre": "Incendie détruit une ferme",
+      "resume": "Une ferme a été entièrement détruite par un incendie. Tous les animaux ont pu être sauvés, mais un cours d'eau a été pollué.",
+      "commune": "Brünisried",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.2756,
+      "lat": 46.7533,
+      "heure": "27 oct. 13:22",
+      "source": "FR.ch",
+      "dateVue": "2026-10-27T15:47:40.168Z"
     }
   ]
 }
