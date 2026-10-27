@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-27T15:47:40.168Z",
-  "total": 388,
+  "compileLe": "2026-10-27T21:08:12.415Z",
+  "total": 389,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4657,6 +4657,18 @@
       "heure": "27 oct. 13:22",
       "source": "FR.ch",
       "dateVue": "2026-10-27T15:47:40.168Z"
+    },
+    {
+      "titre": "Trafic ferroviaire interrompu après un accident de personne",
+      "resume": "Un accident de personne a interrompu le trafic ferroviaire entre Romont et Fribourg. La circulation a ensuite pu reprendre.",
+      "commune": "Romont",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 6.9139,
+      "lat": 46.6947,
+      "heure": "27 oct. 20:37",
+      "source": "La Liberté",
+      "dateVue": "2026-10-27T21:08:12.415Z"
     }
   ]
 }
