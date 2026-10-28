@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-28T16:30:17.078Z",
-  "total": 392,
+  "compileLe": "2026-10-28T21:31:48.543Z",
+  "total": 393,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4705,6 +4705,18 @@
       "heure": "28 oct. 11:00",
       "source": "La Côte",
       "dateVue": "2026-10-28T16:30:17.078Z"
+    },
+    {
+      "titre": "Incendie dans une pizzeria",
+      "resume": "Un incendie a ravagé une pizzeria, qui restera fermée plusieurs mois.",
+      "commune": "Allaman",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.395,
+      "lat": 46.455,
+      "heure": "27 oct. 14:24",
+      "source": "La Côte",
+      "dateVue": "2026-10-28T21:31:48.543Z"
     }
   ]
 }
