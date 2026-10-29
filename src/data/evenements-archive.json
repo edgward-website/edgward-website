@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-29T16:46:37.259Z",
-  "total": 393,
+  "compileLe": "2026-10-29T21:34:11.747Z",
+  "total": 395,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4717,6 +4717,30 @@
       "heure": "27 oct. 14:24",
       "source": "La Côte",
       "dateVue": "2026-10-28T21:31:48.543Z"
+    },
+    {
+      "titre": "Adolescente piégée et menacée dans une forêt",
+      "resume": "Une adolescente a été attirée dans une forêt du canton de Fribourg puis menacée de mort. Une enquête est en cours.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "agression",
+      "lon": 7.16,
+      "lat": 46.8,
+      "heure": "29 oct. 10:30",
+      "source": "Watson",
+      "dateVue": "2026-10-29T21:34:11.747Z"
+    },
+    {
+      "titre": "Bagarre et interpellations devant un cycle",
+      "resume": "Une dizaine d'arrestations ont eu lieu après une altercation survenue devant un établissement scolaire.",
+      "commune": "Onex",
+      "canton": "GE",
+      "categorie": "ordre",
+      "lon": 6.1,
+      "lat": 46.18,
+      "heure": "28 oct. 07:37",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-10-29T21:34:11.747Z"
     }
   ]
 }
