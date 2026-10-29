@@ -7,6 +7,8 @@ author: "Équipe Edgward"
 category: "Sécurité"
 featured: true
 ctaB2C: true
+ctaTitre: "Un doute sur votre sous-sol ? <em>On passe vérifier.</em>"
+ctaAccroche: "Un agent partenaire se déplace à votre adresse quand vous le décidez, vérifie les accès et le sous-sol, et vous transmet un rapport. Rien à installer, sans engagement."
 ---
 
 Ces dernières semaines, nous avons été particulièrement sollicités dans la région de **Terre-Sainte**, autour de Coppet, pour des cambriolages et des demandes de sécurisation d'habitations. Un point revient dans presque tous les cas : le passage s'est fait par un **saut-de-loup**.
@@ -172,6 +174,11 @@ Deux conséquences pratiques méritent d'être soulignées.
 La première, c'est que **la découverte est tardive**. Rien n'est visible depuis la rue, la grille a parfois été replacée, et une fenêtre de cave forcée ne se remarque pas en rentrant du travail.
 
 La seconde, c'est que **la cave fournit les outils**. Une fois dans le sous-sol, un cambrioleur trouve souvent sur place de quoi forcer la porte intérieure qui mène au logement : pied-de-biche, massette, tournevis, et de plus en plus de machines sans fil. Ranger l'outillage dans un local fermé change plus de choses qu'on ne l'imagine.
+
+<div class="cta-milieu">
+<p><b>Vous ne savez pas dans quel état est le vôtre ?</b> Un agent partenaire passe, vérifie les accès du sous-sol et vous transmet un rapport avec les photos.</p>
+<a href="/comment-ca-marche" data-cta-dest="comment_ca_marche" data-cta-emplacement="milieu">Voir comment ça marche</a>
+</div>
 
 ## Les mesures qui comptent, de la gratuite à l'investissement
 

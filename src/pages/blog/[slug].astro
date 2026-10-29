@@ -118,7 +118,7 @@ const blogPostingSchema = {
   )}
 
   <!-- CTA B2C CHAUD (parcours B) -->
-  {post.data.ctaB2C && <BlogCTAHot />}
+  {post.data.ctaB2C && <BlogCTAHot titre={post.data.ctaTitre} accroche={post.data.ctaAccroche} />}
 
   <!-- RELATED POSTS -->
   {relatedPosts.length > 0 && (
@@ -215,6 +215,34 @@ const blogPostingSchema = {
     display: flex; flex-direction: column; gap: 8px;
   }
   .prose :global(li) { color: var(--text-muted); }
+  /*
+    Rappel de conversion en milieu d'article. Beaucoup de lecteurs n'atteignent
+    jamais le bloc de fin. A inserer dans le Markdown, apres la 2e ou 3e section :
+
+    <div class="cta-milieu">
+      <p><b>Accroche reprise du sujet ?</b> Une phrase courte.</p>
+      <a href="/comment-ca-marche" data-cta-dest="comment_ca_marche" data-cta-emplacement="milieu">Voir comment ça marche</a>
+    </div>
+  */
+  .prose :global(.cta-milieu) {
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    background: var(--soft); border: 1px solid var(--border); border-left: 4px solid var(--brand);
+    border-radius: 12px; padding: 16px 20px; margin: 30px 0;
+  }
+  .prose :global(.cta-milieu p) {
+    margin: 0; flex: 1 1 260px; min-width: 0; font-size: 14.5px; line-height: 1.55;
+    color: var(--text-muted); text-align: left; hyphens: none;
+  }
+  .prose :global(.cta-milieu b) { color: var(--navy); font-weight: 700; }
+  .prose :global(.cta-milieu a) {
+    flex: 0 0 auto; font-size: 14px; font-weight: 700; color: var(--brand);
+    text-decoration: none; white-space: nowrap;
+  }
+  .prose :global(.cta-milieu a:hover) { text-decoration: underline; }
+  @media (max-width: 560px) {
+    .prose :global(.cta-milieu) { padding: 14px 16px; gap: 12px; }
+  }
+
   .prose :global(a) { color: var(--brand); text-decoration: none; font-weight: 500; }
   .prose :global(a:hover) { text-decoration: underline; }
   .prose :global(blockquote) {
@@ -289,3 +317,58 @@ const blogPostingSchema = {
     .related-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  // Mesure des blocs de conversion de l'article. Deux evenements :
+  //   cta_blog_affiche : le denominateur, une fois, quand le bloc de fin est reellement a l'ecran
+  //   cta_blog_clic    : le numerateur, avec l'article, la destination et l'emplacement
+  // Sans le premier, un nombre de clics ne dit rien : on ignore combien de lecteurs ont vu le bloc.
+  function suivreCtaArticle() {
+    const article = location.pathname.replace(/\/$/, '').split('/').pop() || 'inconnu';
+
+    const envoyer = (nom: string, params: Record<string, unknown>) => {
+      try {
+        const g = (window as any).gtag;
+        if (typeof g === 'function') g('event', nom, params);
+      } catch { /* noop */ }
+    };
+
+    const bloc = document.querySelector<HTMLElement>('[data-cta-blog]');
+    if (bloc && bloc.dataset.suivi !== '1') {
+      bloc.dataset.suivi = '1';
+      if ('IntersectionObserver' in window) {
+        // Pas de seuil en pourcentage : un bloc plus haut que l'ecran du telephone ne
+        // l'atteindrait jamais. On retrecit la zone d'observation de 140 px par le bas,
+        // donc le bloc compte comme vu quand son haut depasse cette ligne.
+        const io = new IntersectionObserver((entrees) => {
+          entrees.forEach((e) => {
+            if (!e.isIntersecting) return;
+            io.disconnect();
+            envoyer('cta_blog_affiche', { article });
+          });
+        }, { threshold: 0, rootMargin: '0px 0px -140px 0px' });
+        io.observe(bloc);
+      } else {
+        envoyer('cta_blog_affiche', { article });
+      }
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-cta-dest]').forEach((lien) => {
+      if (lien.dataset.suiviClic === '1') return;
+      lien.dataset.suiviClic = '1';
+      lien.addEventListener('click', () => {
+        envoyer('cta_blog_clic', {
+          article,
+          destination: lien.dataset.ctaDest || 'inconnu',
+          emplacement: lien.dataset.ctaEmplacement || 'inconnu',
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', suivreCtaArticle);
+  } else {
+    suivreCtaArticle();
+  }
+</script>

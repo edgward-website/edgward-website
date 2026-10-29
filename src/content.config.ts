@@ -14,6 +14,10 @@ const blog = defineCollection({
     contact: z.boolean().default(false),
     contactSubject: z.string().optional(),
     ctaB2C: z.boolean().default(false),
+    /** Accroche du bloc de conversion, reprise du sujet de l'article. Le <em> passe en serif italique. */
+    ctaTitre: z.string().optional(),
+    /** Phrase sous l'accroche. Sans elle, le texte par defaut du composant s'applique. */
+    ctaAccroche: z.string().optional(),
     guidePdf: z.string().optional(),
     guideTitle: z.string().optional(),
     guideDesc: z.string().optional(),
