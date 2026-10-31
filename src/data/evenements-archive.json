@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-30T21:23:30.390Z",
-  "total": 402,
+  "compileLe": "2026-10-31T15:39:01.212Z",
+  "total": 405,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4825,6 +4825,42 @@
       "heure": "30 oct. 14:53",
       "source": "La Côte",
       "dateVue": "2026-10-30T21:23:30.390Z"
+    },
+    {
+      "titre": "Chauffeur de bus coincé entre deux véhicules",
+      "resume": "Un conducteur des transports publics a été comprimé entre deux bus dans le quartier de Prélaz et blessé à la tête.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.61,
+      "lat": 46.53,
+      "heure": "31 oct. 12:46",
+      "source": "20 Minuten",
+      "dateVue": "2026-10-31T15:39:01.212Z"
+    },
+    {
+      "titre": "Cyberattaque contre des écoles vaudoises",
+      "resume": "Les données d'environ 41'500 élèves et enseignants des gymnases et écoles professionnelles ont été dérobées lors d'un piratage informatique.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "31 oct. 10:46",
+      "source": "rts.ch",
+      "dateVue": "2026-10-31T15:39:01.212Z"
+    },
+    {
+      "titre": "Villa cambriolée sur La Côte",
+      "resume": "Un habitant fortuné a été victime d'un cambriolage à son domicile de La Côte vaudoise.",
+      "commune": "Nyon",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.238,
+      "lat": 46.383,
+      "heure": "28 oct. 17:01",
+      "source": "24 Heures",
+      "dateVue": "2026-10-31T15:39:01.212Z"
     }
   ]
 }
