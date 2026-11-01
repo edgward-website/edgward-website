@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-01T16:40:30.847Z",
-  "total": 408,
+  "compileLe": "2026-11-01T20:58:40.238Z",
+  "total": 409,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4897,6 +4897,18 @@
       "heure": "01 nov. 11:35",
       "source": "FR.ch",
       "dateVue": "2026-11-01T16:40:30.847Z"
+    },
+    {
+      "titre": "Accident sur l'A12",
+      "resume": "Un automobiliste a terminé sa course sur le toit lors d'un accident survenu dimanche matin sur l'autoroute.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "01 nov. 12:50",
+      "source": "La Liberté",
+      "dateVue": "2026-11-01T20:58:40.238Z"
     }
   ]
 }
