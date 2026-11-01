@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-10-31T20:24:18.505Z",
-  "total": 406,
+  "compileLe": "2026-11-01T16:40:30.847Z",
+  "total": 408,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4873,6 +4873,30 @@
       "heure": "31 oct. 19:24",
       "source": "ArcInfo",
       "dateVue": "2026-10-31T20:24:18.505Z"
+    },
+    {
+      "titre": "Vol par effraction dans une villa",
+      "resume": "Un important dispositif policier a été déployé. Une personne a été interpellée pour vol par effraction dans une villa.",
+      "commune": "Collombey-Muraz",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 6.9456,
+      "lat": 46.2797,
+      "heure": "31 oct. 22:34",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-01T16:40:30.847Z"
+    },
+    {
+      "titre": "Nuit d'Halloween agitée",
+      "resume": "Bus des transports publics endommagés, pétards et poubelles incendiées ont mobilisé police et secours durant la nuit.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "ordre",
+      "lon": 7.1619,
+      "lat": 46.8065,
+      "heure": "01 nov. 11:35",
+      "source": "FR.ch",
+      "dateVue": "2026-11-01T16:40:30.847Z"
     }
   ]
 }
