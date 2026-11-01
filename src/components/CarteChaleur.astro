@@ -213,7 +213,8 @@ const data = { cantons, lakes, labels, evts, moisDispo, total: evts.length };
     const label = mois === 'all' ? 'tous les mois complets' : (D.moisDispo.find((m) => m.key === mois) || {}).label;
     document.getElementById('chMeta').textContent = 'Communes les plus exposées · ' + (label || '');
     document.getElementById('chFoot').textContent =
-      D.total + ' événements recensés et dédoublonnés automatiquement dans les médias et communiqués de police romands. Données neutres, sans information personnelle.';
+      D.total + ' événements recensés et dédoublonnés automatiquement dans les médias et communiqués de police romands. ' +
+      'Cette carte ne recense donc que les faits rendus publics : la majorité des cambriolages ne font l\x27objet d\x27aucune publication et n\x27y figurent pas. Données neutres, sans information personnelle.';
   }
 
   render();

@@ -1,0 +1,171 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+
+/**
+ * Nouveautés de l'application Edgward.
+ * Une entrée par mise à jour, de la plus récente à la plus ancienne.
+ * Chaque entrée a son ancre (`id`) : une alerte envoyée depuis l'app peut
+ * pointer directement dessus, par exemple /nouveautes#octobre-2026.
+ */
+const updates = [
+  {
+    id: 'novembre-2026',
+    date: 'Novembre 2026',
+    dateISO: '2026-11-01',
+    title: 'Des alertes plus justes, et les points chauds du mois',
+    intro: "Nos équipes ont travaillé sur la qualité des alertes que vous recevez. Et sur le site, une carte montre désormais où se concentrent les événements de sécurité près de chez vous.",
+    groupes: [
+      {
+        titre: "Dans l'application",
+        items: [
+          {
+            title: "Fini les doublons d'alerte",
+            desc: "Un même événement repris par plusieurs sources pouvait vous arriver en deux ou trois alertes successives. Ces signalements sont désormais reconnus comme une seule et même information : vous ne recevez qu'une alerte, la plus complète.",
+          },
+          {
+            title: "Une information peut concerner plusieurs cantons",
+            desc: "Certains faits ne s'arrêtent pas à une frontière cantonale : une série d'escroqueries, un mode opératoire qui se déplace, une vague de cambriolages sur plusieurs districts. Une même information peut maintenant être rattachée à plusieurs cantons, et elle parvient donc à tous ceux qu'elle concerne.",
+          },
+          {
+            title: "Vous choisissez ce que vous recevez",
+            desc: "Vous réglez vous-même les cantons qui vous intéressent et les types d'alertes et d'informations que vous voulez suivre. Vous ne recevez donc que ce qui compte pour vous, et vous pouvez le modifier à tout moment depuis l'application.",
+            lienHref: '/activer-les-alertes',
+            lienLabel: 'Voir comment configurer vos alertes',
+          },
+        ],
+      },
+      {
+        titre: 'Sur le site',
+        items: [
+          {
+            title: 'Les points chauds du mois',
+            desc: "Une carte de chaleur montre où se concentrent cambriolages, agressions, incendies et accidents en Suisse romande, canton par canton et commune par commune. Elle s'appuie sur les communiqués des polices et sur la presse régionale, et vous pouvez recevoir chaque mois la synthèse de votre canton par e-mail.",
+            lienHref: '/points-chauds',
+            lienLabel: 'Voir la carte des points chauds',
+          },
+        ],
+      },
+    ],
+    action: "Rien à faire de votre côté : les améliorations des alertes sont déjà actives pour tout le monde.",
+  },
+];
+---
+
+<Base
+  title="Nouveautés Edgward - application et site"
+  description="Toutes les nouveautés Edgward : améliorations des alertes dans l'application, nouvelles fonctionnalités du site, corrections, mise à jour après mise à jour."
+>
+  <PageHero
+    eyebrow="Nouveautés"
+    title="Ce qui change chez <em>Edgward</em>"
+    subtitle="Les améliorations livrées dans l'application et sur le site, de la plus récente à la plus ancienne. Nous ajoutons une entrée à chaque mise à jour."
+    maxWidth="600px"
+  />
+
+  <section class="section updates-section">
+    <div class="container">
+      <div class="updates">
+        {updates.map((u) => (
+          <article class="update fade-in" id={u.id}>
+            <header class="update-head">
+              <time class="update-date" datetime={u.dateISO}>{u.date}</time>
+              <h2>{u.title}</h2>
+              <p class="update-intro">{u.intro}</p>
+            </header>
+
+            {u.groupes.map((groupe) => (
+            <div class="update-groupe">
+            <h3 class="update-groupe-titre">{groupe.titre}</h3>
+            <ul class="update-items" role="list">
+              {groupe.items.map((item) => (
+                <li class="update-item">
+                  <span class="update-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                    {item.lienHref && (
+                      <a class="update-lien" href={item.lienHref}>
+                        {item.lienLabel}
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                      </a>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            </div>
+            ))}
+
+            {u.reminder && (
+              <aside class="update-reminder">
+                <p class="update-reminder-title">{u.reminder.title}</p>
+                <p class="update-reminder-desc">{u.reminder.desc}</p>
+                <a href={u.reminder.linkHref} class="update-reminder-link">
+                  {u.reminder.linkLabel}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </aside>
+            )}
+
+            {u.action && <p class="update-action">{u.action}</p>}
+          </article>
+        ))}
+      </div>
+
+      <p class="updates-note">
+        Vous ne recevez pas encore les alertes ? Le module d'<a href="/alertes">alertes et informations de sécurité</a> est
+        100% gratuit et sans engagement, et vous pouvez voir ce qui remonte près de chez vous sur notre
+        <a href="/points-chauds">carte des points chauds</a>.
+      </p>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Pas encore sur <em>Edgward</em> ?"
+    description="Téléchargez l'application, activez les alertes de votre quartier et commandez une intervention quand vous en avez besoin."
+    appStoreUrl="https://apps.apple.com/ch/app/edgward/id6503622410"
+    playStoreUrl="https://play.google.com/store/apps/details?id=ch.edgward.app.clients"
+  />
+</Base>
+
+<style>
+  .updates-section { background: white; }
+  .updates { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+
+  .update { background: var(--soft); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 34px 36px; scroll-margin-top: 90px; }
+  .update-date { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand); margin-bottom: 10px; }
+  .update-head h2 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: var(--navy); margin: 0 0 12px; }
+  .update-intro { font-size: 15px; line-height: 1.65; color: var(--text-muted); margin: 0 0 24px; }
+
+  .update-groupe + .update-groupe { margin-top: 26px; }
+  .update-groupe-titre { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); margin: 0 0 14px; }
+
+  .update-items { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+  .update-item { display: flex; align-items: flex-start; gap: 14px; }
+  .update-check { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .update-check svg { width: 13px; height: 13px; }
+  .update-item h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin: 0 0 5px; line-height: 1.35; }
+  .update-item p { font-size: 14.5px; line-height: 1.65; color: var(--text-muted); margin: 0; }
+
+  .update-reminder { margin-top: 26px; background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
+  .update-reminder-title { font-size: 15px; font-weight: 700; color: var(--navy); margin: 0 0 6px; }
+  .update-reminder-desc { font-size: 14px; line-height: 1.6; color: var(--text-muted); margin: 0 0 12px; }
+  .update-reminder-link { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: var(--brand); text-decoration: none; }
+  .update-reminder-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .update-lien { display: inline-flex; align-items: center; gap: 7px; margin-top: 10px; font-size: 14px; font-weight: 600; color: var(--brand); text-decoration: none; }
+  .update-lien:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .update-action { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--border); }
+
+  .updates-note { max-width: 720px; margin: 32px auto 0; font-size: 14px; line-height: 1.7; color: var(--text-muted); text-align: center; }
+  .updates-note a { color: var(--brand); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .update { padding: 26px 22px; }
+  }
+</style>

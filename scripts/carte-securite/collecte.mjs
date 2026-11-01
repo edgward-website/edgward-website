@@ -30,12 +30,26 @@ const SOURCES = [
   "https://news.google.com/rss/search?q=(cambriolage%20OR%20agression%20OR%20incendie%20OR%20accident%20OR%20interpellation%20OR%20disparition)%20(Gen%C3%A8ve%20OR%20Lausanne%20OR%20Vaud%20OR%20Valais%20OR%20Neuch%C3%A2tel%20OR%20Fribourg)%20when:3d&hl=fr&gl=CH&ceid=CH:fr",
   "https://news.google.com/rss/search?q=(communiqu%C3%A9%20police%20OR%20gendarmerie%20OR%20police%20cantonale)%20(Vaud%20OR%20Gen%C3%A8ve%20OR%20Valais%20OR%20Neuch%C3%A2tel%20OR%20Fribourg%20OR%20Jura%20suisse)%20when:3d&hl=fr&gl=CH&ceid=CH:fr",
   "https://news.google.com/rss/search?q=(cyberattaque%20OR%20fuite%20de%20donn%C3%A9es)%20(Suisse%20romande%20OR%20Gen%C3%A8ve%20OR%20Vaud%20OR%20Valais)%20when:3d&hl=fr&gl=CH&ceid=CH:fr",
+  // Presse regionale : c'est la que paraissent les faits locaux, commune par commune,
+  // que les communiques cantonaux ne reprennent pas (ils ne couvrent que les affaires notables).
+  "https://news.google.com/rss/search?q=(site%3Alacote.ch%20OR%20site%3Aarcinfo.ch%20OR%20site%3Alenouvelliste.ch%20OR%20site%3Alaliberte.ch%20OR%20site%3Alemanbleu.ch%20OR%20site%3Aradiolac.ch)%20(cambriolage%20OR%20effraction%20OR%20%22vol%20par%20effraction%22)%20when%3A3d&hl=fr&gl=CH&ceid=CH:fr",
+  // Cambriolages nommant une commune romande. Volontairement sans le mot interpellation,
+  // qui ramene les interpellations parlementaires publiees sur les sites cantonaux.
+  "https://news.google.com/rss/search?q=(cambriolage%20OR%20effraction%20OR%20%22vol%20par%20effraction%22)%20(Nyon%20OR%20Morges%20OR%20Coppet%20OR%20Rolle%20OR%20Gland%20OR%20Versoix%20OR%20Carouge%20OR%20Meyrin%20OR%20Vevey%20OR%20Montreux%20OR%20Yverdon%20OR%20Sierre%20OR%20Monthey%20OR%20Bulle%20OR%20Del%C3%A9mont)%20when%3A3d&hl=fr&gl=CH&ceid=CH:fr",
+  // Flux officiel de la police cantonale valaisanne : le seul publie directement par
+  // un corps de police romand (teste avec l'User-Agent du robot).
+  "https://www.policevalais.ch/feed/",
 ];
 
 const CATEGORIES = ["cambriolage", "agression", "incendie", "accident", "disparition", "ordre", "cyber"];
 const CANTONS = ["GE", "VD", "VS", "NE", "FR", "JU"];
 
 // --- Utilitaires ---------------------------------------------------------
+
+// Les flux officiels n'ont pas de balise <source> : on retombe sur le domaine du lien.
+function domaine(lien) {
+  try { return new URL(lien).hostname.replace(/^www\./, ""); } catch { return ""; }
+}
 
 function decodeEntites(s) {
   return s
@@ -82,7 +96,7 @@ async function collecter() {
         const cle = titre.toLowerCase().slice(0, 60);
         if (vus.has(cle)) continue;
         vus.add(cle);
-        items.push({ titre, source: source || "-", lien, heure: heureLocale(new Date(ts)), ts });
+        items.push({ titre, source: source || domaine(lien) || "-", lien, heure: heureLocale(new Date(ts)), ts });
       }
     } catch (e) {
       console.warn(`Échec source : ${url}\n  ${e.message}`);
@@ -204,6 +218,27 @@ async function ecrire(evenements, genereLe) {
 // accidents distincts simplement voisins (ex. deux accidents de la route à 3 km le même jour).
 const MOISNUM = { janv: 1, "févr": 2, fevr: 2, mars: 3, avr: 4, mai: 5, juin: 6, juil: 7, "août": 8, aout: 8, sept: 9, oct: 10, nov: 11, "déc": 12, dec: 12 };
 const SEUIL_KM = 4, SEUIL_JOURS = 3;
+// Le geocodage est produit par l'IA, qui se trompe parfois de plusieurs kilometres.
+// Quand la commune figure deja dans l'archive, ses coordonnees connues font foi
+// au-dela de 3 km d'ecart : sur une carte de densite par commune, la coherence
+// vaut mieux que la precision intra-communale.
+function distanceKm(a, b) {
+  const R = 6371, r = Math.PI / 180;
+  const dx = (a.lon - b.lon) * r * Math.cos(((a.lat + b.lat) / 2) * r);
+  const dy = (a.lat - b.lat) * r;
+  return R * Math.hypot(dx, dy);
+}
+
+function recaler(e, connues) {
+  const ref = connues.get(communeNorm(e.commune));
+  if (!ref) return false;
+  const d = distanceKm(e, ref);
+  if (d <= 3) return false;
+  console.warn(`Geocodage recale : ${e.commune} etait a ${d.toFixed(1)} km des coordonnees connues.`);
+  e.lon = ref.lon; e.lat = ref.lat;
+  return true;
+}
+
 function jourNum(heure, dv) {
   const h = (heure || "").toLowerCase();
   const m = h.match(/(\d{1,2})\s*(janv|févr|fevr|mars|avr|mai|juin|juil|août|aout|sept|oct|nov|déc|dec)/);
@@ -239,8 +274,18 @@ async function archiver(evenements, genereLe) {
   let archive = { evenements: [] };
   try { archive = JSON.parse(await readFile(ARCHIVE, "utf8")); } catch {}
   if (!Array.isArray(archive.evenements)) archive.evenements = [];
+  // Coordonnees de reference par commune, tirees de ce que l'archive contient deja.
+  const connues = new Map();
+  for (const a of archive.evenements) {
+    if (typeof a.lon !== "number" || typeof a.lat !== "number") continue;
+    const c = communeNorm(a.commune);
+    if (c && !connues.has(c)) connues.set(c, { lon: a.lon, lat: a.lat });
+  }
+
   let ajout = 0;
+  let recales = 0;
   for (const e of evenements) {
+    if (recaler(e, connues)) recales++;
     if (estDoublon(e, genereLe, archive.evenements)) continue;
     archive.evenements.push({
       titre: e.titre, resume: e.resume, commune: e.commune, canton: e.canton,
@@ -251,7 +296,7 @@ async function archiver(evenements, genereLe) {
   archive.compileLe = genereLe;
   archive.total = archive.evenements.length;
   await writeFile(ARCHIVE, JSON.stringify(archive, null, 2) + "\n", "utf8");
-  console.log(`Archive : +${ajout} nouveau(x) (total ${archive.evenements.length}).`);
+  console.log(`Archive : +${ajout} nouveau(x), ${recales} recalage(s) de coordonnees (total ${archive.evenements.length}).`);
 }
 
 // --- Principal -----------------------------------------------------------
