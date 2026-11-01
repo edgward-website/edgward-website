@@ -33,6 +33,8 @@ const L = (p: string) => localize(p, lang);
         <ul>
           <li><a href={L('/particuliers')}>{f.links.individuals}</a></li>
           <li><a href={L('/alertes')}>{f.links.alerts}</a></li>
+          {/* La page des nouveautes n'existe qu'en francais : pas de lien cote anglais, il serait casse. */}
+          {lang === 'fr' && <li><a href="/nouveautes">Nouveautés</a></li>}
           <li><a href={L('/edgward-en-suisse')}>{f.links.coverage}</a></li>
           <li><a href={L('/partenaires')}>{f.links.partners}</a></li>
           <li><a href={L('/faq')}>{f.links.faq}</a></li>
