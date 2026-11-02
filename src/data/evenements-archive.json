@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-01T20:58:40.238Z",
-  "total": 409,
+  "compileLe": "2026-11-02T20:06:48.850Z",
+  "total": 414,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4909,6 +4909,66 @@
       "heure": "01 nov. 12:50",
       "source": "La Liberté",
       "dateVue": "2026-11-01T20:58:40.238Z"
+    },
+    {
+      "titre": "Incendie de cave dans un immeuble",
+      "resume": "Un incendie déclaré dans la cave d'un immeuble du quartier de la Servette a nécessité une évacuation et perturbé la circulation. Un commerce a aussi été évacué.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.14,
+      "lat": 46.21,
+      "heure": "2 nov. 18:18",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-11-02T20:06:48.850Z"
+    },
+    {
+      "titre": "Piétonne mortellement percutée sur l'A12",
+      "resume": "Une jeune femme de 19 ans a perdu la vie après avoir été heurtée sur l'autoroute A12 près de Marsens.",
+      "commune": "Marsens",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.07,
+      "lat": 46.65,
+      "heure": "1 nov. 08:00",
+      "source": "Blick",
+      "dateVue": "2026-11-02T20:06:48.850Z"
+    },
+    {
+      "titre": "Incendie contraint des habitants à évacuer",
+      "resume": "Un incendie a contraint sept habitants à quitter leur logement.",
+      "commune": "Bevaix",
+      "canton": "NE",
+      "categorie": "incendie",
+      "lon": 6.8,
+      "lat": 46.93,
+      "heure": "2 nov. 14:42",
+      "source": "24 Heures",
+      "dateVue": "2026-11-02T20:06:48.850Z"
+    },
+    {
+      "titre": "Explosion d'une bonbonne de gaz",
+      "resume": "Une bonbonne de gaz a explosé, mobilisant les secours sur place.",
+      "commune": "Renens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.58,
+      "lat": 46.54,
+      "heure": "2 nov. 11:00",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-02T20:06:48.850Z"
+    },
+    {
+      "titre": "Données d'un fournisseur internet en vente",
+      "resume": "Environ 6800 données de messagerie d'un fournisseur d'accès internet suisse ont été mises en vente sur le darkweb.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "cyber",
+      "lon": 6.14,
+      "lat": 46.2,
+      "heure": "31 oct. 16:29",
+      "source": "Cyberattaque.org",
+      "dateVue": "2026-11-02T20:06:48.850Z"
     }
   ]
 }
