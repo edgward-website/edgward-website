@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-03T22:13:07.313Z",
-  "total": 414,
+  "compileLe": "2026-11-04T17:51:54.961Z",
+  "total": 417,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -4969,6 +4969,42 @@
       "heure": "31 oct. 16:29",
       "source": "Cyberattaque.org",
       "dateVue": "2026-11-02T20:06:48.850Z"
+    },
+    {
+      "titre": "Chute d'un arbre près d'une école",
+      "resume": "Un arbre est tombé à proximité d'écoliers, sans faire de blessé.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "04 nov. 11:31",
+      "source": "24 Heures",
+      "dateVue": "2026-11-04T17:51:54.961Z"
+    },
+    {
+      "titre": "Accident de personne sur la ligne ferroviaire",
+      "resume": "Un accident de personne a fortement perturbé le trafic entre Lausanne et Genève durant la soirée.",
+      "commune": "Morges",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.498,
+      "lat": 46.511,
+      "heure": "03 nov. 19:48",
+      "source": "rts.ch",
+      "dateVue": "2026-11-04T17:51:54.961Z"
+    },
+    {
+      "titre": "Tentative d'immolation par le feu",
+      "resume": "Une personne a tenté de s'immoler, mobilisant policiers et pompiers dans le quartier de Pérolles.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "incendie",
+      "lon": 7.153,
+      "lat": 46.797,
+      "heure": "03 nov. 19:24",
+      "source": "laliberte.ch",
+      "dateVue": "2026-11-04T17:51:54.961Z"
     }
   ]
 }
