@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-04T17:51:54.961Z",
-  "total": 417,
+  "compileLe": "2026-11-04T22:27:21.922Z",
+  "total": 418,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5005,6 +5005,18 @@
       "heure": "03 nov. 19:24",
       "source": "laliberte.ch",
       "dateVue": "2026-11-04T17:51:54.961Z"
+    },
+    {
+      "titre": "Incendie d'un car postal à Kerzers",
+      "resume": "Un incendie de car postal a provoqué un drame, la commune étant endeuillée par la perte de plusieurs jeunes.",
+      "commune": "Kerzers",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.1975,
+      "lat": 47.0225,
+      "heure": "03 nov. 18:00",
+      "source": "24 Heures",
+      "dateVue": "2026-11-04T22:27:21.922Z"
     }
   ]
 }
