@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-05T17:55:48.444Z",
-  "total": 422,
+  "compileLe": "2026-11-05T22:34:40.925Z",
+  "total": 425,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5065,6 +5065,42 @@
       "heure": "3 nov. 18:00",
       "source": "24 Heures",
       "dateVue": "2026-11-05T17:55:48.444Z"
+    },
+    {
+      "titre": "Chute mortelle d'un randonneur",
+      "resume": "Un randonneur a perdu la vie après une chute au col du Bonhomme, en Valais.",
+      "commune": "Valais",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.75,
+      "lat": 46.02,
+      "heure": "5 nov. 01:53",
+      "source": "24 Heures",
+      "dateVue": "2026-11-05T22:34:40.925Z"
+    },
+    {
+      "titre": "Vague de cambriolages dans la région",
+      "resume": "Face à une série de cambriolages, les communes de Terre-Sainte se mobilisent.",
+      "commune": "Coppet",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.1917,
+      "lat": 46.3175,
+      "heure": "3 nov. 19:04",
+      "source": "La Télé",
+      "dateVue": "2026-11-05T22:34:40.925Z"
+    },
+    {
+      "titre": "Démarchage à domicile suspect",
+      "resume": "Un démarchage à domicile inhabituel a semé le trouble parmi les habitants du village.",
+      "commune": "Commugny",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.1817,
+      "lat": 46.3014,
+      "heure": "5 nov. 17:45",
+      "source": "La Côte",
+      "dateVue": "2026-11-05T22:34:40.925Z"
     }
   ]
 }
