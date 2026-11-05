@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-04T22:27:21.922Z",
-  "total": 418,
+  "compileLe": "2026-11-05T17:55:48.444Z",
+  "total": 422,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5017,6 +5017,54 @@
       "heure": "03 nov. 18:00",
       "source": "24 Heures",
       "dateVue": "2026-11-04T22:27:21.922Z"
+    },
+    {
+      "titre": "Démantèlement d'un point de deal",
+      "resume": "Une opération franco-suisse a permis de démanteler un point de trafic de stupéfiants dans la région genevoise.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "ordre",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "5 nov. 16:48",
+      "source": "24 Heures",
+      "dateVue": "2026-11-05T17:55:48.444Z"
+    },
+    {
+      "titre": "Chute mortelle en montagne",
+      "resume": "Un randonneur a perdu la vie après une chute au col du Bonhomme, en Valais.",
+      "commune": "Trient",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 6.92,
+      "lat": 46.02,
+      "heure": "5 nov. 01:53",
+      "source": "24 Heures",
+      "dateVue": "2026-11-05T17:55:48.444Z"
+    },
+    {
+      "titre": "Prise en charge après un incendie",
+      "resume": "Les frais médicaux de patients italiens blessés lors de l'incendie de Crans-Montana seront pris en charge par la Suisse.",
+      "commune": "Crans-Montana",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.48,
+      "lat": 46.31,
+      "heure": "4 nov. 12:07",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-05T17:55:48.444Z"
+    },
+    {
+      "titre": "Incendie d'un car postal",
+      "resume": "Un car postal a pris feu, faisant plusieurs victimes. Le véhicule avait été contrôlé et disposait d'un extincteur.",
+      "commune": "Chiètres",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.19,
+      "lat": 46.98,
+      "heure": "3 nov. 18:00",
+      "source": "24 Heures",
+      "dateVue": "2026-11-05T17:55:48.444Z"
     }
   ]
 }
