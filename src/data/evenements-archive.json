@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-05T22:34:40.925Z",
-  "total": 425,
+  "compileLe": "2026-11-06T17:15:56.661Z",
+  "total": 429,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5101,6 +5101,54 @@
       "heure": "5 nov. 17:45",
       "source": "La Côte",
       "dateVue": "2026-11-05T22:34:40.925Z"
+    },
+    {
+      "titre": "Incendie dans un immeuble aux Eaux-Vives",
+      "resume": "Un incendie s'est déclaré dans un logement du quartier des Eaux-Vives. Un habitant a été grièvement blessé.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "incendie",
+      "lon": 6.158,
+      "lat": 46.2,
+      "heure": "06 nov. 14:00",
+      "source": "24 Heures",
+      "dateVue": "2026-11-06T17:15:56.661Z"
+    },
+    {
+      "titre": "Motard héliporté après une collision",
+      "resume": "Un motard a percuté un convoi agricole dans la région de Fribourg. Grièvement blessé, il a été héliporté.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.161,
+      "lat": 46.806,
+      "heure": "06 nov. 09:47",
+      "source": "24 Heures",
+      "dateVue": "2026-11-06T17:15:56.661Z"
+    },
+    {
+      "titre": "Chute mortelle en montagne",
+      "resume": "Un randonneur a fait une chute mortelle au col du Bonhomme, en Valais.",
+      "commune": "Val d'Illiez",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 6.863,
+      "lat": 46.164,
+      "heure": "05 nov. 10:24",
+      "source": "24 Heures",
+      "dateVue": "2026-11-06T17:15:56.661Z"
+    },
+    {
+      "titre": "Vol de données dans le canton de Vaud",
+      "resume": "Une fuite informatique de grande ampleur a touché des établissements scolaires vaudois, dont un à Payerne. Un suspect mineur a été interpellé.",
+      "commune": "Payerne",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.934,
+      "lat": 46.823,
+      "heure": "05 nov. 07:48",
+      "source": "La Broye",
+      "dateVue": "2026-11-06T17:15:56.661Z"
     }
   ]
 }
