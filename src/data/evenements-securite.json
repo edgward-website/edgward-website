@@ -1,10 +1,22 @@
 {
-  "genereLe": "2026-11-07T16:12:08.798Z",
+  "genereLe": "2026-11-07T20:41:27.012Z",
   "source": "collecte automatique",
   "evenements": [
     {
-      "titre": "Incendie sous des panneaux solaires",
-      "resume": "Un feu s'est déclaré sous les panneaux solaires d'un immeuble, nécessitant l'intervention des pompiers.",
+      "titre": "Brigandage dans une station-service",
+      "resume": "Une station-service a été la cible d'un brigandage. La police a ouvert une enquête et lance un appel à témoins.",
+      "commune": "Boncourt",
+      "canton": "JU",
+      "categorie": "agression",
+      "lon": 7.013,
+      "lat": 47.497,
+      "heure": "7 nov. 17:56",
+      "source": "République et Canton du Jura",
+      "recent": true
+    },
+    {
+      "titre": "Incendie dans un immeuble",
+      "resume": "Un feu s'est déclaré sous les panneaux solaires d'un immeuble. Les pompiers sont intervenus.",
       "commune": "Grandson",
       "canton": "VD",
       "categorie": "incendie",
@@ -15,55 +27,43 @@
       "recent": false
     },
     {
-      "titre": "Incendie dans un appartement",
-      "resume": "Un incendie a grièvement blessé un habitant, dont le pronostic vital était engagé.",
+      "titre": "Incendie dans un logement",
+      "resume": "Un incendie a gravement blessé un habitant dans le quartier des Eaux-Vives. Une enquête est en cours.",
       "commune": "Genève",
       "canton": "GE",
       "categorie": "incendie",
       "lon": 6.16,
-      "lat": 46.2,
+      "lat": 46.204,
       "heure": "6 nov. 14:28",
       "source": "24 Heures",
       "recent": false
     },
     {
       "titre": "Motard héliporté après une collision",
-      "resume": "Un motard a percuté un convoi agricole et a dû être héliporté.",
+      "resume": "Un motard a été héliporté après avoir percuté un convoi agricole dans la région fribourgeoise.",
       "commune": "Fribourg",
       "canton": "FR",
       "categorie": "accident",
-      "lon": 7.16,
-      "lat": 46.8,
+      "lon": 7.161,
+      "lat": 46.806,
       "heure": "6 nov. 09:47",
       "source": "24 Heures",
       "recent": false
     },
     {
       "titre": "Démarchage suspect à domicile",
-      "resume": "Un démarchage à domicile inhabituel a suscité l'inquiétude des habitants.",
+      "resume": "Un démarchage à domicile inhabituel a semé le trouble parmi les habitants d'un village.",
       "commune": "Commugny",
       "canton": "VD",
       "categorie": "ordre",
-      "lon": 6.19,
-      "lat": 46.3,
+      "lon": 6.187,
+      "lat": 46.308,
       "heure": "5 nov. 17:45",
       "source": "La Côte",
       "recent": false
     },
     {
-      "titre": "Démantèlement d'un point de deal",
-      "resume": "Une opération franco-suisse a permis de démanteler un point de vente de stupéfiants près de Genève.",
-      "commune": "Genève",
-      "canton": "GE",
-      "categorie": "ordre",
-      "lon": 6.14,
-      "lat": 46.21,
-      "heure": "5 nov. 16:48",
-      "source": "24 Heures",
-      "recent": false
-    },
-    {
-      "titre": "Personne disparue retrouvée",
+      "titre": "Femme disparue retrouvée",
       "resume": "Une femme de 38 ans portée disparue a été retrouvée.",
       "commune": "Prilly",
       "canton": "VD",
@@ -75,27 +75,27 @@
       "recent": false
     },
     {
-      "titre": "Chute mortelle en montagne",
-      "resume": "Un randonneur a fait une chute mortelle au col du Bonhomme.",
-      "commune": "Valais",
-      "canton": "VS",
-      "categorie": "accident",
-      "lon": 6.8,
-      "lat": 46.1,
-      "heure": "5 nov. 10:24",
-      "source": "24 Heures",
-      "recent": false
-    },
-    {
-      "titre": "Fuite de données informatiques",
+      "titre": "Fuite de données touchant un établissement scolaire",
       "resume": "Un établissement scolaire figure parmi les victimes d'un vol de données informatiques de grande ampleur dans le canton.",
       "commune": "Payerne",
       "canton": "VD",
       "categorie": "cyber",
-      "lon": 6.94,
-      "lat": 46.82,
+      "lon": 6.938,
+      "lat": 46.822,
       "heure": "5 nov. 05:00",
       "source": "La Broye",
+      "recent": false
+    },
+    {
+      "titre": "Chute mortelle en randonnée",
+      "resume": "Un randonneur a fait une chute mortelle en montagne.",
+      "commune": "Valais",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.55,
+      "lat": 46.2,
+      "heure": "5 nov. 01:53",
+      "source": "Blick",
       "recent": false
     }
   ]

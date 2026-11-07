@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-07T16:12:08.798Z",
-  "total": 431,
+  "compileLe": "2026-11-07T20:41:27.012Z",
+  "total": 432,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5173,6 +5173,18 @@
       "heure": "5 nov. 14:43",
       "source": "24 Heures",
       "dateVue": "2026-11-07T16:12:08.798Z"
+    },
+    {
+      "titre": "Brigandage dans une station-service",
+      "resume": "Une station-service a été la cible d'un brigandage. La police a ouvert une enquête et lance un appel à témoins.",
+      "commune": "Boncourt",
+      "canton": "JU",
+      "categorie": "agression",
+      "lon": 7.013,
+      "lat": 47.497,
+      "heure": "7 nov. 17:56",
+      "source": "République et Canton du Jura",
+      "dateVue": "2026-11-07T20:41:27.012Z"
     }
   ]
 }
