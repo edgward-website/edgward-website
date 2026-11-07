@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-06T21:57:18.511Z",
-  "total": 429,
+  "compileLe": "2026-11-07T16:12:08.798Z",
+  "total": 431,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5149,6 +5149,30 @@
       "heure": "05 nov. 07:48",
       "source": "La Broye",
       "dateVue": "2026-11-06T17:15:56.661Z"
+    },
+    {
+      "titre": "Incendie sous des panneaux solaires",
+      "resume": "Un feu s'est déclaré sous les panneaux solaires d'un immeuble, nécessitant l'intervention des pompiers.",
+      "commune": "Grandson",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.645,
+      "lat": 46.81,
+      "heure": "6 nov. 21:21",
+      "source": "24 Heures",
+      "dateVue": "2026-11-07T16:12:08.798Z"
+    },
+    {
+      "titre": "Personne disparue retrouvée",
+      "resume": "Une femme de 38 ans portée disparue a été retrouvée.",
+      "commune": "Prilly",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.6,
+      "lat": 46.53,
+      "heure": "5 nov. 14:43",
+      "source": "24 Heures",
+      "dateVue": "2026-11-07T16:12:08.798Z"
     }
   ]
 }
