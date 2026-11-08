@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-07T20:41:27.012Z",
-  "total": 432,
+  "compileLe": "2026-11-08T16:33:29.529Z",
+  "total": 434,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5185,6 +5185,30 @@
       "heure": "7 nov. 17:56",
       "source": "République et Canton du Jura",
       "dateVue": "2026-11-07T20:41:27.012Z"
+    },
+    {
+      "titre": "Noyade aux Bains des Pâquis",
+      "resume": "Un homme est décédé après un malaise survenu dans l'eau aux Bains des Pâquis.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.15,
+      "lat": 46.21,
+      "heure": "8 nov. 15:35",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-11-08T16:33:29.529Z"
+    },
+    {
+      "titre": "Déversement d'huile hydraulique",
+      "resume": "De l'huile hydraulique s'est déversée dans le lac de la Gruyère et dans la Jogne.",
+      "commune": "Broc",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.1,
+      "lat": 46.606,
+      "heure": "6 nov. 16:43",
+      "source": "24 Heures",
+      "dateVue": "2026-11-08T16:33:29.529Z"
     }
   ]
 }
