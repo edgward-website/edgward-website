@@ -1,5 +1,6 @@
 ---
 title: "Bien choisir son entreprise de sécurité en Suisse : ce qui garantit le sérieux"
+seoTitle: "Choisir son entreprise de sécurité en Suisse"
 date: 2026-06-15
 description: "Comment reconnaître une entreprise de sécurité sérieuse en Suisse romande ? Autorisation d'exploiter, agents accrédités, carte de légitimation, assurance : la checklist pour ne pas se tromper."
 image: "/assets/blog/entreprise-securite-formation-cover.jpg"

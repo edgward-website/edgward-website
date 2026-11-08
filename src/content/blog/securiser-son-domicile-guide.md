@@ -1,5 +1,6 @@
 ---
 title: "5 mesures simples pour sécuriser votre domicile sans investissement majeur"
+seoTitle: "5 mesures simples pour sécuriser votre domicile"
 date: 2025-03-15
 description: "Pas besoin d'un système d'alarme à 5 000 CHF pour dissuader les cambrioleurs. Voici cinq mesures concrètes que vous pouvez mettre en place rapidement."
 author: "Équipe Edgward"

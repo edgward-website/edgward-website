@@ -1,5 +1,6 @@
 ---
 title: "Installer ses caméras de surveillance soi-même : le guide complet"
+seoTitle: "Installer ses caméras de surveillance soi-même"
 date: 2026-07-19
 description: "Où placer ses caméras, caméras solaires, enregistrement local, cadre légal suisse : le guide pour installer sa vidéosurveillance soi-même, sans abonnement imposé - et connaître ses vraies limites."
 author: "Équipe Edgward"

@@ -1,5 +1,6 @@
 ---
 title: "Devenir agent de sécurité en Suisse : conditions, formation et carrière"
+seoTitle: "Devenir agent de sécurité en Suisse : conditions"
 date: 2026-04-15
 description: "Comment devenir agent de sécurité en Suisse romande ? Conditions d'accréditation, casier, formation concordataire, brevet fédéral et spécialisations : le guide complet pour se lancer."
 image: "/assets/blog/devenir-agent-cover.jpg"

@@ -1,5 +1,6 @@
 ---
 title: "Vols de tracteurs dans la campagne vaudoise : comprendre le phénomène et s'en protéger"
+seoTitle: "Vols de tracteurs dans la campagne vaudoise"
 date: 2026-08-10
 description: "En 2026, les vols de tracteurs et de GPS agricoles explosent dans le canton de Vaud : une vingtaine de cas, contre deux à six par an auparavant. Qui est visé, comment, et les mesures concrètes pour protéger son matériel et sa ferme."
 image: /assets/blog/vols-tracteurs-cover.jpg

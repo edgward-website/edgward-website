@@ -1,5 +1,6 @@
 ---
 title: "Agent de sécurité en Suisse : un vrai métier, une vraie formation"
+seoTitle: "Agent de sécurité en Suisse : un vrai métier"
 date: 2026-02-15
 description: "Faut-il une formation pour être agent de sécurité en Suisse ? Concordat romand, autorisations cantonales, port d'armes, uniforme : on vous explique simplement ce qui encadre le métier - et ce qui le rend unique."
 image: "/assets/blog/agent-securite-formation-cover.jpg"

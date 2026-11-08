@@ -44,10 +44,14 @@ const blogPostingSchema = {
   },
   mainEntityOfPage: new URL(`/blog/${post.id}/`, site.url).toString(),
 };
+
+// <title> : on prefere seoTitle, puis le titre de l'article ; suffixe de marque seulement s'il tient en 60 caracteres.
+const rawTitle = post.data.seoTitle ?? post.data.title;
+const seoTitle = (rawTitle.length + 10 <= 60) ? `${rawTitle} | Edgward` : rawTitle;
 ---
 
 <Base
-  title={`${post.data.title} | Edgward Blog`}
+  title={seoTitle}
   description={post.data.description}
   ogImage={post.data.image}
 >

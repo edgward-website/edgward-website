@@ -1,5 +1,6 @@
 ---
 title: "Pourquoi faut-il encore signer pour trois ans pour qu'une patrouille passe chez vous ?"
+seoTitle: "Sécurité à domicile à la demande, sans engagement"
 date: 2026-10-02
 description: "On commande un repas en trente secondes, mais faire passer un professionnel devant chez soi suppose encore une installation et un contrat de plusieurs années. Edgward dans le supplément Focus Sécurité 360 : pourquoi ce décalage existe, et ce qu'il coûte vraiment."
 image: /assets/blog/focus-securite-360-cover.jpg

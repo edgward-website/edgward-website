@@ -1,5 +1,6 @@
 ---
 title: "La saison des cambriolages a commencé : ce que les repéreurs regardent dans votre rue"
+seoTitle: "Cambriolages : ce que les repéreurs regardent"
 date: 2026-09-18
 description: "De septembre à mars, la nuit tombe avant que les gens rentrent du travail. Avant le cambriolage, il y a le repérage : comment les cambrioleurs choisissent une maison, quels signaux comptent vraiment dans une rue, et quoi faire quand on en remarque un."
 image: /assets/blog/reperage-cambriolage-cover.jpg

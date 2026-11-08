@@ -1,5 +1,6 @@
 ---
 title: "Faux policiers en Suisse romande : ce qui se passe vraiment quand on sonne à votre porte"
+seoTitle: "Faux policiers en Suisse romande : comment réagir"
 date: 2026-08-24
 description: "Plus de 5000 cas et 18 millions de francs envolés depuis 2022 en Romandie. L'arnaque au faux policier se joue rarement au téléphone seulement : elle se termine sur un palier. Comment lever le doute en trente secondes."
 image: /assets/blog/faux-policiers-cover.jpg

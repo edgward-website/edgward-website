@@ -1,5 +1,6 @@
 ---
 title: "« Si j'ai un problème, j'appelle la police » : ce que ce réflexe oublie"
+seoTitle: "Appeler la police : ce que ce réflexe oublie"
 date: 2026-05-17
 description: "Appeler la police est le bon réflexe en cas d'urgence. Mais pour un doute, un rôdeur ou une vérification, elle n'est pas toujours la bonne réponse. Voici pourquoi police et sécurité privée ne jouent pas le même rôle."
 image: "/assets/blog/police-ou-edgward.jpg"

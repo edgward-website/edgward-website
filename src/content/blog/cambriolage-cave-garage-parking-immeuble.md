@@ -1,5 +1,6 @@
 ---
 title: "Les cambrioleurs ont changé d'étage : pourquoi votre cave est devenue la cible facile"
+seoTitle: "Cambriolages de caves : pourquoi elles sont ciblées"
 date: 2026-10-13
 description: "À Genève, les cambriolages de caves ont bondi de 65 % en un an pendant que les villas reculaient. Vélos électriques, outils, skis, vin : ce qui se vole dans les sous-sols d'immeubles, les six points faibles d'une cave, et ce que votre assurance couvre vraiment."
 image: /assets/blog/cave-immeuble-cover.jpg

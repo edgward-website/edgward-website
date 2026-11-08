@@ -1,5 +1,6 @@
 ---
 title: "Points chauds : ce que notre carte de la sécurité montre, et comment elle est faite"
+seoTitle: "Points chauds : la carte de la sécurité romande"
 date: 2026-10-08
 description: "Nous avons cartographié les événements de sécurité relayés par les polices cantonales et les médias romands, commune par commune. Comment lire cette carte de chaleur, comment elle est construite - sources, IA, aucune donnée personnelle - et comment s'en servir."
 image: /assets/blog/points-chauds-cover.jpg

@@ -1,5 +1,6 @@
 ---
 title: "Cambriolages en Suisse romande : les chiffres 2025 (en hausse)"
+seoTitle: "Cambriolages en Suisse romande : les chiffres 2025"
 date: 2026-03-31
 description: "En 2025, les cambriolages ont augmenté presque partout en Suisse romande, à contre-courant d'une criminalité générale restée stable. Le bilan chiffré, canton par canton, sources officielles à l'appui."
 image: /assets/blog/cambriolages-romandie-cover.jpg

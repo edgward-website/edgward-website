@@ -1,5 +1,6 @@
 ---
 title: "Cambriolages par le saut-de-loup : le point faible que personne ne regarde"
+seoTitle: "Saut-de-loup : le point faible des cambriolages"
 date: 2026-10-29
 description: "Dans la région de Terre-Sainte, autour de Coppet, les cambrioleurs passent par les sauts-de-loup. C'est le seul endroit d'une maison où l'on peut travailler accroupi, invisible depuis la rue, sur la fenêtre la plus faible du bâtiment. Comment sécuriser le vôtre."
 image: /assets/blog/saut-de-loup-cover.jpg

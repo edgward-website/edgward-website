@@ -1,5 +1,6 @@
 ---
 title: "Comment Soral est devenue la première commune à sécuriser ses habitants via une app"
+seoTitle: "Soral, première commune à sécuriser ses habitants"
 date: 2025-01-20
 description: "La petite commune genevoise de Soral a adopté Edgward pour offrir à ses habitants un service de sécurité à la demande subventionné. Retour sur une innovation communale."
 author: "Équipe Edgward"
