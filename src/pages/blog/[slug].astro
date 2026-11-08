@@ -83,7 +83,7 @@ const seoTitle = (rawTitle.length + 10 <= 60) ? `${rawTitle} | Edgward` : rawTit
   {post.data.image && (
     <div class="article-cover">
       <div class="container">
-        <img src={post.data.image} alt={post.data.title} class="cover-img" loading="eager">
+        <img src={post.data.image} alt={post.data.title} class:list={["cover-img", { "cover-img--full": post.data.imageFull }]} loading="eager">
       </div>
     </div>
   )}
@@ -197,6 +197,11 @@ const seoTitle = (rawTitle.length + 10 <= 60) ? `${rawTitle} | Edgward` : rawTit
   .cover-img {
     width: 100%; aspect-ratio: 1200 / 460; max-height: 460px; object-fit: cover;
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+
+  .cover-img--full {
+    display: block; width: auto; max-width: 100%; height: auto;
+    aspect-ratio: auto; max-height: 640px; object-fit: contain; margin: 0 auto;
   }
 
   /* PROSE */

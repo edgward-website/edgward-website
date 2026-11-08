@@ -9,6 +9,7 @@ const blog = defineCollection({
     date: z.coerce.date(),
     description: z.string(),
     image: z.string().optional(),
+    imageFull: z.boolean().default(false),   // affiche la photo entiere en tete d'article, sans le recadrage en bandeau
     author: z.string().default('Équipe Edgward'),
     category: z.enum(['Sécurité', 'Conseils', 'Entreprises', 'Communes', 'Actualités']).default('Actualités'),
     featured: z.boolean().default(false),
