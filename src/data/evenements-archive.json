@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-08T20:58:30.002Z",
-  "total": 434,
+  "compileLe": "2026-11-09T20:32:10.080Z",
+  "total": 436,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5209,6 +5209,30 @@
       "heure": "6 nov. 16:43",
       "source": "24 Heures",
       "dateVue": "2026-11-08T16:33:29.529Z"
+    },
+    {
+      "titre": "Accident mortel de parapente",
+      "resume": "Un parapentiste de 32 ans a perdu la vie lors d'un accident survenu au-dessus de la station, dans le secteur des Ruinettes.",
+      "commune": "Verbier",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.2286,
+      "lat": 46.0963,
+      "heure": "9 nov. 15:24",
+      "source": "policevalais.ch",
+      "dateVue": "2026-11-09T20:32:10.080Z"
+    },
+    {
+      "titre": "Site du canton victime d'une surcharge de requêtes",
+      "resume": "Le site internet du canton, cible d'une surcharge de requêtes l'ayant rendu inaccessible, est de nouveau en ligne.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "9 nov. 12:04",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-09T20:32:10.080Z"
     }
   ]
 }
