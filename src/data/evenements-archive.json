@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-09T20:32:10.080Z",
-  "total": 436,
+  "compileLe": "2026-11-10T00:33:27.673Z",
+  "total": 438,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5233,6 +5233,30 @@
       "heure": "9 nov. 12:04",
       "source": "Le Nouvelliste",
       "dateVue": "2026-11-09T20:32:10.080Z"
+    },
+    {
+      "titre": "Arrestations pour escroquerie envers des aînés",
+      "resume": "Quatre personnes se faisant passer pour de faux techniciens ou opérateurs téléphoniques ont été interpellées pour une série d'escroqueries visant des personnes âgées.",
+      "commune": "Puidoux",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.786,
+      "lat": 46.504,
+      "heure": "9 nov. 16:15",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-10T00:33:27.673Z"
+    },
+    {
+      "titre": "Procédure après une agression",
+      "resume": "Des prévenus comparaissent pour une agression au cours de laquelle ils auraient accepté le risque de donner la mort.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "7 nov. 13:29",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-10T00:33:27.673Z"
     }
   ]
 }
