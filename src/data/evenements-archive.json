@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-10T00:33:27.673Z",
-  "total": 438,
+  "compileLe": "2026-11-10T17:34:39.806Z",
+  "total": 443,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5257,6 +5257,66 @@
       "heure": "7 nov. 13:29",
       "source": "20 Minuten",
       "dateVue": "2026-11-10T00:33:27.673Z"
+    },
+    {
+      "titre": "Arnaques aux faux policiers déjouées",
+      "resume": "La police cantonale annonce que près de deux tiers des escroqueries aux faux policiers ont été déjouées en Valais. Trois personnes soupçonnées ont été interpellées.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "ordre",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "10 nov. 14:01",
+      "source": "policevalais.ch",
+      "dateVue": "2026-11-10T17:34:39.806Z"
+    },
+    {
+      "titre": "Accident de parapente mortel",
+      "resume": "Un parapentiste a perdu la vie dans un accident survenu dans une forêt de la région de Verbier.",
+      "commune": "Val de Bagnes",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.285,
+      "lat": 46.017,
+      "heure": "9 nov. 15:24",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-11-10T17:34:39.806Z"
+    },
+    {
+      "titre": "Incendie criminel sur la ligne CFF",
+      "resume": "Un incendie d'origine criminelle a perturbé le trafic ferroviaire entre Yverdon et Lausanne avant un rétablissement de la circulation.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "9 nov. 01:16",
+      "source": "La Télé",
+      "dateVue": "2026-11-10T17:34:39.806Z"
+    },
+    {
+      "titre": "Appel à témoins après une disparition",
+      "resume": "Les autorités lancent un avis de disparition concernant une jeune femme et sollicitent d'éventuels témoins.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "disparition",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "8 nov. 13:34",
+      "source": "24 Heures",
+      "dateVue": "2026-11-10T17:34:39.806Z"
+    },
+    {
+      "titre": "Fuite présumée de données clients",
+      "resume": "Des données de clients d'un opérateur télécom auraient été diffusées sur internet.",
+      "commune": "Renens",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.588,
+      "lat": 46.539,
+      "heure": "9 nov. 20:12",
+      "source": "24 Heures",
+      "dateVue": "2026-11-10T17:34:39.806Z"
     }
   ]
 }
