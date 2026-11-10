@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-10T17:34:39.806Z",
-  "total": 443,
+  "compileLe": "2026-11-10T22:10:06.326Z",
+  "total": 444,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5317,6 +5317,18 @@
       "heure": "9 nov. 20:12",
       "source": "24 Heures",
       "dateVue": "2026-11-10T17:34:39.806Z"
+    },
+    {
+      "titre": "Incendie criminel sur la ligne ferroviaire",
+      "resume": "Un incendie d'origine criminelle a perturbé le trafic ferroviaire entre Yverdon et Lausanne avant un rétablissement de la circulation.",
+      "commune": "Cossonay",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.507,
+      "lat": 46.612,
+      "heure": "9 nov. 01:16",
+      "source": "La Télé",
+      "dateVue": "2026-11-10T22:10:06.326Z"
     }
   ]
 }
