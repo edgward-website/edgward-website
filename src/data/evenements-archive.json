@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-10T22:10:06.326Z",
-  "total": 444,
+  "compileLe": "2026-11-11T17:47:23.179Z",
+  "total": 449,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5329,6 +5329,66 @@
       "heure": "9 nov. 01:16",
       "source": "La Télé",
       "dateVue": "2026-11-10T22:10:06.326Z"
+    },
+    {
+      "titre": "Vol de données chez Zermatt Tourismus",
+      "resume": "L'office du tourisme de Zermatt a été victime d'un piratage informatique. Des données de clients ont été dérobées.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.748,
+      "lat": 46.02,
+      "heure": "11 nov. 18:32",
+      "source": "Blick",
+      "dateVue": "2026-11-11T17:47:23.179Z"
+    },
+    {
+      "titre": "Autoroute fermée après un accident",
+      "resume": "Un accident a provoqué la fermeture de l'autoroute entre Saint-Blaise et Neuchâtel, perturbant fortement le trafic.",
+      "commune": "Saint-Blaise",
+      "canton": "NE",
+      "categorie": "accident",
+      "lon": 7.004,
+      "lat": 46.216,
+      "heure": "11 nov. 16:12",
+      "source": "ArcInfo",
+      "dateVue": "2026-11-11T17:47:23.179Z"
+    },
+    {
+      "titre": "Chute mortelle au Cervin",
+      "resume": "Un alpiniste de 20 ans a fait une chute mortelle au Cervin fin octobre. La police a confirmé les circonstances.",
+      "commune": "Zermatt",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.748,
+      "lat": 46.02,
+      "heure": "11 nov. 12:00",
+      "source": "policevalais.ch",
+      "dateVue": "2026-11-11T17:47:23.179Z"
+    },
+    {
+      "titre": "Agression d'un chauffeur de VTC",
+      "resume": "Un passager a frappé son chauffeur de VTC lors d'un différend à propos d'une fenêtre ouverte.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "agression",
+      "lon": 7.359,
+      "lat": 46.231,
+      "heure": "11 nov. 11:20",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-11T17:47:23.179Z"
+    },
+    {
+      "titre": "Intrusion nocturne dans un appartement",
+      "resume": "Une locataire réveillée en pleine nuit a mis en fuite deux individus qui s'étaient introduits dans son logement.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "11 nov. 10:46",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-11T17:47:23.179Z"
     }
   ]
 }
