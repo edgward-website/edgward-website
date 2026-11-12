@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-11T23:20:10.008Z",
-  "total": 451,
+  "compileLe": "2026-11-12T18:00:35.520Z",
+  "total": 452,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5413,6 +5413,18 @@
       "heure": "11 nov. 01:21",
       "source": "Le Nouvelliste",
       "dateVue": "2026-11-11T23:20:10.008Z"
+    },
+    {
+      "titre": "Accident de la route dans la côte de Sainte-Croix",
+      "resume": "Deux personnes ont été blessées lors d'un accident de la circulation dans la côte de Sainte-Croix.",
+      "commune": "Sainte-Croix",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.504,
+      "lat": 46.823,
+      "heure": "12 nov. 17:28",
+      "source": "24 Heures",
+      "dateVue": "2026-11-12T18:00:35.520Z"
     }
   ]
 }
