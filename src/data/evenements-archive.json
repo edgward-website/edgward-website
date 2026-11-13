@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-12T22:36:17.518Z",
-  "total": 452,
+  "compileLe": "2026-11-13T17:35:31.558Z",
+  "total": 456,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5425,6 +5425,54 @@
       "heure": "12 nov. 17:28",
       "source": "24 Heures",
       "dateVue": "2026-11-12T18:00:35.520Z"
+    },
+    {
+      "titre": "Attaque d'un bancomat à l'explosif",
+      "resume": "Un distributeur de billets d'un commerce a été visé par une attaque à l'explosif durant la nuit. Les auteurs ont pris la fuite et un appel à témoins a été lancé.",
+      "commune": "Uvrier",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 7.42,
+      "lat": 46.24,
+      "heure": "13 nov. 16:00",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-11-13T17:35:31.558Z"
+    },
+    {
+      "titre": "Vols dans des véhicules",
+      "resume": "Durant la nuit, plusieurs objets ont été dérobés dans des véhicules stationnés. Plusieurs plaintes ont été déposées.",
+      "commune": "La Roche",
+      "canton": "FR",
+      "categorie": "cambriolage",
+      "lon": 7.134,
+      "lat": 46.618,
+      "heure": "13 nov. 16:19",
+      "source": "La Liberté",
+      "dateVue": "2026-11-13T17:35:31.558Z"
+    },
+    {
+      "titre": "Tensions entre groupes de jeunes",
+      "resume": "Des violences récurrentes opposent des jeunes de deux localités voisines depuis fin octobre, suscitant l'inquiétude.",
+      "commune": "Gland",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.27,
+      "lat": 46.42,
+      "heure": "13 nov. 14:15",
+      "source": "La Côte",
+      "dateVue": "2026-11-13T17:35:31.558Z"
+    },
+    {
+      "titre": "Vaches en fuite sur l'autoroute A1",
+      "resume": "Cinq bovins échappés ont perturbé le trafic et entraîné des fermetures sur l'A1, provoquant d'importantes difficultés de circulation.",
+      "commune": "Morges",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.5,
+      "lat": 46.51,
+      "heure": "13 nov. 07:31",
+      "source": "24 Heures",
+      "dateVue": "2026-11-13T17:35:31.558Z"
     }
   ]
 }
