@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-13T22:24:38.961Z",
-  "total": 458,
+  "compileLe": "2026-11-14T16:27:51.380Z",
+  "total": 459,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5497,6 +5497,18 @@
       "heure": "13 nov. 19:06",
       "source": "laliberte.ch",
       "dateVue": "2026-11-13T22:24:38.961Z"
+    },
+    {
+      "titre": "Voiture en feu sur l'A1",
+      "resume": "Un véhicule s'est embrasé en pleine nuit sur l'autoroute A1 à hauteur d'Aubonne.",
+      "commune": "Aubonne",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.3917,
+      "lat": 46.4939,
+      "heure": "14 nov. 11:49",
+      "source": "24 Heures",
+      "dateVue": "2026-11-14T16:27:51.380Z"
     }
   ]
 }
