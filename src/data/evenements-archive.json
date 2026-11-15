@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-14T21:08:10.498Z",
-  "total": 460,
+  "compileLe": "2026-11-15T16:52:49.158Z",
+  "total": 463,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5521,6 +5521,42 @@
       "heure": "13 nov. 15:09",
       "source": "24 Heures",
       "dateVue": "2026-11-14T21:08:10.498Z"
+    },
+    {
+      "titre": "Cyberattaque contre une entreprise familiale valaisanne",
+      "resume": "Des pirates informatiques ont paralysé les activités d'une entreprise familiale du canton du Valais.",
+      "commune": "Sion",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.359,
+      "lat": 46.233,
+      "heure": "15 nov. 16:44",
+      "source": "Blick",
+      "dateVue": "2026-11-15T16:52:49.158Z"
+    },
+    {
+      "titre": "Appel à témoins - disparition d'une personne âgée",
+      "resume": "Une personne âgée a disparu dans le secteur de Jeuss. La police lance un appel à témoins.",
+      "commune": "Jeuss",
+      "canton": "FR",
+      "categorie": "disparition",
+      "lon": 7.183,
+      "lat": 46.955,
+      "heure": "15 nov. 16:25",
+      "source": "FR.ch",
+      "dateVue": "2026-11-15T16:52:49.158Z"
+    },
+    {
+      "titre": "Incendie dans le canton du Jura",
+      "resume": "Un incendie est survenu dans le canton du Jura, selon les autorités cantonales.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "incendie",
+      "lon": 7.345,
+      "lat": 47.365,
+      "heure": "13 nov. 13:21",
+      "source": "République et Canton du Jura",
+      "dateVue": "2026-11-15T16:52:49.158Z"
     }
   ]
 }
