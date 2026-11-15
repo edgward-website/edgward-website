@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-15T16:52:49.158Z",
-  "total": 463,
+  "compileLe": "2026-11-15T21:29:44.436Z",
+  "total": 465,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5557,6 +5557,30 @@
       "heure": "13 nov. 13:21",
       "source": "République et Canton du Jura",
       "dateVue": "2026-11-15T16:52:49.158Z"
+    },
+    {
+      "titre": "Incendie d'une bâtisse abandonnée",
+      "resume": "Une bâtisse abandonnée a pris feu, nécessitant l'intervention des pompiers.",
+      "commune": "Échichens",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.46,
+      "lat": 46.53,
+      "heure": "15 nov. 17:16",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-15T21:29:44.436Z"
+    },
+    {
+      "titre": "Accident mortel lors d'un dépassement",
+      "resume": "Une manœuvre de dépassement a provoqué un accident grave sur un tronçon routier.",
+      "commune": "Porrentruy",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.07,
+      "lat": 47.42,
+      "heure": "13 nov. 22:14",
+      "source": "24 Heures",
+      "dateVue": "2026-11-15T21:29:44.436Z"
     }
   ]
 }
