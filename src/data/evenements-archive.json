@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-15T21:29:44.436Z",
-  "total": 465,
+  "compileLe": "2026-11-16T20:07:27.380Z",
+  "total": 468,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5581,6 +5581,42 @@
       "heure": "13 nov. 22:14",
       "source": "24 Heures",
       "dateVue": "2026-11-15T21:29:44.436Z"
+    },
+    {
+      "titre": "Conducteur ivre fonce sur un contrôle de police",
+      "resume": "Un jeune automobiliste en état d'ivresse a foncé sur un contrôle de police sur l'autoroute A1.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "16 nov. 15:13",
+      "source": "24 Heures",
+      "dateVue": "2026-11-16T20:07:27.380Z"
+    },
+    {
+      "titre": "Collision entre le métro M1 et une voiture",
+      "resume": "Une voiture a été percutée par le métro M1 sur les rails entre Renens et l'EPFL, perturbant le trafic durant plusieurs heures.",
+      "commune": "Ecublens",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.5631,
+      "lat": 46.5267,
+      "heure": "16 nov. 12:28",
+      "source": "24 Heures",
+      "dateVue": "2026-11-16T20:07:27.380Z"
+    },
+    {
+      "titre": "Série de cambriolages dans un kiosque",
+      "resume": "Un commerçant lausannois déplore quatre cambriolages en quatre mois.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.6323,
+      "lat": 46.5197,
+      "heure": "16 nov. 06:33",
+      "source": "24 Heures",
+      "dateVue": "2026-11-16T20:07:27.380Z"
     }
   ]
 }
