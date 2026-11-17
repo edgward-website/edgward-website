@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-16T20:07:27.380Z",
-  "total": 468,
+  "compileLe": "2026-11-17T00:40:00.062Z",
+  "total": 470,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5617,6 +5617,30 @@
       "heure": "16 nov. 06:33",
       "source": "24 Heures",
       "dateVue": "2026-11-16T20:07:27.380Z"
+    },
+    {
+      "titre": "Cyberattaque contre une entreprise valaisanne",
+      "resume": "Une entreprise valaisanne a été visée par une cyberattaque. La société indique refuser de payer toute rançon aux pirates.",
+      "commune": "Naters",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.9869,
+      "lat": 46.3167,
+      "heure": "16 nov. 18:00",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-17T00:40:00.062Z"
+    },
+    {
+      "titre": "Rixes dans le centre d'une commune",
+      "resume": "Rolle est secouée par des rixes impliquant des jeunes, avec une présence policière renforcée.",
+      "commune": "Rolle",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.338,
+      "lat": 46.459,
+      "heure": "15 nov. 11:55",
+      "source": "La Côte",
+      "dateVue": "2026-11-17T00:40:00.062Z"
     }
   ]
 }
