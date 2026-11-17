@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-17T19:00:35.946Z",
-  "total": 470,
+  "compileLe": "2026-11-17T23:45:43.320Z",
+  "total": 472,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5641,6 +5641,30 @@
       "heure": "15 nov. 11:55",
       "source": "La Côte",
       "dateVue": "2026-11-17T00:40:00.062Z"
+    },
+    {
+      "titre": "Chute d'un ouvrier sur un chantier",
+      "resume": "Un ouvrier a chuté de trois mètres sur un chantier et l'entreprise a été sanctionnée.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.14,
+      "lat": 46.2,
+      "heure": "17 nov. 06:38",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-11-17T23:45:43.320Z"
+    },
+    {
+      "titre": "Cyberattaque contre une entreprise valaisanne",
+      "resume": "Une entreprise familiale valaisanne a été paralysée par une attaque informatique et refuse de payer la rançon.",
+      "commune": "Viège",
+      "canton": "VS",
+      "categorie": "cyber",
+      "lon": 7.88,
+      "lat": 46.29,
+      "heure": "16 nov. 18:00",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-17T23:45:43.320Z"
     }
   ]
 }
