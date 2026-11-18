@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-17T23:45:43.320Z",
-  "total": 472,
+  "compileLe": "2026-11-18T18:44:16.867Z",
+  "total": 474,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5665,6 +5665,30 @@
       "heure": "16 nov. 18:00",
       "source": "Le Nouvelliste",
       "dateVue": "2026-11-17T23:45:43.320Z"
+    },
+    {
+      "titre": "Deux hommes arrêtés avec des objets suspects",
+      "resume": "Deux individus ont été interpellés en possession d'objets d'origine douteuse.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "cambriolage",
+      "lon": 7.3454,
+      "lat": 47.3654,
+      "heure": "18 nov. 17:24",
+      "source": "Watson",
+      "dateVue": "2026-11-18T18:44:16.867Z"
+    },
+    {
+      "titre": "Vols élucidés",
+      "resume": "Plusieurs vols ont été élucidés par la police dans la région.",
+      "commune": "Bulle",
+      "canton": "FR",
+      "categorie": "cambriolage",
+      "lon": 7.0572,
+      "lat": 46.6193,
+      "heure": "18 nov. 11:06",
+      "source": "Police cantonale FR",
+      "dateVue": "2026-11-18T18:44:16.867Z"
     }
   ]
 }
