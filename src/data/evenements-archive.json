@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-18T23:17:38.300Z",
-  "total": 474,
+  "compileLe": "2026-11-19T18:55:16.745Z",
+  "total": 478,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5689,6 +5689,54 @@
       "heure": "18 nov. 11:06",
       "source": "Police cantonale FR",
       "dateVue": "2026-11-18T18:44:16.867Z"
+    },
+    {
+      "titre": "Appel à témoins après une agression à Onex",
+      "resume": "La police recherche un homme après une violente agression. Un appel à témoins a été lancé.",
+      "commune": "Onex",
+      "canton": "GE",
+      "categorie": "agression",
+      "lon": 6.1006,
+      "lat": 46.1839,
+      "heure": "19 nov. 14:02",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-11-19T18:55:16.745Z"
+    },
+    {
+      "titre": "Collision voiture-camion près de Venthône",
+      "resume": "Une personne a été blessée dans une collision entre une voiture et un camion. La route a depuis été rouverte.",
+      "commune": "Venthône",
+      "canton": "VS",
+      "categorie": "accident",
+      "lon": 7.5306,
+      "lat": 46.2944,
+      "heure": "19 nov. 09:48",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-19T18:55:16.745Z"
+    },
+    {
+      "titre": "Camion renversé dans un tunnel sur l'A1",
+      "resume": "Un camion renversé dans un tunnel du Nord vaudois a fortement perturbé la circulation sur l'autoroute A1.",
+      "commune": "Yverdon-les-Bains",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.6413,
+      "lat": 46.7785,
+      "heure": "18 nov. 21:14",
+      "source": "24 Heures",
+      "dateVue": "2026-11-19T18:55:16.745Z"
+    },
+    {
+      "titre": "Deux voleurs interpellés à Boncourt",
+      "resume": "Deux hommes ont été appréhendés avec des objets de provenance douteuse grâce à l'intervention d'un douanier en congé.",
+      "commune": "Boncourt",
+      "canton": "JU",
+      "categorie": "cambriolage",
+      "lon": 7.0017,
+      "lat": 47.4931,
+      "heure": "18 nov. 16:39",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-19T18:55:16.745Z"
     }
   ]
 }
