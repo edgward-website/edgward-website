@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-19T18:55:16.745Z",
-  "total": 478,
+  "compileLe": "2026-11-19T23:25:19.286Z",
+  "total": 479,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5737,6 +5737,18 @@
       "heure": "18 nov. 16:39",
       "source": "20 Minuten",
       "dateVue": "2026-11-19T18:55:16.745Z"
+    },
+    {
+      "titre": "Camion renversé dans un tunnel sur l'A1",
+      "resume": "Un camion s'est renversé dans un tunnel du Nord vaudois, paralysant la circulation sur l'A1.",
+      "commune": "Chavornay",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.573,
+      "lat": 46.716,
+      "heure": "18 nov. 21:14",
+      "source": "24 Heures",
+      "dateVue": "2026-11-19T23:25:19.286Z"
     }
   ]
 }
