@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-19T23:25:19.286Z",
-  "total": 479,
+  "compileLe": "2026-11-20T18:25:17.810Z",
+  "total": 481,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5749,6 +5749,30 @@
       "heure": "18 nov. 21:14",
       "source": "24 Heures",
       "dateVue": "2026-11-19T23:25:19.286Z"
+    },
+    {
+      "titre": "Décès après un brigandage à domicile",
+      "resume": "Un homme de 73 ans est décédé un jour et demi après avoir été victime d'un brigandage à son domicile. La police cantonale lance un appel à témoins.",
+      "commune": "Collombey-Muraz",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 6.95,
+      "lat": 46.28,
+      "heure": "20 nov. 15:33",
+      "source": "policevalais.ch",
+      "dateVue": "2026-11-20T18:25:17.810Z"
+    },
+    {
+      "titre": "Vol de montres de valeur",
+      "resume": "Cinq montres de grande valeur ont été dérobées dans un commerce à Neuchâtel.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.93,
+      "lat": 46.99,
+      "heure": "18 nov. 12:34",
+      "source": "24 Heures",
+      "dateVue": "2026-11-20T18:25:17.810Z"
     }
   ]
 }
