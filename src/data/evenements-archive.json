@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-20T18:25:17.810Z",
-  "total": 481,
+  "compileLe": "2026-11-20T22:58:50.001Z",
+  "total": 482,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5773,6 +5773,18 @@
       "heure": "18 nov. 12:34",
       "source": "24 Heures",
       "dateVue": "2026-11-20T18:25:17.810Z"
+    },
+    {
+      "titre": "Deux hommes arrêtés avec des objets suspects",
+      "resume": "Deux hommes ont été appréhendés à Boncourt avec des objets de provenance douteuse, grâce à un douanier en congé.",
+      "commune": "Boncourt",
+      "canton": "JU",
+      "categorie": "ordre",
+      "lon": 7.02,
+      "lat": 47.49,
+      "heure": "18 nov. 16:39",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-20T22:58:50.001Z"
     }
   ]
 }

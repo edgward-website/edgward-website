@@ -1,10 +1,10 @@
 {
-  "genereLe": "2026-11-20T18:25:17.810Z",
+  "genereLe": "2026-11-20T22:58:50.001Z",
   "source": "collecte automatique",
   "evenements": [
     {
       "titre": "Décès après un brigandage à domicile",
-      "resume": "Un homme de 73 ans est décédé un jour et demi après avoir été victime d'un brigandage à son domicile. La police cantonale lance un appel à témoins.",
+      "resume": "Un homme de 73 ans victime d'un cambriolage à son domicile est décédé un jour et demi plus tard. La police lance un appel à témoins.",
       "commune": "Collombey-Muraz",
       "canton": "VS",
       "categorie": "cambriolage",
@@ -16,7 +16,7 @@
     },
     {
       "titre": "Appel à témoins après une agression",
-      "resume": "La police recherche un homme après une agression violente survenue à Onex. Un appel à témoins a été lancé.",
+      "resume": "La police recherche un homme après une violente agression survenue à Onex. Un appel à témoins a été lancé.",
       "commune": "Onex",
       "canton": "GE",
       "categorie": "agression",
@@ -28,31 +28,31 @@
     },
     {
       "titre": "Collision entre une voiture et un camion",
-      "resume": "Une collision entre une voiture et un camion a fait un blessé sur la route entre Crans-Montana et Venthône. La route a été temporairement fermée.",
+      "resume": "Une collision entre une voiture et un camion a fait un blessé sur la route Crans-Montana - Venthône, brièvement fermée.",
       "commune": "Venthône",
       "canton": "VS",
       "categorie": "accident",
-      "lon": 7.52,
-      "lat": 46.3,
+      "lon": 7.53,
+      "lat": 46.29,
       "heure": "19 nov. 09:48",
       "source": "Le Nouvelliste",
       "recent": false
     },
     {
       "titre": "Camion renversé dans un tunnel sur l'A1",
-      "resume": "Un camion renversé dans le tunnel de Pomy a paralysé le trafic sur l'A1 dans le Nord vaudois.",
+      "resume": "Un camion s'est renversé dans le tunnel de Pomy, paralysant l'autoroute A1 dans le Nord vaudois.",
       "commune": "Pomy",
       "canton": "VD",
       "categorie": "accident",
-      "lon": 6.67,
+      "lon": 6.62,
       "lat": 46.78,
       "heure": "18 nov. 20:32",
       "source": "24 Heures",
       "recent": false
     },
     {
-      "titre": "Décès dans un choc frontal",
-      "resume": "Une automobiliste de 59 ans a perdu la vie dans une collision frontale avec un camion à Lausanne.",
+      "titre": "Accident mortel lors d'un choc frontal",
+      "resume": "Une automobiliste de 59 ans a perdu la vie dans un choc frontal avec un camion à Lausanne.",
       "commune": "Lausanne",
       "canton": "VD",
       "categorie": "accident",
@@ -63,12 +63,12 @@
       "recent": false
     },
     {
-      "titre": "Deux hommes interpellés avec des objets suspects",
-      "resume": "Deux individus ont été appréhendés à Boncourt en possession d'objets de provenance douteuse, grâce à l'intervention d'un douanier en congé.",
+      "titre": "Deux hommes arrêtés avec des objets suspects",
+      "resume": "Deux hommes ont été appréhendés à Boncourt avec des objets de provenance douteuse, grâce à un douanier en congé.",
       "commune": "Boncourt",
       "canton": "JU",
       "categorie": "ordre",
-      "lon": 7.01,
+      "lon": 7.02,
       "lat": 47.49,
       "heure": "18 nov. 16:39",
       "source": "20 Minuten",
@@ -76,7 +76,7 @@
     },
     {
       "titre": "Vol de montres de valeur",
-      "resume": "Cinq montres de grande valeur ont été dérobées dans un commerce à Neuchâtel.",
+      "resume": "Une personne a dérobé cinq montres de grande valeur dans un commerce à Neuchâtel.",
       "commune": "Neuchâtel",
       "canton": "NE",
       "categorie": "cambriolage",
@@ -84,6 +84,18 @@
       "lat": 46.99,
       "heure": "18 nov. 12:34",
       "source": "24 Heures",
+      "recent": false
+    },
+    {
+      "titre": "Entreprise touchée par un incendie",
+      "resume": "Après l'incendie de ses installations, une entreprise vaudoise passe sous pavillon français et renforce sa sécurité.",
+      "commune": "Tolochenaz",
+      "canton": "VD",
+      "categorie": "incendie",
+      "lon": 6.47,
+      "lat": 46.51,
+      "heure": "18 nov. 09:22",
+      "source": "20 Minuten",
       "recent": false
     }
   ]
