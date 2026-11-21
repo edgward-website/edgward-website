@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-20T22:58:50.001Z",
-  "total": 482,
+  "compileLe": "2026-11-21T17:13:31.489Z",
+  "total": 487,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5785,6 +5785,66 @@
       "heure": "18 nov. 16:39",
       "source": "20 Minuten",
       "dateVue": "2026-11-20T22:58:50.001Z"
+    },
+    {
+      "titre": "Voiture volée retrouvée après une fuite",
+      "resume": "Une voiture volée a repassé la frontière vers la Vallée de Joux, une autre a été retrouvée à La Chaux-de-Fonds.",
+      "commune": "Le Chenit",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.23,
+      "lat": 46.6,
+      "heure": "21 nov. 17:51",
+      "source": "La Côte",
+      "dateVue": "2026-11-21T17:13:31.489Z"
+    },
+    {
+      "titre": "Accident sur l'A12 près de Flamatt",
+      "resume": "Un accident de la circulation a fait deux blessés légers sur l'autoroute A12.",
+      "commune": "Flamatt",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.33,
+      "lat": 46.89,
+      "heure": "21 nov. 16:37",
+      "source": "FR.ch",
+      "dateVue": "2026-11-21T17:13:31.489Z"
+    },
+    {
+      "titre": "Accident mortel d'un motocycliste",
+      "resume": "Un motocycliste de 16 ans est décédé des suites d'une collision avec une voiture. Une enquête pénale a été ouverte.",
+      "commune": "Payerne",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.94,
+      "lat": 46.82,
+      "heure": "21 nov. 10:16",
+      "source": "24 Heures",
+      "dateVue": "2026-11-21T17:13:31.489Z"
+    },
+    {
+      "titre": "Boucherie cambriolée à Vouvry",
+      "resume": "Un commerce de boucherie a été cambriolé, laissant les propriétaires sous le choc.",
+      "commune": "Vouvry",
+      "canton": "VS",
+      "categorie": "cambriolage",
+      "lon": 6.89,
+      "lat": 46.33,
+      "heure": "21 nov. 13:58",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-21T17:13:31.489Z"
+    },
+    {
+      "titre": "Commerce fracturé à Coppet",
+      "resume": "Un commerce a été fracturé à proximité du poste de gendarmerie.",
+      "commune": "Coppet",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.19,
+      "lat": 46.32,
+      "heure": "21 nov. 08:00",
+      "source": "La Côte",
+      "dateVue": "2026-11-21T17:13:31.489Z"
     }
   ]
 }
