@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-22T17:41:42.913Z",
-  "total": 489,
+  "compileLe": "2026-11-22T22:18:41.759Z",
+  "total": 490,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5869,6 +5869,18 @@
       "heure": "21 nov. 16:58",
       "source": "La Liberté",
       "dateVue": "2026-11-22T17:41:42.913Z"
+    },
+    {
+      "titre": "Vitrines dégradées après une manifestation",
+      "resume": "Des vitrines du centre-ville ont été souillées en marge d'une manifestation contre l'austérité.",
+      "commune": "Neuchâtel",
+      "canton": "NE",
+      "categorie": "ordre",
+      "lon": 6.931,
+      "lat": 46.992,
+      "heure": "21 nov. 18:06",
+      "source": "ArcInfo",
+      "dateVue": "2026-11-22T22:18:41.759Z"
     }
   ]
 }
