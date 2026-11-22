@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-21T22:03:41.373Z",
-  "total": 487,
+  "compileLe": "2026-11-22T17:41:42.913Z",
+  "total": 489,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5845,6 +5845,30 @@
       "heure": "21 nov. 08:00",
       "source": "La Côte",
       "dateVue": "2026-11-21T17:13:31.489Z"
+    },
+    {
+      "titre": "Effondrement d'un mur à Cologny",
+      "resume": "Un mur s'est effondré, perturbant la circulation sur le quai. Des dégâts matériels ont été constatés.",
+      "commune": "Cologny",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.17,
+      "lat": 46.21,
+      "heure": "22 nov. 13:46",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-11-22T17:41:42.913Z"
+    },
+    {
+      "titre": "Accident sur l'autoroute dans la région fribourgeoise",
+      "resume": "Un accident spectaculaire a impliqué deux automobilistes. L'un d'eux a dû être conduit à l'hôpital.",
+      "commune": "Fribourg",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.16,
+      "lat": 46.8,
+      "heure": "21 nov. 16:58",
+      "source": "La Liberté",
+      "dateVue": "2026-11-22T17:41:42.913Z"
     }
   ]
 }
