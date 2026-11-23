@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-22T22:18:41.759Z",
-  "total": 490,
+  "compileLe": "2026-11-23T21:57:37.170Z",
+  "total": 494,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5881,6 +5881,54 @@
       "heure": "21 nov. 18:06",
       "source": "ArcInfo",
       "dateVue": "2026-11-22T22:18:41.759Z"
+    },
+    {
+      "titre": "Local d'un parti cambriolé",
+      "resume": "Le local d'un parti politique a été cambriolé, les auteurs emportant une petite somme d'argent.",
+      "commune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "categorie": "cambriolage",
+      "lon": 6.828,
+      "lat": 47.1,
+      "heure": "23 nov. 13:06",
+      "source": "ArcInfo",
+      "dateVue": "2026-11-23T21:57:37.170Z"
+    },
+    {
+      "titre": "Accident de la circulation",
+      "resume": "Une voiture a quitté la route et terminé dans une forêt. Le conducteur a été blessé.",
+      "commune": "Rocourt",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.053,
+      "lat": 47.41,
+      "heure": "23 nov. 11:44",
+      "source": "République et Canton du Jura",
+      "dateVue": "2026-11-23T21:57:37.170Z"
+    },
+    {
+      "titre": "Décès après une agression à domicile",
+      "resume": "Un homme est décédé à la suite d'une agression commise à son domicile. Une enquête est en cours.",
+      "commune": "Aigle",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.966,
+      "lat": 46.317,
+      "heure": "21 nov. 15:51",
+      "source": "24 Heures",
+      "dateVue": "2026-11-23T21:57:37.170Z"
+    },
+    {
+      "titre": "Véhicules volés retrouvés",
+      "resume": "Dans le cadre d'une affaire de vols de véhicules, une voiture a franchi la frontière cantonale vers la Vallée de Joux et une autre a été retrouvée dans le canton de Neuchâtel.",
+      "commune": "L'Abbaye",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.314,
+      "lat": 46.65,
+      "heure": "21 nov. 17:51",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-23T21:57:37.170Z"
     }
   ]
 }
