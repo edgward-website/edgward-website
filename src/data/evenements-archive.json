@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-23T21:57:37.170Z",
-  "total": 494,
+  "compileLe": "2026-11-24T03:10:43.601Z",
+  "total": 497,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5929,6 +5929,42 @@
       "heure": "21 nov. 17:51",
       "source": "Le Nouvelliste",
       "dateVue": "2026-11-23T21:57:37.170Z"
+    },
+    {
+      "titre": "Accident de la circulation",
+      "resume": "Un accident de la route s'est produit dans le canton du Jura. Une intervention des secours a été nécessaire.",
+      "commune": "Delémont",
+      "canton": "JU",
+      "categorie": "accident",
+      "lon": 7.345,
+      "lat": 47.366,
+      "heure": "23 nov. 20:18",
+      "source": "République et Canton du Jura",
+      "dateVue": "2026-11-24T03:10:43.601Z"
+    },
+    {
+      "titre": "Décès après un home-jacking",
+      "resume": "Un artisan du Chablais valaisan est décédé après un home-jacking. Une enquête a été ouverte.",
+      "commune": "Monthey",
+      "canton": "VS",
+      "categorie": "agression",
+      "lon": 6.954,
+      "lat": 46.254,
+      "heure": "21 nov. 15:51",
+      "source": "24 Heures",
+      "dateVue": "2026-11-24T03:10:43.601Z"
+    },
+    {
+      "titre": "Véhicules volés retrouvés",
+      "resume": "Dans le cadre d'une course-poursuite intercantonale, des véhicules volés ont été repérés en direction de la Vallée de Joux et retrouvés dans le canton de Neuchâtel.",
+      "commune": "Le Chenit",
+      "canton": "VD",
+      "categorie": "ordre",
+      "lon": 6.23,
+      "lat": 46.6,
+      "heure": "21 nov. 17:51",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-24T03:10:43.601Z"
     }
   ]
 }
