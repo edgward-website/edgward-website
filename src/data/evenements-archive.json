@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-24T03:10:43.601Z",
-  "total": 497,
+  "compileLe": "2026-11-24T20:33:16.402Z",
+  "total": 502,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -5965,6 +5965,66 @@
       "heure": "21 nov. 17:51",
       "source": "Le Nouvelliste",
       "dateVue": "2026-11-24T03:10:43.601Z"
+    },
+    {
+      "titre": "Intervention policière dans un foyer pour requérants",
+      "resume": "Une intervention de police dans un foyer pour requérants d'asile a fait deux blessés, un requérant et un policier. Une enquête a été ouverte.",
+      "commune": "Viège",
+      "canton": "VS",
+      "categorie": "ordre",
+      "lon": 7.881,
+      "lat": 46.293,
+      "heure": "24 nov. 16:03",
+      "source": "Police cantonale valaisanne",
+      "dateVue": "2026-11-24T20:33:16.402Z"
+    },
+    {
+      "titre": "Agression mortelle à domicile",
+      "resume": "Un homme a été agressé à son domicile, ligoté et frappé, avant de décéder. L'affaire fait l'objet d'une procédure judiciaire.",
+      "commune": "Collombey-Muraz",
+      "canton": "VS",
+      "categorie": "agression",
+      "lon": 6.948,
+      "lat": 46.273,
+      "heure": "24 nov. 16:30",
+      "source": "Rhône FM",
+      "dateVue": "2026-11-24T20:33:16.402Z"
+    },
+    {
+      "titre": "Carambolage sur l'A1",
+      "resume": "Un carambolage impliquant plusieurs véhicules a perturbé le trafic sur l'autoroute A1 entre Nyon et Gland.",
+      "commune": "Gland",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.27,
+      "lat": 46.42,
+      "heure": "24 nov. 09:29",
+      "source": "24 Heures",
+      "dateVue": "2026-11-24T20:33:16.402Z"
+    },
+    {
+      "titre": "Interpellations pour escroqueries",
+      "resume": "Neuf personnes ont été interpellées dans le canton de Vaud dans le cadre d'arnaques aux faux policiers et faux banquiers, avec un important butin récupéré.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "cyber",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "23 nov. 15:50",
+      "source": "24 Heures",
+      "dateVue": "2026-11-24T20:33:16.402Z"
+    },
+    {
+      "titre": "Élève blessée par une seringue",
+      "resume": "Une élève s'est piquée avec une aiguille dans le préau de son école à Genève.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.143,
+      "lat": 46.204,
+      "heure": "23 nov. 06:36",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-11-24T20:33:16.402Z"
     }
   ]
 }
