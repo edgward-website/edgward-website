@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-25T01:15:47.628Z",
-  "total": 502,
+  "compileLe": "2026-11-25T19:50:34.071Z",
+  "total": 503,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -6025,6 +6025,18 @@
       "heure": "23 nov. 06:36",
       "source": "Tribune de Genève",
       "dateVue": "2026-11-24T20:33:16.402Z"
+    },
+    {
+      "titre": "Usurpation de l'identité des TPG",
+      "resume": "Une campagne de faux courriels et messages usurpe l'identité des Transports publics genevois pour piéger les abonnés. Les voyageurs sont invités à la vigilance.",
+      "commune": "Genève",
+      "canton": "GE",
+      "categorie": "cyber",
+      "lon": 6.1432,
+      "lat": 46.2044,
+      "heure": "25 nov. 18:21",
+      "source": "Tribune de Genève",
+      "dateVue": "2026-11-25T19:50:34.071Z"
     }
   ]
 }
