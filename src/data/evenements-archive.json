@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-25T19:50:34.071Z",
-  "total": 503,
+  "compileLe": "2026-11-26T00:51:06.420Z",
+  "total": 504,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -6037,6 +6037,18 @@
       "heure": "25 nov. 18:21",
       "source": "Tribune de Genève",
       "dateVue": "2026-11-25T19:50:34.071Z"
+    },
+    {
+      "titre": "Agression à Vidy",
+      "resume": "Dans le cadre d'une agression survenue à Vidy, l'épouse de la victime se retrouve à son tour mise en cause par l'enquête.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "23 nov. 06:35",
+      "source": "24 Heures",
+      "dateVue": "2026-11-26T00:51:06.420Z"
     }
   ]
 }
