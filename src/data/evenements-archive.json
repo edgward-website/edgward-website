@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-26T00:51:06.420Z",
-  "total": 504,
+  "compileLe": "2026-11-26T19:27:59.623Z",
+  "total": 506,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -6049,6 +6049,30 @@
       "heure": "23 nov. 06:35",
       "source": "24 Heures",
       "dateVue": "2026-11-26T00:51:06.420Z"
+    },
+    {
+      "titre": "Motocycliste tué dans une collision",
+      "resume": "Un motocycliste de 25 ans a percuté une voiture et est décédé sur place, sur la route de Lausanne.",
+      "commune": "Pregny-Chambésy",
+      "canton": "GE",
+      "categorie": "accident",
+      "lon": 6.146,
+      "lat": 46.237,
+      "heure": "26 nov. 15:07",
+      "source": "Léman Bleu",
+      "dateVue": "2026-11-26T19:27:59.623Z"
+    },
+    {
+      "titre": "Carambolage sur l'A1",
+      "resume": "Cinq véhicules ont été impliqués dans un accident qui a perturbé le trafic sur l'autoroute entre Nyon et Gland.",
+      "commune": "Nyon",
+      "canton": "VD",
+      "categorie": "accident",
+      "lon": 6.24,
+      "lat": 46.38,
+      "heure": "24 nov. 13:53",
+      "source": "24 Heures",
+      "dateVue": "2026-11-26T19:27:59.623Z"
     }
   ]
 }
