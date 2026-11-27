@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-27T00:57:28.571Z",
-  "total": 507,
+  "compileLe": "2026-11-27T19:24:03.512Z",
+  "total": 510,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -6085,6 +6085,42 @@
       "heure": "26 nov. 18:46",
       "source": "Le Nouvelliste",
       "dateVue": "2026-11-27T00:57:28.571Z"
+    },
+    {
+      "titre": "Vol de scooter et agression",
+      "resume": "Un jeune homme victime d'un vol de scooter a retrouvé ses agresseurs via les réseaux sociaux. Une enquête est en cours.",
+      "commune": "Lausanne",
+      "canton": "VD",
+      "categorie": "agression",
+      "lon": 6.633,
+      "lat": 46.519,
+      "heure": "27 nov. 19:05",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-27T19:24:03.512Z"
+    },
+    {
+      "titre": "Union européenne de radio-télévision piratée",
+      "resume": "L'UER, basée à Genève, a été visée par une cyberattaque; des données d'utilisateurs pourraient être compromises.",
+      "commune": "Grand-Saconnex",
+      "canton": "GE",
+      "categorie": "cyber",
+      "lon": 6.121,
+      "lat": 46.231,
+      "heure": "27 nov. 18:03",
+      "source": "French Breaches",
+      "dateVue": "2026-11-27T19:24:03.512Z"
+    },
+    {
+      "titre": "Appel à témoins après la chute d'un cycliste",
+      "resume": "Un cycliste a été retrouvé inconscient. La police lance un appel à témoins pour comprendre les circonstances.",
+      "commune": "Morat",
+      "canton": "FR",
+      "categorie": "accident",
+      "lon": 7.117,
+      "lat": 46.927,
+      "heure": "27 nov. 13:52",
+      "source": "FR.ch",
+      "dateVue": "2026-11-27T19:24:03.512Z"
     }
   ]
 }
