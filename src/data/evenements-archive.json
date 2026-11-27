@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-26T19:27:59.623Z",
-  "total": 506,
+  "compileLe": "2026-11-27T00:57:28.571Z",
+  "total": 507,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -6073,6 +6073,18 @@
       "heure": "24 nov. 13:53",
       "source": "24 Heures",
       "dateVue": "2026-11-26T19:27:59.623Z"
+    },
+    {
+      "titre": "Dégagement de fumée, immeuble évacué",
+      "resume": "Un immeuble a été évacué en raison d'un dégagement de fumée.",
+      "commune": "Sierre",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.533,
+      "lat": 46.292,
+      "heure": "26 nov. 18:46",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-27T00:57:28.571Z"
     }
   ]
 }
