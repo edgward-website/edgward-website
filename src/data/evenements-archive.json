@@ -1,6 +1,6 @@
 {
-  "compileLe": "2026-11-28T00:23:08.965Z",
-  "total": 512,
+  "compileLe": "2026-11-28T18:01:41.428Z",
+  "total": 515,
   "evenements": [
     {
       "titre": "Fuite de données à l'Ifage",
@@ -6145,6 +6145,42 @@
       "heure": "27 nov. 18:03",
       "source": "French Breaches",
       "dateVue": "2026-11-28T00:23:08.965Z"
+    },
+    {
+      "titre": "Tentative de cambriolage dans une bijouterie à Vevey",
+      "resume": "Trois individus ont tenté de briser la vitrine d'une bijouterie de luxe avant de prendre la fuite sans butin.",
+      "commune": "Vevey",
+      "canton": "VD",
+      "categorie": "cambriolage",
+      "lon": 6.843,
+      "lat": 46.462,
+      "heure": "28 nov. 07:01",
+      "source": "20 Minuten",
+      "dateVue": "2026-11-28T18:01:41.428Z"
+    },
+    {
+      "titre": "Incendie d'une camionnette à Martigny-Combe",
+      "resume": "Une camionnette a pris feu au lieu-dit Sommet-des-vignes.",
+      "commune": "Martigny-Combe",
+      "canton": "VS",
+      "categorie": "incendie",
+      "lon": 7.05,
+      "lat": 46.09,
+      "heure": "27 nov. 15:58",
+      "source": "Le Nouvelliste",
+      "dateVue": "2026-11-28T18:01:41.428Z"
+    },
+    {
+      "titre": "Brigandage à main armée à Porrentruy",
+      "resume": "Un brigandage à main armée a été commis. La police mène des investigations.",
+      "commune": "Porrentruy",
+      "canton": "JU",
+      "categorie": "agression",
+      "lon": 7.074,
+      "lat": 47.415,
+      "heure": "26 nov. 11:41",
+      "source": "République et Canton du Jura",
+      "dateVue": "2026-11-28T18:01:41.428Z"
     }
   ]
 }
